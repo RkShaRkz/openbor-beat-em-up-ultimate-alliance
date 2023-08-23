@@ -7,19 +7,19 @@ void main()
 
 void rageS()
 {//Shadow copy frame for Rage
-	void self 	= getlocalvar("self");
-	void vAniID = getentityproperty(self, "animationID");
-	int Frame	= getentityproperty(self, "animpos");
-	void vSpawn1;
-	void vSpawn2;
-	
-	if(vAniID == openborconstant("ANI_FREESPECIAL3"))
-	{
-		vSpawn1 = spawn01("BarbonS", -2, 0, -1);
-		vSpawn2 = spawn01("BarbonS", 2, 0, -1);
-		changeentityproperty(vSpawn1, "parent", self);
-		changeentityproperty(vSpawn2, "parent", self);
-		updateframe(vSpawn1, Frame);
-		updateframe(vSpawn2, Frame);
-	}
+    void self   = getlocalvar("self");
+    void vAniID = getentityproperty(self, "animationID");
+    int Frame   = getentityproperty(self, "animpos");
+    int rate    = 4; //YOU CAN FREELY ADJUST THE RATE IF IT'S NECESSARY
+    void vSpawn;
+    
+    if(openborvariant("elapsed_time")%rate == 0)
+    {
+        if(vAniID == openborconstant("ANI_FREESPECIAL"))
+        {
+            vSpawn = spawn01("BarbonS", 0, 0, -1);
+            changeentityproperty(vSpawn, "parent", self);
+            updateframe(vSpawn, Frame);
+        }
+    }
 }
