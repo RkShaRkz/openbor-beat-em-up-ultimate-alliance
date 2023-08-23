@@ -1,0 +1,16 @@
+name			Gold
+type			item
+score			5000
+nolife			1
+facing 			1
+gfxshadow		1 1
+offscreenkill	5
+onblockwscript	data/scripts/onblockw/wall.c
+
+anim idle
+	loop	0
+	delay	1
+	offset	51 61
+	bbox 	42 53 16 10
+	frame	data/chars/itens/gold00.gif
+

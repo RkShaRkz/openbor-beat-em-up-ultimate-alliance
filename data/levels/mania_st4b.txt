@@ -1,0 +1,214 @@
+background	data/bgs/st4/back01.gif		0.8 1 0 0 0 0 1 1 0 0
+bglayer		data/bgs/st4/bg00.gif		0.6 1 0 0 0 0 -1 1 1 0
+bglayer		data/bgs/st4/bg01.gif		0.3 1 0 0 0 0 -1 1 1 0
+panel		data/bgs/st4/pn01.gif		none	none
+order		a
+music		data/music/st4a.ogg
+settime		60
+scrollspeed 0.5
+stagenumber 4
+spawn1		90 20 300
+spawn2		120 40 300
+spawn3		150 20 300
+spawn4		180 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+wall		0 275 -1000 -1000 160 0 80 1000
+
+#########################################################################################
+
+spawn		Box
+flip		1
+coords		250 217 0
+at			0
+
+spawn		Box
+flip		1
+coords		350 217 0
+at			0
+
+spawn		Donovan_Wait4
+flip		0
+coords		600 220 0
+at			0
+
+spawn		Donovan_Wait4
+flip		0
+coords		650 260 0
+at			0
+
+spawn		Signal_Wait2
+flip		0
+coords		550 240 0
+at			0
+
+group		1000 1000
+at			1
+
+spawn		BasicX4
+flip		1
+coords		600 230 0
+at			1
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			1
+
+spawn		BasicX4
+flip		1
+coords		600 230 0
+at			150
+
+spawn		BasicX4
+flip		1
+coords		-100 260 0
+at			175
+
+spawn		BasicX4
+flip		1
+coords		-100 260 0
+at			175
+
+wait
+at			200
+
+#########################################################################################
+
+spawn		Box
+flip		1
+coords		550 260 0
+at			201
+
+spawn		Box
+flip		1
+coords		625 240 0
+at			201
+
+group		1000 1000
+at			250
+
+spawn		BasicX4
+flip		1
+coords		600 230 0
+at			250
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			250
+
+spawn		BasicX4
+flip		1
+coords		-100 230 0
+at			300
+
+spawn		BasicX4
+flip		1
+coords		-100 260 0
+at			300
+
+spawn		BasicX4
+flip		1
+coords		600 230 0
+at			350
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			350
+
+spawn		BasicX4
+flip		1
+coords		-100 230 0
+at			400
+
+spawn		Electra4
+flip		1
+coords		700 230 0
+at			400
+
+spawn		Electra3
+flip		1
+coords		700 260 0
+at			400
+
+spawn		Electra4
+2pspawn
+flip		1
+coords		-100 230 0
+at			400
+
+spawn		Electra3
+3pspawn
+flip		1
+coords		-150 245 0
+at			400
+
+spawn		Electra4
+4pspawn
+flip		1
+coords		-100 260 0
+at			400
+
+wait
+at			450
+
+#########################################################################################
+
+spawn		Box
+flip		1
+coords		550 240 0
+at			451
+
+spawn		Box
+flip		1
+coords		625 240 0
+at			451
+
+spawn		Box
+flip		1
+coords		700 240 0
+at			451
+
+group		1000 1000
+at			500
+
+spawn		BasicX4
+flip		1
+coords		600 230 0
+at			500
+
+spawn		BasicX4
+flip		1
+coords		-100 230 0
+at			600
+
+spawn		BasicX4
+flip		1
+coords		600 230 0
+at			700
+
+spawn		BasicX4
+flip		1
+coords		-100 230 0
+at			800
+
+spawn		BigBen4
+flip		1
+coords		800 230 0
+at			1000
+
+spawn		BigBen3
+flip		1
+coords		-200 230 0
+at			1000

@@ -1,0 +1,41 @@
+name				Cap
+type				obstacle
+health				1
+nolife				1
+score				2000
+offscreenkill 		1000
+gfxshadow			1 1
+animationscript 	data/scripts/script.c
+noatflash			1
+flash				flash
+
+diesound			data/sounds/Glass2.wav
+
+anim idle
+	loop	1
+	delay	15
+	offset	113 190
+	bbox 	73 36 80 159
+	platform 63 63 138 138 6 63
+	frame	data/chars/obstacles/01.gif
+	@cmd offscreenkill 30 0
+	frame	data/chars/obstacles/02.gif
+	frame	data/chars/obstacles/03.gif
+	frame	data/chars/obstacles/04.gif
+	frame	data/chars/obstacles/05.gif
+	frame	data/chars/obstacles/06.gif
+	frame	data/chars/obstacles/07.gif
+	frame	data/chars/obstacles/08.gif
+	frame	data/chars/obstacles/09.gif
+	frame	data/chars/obstacles/10.gif
+
+anim fall
+	loop	0
+	delay	128
+	offset	162 296
+        #@cmd tosser6 "BillyC" "C.Billy" 1 0 0 0 0 0 0
+	@cmd tosserX 0 0 0 0 1 0
+	frame	data/chars/obstacles/Fall0.gif
+	@cmd suicide
+	frame	data/chars/obstacles/fall0.gif
+

@@ -1,0 +1,65 @@
+##MAIN
+name				ShivaS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle #RAGE ORB
+	loop	0
+	delay	1
+	offset	138 192
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/shiva/a200.gif
+	frame	data/chars/shiva/a200.gif
+	frame	data/chars/shiva/a201.gif
+	frame	data/chars/shiva/a202.gif
+	frame	data/chars/shiva/a203.gif
+	
+anim idle2 #RAGE COMBO RUN
+	loop	0
+	delay	1
+	offset	138 192
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/shiva/a200.gif
+	frame	data/chars/shiva/run00.gif
+	frame	data/chars/shiva/run00.gif
+	frame	data/chars/shiva/run01.gif
+	frame	data/chars/shiva/finalcrash00.gif
+	frame	data/chars/shiva/finalcrash00.gif
+	frame	data/chars/shiva/finalcrash09.gif
+	frame	data/chars/shiva/finalcrash09.gif
+	
+anim idle3 #RAGE COMBO
+	loop	0
+	delay	1
+	offset	138 192
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/shiva/a200.gif
+	frame	data/chars/shiva/a100.gif
+	frame	data/chars/shiva/a100.gif
+	frame	data/chars/shiva/a101.gif
+	frame	data/chars/shiva/a102.gif
+	frame	data/chars/shiva/a200.gif
+	frame	data/chars/shiva/a201.gif
+	frame	data/chars/shiva/a202.gif
+	frame	data/chars/shiva/a203.gif
+	frame	data/chars/shiva/a300.gif
+	frame	data/chars/shiva/a301.gif
+	frame	data/chars/shiva/a302.gif
+	frame	data/chars/shiva/a303.gif
+	frame	data/chars/shiva/a303.gif
+	frame	data/chars/shiva/a302.gif
+	frame	data/chars/shiva/a301.gif
+	frame	data/chars/shiva/a300.gif
+	frame	data/chars/shiva/wait00.gif

@@ -1,0 +1,53 @@
+##MAIN
+name				captain_Pipes
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 		data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	drawmethod  245  245  0  0  0  -1  -1
+		offset  253  173
+		delay  4
+	frame	data/chars/captain/Pipe/Sp101.gif
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp102.gif
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp103.gif
+        #sound	data/chars/captain/captain06.wav
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp101.gif
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp102.gif
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp103.gif
+        #sound	data/chars/captain/captain06.wav
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp101.gif
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp102.gif
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp103.gif
+        #sound	data/chars/captain/captain06.wav
+		delay  12
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp105.gif
+	frame	data/chars/captain/Pipe/Sp106.gif
+        #sound	data/chars/captain/captain11.wav
+		delay  5
+		offset  43  173
+	frame	data/chars/captain/Pipe/Sp107.gif
+	frame	data/chars/captain/Pipe/Sp108.gif
+	frame	data/chars/captain/Pipe/Sp109.gif
+		Attack1  0
+		offset  253  173
+	frame  data/chars/captain/Pipe/Sp106.gif

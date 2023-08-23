@@ -1,0 +1,37 @@
+name				st1_gate
+type				npc
+hostile				player
+subject_to_wall		0
+health				1
+nomove				1 1
+shadow				0
+animationscript	 	data/scripts/script.c
+
+load				signal_gate
+
+anim idle
+	loop	1
+	delay	32
+	offset	28 79
+	@cmd cancel -80 80 -999 999 -999 999 "ANI_FOLLOW1"
+	frame	data/bgs/st1/gate00.gif
+	
+anim follow1
+	loop	0
+	delay	12
+	offset	28 79
+	sound	data/sounds/Gate.wav
+	frame	data/bgs/st1/gate01.gif
+	frame	data/bgs/st1/gate02.gif
+	frame	data/bgs/st1/gate03.gif
+	frame	data/bgs/st1/gate04.gif
+	frame	data/bgs/st1/gate05.gif
+	frame	data/bgs/st1/gate06.gif
+	frame	data/bgs/st1/gate07.gif
+	frame	data/bgs/st1/gate08.gif
+	frame	data/bgs/st1/gate09.gif
+	@cmd tosser6 "signal_gate" "R._Signal" 1 0 0 0 0 0 0
+	frame	data/bgs/st1/empty.gif
+		delay	1
+	@cmd suicide
+	frame	data/bgs/st1/empty.gif

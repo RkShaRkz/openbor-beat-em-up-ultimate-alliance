@@ -1,0 +1,464 @@
+background	data/bgs/st5/back02.gif		0.8 1 0 0 0 0 1 1 0 0
+bglayer		data/bgs/st5/bg00.gif		0.8 1 0 0 0 0 -1 1 1 0 1 0 0 0 1
+bglayer		data/bgs/st5/bg01.gif		0.6 1 0 0 0 0 -1 1 1 0 3 0.1 1.2 0 3
+panel		data/bgs/st5/pn02.gif		none	none
+frontpanel	data/bgs/st5/fpn01.gif		#100 0 1 -32 -4 0 0 1 1 1 0
+order		a
+music		data/music/st5a.ogg
+settime		60
+rock		1
+scrollspeed 0.5
+stagenumber 5
+spawn1		90 20 300
+spawn2		120 40 300
+spawn3		150 20 300
+spawn4		180 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+wall		0 285 -1000 -1000 65 65 80 1000
+
+wall		2115 285 0 160 1160 1160 80 1000
+
+
+#########################################################################################
+
+spawn		Box
+flip		1
+coords		250 230 0
+at			0
+
+spawn		Box
+flip		1
+coords		350 230 0
+at			0
+
+spawn		Drum
+flip		1
+coords		550 270 0
+at			0
+
+group		1000 1000
+at			1
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			1
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			50
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			100
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			150
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			200
+
+spawn		BasicX4
+flip		1
+coords		-100 270 0
+at			240
+
+spawn		JetX
+flip		1
+coords		600 270 0
+at			240
+
+wait
+at			250
+
+#########################################################################################
+
+group		1000 1000
+at			300
+
+spawn		BasicX4
+flip		1
+coords		600 230 0
+at			300
+
+spawn		BasicX4
+flip		1
+coords		-100 230 0
+at			300
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			300
+
+spawn		BasicX4
+flip		1
+coords		-100 260 0
+at			300
+
+spawn		Biker_Bomb
+flip		1
+coords		763 250 0
+at			300
+
+spawn		Biker_Bomb
+flip		1
+coords		875 250 0
+at			300
+
+spawn		Biker_Bomb
+flip		1
+coords		1107 250 0
+at			300
+
+spawn		Sword
+flip		0
+coords		920 230 0
+at			300
+
+spawn		Ninja_Wait3
+flip		1
+coords		920 230 0
+at			300
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			400
+
+spawn		BasicX4
+flip		1
+coords		-100 260 0
+at			400
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			500
+
+spawn		BasicX4
+flip		1
+coords		-100 260 0
+at			500
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			600
+
+spawn		BasicX4
+flip		1
+coords		-100 260 0
+at			600
+
+spawn		Ninja5
+flip		1
+coords		600 260 0
+at			700
+
+spawn		Ninja4
+2pspawn
+flip		1
+coords		-100 260 0
+at			700
+
+spawn		Ninja5
+3pspawn
+flip		1
+coords		600 230 0
+at			800
+
+spawn		Ninja4
+4pspawn
+flip		1
+coords		-100 230 0
+at			800
+
+spawn		BasicX4
+flip		1
+coords		600 230 0
+at			800
+
+spawn		BasicX4
+flip		1
+coords		-100 230 0
+at			800
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			900
+
+spawn		BasicX4
+flip		1
+coords		-100 260 0
+at			900
+
+wait
+at			1000
+
+#########################################################################################
+
+spawn		Box
+flip		1
+coords		800 230 0
+at			1001
+
+spawn		Drum
+flip		1
+coords		900 270 0
+at			1001
+
+spawnscript data/scripts/spawnlevel/music_boss.c
+at			1001
+
+spawn		Bear0
+flip		0
+boss		1
+coords		1200 260 0
+at			1001
+
+spawn		BasicX4
+flip		1
+coords		600 250 0
+at			1001
+
+spawn		BasicX4
+flip		1
+coords		600 250 0
+at			1050
+
+spawn		BasicX4
+flip		1
+coords		600 250 0
+at			1100
+
+spawn		BasicX4
+flip		1
+coords		600 250 0
+at			1150
+
+spawn		BasicX4
+flip		1
+coords		-100 250 0
+at			1200
+
+spawn		BasicX4
+flip		1
+coords		-100 250 0
+at			1300
+
+spawn		BigBen4
+flip		1
+coords		700 230 0
+at			1400
+
+spawn		BigBen3
+flip		1
+coords		700 260 0
+at			1500
+
+#########################################################################################
+
+group		3 3
+at			1700
+
+spawn		BasicX4
+flip		1
+coords		-100 250 0
+at			1700
+
+spawn		BasicX4
+flip		1
+coords		-150 250 0
+at			1700
+
+spawn		BasicX4
+flip		1
+coords		-200 250 0
+at			1700
+
+spawn		BasicX4
+flip		1
+coords		-250 250 0
+at			1700
+
+spawn		BasicX4
+2pspawn
+flip		1
+coords		-100 250 0
+at			1700
+
+spawn		BasicX4
+2pspawn
+flip		1
+coords		-150 250 0
+at			1700
+
+spawn		BasicX4
+2pspawn
+flip		1
+coords		-200 250 0
+at			1700
+
+spawn		BasicX4
+2pspawn
+flip		1
+coords		-250 250 0
+at			1700
+
+spawn		BasicX4
+3pspawn
+flip		1
+coords		-100 250 0
+at			1700
+
+spawn		BasicX4
+3pspawn
+flip		1
+coords		-150 250 0
+at			1700
+
+spawn		BasicX4
+3pspawn
+flip		1
+coords		-200 250 0
+at			1700
+
+spawn		BasicX4
+3pspawn
+flip		1
+coords		-250 250 0
+at			1700
+
+spawn		BasicX4
+4pspawn
+flip		1
+coords		-100 250 0
+at			1700
+
+spawn		BasicX4
+4pspawn
+flip		1
+coords		-150 250 0
+at			1700
+
+spawn		BasicX4
+4pspawn
+flip		1
+coords		-200 250 0
+at			1700
+
+spawn		BasicX4
+4pspawn
+flip		1
+coords		-250 250 0
+at			1700
+
+spawn		BasicX4
+flip		1
+coords		-100 250 0
+at			1700
+
+spawn		BasicX4
+flip		1
+coords		-150 250 0
+at			1700
+
+spawn		BasicX4
+flip		1
+coords		-200 250 0
+at			1700
+
+spawn		BasicX4
+flip		1
+coords		-250 250 0
+at			1700
+
+spawn		BasicX4
+2pspawn
+flip		1
+coords		-100 250 0
+at			1700
+
+spawn		BasicX4
+2pspawn
+flip		1
+coords		-150 250 0
+at			1700
+
+spawn		BasicX4
+2pspawn
+flip		1
+coords		-200 250 0
+at			1700
+
+spawn		BasicX4
+2pspawn
+flip		1
+coords		-250 250 0
+at			1700
+
+spawn		BasicX4
+3pspawn
+flip		1
+coords		-100 250 0
+at			1700
+
+spawn		BasicX4
+3pspawn
+flip		1
+coords		-150 250 0
+at			1700
+
+spawn		BasicX4
+3pspawn
+flip		1
+coords		-200 250 0
+at			1700
+
+spawn		BasicX4
+3pspawn
+flip		1
+coords		-250 250 0
+at			1700
+
+spawn		BasicX4
+4pspawn
+flip		1
+coords		-100 250 0
+at			1700
+
+spawn		BasicX4
+4pspawn
+flip		1
+coords		-150 250 0
+at			1700
+
+spawn		BasicX4
+4pspawn
+flip		1
+coords		-200 250 0
+at			1700
+
+spawn		BasicX4
+4pspawn
+flip		1
+coords		-250 250 0
+at			1700

@@ -1,0 +1,3289 @@
+secret 0 3
+name	    		Captain_2
+type	    		player
+health	    		110
+mp          		100
+nolife				1
+hostile				player npc
+candamage			player npc obstacle
+speed	    		11
+running             20 1 1 1 1
+jumpspeed	    	11
+jumpheight   		3.3
+projectilehit   enemy obstacle trap
+
+turndelay 			0
+mprate				3
+grabdistance		25
+grabfinish			1
+grabback			0
+antigravity 		10
+bounce				1
+noquake     		1
+#shadow 3
+gfxshadow 1 3
+diesound    		data/chars/players/COM/captain/captain03.wav
+flash 				flash
+bflash 				guard
+dust    			dust01
+toflip				1
+nodieblink			3
+makeinv     		5 0 
+falldie 			2
+riseinv 			0.65 0
+atchain     		1 2 3 4 5
+jugglepoints		15
+animationscript		data/scripts/drago.c
+
+blockpain 1
+holdblock 0
+
+load				quake
+load        fb_2
+load 				robott_2
+load 				capmr
+
+com  d f a  		freespecial2
+com  d u a  		freespecial3
+com  d f u a  		freespecial3
+com  d b u a  		freespecial3
+com  d f s  		freespecial4
+com  d f j  		freespecial6
+
+
+com  d f d f a  	freespecial5
+com  d f b d b a  	freespecial5
+com  b d b b d b a  	freespecial5
+com  b d b d f a  	freespecial5
+com  d b d f a  	freespecial5
+com  d b b d b a  	freespecial5
+
+com  d f d f j  	freespecial9
+com  d f b d b j  	freespecial9
+com  b d b b d b j  	freespecial9
+com  b d b d f j  	freespecial9
+com  d b d f j  	freespecial9
+com  d b b d b j  	freespecial9
+
+
+com  d d   	freespecial28
+com  u u   	freespecial29
+
+icon	      		data/chars/players/COM/captain/icon.gif 1
+icondie     		data/chars/players/COM/captain/icond.gif 1
+
+
+parrow		data/chars/misc/parrow/01.gif -215 -185
+parrow2		data/chars/misc/parrow/02.gif -215 -185
+parrow3		data/chars/misc/parrow/03.gif -215 -185
+parrow4		data/chars/misc/parrow/04.gif -215 -185
+
+palette 			  data/chars/players/COM/captain/pal/pal01.gif #1
+alternatepal		data/chars/players/COM/captain/pal/pal02.gif #2
+alternatepal		data/chars/players/COM/captain/pal/pal03.gif #3
+alternatepal		data/chars/players/COM/captain/pal/pal04.gif #4
+alternatepal		data/chars/players/COM/captain/pal/pal05.gif #5
+alternatepal		data/chars/players/COM/captain/pal/pal06.gif #6
+alternatepal		data/chars/players/COM/captain/pal/pal07.gif #7
+alternatepal		data/chars/players/COM/captain/pal/pal08.gif #8
+alternatepal		data/chars/players/COM/captain/pal/pal09.gif #9
+alternatepal		data/chars/players/COM/captain/pal/pal10.gif #10
+
+
+
+
+anim BLOCK
+      loop	0
+	    delay	19
+	    offset	238 177
+			bbox	226 102 23 76
+	    frame	data/chars/players/COM/captain/parry.gif
+      @cmd submp 20
+      delay	1
+      frame	data/chars/players/COM/captain/parry.gif
+
+
+@script	
+    if(frame==0){
+      void vSelf = getlocalvar("self");
+      if(getentityproperty(vSelf,"mp") < 20){
+        changeentityproperty(vSelf, "animation", openborconstant("ANI_FOLLOW9"));
+      }
+    }
+@end_script
+
+anim	follow9
+			loop	0
+	    delay	40
+	    offset	238 177
+			bbox	226 102 23 76
+	    @cmd subhealthkill 10
+	    frame	data/chars/players/COM/captain/pain01.gif
+
+	
+
+anim BLOCKPAIN
+			@script
+		if(frame >= 1 && frame < 999) {
+			if (readKey("atk")||readKey("j")) { changeState("RUNATTACK"); }
+		}
+			@end_script	
+      loop	0
+			bbox	0 0 0 0
+      offset	238 177
+      @cmd submp -20
+      @cmd puntosparry
+      delay	2
+      move -8
+      @cmd	projectile 1 "dust02" 0 0 0
+			frame	data/chars/players/COM/captain/guard.gif
+			frame	data/chars/players/COM/captain/guard.gif
+			move -6
+			frame	data/chars/players/COM/captain/guard.gif
+			frame	data/chars/players/COM/captain/guard.gif
+			move -4
+			frame	data/chars/players/COM/captain/guard.gif
+			frame	data/chars/players/COM/captain/guard.gif
+			move -2
+			frame	data/chars/players/COM/captain/guard.gif
+			frame	data/chars/players/COM/captain/guard.gif
+			move -0
+			delay 40
+			frame	data/chars/players/COM/captain/guard.gif
+
+
+anim	attack1
+	jugglecost	2
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f s  		freespecial4
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial9
+	cancel	0 	999 	0  d f b d f j  	freespecial9
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	228 102 33 76
+	delay	4
+	frame	data/chars/players/COM/captain/a101.gif
+	delay 8
+	sound	data/chars/players/COM/captain/captain01.wav
+	attack2	240 100 70 30 5 0 0 0 20 15
+	frame	data/chars/players/COM/captain/a102.gif
+	delay 4
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/COM/captain/a101.gif
+	
+anim	attack2
+	jugglecost	2
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f s  		freespecial4
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial9
+	cancel	0 	999 	0  d f b d f j  	freespecial9
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	236 102 33 76
+	delay	2
+	frame	data/chars/players/COM/captain/a201.gif
+	frame	data/chars/players/COM/captain/a202.gif
+	frame	data/chars/players/COM/captain/a203.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	delay 8
+	attack	240 102 73 25 4 0 0 0 20 15
+	frame	data/chars/players/COM/captain/a204.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/COM/captain/a203.gif
+	frame	data/chars/players/COM/captain/a202.gif
+	frame	data/chars/players/COM/captain/a201.gif
+		
+anim	attack3
+	jugglecost	2
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f s  		freespecial4
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial9
+	cancel	0 	999 	0  d f b d f j  	freespecial9
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	240 102 33 76
+	delay	1
+	frame	data/chars/players/COM/captain/a301.gif
+	frame	data/chars/players/COM/captain/a302.gif
+	delay 2
+	frame	data/chars/players/COM/captain/a303.gif
+	frame	data/chars/players/COM/captain/a304.gif
+	sound	data/chars/players/COM/captain/captain04.wav
+	delay 10
+	attack	240 77 76 45 4 0 0 0 20 15
+	frame	data/chars/players/COM/captain/a305.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/players/COM/captain/a306.gif
+
+
+anim	attack4
+	jugglecost	1
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f s  		freespecial4
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial9
+	cancel	0 	999 	0  d f b d f j  	freespecial9
+				@script
+		if(frame == 0) {
+			if (readKey("d")) { changeState("GRABBACKWARD"); }
+			else if (readKey("u")) { changeState("GRABFORWARD"); }
+		}
+		@end_script	
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	227 102 33 76
+	delay	8
+	frame	data/chars/players/COM/captain/a401.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	delay 8
+	attack	240 105 79 33 4 0 0 0 20 15
+	frame	data/chars/players/COM/captain/a402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay 2
+	bbox	232 102 33 76
+	sound	data/chars/players/COM/captain/captain01.wav
+	frame	data/chars/players/COM/captain/a403.gif
+	frame	data/chars/players/COM/captain/a404.gif
+	frame	data/chars/players/COM/captain/a405.gif
+	frame	data/chars/players/COM/captain/a406.gif
+	delay 5
+	attack	240 98 82 37 6 1 0 0 25 15
+	frame	data/chars/players/COM/captain/a407.gif
+	frame	data/chars/players/COM/captain/a408.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	bbox	225 102 33 76
+	frame	data/chars/players/COM/captain/a409.gif
+	delay 4
+	frame	data/chars/players/COM/captain/a410.gif
+
+  
+anim	attack5
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay 1
+  frame	data/chars/players/COM/captain/idle01.gif
+  
+anim	attack9
+	jugglecost	1
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f s  		freespecial4
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial9
+	cancel	0 	999 	0  d f b d f j  	freespecial9
+				
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	227 102 33 76
+	delay	8
+	frame	data/chars/players/COM/captain/a401.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	delay 8
+	attack	240 105 79 33 4 0 0 0 20 15
+	frame	data/chars/players/COM/captain/a402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay 2
+	bbox	232 102 33 76
+	sound	data/chars/players/COM/captain/captain01.wav
+	frame	data/chars/players/COM/captain/a403.gif
+	frame	data/chars/players/COM/captain/a404.gif
+	frame	data/chars/players/COM/captain/a405.gif
+	frame	data/chars/players/COM/captain/a406.gif
+	delay 5
+	attack	240 98 82 37 6 1 0 0 25 15
+	frame	data/chars/players/COM/captain/a407.gif
+	frame	data/chars/players/COM/captain/a408.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	bbox	225 102 33 76
+	frame	data/chars/players/COM/captain/a409.gif
+	delay 4
+	frame	data/chars/players/COM/captain/a410.gif
+	
+
+anim	freespecial28
+	jumpframe	0 1.5 0 1
+	landframe 5
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	5
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay 8
+	frame	data/chars/players/COM/captain/jump02.gif
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	999
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay 8
+	frame	data/chars/players/COM/captain/land01.gif
+
+anim	freespecial29
+	jumpframe	0 1.5 0 -1
+	landframe 5
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	5
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay 8
+	frame	data/chars/players/COM/captain/jump02.gif
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	999
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay 8
+	frame	data/chars/players/COM/captain/land01.gif
+		
+anim	death
+	loop	0
+	offset	238 177
+	delay 1
+	frame	data/chars/players/COM/captain/fall02.gif
+		
+anim	fall
+@script
+	   void self = getlocalvar("self");
+	   
+	   if(frame==0){
+	     if(getentityproperty(self,"jugglepoints") <= 0){ 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL3"));
+	     } 
+	   }
+	    
+    @end_script
+	cancel 		1 				1 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	2
+	loop	0
+	offset	238 177
+	delay	2
+	bbox	226 102 23 76
+	frame	data/chars/players/COM/captain/fall01.gif
+	delay	999
+	frame	data/chars/players/COM/captain/fall01.gif
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+		
+
+	
+anim fall19
+	 loop       0
+	 offset     238 177
+	 landframe	1 
+	 bbox 0 0 0 0
+	  delay      999
+    frame      data/chars/misc/empty.gif
+    delay      1
+    frame      data/chars/misc/empty.gif
+
+
+anim death18
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+    
+anim death28
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+    
+anim death13
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+    
+anim death23
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+
+anim fall18
+	 cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 sound   	data/sounds/burn111.wav
+	 		@script
+	   void self = getlocalvar("self");
+	    if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death18", 0, 0, 0);
+	    	changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	     else if(getentityproperty(self,"jugglepoints") <= 0){ 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL28"));
+	     }
+	    }
+	    @end_script
+		 delay      2
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+	 		delay	999
+			frame	data/chars/misc/burn1/burn111.gif
+			delay	1
+			frame	data/chars/players/COM/captain/fall02.gif
+			
+anim fall28
+	 cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		0 0 0 0
+	 sound   	data/sounds/burn111.wav
+	 		@script
+	   void self = getlocalvar("self");
+	    if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death18", 0, 0, 0);
+	    	changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	     
+	    }
+	    @end_script
+		 delay      2
+       frame      data/chars/misc/burn1/burn114.gif
+       sound	data/sounds/nojug.wav
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+	 		delay	999
+			frame	data/chars/misc/burn1/burn111.gif
+			delay	1
+			frame	data/chars/players/COM/captain/fall02.gif
+			
+anim fall11
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	     		if(getentityproperty(self,"jugglepoints") > 0){
+	       	changeentityproperty(self, "animation", openborconstant("ANI_FALL20"));
+	    		} 
+	    		else { 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL30"));
+	    		} 
+	    	}		
+	   }  
+ @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/misc/diebyfire/fall02.gif
+	
+anim	fall20
+	cancel 		0 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+	
+
+		
+anim	fall12
+	@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	     		if(getentityproperty(self,"jugglepoints") > 0){
+	       	changeentityproperty(self, "animation", openborconstant("ANI_FALL40"));
+	    		} 
+	    		else { 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL50"));
+	    		} 
+	    	}		
+	   }  
+ @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	delay	999
+	frame	data/chars/misc/burn2/burn214.gif
+	delay	1
+	frame	data/chars/misc/diebyfire2/fall02.gif
+	
+anim	fall40
+		cancel 		0 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	delay	999
+	frame	data/chars/misc/burn2/burn214.gif
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+		
+anim	fall13
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death13", 0, 0, 0);
+	    	spawn01("exp2", 0, 0, 0);
+	    	changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	     else if(getentityproperty(self,"jugglepoints") <= 0){
+	     changeentityproperty(self, "animation", openborconstant("ANI_FALL23"));
+	     }
+	   } 
+    @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 167
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	sound	data/sounds/shock01.wav
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	offset	238 177
+	delay	999
+	frame	data/chars/players/COM/captain/fall01.gif
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+	
+anim fall21
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	       changeentityproperty(self, "animation", openborconstant("ANI_FALL30"));
+	    } 
+	   }  
+    @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/misc/diebyfire/fall02.gif
+	
+anim	fall30
+	cancel 		0 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn114.gif
+	sound	data/sounds/nojug.wav
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+	
+
+		
+anim	fall22
+	@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	       changeentityproperty(self, "animation", openborconstant("ANI_FALL50"));
+	    } 
+	   }  
+     @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	delay	999
+	frame	data/chars/misc/burn2/burn214.gif
+	delay	1
+	frame	data/chars/misc/diebyfire2/fall02.gif
+	
+anim	fall50
+	cancel 		0 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn214.gif
+	sound	data/sounds/nojug.wav
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	delay	999
+	frame	data/chars/misc/burn2/burn214.gif
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+		
+anim	fall23
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death13", 0, 0, 0);
+	    	spawn01("exp2", 0, 0, 0);
+	    	changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	   } 
+     @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 167
+	bbox	0 0 0 0 
+	sound	data/sounds/burn111.wav
+	delay	2
+	sound	data/sounds/shock01.wav
+	frame	data/chars/players/COM/captain/shock02.gif
+	sound	data/sounds/nojug.wav
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	offset	238 177
+	delay	999
+	frame	data/chars/players/COM/captain/fall01.gif
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+		
+anim	fall2
+@script
+	   void self = getlocalvar("self");
+	   
+	   if(frame==0){
+	     if(getentityproperty(self,"jugglepoints") <= 0){ 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL3"));
+	     } 
+	   }
+	    
+    @end_script
+	cancel 		1 				1 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	2
+	loop	0
+	offset	238 177
+	delay	2
+	bbox	226 102 23 76
+	frame	data/chars/players/COM/captain/fall01.gif
+	delay	999
+	frame	data/chars/players/COM/captain/fall01.gif
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+		
+anim	fall3
+	cancel 		0 				0 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	1
+	loop	0
+	offset	238 177
+	delay	999
+	bbox	0 0 0 0
+	sound	data/sounds/nojug.wav
+	frame	data/chars/players/COM/captain/fall01.gif
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+	
+anim	fall27
+	cancel 		0 				0 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	1
+	loop	0
+	offset	238 177
+	delay	999
+	bbox	0 0 0 0
+	sound	data/sounds/nojug.wav
+	frame	data/chars/players/COM/captain/fall01.gif
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+		
+anim	fall4
+	flipframe	0
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	999
+       frame      data/chars/players/COM/captain/cody01.gif	# 0
+	delay	999
+       frame      data/chars/players/COM/captain/cody02.gif	# 1
+	delay	999
+       frame      data/chars/players/COM/captain/hagg01.gif	# 2
+	delay	999
+       frame      data/chars/players/COM/captain/hagg02.gif	# 3
+	delay	999
+       frame      data/chars/players/COM/captain/hagg03.gif	# 4
+	delay	999
+       frame      data/chars/players/COM/captain/hagg04.gif	# 5
+	delay	999
+       frame      data/chars/players/COM/captain/hagg05.gif	# 6
+	delay	999
+       frame      data/chars/players/COM/captain/hagg06.gif	# 7
+	delay	999
+       frame      data/chars/players/COM/captain/hagg07.gif	# 8
+	delay	999
+       frame      data/chars/players/COM/captain/hagg08.gif	# 9
+	delay	999
+       frame      data/chars/players/COM/captain/hagg09.gif	# 10
+	delay	999
+       frame      data/chars/players/COM/captain/hagg10.gif	# 11
+	delay	999
+       frame      data/chars/players/COM/captain/hagg11.gif	# 12
+	delay	999
+       frame      data/chars/players/COM/captain/hagg12.gif	# 13
+	delay	999
+       frame      data/chars/players/COM/captain/hagg13.gif	# 14
+	delay	999
+       frame      data/chars/players/COM/captain/dean01.gif	# 15
+	delay	999
+       frame      data/chars/players/COM/captain/dean02.gif	# 16
+	delay	999
+       frame      data/chars/players/COM/captain/dean03.gif	# 17
+	delay	999
+       frame      data/chars/players/COM/captain/dean04.gif	# 18
+	delay	999
+       frame      data/chars/players/COM/captain/dean05.gif	# 19
+		
+anim	fall5
+
+	cancel 		0 				0 			0 			u a						freespecial10	# cancel jump release attack
+	shadowcoords	238 177
+	fastattack	1
+	landframe	1
+	loop	0
+	offset	198 177
+	delay	999
+	attack	205 110 85 	55 	5 	1 	0 	0 	25	15
+	bbox	226 102 23 76
+	frame	data/chars/players/COM/captain/fall01.gif
+	attack	0 0 0 	0 	0 	0 	0 	0 	0	0
+	offset	238 177
+	shadowcoords	238 177
+	move	50
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+		
+anim	fall6
+
+	cancel 		0 				0 			0 			u a						freespecial10	# cancel jump release attack
+	fastattack	1
+	landframe	1
+	loop	0
+	offset	238 177
+	delay	999
+	attack	205 110 85 	55 	5 	1 	0 	0 	25	15
+	bbox	226 102 23 76
+	frame	data/chars/players/COM/captain/fall01.gif
+	attack	0 0 0 	0 	0 	0 	0 	0 	0	0
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+		
+anim	fall9
+	landframe	1
+	loop	0
+	offset	238 177
+	delay	999
+	bbox	226 102 23 76
+	frame	data/chars/players/COM/captain/fall01.gif
+	delay	1
+	frame	data/chars/players/COM/captain/fall02.gif
+		
+anim	forwardjump
+	cancel	0 	999 	0   d f j  		freespecial7
+	loop	0
+	@cmd	storeXvel
+		@script
+    void vSelf = getlocalvar("self");
+    if(frame > 0 && isBlockedFront2(15)){
+      if  (readKey("jump")){
+		changeState("FREESPECIAL8");
+	  }
+    }
+	@end_script	
+	offset	238 177
+	bbox	226 102 23 50
+	delay	25
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay	10
+	frame	data/chars/players/COM/captain/jump02.gif
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	999
+	frame	data/chars/players/COM/captain/jump01.gif
+	
+anim	freespecial8
+	loop	0
+	flipframe	0
+	jumpframe	1 1.5 2.5
+	offset	238 177
+	bbox	226 102 23 50
+	@script
+		void vSelf = getlocalvar("self");
+		if(frame==0){
+		  int  iTime = openborvariant("elapsed_time");
+		  changeentityproperty(vSelf, "velocity", 0, 0 , 0); // This is to stop entity from moving forward
+		  changeentityproperty(vSelf, "tosstime", iTime + 15);
+		}
+				if(frame == 1){
+		 			changeState("RUNJUMP");
+		}
+	@end_script	
+	delay 12
+	frame	data/chars/players/COM/captain/wjump.gif
+	delay	1
+	frame	data/chars/players/COM/captain/jump01.gif
+	@cmd	storeXvel
+	delay	14
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay	8
+	frame	data/chars/players/COM/captain/jump02.gif
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	999
+	frame	data/chars/players/COM/captain/jump01.gif
+		
+anim	freespecial10
+	@cmd subhealthkill 10
+	jugglecost	100
+	jumpframe	0 0 -1
+	landframe	3
+	loop	0
+	offset	209 233
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	delay	8
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	999
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay	6
+	frame	data/chars/players/COM/captain/land01.gif
+	@cmd	changeentityproperty getlocalvar("self") "aiflag" "drop" 0
+	@cmd	changeentityproperty getlocalvar("self") "aiflag" "falling" 0
+	delay	6
+	frame	data/chars/players/COM/captain/sp01.gif
+	frame	data/chars/players/COM/captain/sp02.gif
+	frame	data/chars/players/COM/captain/sp03.gif
+	frame	data/chars/players/COM/captain/sp04.gif
+	delay 2
+	attack23	135 155 215 25 	5 	1 	1 	0 	35	15
+	sound	data/chars/players/COM/captain/captain06.wav
+	frame	data/chars/players/COM/captain/sp04.gif
+	frame	data/chars/players/COM/captain/sp05.gif
+	frame	data/chars/players/COM/captain/sp06.gif
+	frame	data/chars/players/COM/captain/sp07.gif
+	frame	data/chars/players/COM/captain/sp08.gif
+	frame	data/chars/players/COM/captain/sp09.gif
+	frame	data/chars/players/COM/captain/sp10.gif
+	frame	data/chars/players/COM/captain/sp11.gif
+	frame	data/chars/players/COM/captain/sp12.gif
+	frame	data/chars/players/COM/captain/sp13.gif
+	frame	data/chars/players/COM/captain/sp14.gif
+	frame	data/chars/players/COM/captain/sp15.gif
+	frame	data/chars/players/COM/captain/sp16.gif
+	frame	data/chars/players/COM/captain/sp17.gif
+	frame	data/chars/players/COM/captain/sp18.gif
+	frame	data/chars/players/COM/captain/sp19.gif
+	frame	data/chars/players/COM/captain/sp20.gif
+	frame	data/chars/players/COM/captain/sp21.gif
+	frame	data/chars/players/COM/captain/sp22.gif
+	frame	data/chars/players/COM/captain/sp23.gif
+	frame	data/chars/players/COM/captain/sp24.gif
+	frame	data/chars/players/COM/captain/sp25.gif
+	frame	data/chars/players/COM/captain/sp26.gif
+	frame	data/chars/players/COM/captain/sp27.gif
+	frame	data/chars/players/COM/captain/sp28.gif
+	frame	data/chars/players/COM/captain/sp29.gif
+	frame	data/chars/players/COM/captain/sp30.gif
+	frame	data/chars/players/COM/captain/sp31.gif
+	frame	data/chars/players/COM/captain/sp32.gif
+	frame	data/chars/players/COM/captain/sp33.gif
+	frame	data/chars/players/COM/captain/sp34.gif
+	frame	data/chars/players/COM/captain/sp35.gif
+	frame	data/chars/players/COM/captain/sp36.gif
+	frame	data/chars/players/COM/captain/sp37.gif
+	frame	data/chars/players/COM/captain/sp38.gif
+	attack23	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/players/COM/captain/sp04.gif
+	frame	data/chars/players/COM/captain/sp03.gif
+	frame	data/chars/players/COM/captain/sp02.gif
+	frame	data/chars/players/COM/captain/sp01.gif
+	
+anim	freespecial2
+	jumpframe	0 1.75 1.75
+	landframe	7
+	jugglecost	1
+	#cancel	0 	999 	0   d f a  		freespecial2
+	cancel	7  	999 	0   d u a  		freespecial3
+	cancel	7 	999 	0   d f u a  		freespecial3
+	cancel	7 	999 	0   d b u a  		freespecial3
+	cancel	7 	999 	0   d f j  		freespecial6
+	cancel	7 	999 	0   d f s  		freespecial4
+	cancel	7 	999 	0  d f d f a  	freespecial5
+	cancel	7 	999 	0  d f b d f a  	freespecial5
+	cancel	7 	999 	0  d f d f j  	freespecial9
+	cancel	7 	999 	0  d f b d f j  	freespecial9
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	energycost	20
+	mponly	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	3
+	@cmd	projectile 1 "dust02" 0 0 0
+	sound	data/chars/players/COM/captain/captain10.wav
+	frame	data/chars/players/COM/captain/frsp201.gif
+	frame	data/chars/players/COM/captain/frsp202.gif
+	delay 8
+	attack11	215 122 90 33 6 1 0 0 10 15
+	dropv	1.8 1.75
+	bbox	226 102 23 50
+	frame	data/chars/players/COM/captain/frsp203.gif
+	attack 0 0 0 0 0 0 0 0
+	delay 2
+	frame	data/chars/players/COM/captain/frsp204.gif
+	frame	data/chars/players/COM/captain/frsp205.gif
+	frame	data/chars/players/COM/captain/frsp206.gif
+	delay 999
+	attack11	230 122 90 35 6 1 0 0 15 15
+	dropv	1.8 1.4
+	frame	data/chars/players/COM/captain/frsp207.gif
+	bbox	220 102 30 76
+	delay 6
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/COM/captain/frsp208.gif
+	delay 2
+	move 6
+	frame	data/chars/players/COM/captain/frsp209.gif
+	frame	data/chars/players/COM/captain/frsp210.gif
+	jugglecost	0
+	attack11	210 82 90 62 11 1 1 0 25 15
+	dropv 2 1.5
+	bbox	230 132 23 50
+	frame	data/chars/players/COM/captain/frsp211.gif
+	frame	data/chars/players/COM/captain/frsp211.gif
+	frame	data/chars/players/COM/captain/frsp211.gif
+	frame	data/chars/players/COM/captain/frsp211.gif
+	move 5
+	frame	data/chars/players/COM/captain/frsp211.gif
+	frame	data/chars/players/COM/captain/frsp211.gif
+	move 4
+	frame	data/chars/players/COM/captain/frsp211.gif
+	frame	data/chars/players/COM/captain/frsp212.gif
+	move 3
+	frame	data/chars/players/COM/captain/frsp212.gif
+	frame	data/chars/players/COM/captain/frsp212.gif
+	move 2
+	frame	data/chars/players/COM/captain/frsp212.gif
+	frame	data/chars/players/COM/captain/frsp212.gif
+	move 1
+	frame	data/chars/players/COM/captain/frsp212.gif
+	frame	data/chars/players/COM/captain/frsp212.gif
+	move 0
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/COM/captain/frsp213.gif
+	frame	data/chars/players/COM/captain/frsp214.gif
+
+	
+anim	freespecial3
+	jumpframe	0 3.25 
+	landframe	24
+	jugglecost	1
+	cancel	24 	999 	0   d f a  		freespecial2
+	#cancel	0 	999 	0   d u a  		freespecial3
+	#cancel	0 	999 	0   d f u a  		freespecial3
+	#cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	24 	999 	0   d f s  		freespecial4
+	cancel	24 	999 	0  d f d f a  	freespecial5
+	cancel	24 	999 	0  d f b d f a  	freespecial5
+	cancel	24 	999 	0  d f d f j  	freespecial9
+	cancel	24 	999 	0  d f b d f j  	freespecial9
+	fastattack	1
+	energycost	20
+	mponly	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	move 4 
+	delay	1
+	@cmd	projectile 1 "dust02" 0 0 0
+	sound	data/chars/players/COM/captain/captain12.wav
+	frame	data/chars/players/COM/captain/frsp101.gif
+	delay 2
+	bbox	226 102 23 50
+	attack2	225 110 65 40 6 1 1 0 20 15
+	dropv	3 1.65
+	frame	data/chars/players/COM/captain/frsp101.gif
+	frame	data/chars/players/COM/captain/frsp101.gif
+	frame	data/chars/players/COM/captain/frsp101.gif
+	frame	data/chars/players/COM/captain/frsp101.gif
+	attack 0 0 0 0 0 0 0 0
+	delay 1
+	frame	data/chars/players/COM/captain/frsp101.gif
+	delay 2
+	attack2	225 85 67 50 6 1 1 0 20 15
+	dropv	2.75 1.65
+	frame	data/chars/players/COM/captain/frsp102.gif
+	frame	data/chars/players/COM/captain/frsp102.gif
+	frame	data/chars/players/COM/captain/frsp102.gif
+	frame	data/chars/players/COM/captain/frsp102.gif
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/COM/captain/frsp103.gif
+	frame	data/chars/players/COM/captain/frsp104.gif
+	frame	data/chars/players/COM/captain/frsp105.gif
+	frame	data/chars/players/COM/captain/frsp106.gif
+	frame	data/chars/players/COM/captain/frsp107.gif
+	delay 2
+	attack11	240 75 65 100 11 1 1 0 25 15
+	dropv	2.35 1.05
+	frame	data/chars/players/COM/captain/frsp108.gif
+	frame	data/chars/players/COM/captain/frsp108.gif
+	frame	data/chars/players/COM/captain/frsp108.gif
+	frame	data/chars/players/COM/captain/frsp108.gif
+	move 0
+	attack 0 0 0 0 0 0 0 0
+	delay 6
+	frame	data/chars/players/COM/captain/frsp107.gif
+	frame	data/chars/players/COM/captain/frsp106.gif
+	frame	data/chars/players/COM/captain/jump03.gif
+	delay 9
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay 999
+	frame	data/chars/players/COM/captain/jump01.gif
+	bbox	226 102 23 76
+	@cmd	projectile 1 "dust03" 0 0 0
+	bbox	226 102 23 76
+	delay 14
+	frame	data/chars/players/COM/captain/land01.gif
+
+
+
+
+		
+
+anim	freespecial4
+	jugglecost	1
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f j  		freespecial6
+	#cancel	0 	999 	0   d f s  		freespecial4
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial9
+	cancel	0 	999 	0  d f b d f j  	freespecial9
+	fastattack	1
+	energycost	15
+	mponly	1
+	hitfx	data/sounds/empty.wav
+	loop	0
+	offset	238 177
+	bbox	230 102 30 76
+	@cmd	projectile 1 "dust02" 0 0 0
+	delay	4
+	sound	data/chars/players/COM/captain/captain09.wav
+	frame	data/chars/players/COM/captain/frsp401.gif
+	frame	data/chars/players/COM/captain/frsp402.gif
+	frame	data/chars/players/COM/captain/frsp403.gif
+	@cmd	projectile 1 "fb_2" 0 0 0
+	delay	40
+	frame	data/chars/players/COM/captain/frsp403.gif
+	
+
+
+anim	freespecial6
+	jugglecost	2
+	cancel	138 	999 	0   d f a  		freespecial2
+	cancel	138 	999 	0   d u a  		freespecial3
+	cancel	138 	999 	0   d f u a  		freespecial3
+	cancel	138 	999 	0   d b u a  		freespecial3
+	#cancel	0 	999 	0   d f j  		freespecial6
+	cancel	138 	999 	0   d f s  		freespecial4
+	cancel	138 	999 	0  d f d f a  	freespecial5
+	cancel	138 	999 	0  d f b d f a  	freespecial5
+	cancel	138 	999 	0  d f d f j  	freespecial9
+	cancel	138	999 	0  d f b d f j  	freespecial9
+	jumpframe	0 2 1.5
+	landframe 138
+	hitfx	data/sounds/beat3.wav
+	jugglecost	2
+	fastattack	1
+	energycost	20
+	mponly	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	@cmd	projectile 1 "dust02" 0 0 0
+	delay 2
+	frame	data/chars/players/COM/captain/frsp301.gif
+	frame	data/chars/players/COM/captain/frsp302.gif
+	frame	data/chars/players/COM/captain/frsp303.gif
+	frame	data/chars/players/COM/captain/frsp304.gif
+	delay 1
+	frame	data/chars/players/COM/captain/frsp305.gif
+	frame	data/chars/players/COM/captain/frsp306.gif
+	frame	data/chars/players/COM/captain/frsp307.gif
+	frame	data/chars/players/COM/captain/frsp308.gif
+	frame	data/chars/players/COM/captain/frsp309.gif
+	frame	data/chars/players/COM/captain/frsp310.gif
+	sound	data/chars/players/COM/captain/captain08.wav
+	delay 1
+	attack11	245 87 145 45 21 1 0 0 25 15
+	dropv 2 1.5
+	bbox	226 102 23 50
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	bbox	226 102 23 76
+	delay 2
+	frame	data/chars/players/COM/captain/frsp315.gif
+	frame	data/chars/players/COM/captain/frsp316.gif
+	frame	data/chars/players/COM/captain/frsp317.gif
+	attack 0 0 0 0
+	frame	data/chars/players/COM/captain/frsp318.gif
+	frame	data/chars/players/COM/captain/frsp319.gif
+	delay 4
+	frame	data/chars/players/COM/captain/land01.gif
+	
+anim	freespecial7
+	jugglecost	2
+	cancel	138 	999 	0   d f a  		freespecial2
+	cancel	138 	999 	0   d u a  		freespecial3
+	cancel	138 	999 	0   d f u a  		freespecial3
+	cancel	138 	999 	0   d b u a  		freespecial3
+	#cancel	0 	999 	0   d f j  		freespecial6
+	cancel	138 	999 	0   d f s  		freespecial4
+	cancel	138 	999 	0  d f d f a  	freespecial5
+	cancel	138 	999 	0  d f b d f a  	freespecial5
+	cancel	138 	999 	0  d f d f j  	freespecial9
+	cancel	138 	999 	0  d f b d f j  	freespecial9
+	#jumpframe	0 2 1.5
+	landframe 138
+	hitfx	data/sounds/beat3.wav
+	jugglecost	2
+	fastattack	1
+	energycost	20
+	mponly	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	@cmd	velSet retrieveXvel() NULL() NULL()
+	delay 2
+	frame	data/chars/players/COM/captain/frsp301.gif
+	frame	data/chars/players/COM/captain/frsp302.gif
+	frame	data/chars/players/COM/captain/frsp303.gif
+	frame	data/chars/players/COM/captain/frsp304.gif
+	delay 1
+	frame	data/chars/players/COM/captain/frsp305.gif
+	frame	data/chars/players/COM/captain/frsp306.gif
+	frame	data/chars/players/COM/captain/frsp307.gif
+	frame	data/chars/players/COM/captain/frsp308.gif
+	frame	data/chars/players/COM/captain/frsp309.gif
+	frame	data/chars/players/COM/captain/frsp310.gif
+	sound	data/chars/players/COM/captain/captain08.wav
+	delay 1
+	attack11	245 87 145 45 21 1 0 0 25 15
+	dropv 2 1.5
+	bbox	226 102 23 50
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	frame	data/chars/players/COM/captain/frsp311.gif
+	frame	data/chars/players/COM/captain/frsp312.gif
+	frame	data/chars/players/COM/captain/frsp313.gif
+	frame	data/chars/players/COM/captain/frsp314.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	bbox	226 102 23 76
+	delay 2
+	frame	data/chars/players/COM/captain/frsp315.gif
+	frame	data/chars/players/COM/captain/frsp316.gif
+	frame	data/chars/players/COM/captain/frsp317.gif
+	attack 0 0 0 0
+	frame	data/chars/players/COM/captain/frsp318.gif
+	frame	data/chars/players/COM/captain/frsp319.gif
+	delay 4
+	frame	data/chars/players/COM/captain/land01.gif
+	
+	
+
+		
+anim	freespecial5
+	summonframe	0 -230 -185 0 0
+	unsummonframe	30
+	subentity	super
+	jugglecost	0
+	fastattack	1
+	energycost	100
+	mponly	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	2
+	frame	data/chars/players/COM/captain/frsp501.gif
+	sound data/chars/players/COM/captain/captain05.wav
+	delay	4
+	frame	data/chars/players/COM/captain/frsp501.gif
+	frame	data/chars/players/COM/captain/frsp502.gif
+	frame	data/chars/players/COM/captain/frsp503.gif
+	frame	data/chars/players/COM/captain/frsp504.gif
+	delay	2
+	@cmd	projectile 1 "quake" 0 0 0
+	@cmd	projectile 1 "capmr" 0 0 0
+	attack13	155 -100 178 288 90 1 1 0 45 20
+	dropv 5 0.35
+	sound data/chars/players/COM/captain/captain11.wav
+	frame	data/chars/players/COM/captain/frsp504.gif
+	frame	data/chars/players/COM/captain/frsp504.gif
+	frame	data/chars/players/COM/captain/frsp504.gif
+	delay 20
+	frame	data/chars/players/COM/captain/frsp504.gif
+	attack 0 0 0 0 0 0 0 0
+	delay	4
+	frame	data/chars/players/COM/captain/frsp504.gif
+	frame	data/chars/players/COM/captain/frsp504.gif
+	frame	data/chars/players/COM/captain/frsp504.gif
+	delay 12
+	frame	data/chars/players/COM/captain/frsp504.gif
+	frame	data/chars/players/COM/captain/frsp503.gif
+	frame	data/chars/players/COM/captain/frsp502.gif
+	frame	data/chars/players/COM/captain/frsp501.gif
+	
+	anim	freespecial9
+	jumpframe 41 2 -0.65
+	followanim	1
+	followcond	1
+	summonframe	0 -230 -185 0 0
+	unsummonframe	30
+	subentity	super
+	jugglecost	2
+	fastattack	1
+	energycost	100
+	jugglecost 0
+	mponly	1
+	hitfx	data/sounds/empty.wav
+	bbox	226 102 40 76
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	12
+	sound	data/chars/players/COM/captain/captain02.wav
+	frame	data/chars/players/COM/captain/rrun01.gif
+	@cmd	projectile 1 "dust02" 0 0 0
+	attack2	240 92 75 86 0 0 1 1 0 20
+	dropv	2 0
+	delay	2
+	move	9
+	sound	data/chars/players/COM/captain/captain07.wav
+	frame	data/chars/players/COM/captain/rrun01.gif
+	frame	data/chars/players/COM/captain/rrun01.gif
+	frame	data/chars/players/COM/captain/rrun01.gif
+	frame	data/chars/players/COM/captain/rrun01.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	move	8
+	sound	data/chars/players/COM/captain/captain07.wav
+	frame	data/chars/players/COM/captain/rrun02.gif
+	frame	data/chars/players/COM/captain/rrun02.gif
+	frame	data/chars/players/COM/captain/rrun02.gif
+	frame	data/chars/players/COM/captain/rrun02.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	move	7
+	sound	data/chars/players/COM/captain/captain07.wav
+	frame	data/chars/players/COM/captain/rrun03.gif
+	frame	data/chars/players/COM/captain/rrun03.gif
+	frame	data/chars/players/COM/captain/rrun03.gif
+	frame	data/chars/players/COM/captain/rrun03.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	move	6
+	sound	data/chars/players/COM/captain/captain07.wav
+	frame	data/chars/players/COM/captain/rrun04.gif
+	frame	data/chars/players/COM/captain/rrun04.gif
+	frame	data/chars/players/COM/captain/rrun04.gif
+	frame	data/chars/players/COM/captain/rrun04.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	move	5
+	sound	data/chars/players/COM/captain/captain07.wav
+	frame	data/chars/players/COM/captain/rrun05.gif
+	frame	data/chars/players/COM/captain/rrun05.gif
+	frame	data/chars/players/COM/captain/rrun05.gif
+	frame	data/chars/players/COM/captain/rrun05.gif
+	move	4
+	sound	data/chars/players/COM/captain/captain07.wav
+	frame	data/chars/players/COM/captain/rrun06.gif
+	frame	data/chars/players/COM/captain/rrun06.gif
+	frame	data/chars/players/COM/captain/rrun06.gif
+	frame	data/chars/players/COM/captain/rrun06.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	move	3
+	sound	data/chars/players/COM/captain/captain07.wav
+	frame	data/chars/players/COM/captain/rrun01.gif
+	frame	data/chars/players/COM/captain/rrun01.gif
+	frame	data/chars/players/COM/captain/rrun01.gif
+	frame	data/chars/players/COM/captain/rrun01.gif
+	move	2
+	sound	data/chars/players/COM/captain/captain07.wav
+	frame	data/chars/players/COM/captain/rrun02.gif
+	frame	data/chars/players/COM/captain/rrun02.gif
+	frame	data/chars/players/COM/captain/rrun02.gif
+	frame	data/chars/players/COM/captain/rrun02.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	move	1
+	sound	data/chars/players/COM/captain/captain07.wav
+	frame	data/chars/players/COM/captain/rrun03.gif
+	frame	data/chars/players/COM/captain/rrun03.gif
+	frame	data/chars/players/COM/captain/rrun03.gif
+	frame	data/chars/players/COM/captain/rrun03.gif
+	move	0
+	attack	0 0 0 0 0 0 0 0 0 0
+	@cmd	projectile 1 "dust03" 0 0 0
+	move	0
+	delay	8
+	frame	data/chars/players/COM/captain/rrun01.gif
+	delay 6
+	frame	data/chars/players/COM/captain/pret01.gif
+	frame	data/chars/players/COM/captain/pret02.gif
+	delay 8
+	@cmd	spawn01 "robott_2" 0 0 0
+	frame	data/chars/players/COM/captain/land01.gif
+	delay	16
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay	6
+	frame	data/chars/players/COM/captain/jump02.gif
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	16
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay 8
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/COM/captain/land01.gif
+	
+anim follow1
+
+	jumpframe 54 2 -0.65
+	jugglecost	0
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay 2
+	sound	data/chars/players/COM/captain/captain01.wav
+	frame	data/chars/players/COM/captain/rcombo01.gif
+	frame	data/chars/players/COM/captain/rcombo02.gif
+	frame	data/chars/players/COM/captain/rcombo03.gif
+	delay 8
+	attack	240 105 120 45 4 0 1 0 25 20
+	dropv 0.8 0
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/COM/captain/rcombo04.gif
+	attack 0 0 0 0
+	delay 2
+	frame	data/chars/players/COM/captain/rcombo05.gif
+	frame	data/chars/players/COM/captain/rcombo06.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	frame	data/chars/players/COM/captain/rcombo07.gif
+	frame	data/chars/players/COM/captain/rcombo08.gif
+	frame	data/chars/players/COM/captain/rcombo09.gif
+	delay 8
+	attack	240 105 120 45 4 0 1 0 25 20
+	dropv 0.8 0
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/COM/captain/rcombo10.gif
+	attack 0 0 0 0
+	delay 2
+	frame	data/chars/players/COM/captain/rcombo11.gif
+	frame	data/chars/players/COM/captain/rcombo12.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	frame	data/chars/players/COM/captain/rcombo01.gif
+	frame	data/chars/players/COM/captain/rcombo02.gif
+	frame	data/chars/players/COM/captain/rcombo03.gif
+	delay 8
+	attack	240 105 120 45 4 0 1 0 25 20
+	dropv 0.8 0
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/COM/captain/rcombo04.gif
+	attack 0 0 0 0
+	delay 2
+	frame	data/chars/players/COM/captain/rcombo05.gif
+	frame	data/chars/players/COM/captain/rcombo06.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	frame	data/chars/players/COM/captain/rcombo07.gif
+	frame	data/chars/players/COM/captain/rcombo08.gif
+	frame	data/chars/players/COM/captain/rcombo09.gif
+	delay 8
+	attack	240 105 120 45 4 0 1 0 25 20
+	dropv 0.8 0
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/COM/captain/rcombo10.gif
+	attack 0 0 0 0
+	delay 2
+	frame	data/chars/players/COM/captain/rcombo11.gif
+	frame	data/chars/players/COM/captain/rcombo12.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	frame	data/chars/players/COM/captain/rcombo01.gif
+	frame	data/chars/players/COM/captain/rcombo02.gif
+	frame	data/chars/players/COM/captain/rcombo03.gif
+	delay 8
+	attack	240 105 120 45 4 0 1 0 25 20
+	dropv 0.8 0
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/COM/captain/rcombo04.gif
+	attack 0 0 0 0
+	delay 2
+	frame	data/chars/players/COM/captain/rcombo05.gif
+	frame	data/chars/players/COM/captain/rcombo06.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	frame	data/chars/players/COM/captain/rcombo07.gif
+	frame	data/chars/players/COM/captain/rcombo08.gif
+	frame	data/chars/players/COM/captain/rcombo09.gif
+	delay 8
+	attack	240 105 120 45 4 0 1 0 25 20
+	dropv 0.8 0
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/COM/captain/rcombo10.gif
+	attack 0 0 0 0
+	delay 2
+	frame	data/chars/players/COM/captain/rcombo11.gif
+	frame	data/chars/players/COM/captain/rcombo12.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	frame	data/chars/players/COM/captain/rcombo01.gif
+	frame	data/chars/players/COM/captain/rcombo02.gif
+	frame	data/chars/players/COM/captain/rcombo03.gif
+	delay 8
+	attack	240 105 120 45 4 0 1 0 25 20
+	dropv 0.8 0
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/COM/captain/rcombo04.gif
+	attack 0 0 0 0
+	delay 2
+	frame	data/chars/players/COM/captain/rcombo05.gif
+	frame	data/chars/players/COM/captain/rcombo06.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	frame	data/chars/players/COM/captain/rcombo07.gif
+	frame	data/chars/players/COM/captain/rcombo08.gif
+	frame	data/chars/players/COM/captain/rcombo09.gif
+	delay 8
+	attack	240 105 120 45 7 1 1 0 25 20
+	dropv 2.75 0
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/COM/captain/rcombo10.gif
+	attack 0 0 0 0
+	delay 2
+	frame	data/chars/players/COM/captain/rcombo11.gif
+	frame	data/chars/players/COM/captain/rcombo12.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	frame	data/chars/players/COM/captain/rcombo01.gif
+	frame	data/chars/players/COM/captain/rcombo02.gif
+	frame	data/chars/players/COM/captain/rcombo03.gif
+	delay 6
+	frame	data/chars/players/COM/captain/pret01.gif
+	frame	data/chars/players/COM/captain/pret02.gif
+	delay 8
+	@cmd	spawn01 "robott_2" 0 0 0
+	frame	data/chars/players/COM/captain/land01.gif
+	delay	16
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay	6
+	frame	data/chars/players/COM/captain/jump02.gif
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	16
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay 8
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/COM/captain/land01.gif
+ 
+	
+anim	get
+	loop	0
+	offset	238 177
+	delay	30
+	sound	data/sounds/get/commandoget.wav
+	frame	data/chars/players/COM/captain/get01.gif
+		
+anim	grab
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	6
+	frame	data/chars/players/COM/captain/grab01.gif
+		
+anim	grabattack
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	hitfx	data/sounds/beat2.wav
+	delay	4
+	frame	data/chars/players/COM/captain/th101.gif
+	frame	data/chars/players/COM/captain/th102.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	delay 8
+	attack2	240 118 35 	68 	5 	0 	0 	0 	20	0
+	frame	data/chars/players/COM/captain/th103.gif
+		
+anim	grabattack2
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	hitfx	data/sounds/beat2.wav
+	delay	4
+	frame	data/chars/players/COM/captain/th101.gif
+	frame	data/chars/players/COM/captain/th102.gif
+	sound	data/chars/players/COM/captain/captain01.wav
+	delay	16
+	attack2	240 118 35 	68 	10 	1 	0 	0 	25	0
+	frame	data/chars/players/COM/captain/th103.gif
+	
+anim	grabbackward
+@script
+	
+    void self = getlocalvar("self");
+    void target = getentityproperty(self, "opponent");
+    void x, y, z;
+    x= getentityproperty(self, "x") - getentityproperty(target, "x");
+  	if (x < 0){
+  	x *= -1;
+  	}
+  	y= getentityproperty(self, "y") - getentityproperty(target, "y");
+  	if (y < 0){
+  	y *= -1;
+  	}
+  	z= getentityproperty(self, "z") - getentityproperty(target, "z");
+  	if (z < 0){
+  	z *= -1;
+  	}
+    if (frame==0){
+				if(getentityproperty(target, "health")<=0 || x>125 || y>25 || z>25)  {
+						changeentityproperty(self, "animation", openborconstant("ANI_ATTACK9"));
+     		}
+    }
+	@end_script
+	flipframe	4
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	sound	data/chars/players/COM/captain/captain04.wav
+	attackone	0
+	delay	18
+	@cmd	slamstart
+	@cmd	position 1 10 -11 0 1
+	frame	data/chars/players/COM/captain/th201.gif
+	delay	18
+	@cmd	screenBound -62 0 0 0 1
+	@cmd	position 1 1 -11 0 1
+	frame	data/chars/players/COM/captain/th202.gif
+	hitfx	data/sounds/punch.wav
+	@cmd	position 1 -49 -11 0 1
+	@cmd	depost 0
+	@cmd	throw 10 3 -2.5 2.5 0 1
+	@cmd	clearL
+	delay	75
+	frame	data/chars/players/COM/captain/th203.gif
+	delay	1
+	frame	data/chars/players/COM/captain/th203.gif
+	delay	1
+	frame	data/chars/players/COM/captain/idle01.gif
+		
+anim	grabdown
+	flipframe	4
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	sound	data/chars/players/COM/captain/captain04.wav
+	attackone	0
+	delay	18
+	@cmd	slamstart
+	@cmd	position 1 10 -11 0 1
+	frame	data/chars/players/COM/captain/th201.gif
+	delay	18
+	@cmd	screenBound -62 0 0 0 1
+	@cmd	position 1 1 -11 0 1
+	frame	data/chars/players/COM/captain/th202.gif
+	hitfx	data/sounds/punch.wav
+	@cmd	position 1 -49 -11 0 1
+	@cmd	depost 0
+	@cmd	throw 10 3 -2.5 2.5 0 1
+	@cmd	clearL
+	delay	75
+	frame	data/chars/players/COM/captain/th203.gif
+	delay	1
+	frame	data/chars/players/COM/captain/th203.gif
+	delay	1
+	frame	data/chars/players/COM/captain/idle01.gif
+		
+anim	grabforward
+@script
+	
+    void self = getlocalvar("self");
+    void target = getentityproperty(self, "opponent");
+    void x, y, z;
+    x= getentityproperty(self, "x") - getentityproperty(target, "x");
+  	if (x < 0){
+  	x *= -1;
+  	}
+  	y= getentityproperty(self, "y") - getentityproperty(target, "y");
+  	if (y < 0){
+  	y *= -1;
+  	}
+  	z= getentityproperty(self, "z") - getentityproperty(target, "z");
+  	if (z < 0){
+  	z *= -1;
+  	}
+    if (frame==0){
+				if(getentityproperty(target, "health")<=0 || x>125 || y>25 || z>25)  {
+						changeentityproperty(self, "animation", openborconstant("ANI_ATTACK9"));
+     		}
+    }
+	@end_script
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	sound	data/chars/players/COM/captain/captain04.wav
+	attackone	0
+	delay	18
+	@cmd	slamstart
+	@cmd	position 2 -11 -31 0 -1
+	frame	data/chars/players/COM/captain/th301.gif
+	delay	15
+	@cmd	position 1 -11 -11 0 -1
+	frame	data/chars/players/COM/captain/th302.gif
+	@cmd	screenBound 62 0 0 0 1
+	@cmd	position 1 1 -11 0 -1
+	frame	data/chars/players/COM/captain/th303.gif
+	hitfx	data/sounds/punch.wav
+	@cmd	position 1 49 -11 0 1
+	@cmd	depost 0
+	@cmd	throw 10 3 2.5 2.5 0 1
+	@cmd	clearL
+	delay	75
+	frame	data/chars/players/COM/captain/th304.gif
+	delay	1
+	frame	data/chars/players/COM/captain/th304.gif
+	delay	1
+	frame	data/chars/players/COM/captain/idle01.gif
+	
+		
+anim	grabup
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	sound	data/chars/players/COM/captain/captain04.wav
+	attackone	0
+	delay	18
+	@cmd	slamstart
+	@cmd	position 2 -11 -31 0 -1
+	frame	data/chars/players/COM/captain/th301.gif
+	delay	15
+	@cmd	position 1 -11 -11 0 -1
+	frame	data/chars/players/COM/captain/th302.gif
+	@cmd	screenBound 62 0 0 0 1
+	@cmd	position 1 1 -11 0 -1
+	frame	data/chars/players/COM/captain/th303.gif
+	hitfx	data/sounds/punch.wav
+	@cmd	position 1 49 -11 0 1
+	@cmd	depost 0
+	@cmd	throw 10 3 2.5 2.5 0 1
+	@cmd	clearL
+	delay	75
+	frame	data/chars/players/COM/captain/th304.gif
+	delay	1
+	frame	data/chars/players/COM/captain/th304.gif
+	delay	1
+	frame	data/chars/players/COM/captain/idle01.gif
+		
+anim	idle
+	loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	delay 26
+	frame	data/chars/players/COM/captain/idle02.gif
+	frame	data/chars/players/COM/captain/idle03.gif
+	frame	data/chars/players/COM/captain/idle02.gif
+
+		
+anim	jump
+	cancel	0 	0 	0  b  		freespecial39
+	cancel	2 	999 	0   d f j  		freespecial7
+	loop	0
+	@cmd	storeXvel
+	@script
+    void vSelf = getlocalvar("self");
+	if(frame > 1 && readKey("jump")) {
+		if(isBlockedFront2(15)){changeState("FREESPECIAL8"); }
+		else if(isBlockedBack2(15)){
+			turn();
+			changeState("FREESPECIAL8");
+		}
+	}
+	@end_script	
+	offset	238 177
+	bbox	226 102 23 50
+	delay	1
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay	1
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay	23
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay	10
+	frame	data/chars/players/COM/captain/jump02.gif
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	999
+	frame	data/chars/players/COM/captain/jump01.gif
+
+anim	freespecial39
+	cancel	1 	999 	0   d f j  		freespecial7
+  jumpframe	0 3.3 -1.3
+	loop	0
+		@script
+    void vSelf = getlocalvar("self");
+
+    if(frame > 0 && isBlockedBack2(15)){
+      if  (readKey("jump")){
+    turn(); 
+		changeState("FREESPECIAL8");
+	  }
+
+    }
+	@end_script	
+	offset	238 177
+	bbox	226 102 23 50
+	delay	1
+	frame	data/chars/players/COM/captain/jump01.gif
+	@cmd	storeXvel
+	delay	7
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay	20
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay	10
+	frame	data/chars/players/COM/captain/jump02.gif
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	999
+	frame	data/chars/players/COM/captain/jump01.gif
+		
+anim	jumpattack
+	cancel	1 	999 	0   d f j  		freespecial7
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	@script
+	if(frame >= 0 && readKey("jump")) {
+		if(isBlockedFront2(15)){changeState("FREESPECIAL8"); }
+		else if(isBlockedBack2(15)){
+			turn();
+			changeState("FREESPECIAL8");
+		}
+	}
+	@end_script	
+	offset	238 177
+	bbox	226 102 23 50
+	sound	data/chars/players/COM/captain/captain04.wav
+	delay	1
+	frame	data/chars/players/COM/captain/ja101.gif
+	@cmd	storeXvel
+	delay	3
+	frame	data/chars/players/COM/captain/ja101.gif
+	delay 4
+	frame	data/chars/players/COM/captain/ja102.gif
+	attack	240 90 48 45 8 1 0 0 25 15
+	delay	35
+	frame	data/chars/players/COM/captain/ja103.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/players/COM/captain/ja102.gif
+	frame	data/chars/players/COM/captain/ja101.gif
+	delay 7
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	999
+	frame	data/chars/players/COM/captain/jump01.gif
+
+anim	jumpattack3
+	cancel	1 	999 	0   d f j  		freespecial7
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	@script
+	if(frame >= 0 && readKey("jump")) {
+		if(isBlockedFront2(15)){changeState("FREESPECIAL8"); }
+		else if(isBlockedBack2(15)){
+			turn();
+			changeState("FREESPECIAL8");
+		}
+	}
+	@end_script	
+	offset	238 177
+	bbox	226 102 23 50
+	sound	data/chars/players/COM/captain/captain04.wav
+	delay	1
+	frame	data/chars/players/COM/captain/ja301.gif
+	@cmd	storeXvel
+	delay	2
+	frame	data/chars/players/COM/captain/ja301.gif
+	delay	3
+	frame	data/chars/players/COM/captain/ja302.gif
+	frame	data/chars/players/COM/captain/ja303.gif
+	attack	240 112 70 28 8 1 0 0 25 15
+	delay	35
+	frame	data/chars/players/COM/captain/ja304.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	3
+	frame	data/chars/players/COM/captain/ja303.gif
+	frame	data/chars/players/COM/captain/ja302.gif
+	frame	data/chars/players/COM/captain/ja301.gif
+	delay 7
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	999
+	frame	data/chars/players/COM/captain/jump01.gif
+		
+anim	jumpattack2
+	cancel	1 	999 	0   d f j  		freespecial7
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/beat1.wav
+	loop	0
+	@script
+	if(readKey("jump")) {
+		if(isBlockedFront2(15)){changeState("FREESPECIAL8"); }
+		else if(isBlockedBack2(15)){
+			turn();
+			changeState("FREESPECIAL8");
+		}
+	}
+	@end_script	
+	offset	238 177
+	bbox	231 102 23 50
+	delay	1
+	frame	data/chars/players/COM/captain/ja201.gif
+	@cmd	storeXvel
+	delay	1
+	frame	data/chars/players/COM/captain/ja201.gif
+	delay 2
+	frame	data/chars/players/COM/captain/ja202.gif
+	delay	10
+	attack	210 105 62 35 5 0 0 0 20 15
+	frame	data/chars/players/COM/captain/ja203.gif
+	delay	999
+	frame	data/chars/players/COM/captain/ja203.gif
+
+		
+anim	jumpdelay
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	10
+	frame	data/chars/players/COM/captain/land01.gif
+		
+anim	jumpforward
+	cancel	1 	999 	1   d f j  		freespecial7
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	@script
+	if(frame >= 0 && readKey("jump")) {
+		if(isBlockedFront2(15)){changeState("FREESPECIAL8"); }
+		else if(isBlockedBack2(15)){
+			turn();
+			changeState("FREESPECIAL8");
+		}
+	}
+	@end_script	
+	offset	238 177
+	bbox	210 102 45 35
+	delay	1
+	frame	data/chars/players/COM/captain/ja401.gif
+	@cmd	storeXvel
+	delay	3
+	frame	data/chars/players/COM/captain/ja401.gif
+	delay	4
+	frame	data/chars/players/COM/captain/ja402.gif
+	sound	data/chars/players/COM/captain/captain04.wav
+	attack	240 119 70 25 8 1 0 0 25 15
+	delay	35
+	frame	data/chars/players/COM/captain/ja403.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/players/COM/captain/ja402.gif
+	frame	data/chars/players/COM/captain/ja401.gif
+	delay	7
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	999
+	frame	data/chars/players/COM/captain/jump01.gif
+
+		
+anim	jumpland
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	10
+	frame	data/chars/players/COM/captain/land01.gif
+		
+anim	pain
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	4
+	frame	data/chars/players/COM/captain/pain01.gif
+	offset	237 177
+	frame	data/chars/players/COM/captain/pain01.gif
+	offset	238 177
+	frame	data/chars/players/COM/captain/pain01.gif
+	offset	239 177
+	frame	data/chars/players/COM/captain/pain01.gif
+	offset	238 177
+	frame	data/chars/players/COM/captain/pain01.gif
+	offset	237 177
+	frame	data/chars/players/COM/captain/pain01.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/COM/captain/pain01.gif
+		
+anim	pain11
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn101.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn102.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	237 177
+	frame	data/chars/misc/burn1/burn103.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	238 177
+	frame	data/chars/misc/burn1/burn104.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	239 177
+	frame	data/chars/misc/burn1/burn102.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	238 177
+	frame	data/chars/misc/burn1/burn103.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	237 177
+	frame	data/chars/misc/burn1/burn104.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/COM/captain/pain01.gif
+		
+anim	pain12
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn101.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn202.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	237 177
+	frame	data/chars/misc/burn2/burn203.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	238 177
+	frame	data/chars/misc/burn2/burn204.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	239 177
+	frame	data/chars/misc/burn2/burn202.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	238 177
+	frame	data/chars/misc/burn2/burn203.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	237 177
+	frame	data/chars/misc/burn2/burn204.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/COM/captain/pain01.gif
+		
+anim	pain13
+	loop	0
+	offset	238 167
+	bbox	226 102 23 76
+	sound	data/sounds/shock01.wav
+	delay	2
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	offset	237 167
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	offset	238 167
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	offset	239 167
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	sound	data/sounds/shock01.wav
+	offset	238 167
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	offset	237 167
+	frame	data/chars/players/COM/captain/shock02.gif
+	frame	data/chars/players/COM/captain/shock01.gif
+	offset	238 167
+	delay	12
+	frame	data/chars/players/COM/captain/pain01.gif
+		
+anim	pain2
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	4
+	frame	data/chars/players/COM/captain/pain02.gif
+	offset	237 177
+	frame	data/chars/players/COM/captain/pain02.gif
+	offset	238 177
+	frame	data/chars/players/COM/captain/pain02.gif
+	offset	239 177
+	frame	data/chars/players/COM/captain/pain02.gif
+	offset	238 177
+	frame	data/chars/players/COM/captain/pain02.gif
+	offset	237 177
+	frame	data/chars/players/COM/captain/pain02.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/COM/captain/pain02.gif
+		
+anim	pain3
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	4
+	frame	data/chars/players/COM/captain/pain01.gif
+	offset	237 177
+	frame	data/chars/players/COM/captain/pain01.gif
+	offset	238 177
+	frame	data/chars/players/COM/captain/pain01.gif
+	offset	239 177
+	frame	data/chars/players/COM/captain/pain01.gif
+	offset	238 177
+	frame	data/chars/players/COM/captain/pain01.gif
+	offset	237 177
+	frame	data/chars/players/COM/captain/pain01.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/COM/captain/pain01.gif
+		
+anim	pain9
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	4
+	frame	data/chars/players/COM/captain/pain02.gif
+	offset	237 177
+	frame	data/chars/players/COM/captain/pain02.gif
+	offset	238 177
+	frame	data/chars/players/COM/captain/pain02.gif
+	offset	239 177
+	frame	data/chars/players/COM/captain/pain02.gif
+	offset	238 177
+	frame	data/chars/players/COM/captain/pain02.gif
+	offset	237 177
+	frame	data/chars/players/COM/captain/pain02.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/COM/captain/pain02.gif
+		
+anim	rise
+	loop	0
+	offset	238 177
+	delay	55
+	frame	data/chars/players/COM/captain/fall02.gif
+	delay	20
+	frame	data/chars/players/COM/captain/rise01.gif
+	delay 8
+	frame	data/chars/players/COM/captain/rise02.gif
+	frame	data/chars/players/COM/captain/rise03.gif
+	frame	data/chars/players/COM/captain/rise04.gif
+
+
+		
+anim	riseattack1
+	@cmd subhealthkill 10
+	jugglecost	100
+	energycost	5
+	mponly	2
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	delay 8
+	frame	data/chars/players/COM/captain/rise01.gif
+	frame	data/chars/players/COM/captain/rise02.gif
+	frame	data/chars/players/COM/captain/rise03.gif
+	frame	data/chars/players/COM/captain/rise04.gif
+	delay	6
+	frame	data/chars/players/COM/captain/sp01.gif
+	frame	data/chars/players/COM/captain/sp02.gif
+	frame	data/chars/players/COM/captain/sp03.gif
+	frame	data/chars/players/COM/captain/sp04.gif
+	delay 2
+	attack23	135 155 215 25  5 	1 	1 	0 	35	15
+	sound	data/chars/players/COM/captain/captain06.wav
+	frame	data/chars/players/COM/captain/sp04.gif
+	frame	data/chars/players/COM/captain/sp05.gif
+	frame	data/chars/players/COM/captain/sp06.gif
+	frame	data/chars/players/COM/captain/sp07.gif
+	frame	data/chars/players/COM/captain/sp08.gif
+	frame	data/chars/players/COM/captain/sp09.gif
+	frame	data/chars/players/COM/captain/sp10.gif
+	frame	data/chars/players/COM/captain/sp11.gif
+	frame	data/chars/players/COM/captain/sp12.gif
+	frame	data/chars/players/COM/captain/sp13.gif
+	frame	data/chars/players/COM/captain/sp14.gif
+	frame	data/chars/players/COM/captain/sp15.gif
+	frame	data/chars/players/COM/captain/sp16.gif
+	frame	data/chars/players/COM/captain/sp17.gif
+	frame	data/chars/players/COM/captain/sp18.gif
+	frame	data/chars/players/COM/captain/sp19.gif
+	frame	data/chars/players/COM/captain/sp20.gif
+	frame	data/chars/players/COM/captain/sp21.gif
+	frame	data/chars/players/COM/captain/sp22.gif
+	frame	data/chars/players/COM/captain/sp23.gif
+	frame	data/chars/players/COM/captain/sp24.gif
+	frame	data/chars/players/COM/captain/sp25.gif
+	frame	data/chars/players/COM/captain/sp26.gif
+	frame	data/chars/players/COM/captain/sp27.gif
+	frame	data/chars/players/COM/captain/sp28.gif
+	frame	data/chars/players/COM/captain/sp29.gif
+	frame	data/chars/players/COM/captain/sp30.gif
+	frame	data/chars/players/COM/captain/sp31.gif
+	frame	data/chars/players/COM/captain/sp32.gif
+	frame	data/chars/players/COM/captain/sp33.gif
+	frame	data/chars/players/COM/captain/sp34.gif
+	frame	data/chars/players/COM/captain/sp35.gif
+	frame	data/chars/players/COM/captain/sp36.gif
+	frame	data/chars/players/COM/captain/sp37.gif
+	frame	data/chars/players/COM/captain/sp38.gif
+	attack23	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/players/COM/captain/sp04.gif
+	frame	data/chars/players/COM/captain/sp03.gif
+	frame	data/chars/players/COM/captain/sp02.gif
+	frame	data/chars/players/COM/captain/sp01.gif
+
+
+anim	run
+	loop	1
+	offset	238 177
+	bbox	221 105 30 72
+	delay	8
+	frame	data/chars/players/COM/captain/run01.gif
+	frame	data/chars/players/COM/captain/run02.gif
+	sound	data/chars/players/COM/captain/captain07.wav
+	frame	data/chars/players/COM/captain/run03.gif
+	frame	data/chars/players/COM/captain/run04.gif
+	frame	data/chars/players/COM/captain/run05.gif
+	sound	data/chars/players/COM/captain/captain07.wav
+	frame	data/chars/players/COM/captain/run06.gif
+
+
+
+
+anim	runattack
+	jugglecost	2
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0   d f s  		freespecial4
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial9
+	cancel	0 	999 	0  d f b d f j  	freespecial9
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	2
+	move	6
+	frame	data/chars/players/COM/captain/ca01.gif
+	frame	data/chars/players/COM/captain/ca02.gif
+	frame	data/chars/players/COM/captain/ca03.gif
+	frame	data/chars/players/COM/captain/ca03.gif
+	sound	data/chars/players/COM/captain/captain04.wav
+	@cmd	projectile 1 "dust02" 0 0 0
+	attack2	240 122 72 30 10 1 0 0 15 15
+	bbox	220 102 33 76
+	dropv	1.5 1.5
+	frame	data/chars/players/COM/captain/ca04.gif
+	frame	data/chars/players/COM/captain/ca04.gif
+	frame	data/chars/players/COM/captain/ca04.gif
+	frame	data/chars/players/COM/captain/ca04.gif
+	move	4
+	frame	data/chars/players/COM/captain/ca04.gif
+	move	2
+	frame	data/chars/players/COM/captain/ca04.gif
+	move	1
+	frame	data/chars/players/COM/captain/ca04.gif
+	move	0
+	@cmd	projectile 1 "dust03" 0 0 0
+	delay	8
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/COM/captain/ca03.gif
+	frame	data/chars/players/COM/captain/ca02.gif
+	frame	data/chars/players/COM/captain/ca01.gif
+
+	
+		
+anim	runjump
+	cancel	1 	999 	0   d f j  		freespecial7
+	jumpframe	0 3 2
+	loop	0
+	@script
+    void vSelf = getlocalvar("self");
+    if(frame > 0 && isBlockedFront2(15)){
+      if  (readKey("jump")){
+		changeState("FREESPECIAL8");
+	  }
+    }
+	@end_script	
+	offset	238 177
+	bbox	226 102 23 50
+	delay	1
+	frame	data/chars/players/COM/captain/jump01.gif
+	@cmd	storeXvel
+	delay	19
+	frame	data/chars/players/COM/captain/jump01.gif
+	delay	7
+	frame	data/chars/players/COM/captain/jump02.gif
+	frame	data/chars/players/COM/captain/jump03.gif
+	frame	data/chars/players/COM/captain/jump02.gif
+	delay	999
+	frame	data/chars/players/COM/captain/jump01.gif
+		
+anim	select
+fshadow 0
+	fshadow	0
+	loop	0
+	offset	1 1
+	sound	data/sounds/choose.wav
+	delay	16
+	frame	data/chars/players/COM/captain/sel03.gif
+	sound	data/chars/players/COM/captain/captain04.wav
+	frame	data/chars/players/COM/captain/sel04.gif
+	frame	data/chars/players/COM/captain/sel05.gif
+	delay 20
+	frame	data/chars/players/COM/captain/sel06.gif
+	delay 100
+	sound	data/chars/players/COM/captain/captain02.wav
+	frame	data/chars/players/COM/captain/sel06.gif
+		
+anim	spawn
+	loop	0
+	offset	238 177
+	delay	3
+	@cmd	setLevel
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+	frame	data/chars/players/COM/captain/idle01.gif
+
+		
+anim	special
+	jugglecost	100
+	energycost	20
+	mponly	2
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav	
+	delay	6
+	frame	data/chars/players/COM/captain/sp01.gif
+	frame	data/chars/players/COM/captain/sp02.gif
+	frame	data/chars/players/COM/captain/sp03.gif
+	frame	data/chars/players/COM/captain/sp04.gif
+	delay 2
+	attack23	135 155 215 25 	10 	1 	1 	0 	35	15
+	sound	data/chars/players/COM/captain/captain06.wav
+	frame	data/chars/players/COM/captain/sp04.gif
+	frame	data/chars/players/COM/captain/sp05.gif
+	frame	data/chars/players/COM/captain/sp06.gif
+	frame	data/chars/players/COM/captain/sp07.gif
+	frame	data/chars/players/COM/captain/sp08.gif
+	frame	data/chars/players/COM/captain/sp09.gif
+	frame	data/chars/players/COM/captain/sp10.gif
+	frame	data/chars/players/COM/captain/sp11.gif
+	frame	data/chars/players/COM/captain/sp12.gif
+	frame	data/chars/players/COM/captain/sp13.gif
+	frame	data/chars/players/COM/captain/sp14.gif
+	frame	data/chars/players/COM/captain/sp15.gif
+	frame	data/chars/players/COM/captain/sp16.gif
+	frame	data/chars/players/COM/captain/sp17.gif
+	frame	data/chars/players/COM/captain/sp18.gif
+	frame	data/chars/players/COM/captain/sp19.gif
+	frame	data/chars/players/COM/captain/sp20.gif
+	frame	data/chars/players/COM/captain/sp21.gif
+	frame	data/chars/players/COM/captain/sp22.gif
+	frame	data/chars/players/COM/captain/sp23.gif
+	frame	data/chars/players/COM/captain/sp24.gif
+	frame	data/chars/players/COM/captain/sp25.gif
+	frame	data/chars/players/COM/captain/sp26.gif
+	frame	data/chars/players/COM/captain/sp27.gif
+	frame	data/chars/players/COM/captain/sp28.gif
+	frame	data/chars/players/COM/captain/sp29.gif
+	frame	data/chars/players/COM/captain/sp30.gif
+	frame	data/chars/players/COM/captain/sp31.gif
+	frame	data/chars/players/COM/captain/sp32.gif
+	frame	data/chars/players/COM/captain/sp33.gif
+	frame	data/chars/players/COM/captain/sp34.gif
+	frame	data/chars/players/COM/captain/sp35.gif
+	frame	data/chars/players/COM/captain/sp36.gif
+	frame	data/chars/players/COM/captain/sp37.gif
+	frame	data/chars/players/COM/captain/sp38.gif
+	attack23	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/players/COM/captain/sp04.gif
+	frame	data/chars/players/COM/captain/sp03.gif
+	frame	data/chars/players/COM/captain/sp02.gif
+	frame	data/chars/players/COM/captain/sp01.gif
+	
+
+		
+anim	waiting
+fshadow 0
+	fshadow	0
+	loop	1
+	offset	1 1
+	delay	4
+	frame	data/chars/players/COM/captain/sel01.gif
+	frame	data/chars/players/COM/captain/sel02.gif
+		
+anim	walk
+	loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	6
+	frame	data/chars/players/COM/captain/walk01.gif
+	frame	data/chars/players/COM/captain/walk02.gif
+	frame	data/chars/players/COM/captain/walk03.gif
+	frame	data/chars/players/COM/captain/walk04.gif
+	frame	data/chars/players/COM/captain/walk05.gif
+	frame	data/chars/players/COM/captain/walk06.gif
+	frame	data/chars/players/COM/captain/walk07.gif
+	frame	data/chars/players/COM/captain/walk08.gif
+	frame	data/chars/players/COM/captain/walk09.gif
+	frame	data/chars/players/COM/captain/walk10.gif
+	frame	data/chars/players/COM/captain/walk11.gif
+	frame	data/chars/players/COM/captain/walk12.gif
+	
+anim grabbedwalk
+	 loop       0
+	 offset     238 177
+	 bbox		226 82 23 76
+	 delay      4
+	 frame   data/chars/players/COM/captain/hagg01-2.gif
+		
+anim death17
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebymack/die01.gif
+	frame	data/chars/misc/diebymack/die02.gif
+	frame	data/chars/misc/diebymack/die03.gif
+	frame	data/chars/misc/diebymack/die04.gif
+	
+anim death11
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire/fire1.gif
+	frame	data/chars/misc/diebyfire/fire2.gif
+	frame	data/chars/misc/diebyfire/fire3.gif
+	frame	data/chars/misc/diebyfire/fire4.gif
+	frame	data/chars/misc/diebyfire/fire5.gif
+	frame	data/chars/misc/diebyfire/fire6.gif
+	frame	data/chars/misc/diebyfire/fire7.gif
+	frame	data/chars/misc/diebyfire/fire8.gif	
+	frame	data/chars/misc/diebyfire/fire9.gif
+	frame	data/chars/misc/diebyfire/fire10.gif
+	frame	data/chars/misc/diebyfire/fire11.gif
+
+anim death27
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebymack/die01.gif
+	frame	data/chars/misc/diebymack/die02.gif
+	frame	data/chars/misc/diebymack/die03.gif
+	frame	data/chars/misc/diebymack/die04.gif
+	
+anim death21
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire/fire1.gif
+	frame	data/chars/misc/diebyfire/fire2.gif
+	frame	data/chars/misc/diebyfire/fire3.gif
+	frame	data/chars/misc/diebyfire/fire4.gif
+	frame	data/chars/misc/diebyfire/fire5.gif
+	frame	data/chars/misc/diebyfire/fire6.gif
+	frame	data/chars/misc/diebyfire/fire7.gif
+	frame	data/chars/misc/diebyfire/fire8.gif	
+	frame	data/chars/misc/diebyfire/fire9.gif
+	frame	data/chars/misc/diebyfire/fire10.gif
+	frame	data/chars/misc/diebyfire/fire11.gif
+	
+anim death12
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire2/fire1.gif
+	frame	data/chars/misc/diebyfire2/fire2.gif
+	frame	data/chars/misc/diebyfire2/fire3.gif
+	frame	data/chars/misc/diebyfire2/fire4.gif
+	frame	data/chars/misc/diebyfire2/fire5.gif
+	frame	data/chars/misc/diebyfire2/fire6.gif
+	frame	data/chars/misc/diebyfire2/fire7.gif
+	frame	data/chars/misc/diebyfire2/fire8.gif	
+	frame	data/chars/misc/diebyfire2/fire9.gif
+	frame	data/chars/misc/diebyfire2/fire10.gif
+	frame	data/chars/misc/diebyfire2/fire11.gif
+	
+anim death22
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire2/fire1.gif
+	frame	data/chars/misc/diebyfire2/fire2.gif
+	frame	data/chars/misc/diebyfire2/fire3.gif
+	frame	data/chars/misc/diebyfire2/fire4.gif
+	frame	data/chars/misc/diebyfire2/fire5.gif
+	frame	data/chars/misc/diebyfire2/fire6.gif
+	frame	data/chars/misc/diebyfire2/fire7.gif
+	frame	data/chars/misc/diebyfire2/fire8.gif	
+	frame	data/chars/misc/diebyfire2/fire9.gif
+	frame	data/chars/misc/diebyfire2/fire10.gif
+	frame	data/chars/misc/diebyfire2/fire11.gif
+	
+anim	victory
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	6
+	frame	data/chars/players/COM/captain/sp01.gif
+	frame	data/chars/players/COM/captain/sp02.gif
+	frame	data/chars/players/COM/captain/sp03.gif
+	frame	data/chars/players/COM/captain/sp04.gif
+	delay 2
+	attack23	135 155 215 25 	10 	1 	1 	0 	35	15
+	sound	data/chars/players/COM/captain/captain06.wav
+	frame	data/chars/players/COM/captain/sp05.gif
+	frame	data/chars/players/COM/captain/sp06.gif
+	frame	data/chars/players/COM/captain/sp07.gif
+	frame	data/chars/players/COM/captain/sp08.gif
+	frame	data/chars/players/COM/captain/sp09.gif
+	frame	data/chars/players/COM/captain/sp10.gif
+	frame	data/chars/players/COM/captain/sp11.gif
+	frame	data/chars/players/COM/captain/sp12.gif
+	frame	data/chars/players/COM/captain/sp13.gif
+	frame	data/chars/players/COM/captain/sp14.gif
+	frame	data/chars/players/COM/captain/sp15.gif
+	frame	data/chars/players/COM/captain/sp16.gif
+	frame	data/chars/players/COM/captain/sp17.gif
+	frame	data/chars/players/COM/captain/sp18.gif
+	frame	data/chars/players/COM/captain/sp19.gif
+	frame	data/chars/players/COM/captain/sp20.gif
+	frame	data/chars/players/COM/captain/sp21.gif
+	frame	data/chars/players/COM/captain/sp22.gif
+	frame	data/chars/players/COM/captain/sp23.gif
+	frame	data/chars/players/COM/captain/sp24.gif
+	frame	data/chars/players/COM/captain/sp25.gif
+	frame	data/chars/players/COM/captain/sp26.gif
+	frame	data/chars/players/COM/captain/sp27.gif
+	frame	data/chars/players/COM/captain/sp28.gif
+	frame	data/chars/players/COM/captain/sp29.gif
+	frame	data/chars/players/COM/captain/sp30.gif
+	frame	data/chars/players/COM/captain/sp31.gif
+	frame	data/chars/players/COM/captain/sp32.gif
+	frame	data/chars/players/COM/captain/sp33.gif
+	frame	data/chars/players/COM/captain/sp34.gif
+	frame	data/chars/players/COM/captain/sp35.gif
+	frame	data/chars/players/COM/captain/sp36.gif
+	frame	data/chars/players/COM/captain/sp37.gif
+	frame	data/chars/players/COM/captain/sp38.gif
+	attack23	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	32
+	frame	data/chars/players/COM/captain/sp04.gif
+	 
+
+			
+
+
+		

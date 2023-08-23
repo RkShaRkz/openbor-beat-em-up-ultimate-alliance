@@ -1,0 +1,23 @@
+name				st4_elevator2
+type				none
+subject_to_wall 	0
+subject_to_hole 	1
+subject_to_obstacle 0
+subject_to_platform 0
+subject_to_gravity 	1
+subject_to_screen 	0
+subject_to_minz 	1
+subject_to_maxz 	1
+no_adjust_base 		1
+lifespan			10
+shadow				0
+setlayer			-50
+animationscript 	data/scripts/script.c
+
+anim idle
+	loop	1
+	delay	6
+	offset	1 1
+	@cmd leaper 0 2 0
+	frame	data/bgs/st4/bg02.gif
+	

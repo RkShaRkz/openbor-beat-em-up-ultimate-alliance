@@ -1,0 +1,49 @@
+name			TerryP
+type			none
+candamage		enemy obstacle
+health			1
+nolife			1
+lifespan		4
+nomove                  1
+remove			0
+offense 		all 1.5
+shadow			0
+antigravity		100
+alpha			1
+animationscript	data/scripts/script.c
+didhitscript	data/scripts/didhit/blaze_orb.c
+
+anim idle
+
+	loop	0
+	hitfx	data/sounds/sf/HighPunch.wav
+#	sound	data/sounds/Shock.wav
+		delay  4
+		burn  13  155  62  46
+		offset  0  120
+	frame	data/chars/Terry/p01.gif
+		Attack1  0
+	frame	data/chars/Terry/p02.gif
+		burn -3 52 80 149 45 1 1 0 0 24
+	frame	data/chars/Terry/p03.gif
+		Attack1  0
+	frame	data/chars/Terry/p04.gif
+		burn 0 45 83 156 45 1 1 0 0 24
+	frame	data/chars/Terry/p05.gif
+		Attack1  0
+	frame	data/chars/Terry/p06.gif
+		burn 0 37 87 165 45 1 1 0 0 24
+	frame	data/chars/Terry/p07.gif
+		Attack1  0
+	frame	data/chars/Terry/p08.gif
+		blast 8 67 73 133 45 1 1 0 0 24
+	frame	data/chars/Terry/p09.gif
+		Attack1  0
+	frame	data/chars/Terry/p10.gif
+	@cmd spawn01 "quake_high" 0 0 0
+	burn 0 114 83 87 45 1 1 0 0 24
+	dropv 4 4 0
+	frame	data/chars/Terry/p11.gif
+		Attack1  0
+	frame	data/chars/Terry/p12.gif
+

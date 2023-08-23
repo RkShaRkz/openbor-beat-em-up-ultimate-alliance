@@ -1,0 +1,21 @@
+name			st1_ray
+type			none
+shadow			0
+setlayer		1000
+animationscript data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	6
+	offset	25 25
+	drawmethod alpha 1
+	frame	data/bgs/st1/ray00.gif
+	drawmethod alpha 5
+	frame	data/bgs/st1/ray01.gif
+	drawmethod alpha 1
+	frame	data/bgs/st1/ray00.gif
+	@cmd looper 1 1
+	nodrawmethod
+	@cmd suicide
+	frame	data/bgs/st1/ray00.gif
+

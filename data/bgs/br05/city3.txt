@@ -1,0 +1,16 @@
+name		City3
+type		Panel
+shadow		0
+speed		2
+setlayer	-999
+
+anim idle
+	loop	1
+	delay	9
+	offset	0 0
+	frame	data/bgs/st2/city06.gif
+	frame	data/bgs/st2/city07.gif
+	frame	data/bgs/st2/city08.gif
+	frame	data/bgs/st2/city09.gif
+	
+	

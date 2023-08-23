@@ -1,0 +1,601 @@
+##MAIN
+Ajspecial				0
+Autoland				2
+Colourselect			1
+Nocost 					0
+Nodropen
+Nolost 					0
+Nomaxrushreset 			1
+Spdirection 			1 0 1 0
+Versusdamage			1
+Combodelay				100
+Maxattacks				12
+Maxattacktypes			999
+Maxfollows				999
+Maxfreespecials			999
+Maxidles				999
+
+##FLASHES/EFFECTS
+load	Flash				data/chars/misc/flash/flash.txt
+load	MetalFlash		        data/chars/misc/metalflash/metalflash.txt
+load	Blood				data/chars/misc/blood/blood.txt
+load	Break				data/chars/misc/break/break.txt
+load	Burn				data/chars/misc/burn/burn.txt
+load	Shock				data/chars/misc/shock/shock.txt
+load	Shock1				data/chars/misc/shock/shock1.txt
+load	Explosion			data/chars/misc/explosion/explosion.txt
+load	Smoke				data/chars/misc/smoke/smoke.txt
+load	Quake_Low			data/chars/misc/quake/quake_low.txt
+load	Quake_High			data/chars/misc/quake/quake_high.txt
+load	Block				data/chars/misc/block/block.txt
+load	Dust				data/chars/misc/dust/dust.txt
+load	Fall				data/chars/misc/fall/fall.txt
+load	Xcut1				data/chars/misc/xcut/xcut1.txt
+load	Xcut2				data/chars/misc/xcut/xcut2.txt
+load	Xcut3				data/chars/misc/xcut/xcut3.txt
+load	Impact				data/chars/misc/impact/impact.txt
+load	LaserHit			data/chars/misc/laserhit/laserhit.txt
+load	Crowd				data/chars/misc/dust/crowd.txt
+load	Splash				data/chars/misc/splash/splash.txt
+load	Water				data/chars/misc/water/water.txt
+load	Counter				data/chars/misc/counter/counter.txt
+load	Rage				data/chars/misc/rage/rage.txt
+load	RageFull			data/chars/misc/ragefull/ragefull.txt
+load	RageShock			data/chars/misc/rageshock/rageshock.txt
+load	RageFull_Bar1		data/chars/misc/ragefull/ragefull_bar1.txt
+load	RageFull_Bar2		data/chars/misc/ragefull/ragefull_bar2.txt
+load	RageFull_Bar3		data/chars/misc/ragefull/ragefull_bar3.txt
+load	RageFull_Bar4		data/chars/misc/ragefull/ragefull_bar4.txt
+load	Bar_Mask1			data/chars/misc/barmask/bar_mask1.txt
+load	Bar_Mask2			data/chars/misc/barmask/bar_mask2.txt
+load	Bar_Mask3			data/chars/misc/barmask/bar_mask3.txt
+load	Bar_Mask4			data/chars/misc/barmask/bar_mask4.txt
+load	Bar_Mask1b			data/chars/misc/barmask/bar_mask1b.txt
+load	Bar_Mask2b			data/chars/misc/barmask/bar_mask2b.txt
+load	Bar_Mask3b			data/chars/misc/barmask/bar_mask3b.txt
+load	Bar_Mask4b			data/chars/misc/barmask/bar_mask4b.txt
+
+##WEAPONS
+load	Knife				data/chars/weapons/knife.txt
+load	KnifeT				data/chars/weapons/knifeT.txt
+load	KnifeJ				data/chars/weapons/knifeJ.txt
+load	KnifeS				data/chars/weapons/knifeS.txt
+load	Star				data/chars/weapons/star.txt
+load	StarP				data/chars/weapons/starP.txt
+load	Sword				data/chars/weapons/sword.txt
+load	SwordT				data/chars/weapons/swordT.txt
+load	Pipe				data/chars/weapons/pipe.txt
+load	PipeT				data/chars/weapons/pipeT.txt
+load	Kunai				data/chars/weapons/kunai.txt
+load	KunaiT				data/chars/weapons/kunaiT.txt
+load	Bottle				data/chars/weapons/bottle.txt
+load	BottleP				data/chars/weapons/bottleP.txt
+load	Bottle_Broken1		data/chars/weapons/bottle_broken1.txt
+load	Bottle_Broken2		data/chars/weapons/bottle_broken2.txt
+load	Grenade				data/chars/weapons/grenade.txt
+load	Radio				data/chars/weapons/Radio.txt
+
+##ITENS
+load	1up					data/chars/itens/1up.txt
+load	Apple				data/chars/itens/apple.txt
+load	Cash				data/chars/itens/cash.txt
+load	Chicken				data/chars/itens/chicken.txt
+load	Gold				data/chars/itens/gold.txt
+load	NoItem				data/chars/itens/noitem.txt
+
+##OBSTACLES
+
+load	Cap				data/chars/obstacles/Cap.txt
+load	LataEX				data/chars/obstacles/LataEX.txt
+load	Arcade				data/chars/obstacles/arcade.txt
+load	Bin				data/chars/obstacles/bin.txt
+load	Box				data/chars/obstacles/box.txt
+load	Cart				data/chars/obstacles/cart.txt
+load	Chair				data/chars/obstacles/chair.txt
+load	Policecar			data/chars/obstacles/Policecar.txt
+load	Policecar2			data/chars/obstacles/Policecar2.txt
+load	Truck				data/chars/obstacles/Truck.txt
+load	Banco				data/chars/obstacles/Banco.txt
+load	Drum				data/chars/obstacles/drum.txt
+load	Egg					data/chars/obstacles/egg.txt
+load	Egg_Explosion		data/chars/obstacles/egg_explosion.txt
+load	Menu				data/chars/obstacles/menu.txt
+load	RoadBlock			data/chars/obstacles/roadblock.txt
+load	Sandbag				data/chars/obstacles/sandbag.txt
+load	Table				data/chars/obstacles/table.txt
+load	Tire				data/chars/obstacles/tire.txt
+load	Trash				data/chars/obstacles/trash.txt
+load	Vase				data/chars/obstacles/vase.txt
+
+##STAGES
+
+load	Fk        		data/bgs/Br06/Fk.txt
+load	Luz        		data/bgs/Br06/Luz.txt
+load	Laser01   		data/bgs/Br06/Laser01.txt
+load	Laser02  		data/bgs/Br06/Laser02.txt
+load	Plateia   		data/bgs/Br06/Plateia.txt
+load	Porta02    		data/bgs/Br06/Porta02.txt
+load	janela    		data/bgs/Br06/Janela.txt
+load	Placa01    		data/bgs/Br06/Placa01.txt
+load	forro    		data/bgs/Br06/Forro.txt
+load	InteriorRed    		data/bgs/Br06/InteriorRed.txt
+load	Interior01    		data/bgs/Br06/Interior01.txt
+load	Interior02    		data/bgs/Br06/Interior02.txt
+load	Interior03    		data/bgs/Br06/Interior03.txt
+load	Interior04    		data/bgs/Br06/Interior04.txt
+load	MetroBoss     		data/bgs/Br05/MetroBoss.txt
+load	Metro     		data/bgs/Br05/Metro.txt
+load	Plataforma		data/bgs/Br05/Plataforma.txt
+load	City3			data/bgs/Br05/City3.txt
+load	L01			data/bgs/Br01/L01.txt
+load	L02			data/bgs/Br01/L02.txt
+load	L03			data/bgs/Br01/L03.txt
+load	L04			data/bgs/Br01/L04.txt
+load	L05			data/bgs/Br01/L05.txt
+load	L06			data/bgs/Br01/L06.txt
+load	L07			data/bgs/Br01/L07.txt
+load	Papapa			data/bgs/Br01/papapa.txt
+load	Porta0			data/bgs/Br01/porta0.txt
+load	Fire1			data/bgs/Br01/Fire1.txt
+load	Fire2			data/bgs/Br01/Fire2.txt
+load	Fire3			data/bgs/Br06/Fire3.txt
+load	Fire4			data/bgs/Br06/Fire4.txt
+load	Rio			data/bgs/Br02/Rio.txt
+load	Rio2			data/bgs/Br03/Rio2.txt
+load	Arvore01		data/bgs/Br03/Arvore01.txt
+load	Arvore02		data/bgs/Br03/Arvore02.txt
+load	Arvore01		data/bgs/Br03/Arvore03.txt
+load	Arvore01		data/bgs/Br03/Arvore04.txt
+load	TruckStop1		data/bgs/Br01/TruckStop1.txt
+load	Elevador		data/bgs/Br07/Elevador.txt
+load	Select_Back		data/bgs/select/select_back.txt
+load	Gate13			data/bgs/Br02/Gate13.txt
+load	Select_GradeP1		data/bgs/select/gradeP1.txt
+load	Select_GradeP2		data/bgs/select/gradeP2.txt
+load	Select_GradeP3		data/bgs/select/gradeP3.txt
+load	Select_GradeP4		data/bgs/select/gradeP4.txt
+
+#SOR
+load	Portrait_Adan		data/bgs/select/portrait_Adan.txt
+load	Portrait_Axel		data/bgs/select/portrait_axel.txt
+load	Portrait_Blaze		data/bgs/select/portrait_blaze.txt
+load	Portrait_Max		data/bgs/select/portrait_max.txt
+load	Portrait_Sammy		data/bgs/select/portrait_sammy.txt
+
+#CC
+load	Portrait_Captain	data/bgs/select/portrait_Captain.txt
+load	Portrait_NinjaC		data/bgs/select/portrait_NinjaC.txt
+load	Portrait_bABYc		data/bgs/select/portrait_bABYc.txt
+load	Portrait_mUMMYc		data/bgs/select/portrait_MummyC.txt
+load	Portrait_Unk		data/bgs/select/portrait_Unk.txt
+
+#CD
+load	Portrait_JAck	        data/bgs/select/portrait_Jack.txt
+load	Portrait_Mess	        data/bgs/select/portrait_Mess.txt
+load	Portrait_Hannah	        data/bgs/select/portrait_Hannah.txt
+load	Portrait_Mustapha	data/bgs/select/portrait_Mustapha.txt
+
+#FF
+load	Portrait_Guy		data/bgs/select/portrait_Guy.txt
+load	Portrait_Cody		data/bgs/select/portrait_Cody.txt
+load	Portrait_Maki		data/bgs/select/portrait_Maki.txt
+load	Portrait_Luccia		data/bgs/select/portrait_Luccia.txt
+load	Portrait_Haggar		data/bgs/select/portrait_Haggar.txt
+
+load	Portrait_Bright0	data/bgs/select/bright0.txt
+load	Portrait_Bright1	data/bgs/select/bright1.txt
+load	Chosen				data/bgs/select/chosen.txt
+load	St1_Dunk_a			data/bgs/st1/dunk_a.txt
+load	St1_Dunk_b			data/bgs/st1/dunk_b.txt
+load	St1_Rim				data/bgs/st1/rim.txt
+load	St1_Grade			data/bgs/st1/grade.txt
+load	St1_Lamp			data/bgs/st1/lamp.txt
+load	St1_Light			data/bgs/st1/light.txt
+load	St1_Light2			data/bgs/st1/light2.txt
+load	St1_Manhole			data/bgs/st1/manhole.txt
+load	St1_Gate			data/bgs/st1/gate.txt
+load	St1_Rain			data/bgs/st1/rain.txt
+load	St1_Rain2			data/bgs/st1/rain2.txt
+load	St1_Ray				data/bgs/st1/ray.txt
+load	St1_Thunder			data/bgs/st1/thunder.txt
+load	St1_Drop1			data/bgs/st1/drop1.txt
+load	St1_Drop2			data/bgs/st1/drop2.txt
+load	St2_City1			data/bgs/st2/city1.txt
+load	St2_City2			data/bgs/st2/city2.txt
+load	St2_Truck			data/bgs/st2/truck.txt
+load	St2_RearTruck		data/bgs/st2/reartruck.txt
+load	St2_Lamp			data/bgs/st2/lamp.txt
+load	St3_Entrance1		data/bgs/st3/entrance1.txt
+load	St3_Entrance2		data/bgs/st3/entrance2.txt
+load	St3_Entrance3		data/bgs/st3/entrance3.txt
+load	St3_Entrance3S		data/bgs/st3/entrance3S.txt
+load	St3_Fliper			data/bgs/st3/fliper.txt
+load	St3_Grade			data/bgs/st3/grade.txt
+load	St3_Lamp1			data/bgs/st3/lamp1.txt
+load	St3_Lamp2			data/bgs/st3/lamp2.txt
+load	St3_Lamp3			data/bgs/st3/lamp3.txt
+load	St3_Lamp4			data/bgs/st3/lamp4.txt
+load	St3_Gate			data/bgs/st3/gate.txt
+load	St4_Elevator1		data/bgs/st4/elevator1.txt
+load	St4_Elevator2		data/bgs/st4/elevator2.txt
+load	St4_People			data/bgs/st4/people.txt
+load	St5_Panel1			data/bgs/st5/panel1.txt
+load	St5_Panel2			data/bgs/st5/panel2.txt
+load	St6_Beach			data/bgs/st6/beach.txt
+load	St6_Grade			data/bgs/st6/grade.txt
+load	St7_Machine1		data/bgs/st7/machine1.txt
+load	St7_Machine1S		data/bgs/st7/machine1S.txt
+load	St7_Machine2		data/bgs/st7/machine2.txt
+load	St7_Machine2S		data/bgs/st7/machine2S.txt
+load	St7_Elevator		data/bgs/st7/elevator.txt
+load	St7_ElevatorM		data/bgs/st7/elevator_mania.txt
+load	St7_ElevatorS		data/bgs/st7/elevatorS.txt
+load	St7_Backchange		data/bgs/st7/backchange.txt
+load	St8_Elevator		data/bgs/st8/elevator.txt
+load	St8_ElevatorM		data/bgs/st8/elevator_mania.txt
+load	St8_ElevatorS		data/bgs/st8/elevatorS.txt
+load	Slow_Motion			data/bgs/syndicate/slow_motion.txt
+
+##PLAYERS
+
+
+load	Axel				data/chars/axel/axel.txt
+load	Axel_Burn			data/chars/axel/burn/burn.txt
+know	Axel_Knife			data/chars/axel/axel_knife.txt
+know	Axel_Sword			data/chars/axel/axel_sword.txt
+know	Axel_Pipe			data/chars/axel/axel_pipe.txt
+know	Axel_Kunai			data/chars/axel/axel_kunai.txt
+know	AxelS				data/chars/axel/axelS.txt
+
+
+load	Blaze				data/chars/blaze/blaze.txt
+know	Blaze_Knife			data/chars/blaze/blaze_knife.txt
+know	Blaze_Sword			data/chars/blaze/blaze_sword.txt
+know	Blaze_Pipe			data/chars/blaze/blaze_pipe.txt
+know	Blaze_Kunai			data/chars/blaze/blaze_kunai.txt
+load	Blaze_Orb			data/chars/blaze/orb/orb.txt
+know	BlazeS				data/chars/blaze/blazeS.txt
+
+load	Max					data/chars/max/max.txt
+know	Max_Knife			data/chars/max/max_knife.txt
+know	Max_Sword			data/chars/max/max_sword.txt
+know	Max_Pipe			data/chars/max/max_pipe.txt
+know	Max_Kunai			data/chars/max/max_kunai.txt
+know	MaxS				data/chars/max/maxS.txt
+
+load	Sammy				data/chars/sammy/sammy.txt
+know	Sammy_Knife			data/chars/sammy/sammy_knife.txt
+know	Sammy_Sword			data/chars/sammy/sammy_sword.txt
+know	Sammy_Pipe			data/chars/sammy/sammy_pipe.txt
+know	Sammy_Kunai			data/chars/sammy/sammy_kunai.txt
+know	SammyS				data/chars/sammy/sammyS.txt
+
+load	captain				data/chars/captain/captain.txt
+know	captains			data/chars/captain/captains.txt
+know	FirePunch			data/chars/captain/FirePunch.txt
+know	captain_Kunai			data/chars/captain/captain_Kunai.txt
+know	captain_Sword			data/chars/captain/captain_Sword.txt
+know	captain_knife			data/chars/captain/captain_knife.txt
+know	captain_Pipe			data/chars/captain/captain_Pipe.txt
+know	captain_Pipes			data/chars/captain/captain_Pipes.txt
+
+load	baby				data/chars/Baby/Baby.txt
+know	babyP				data/chars/Baby/BabyP.txt
+know	babys				data/chars/Baby/Babys.txt
+know	baby2s				data/chars/Baby/Baby2s.txt
+know	baby_knife			data/chars/baby/baby_knife.txt
+know	baby_kunai			data/chars/baby/baby_Kunai.txt
+know	baby_Sword			data/chars/baby/baby_Sword.txt
+know	baby_Pipe			data/chars/baby/baby_Pipe.txt
+
+
+load	hannah				data/chars/hannah/hannah.txt
+know	hannahs				data/chars/hannah/hannahs.txt
+know	hannah_knife			data/chars/hannah/hannah_knife.txt
+know	hannah_knifes			data/chars/hannah/hannah_knifes.txt
+know	hannah_Kunai			data/chars/hannah/hannah_Kunai.txt
+know	hannah_Pipe			data/chars/hannah/hannah_pipe.txt
+know	hannah_sword			data/chars/hannah/hannah_sword.txt
+
+load	Mustapha			data/chars/mustapha/mustapha.txt
+know	mustaphas			data/chars/mustapha/mustaphaS.txt
+know	Mustapha_knife			data/chars/mustapha/mustapha_knife.txt
+know	Mustapha_Kunai			data/chars/mustapha/mustapha_Kunai.txt
+know	Mustapha_Pipe			data/chars/mustapha/mustapha_Pipe.txt
+know	Mustapha_sword			data/chars/mustapha/mustapha_sword.txt
+
+load	Guy				data/chars/guy/Guy.txt
+know	GuyS				data/chars/guy/Guys.txt
+know	gokusa				data/chars/guy/gokusa/gokusa.txt
+know	gokusas				data/chars/guy/gokusa/gokusas.txt
+know	izuna				data/chars/guy/izuna/izuna.txt
+know	hassou				data/chars/guy/hassou/hassou.txt
+know	Guy_knife			data/chars/Guy/Guy_knife.txt
+know	Guy_Kunai			data/chars/Guy/Guy_Kunai.txt
+know	Guy_Pipe			data/chars/Guy/Guy_Pipe.txt
+know	Guy_sword			data/chars/Guy/Guy_sword.txt
+know	Guy_swords			data/chars/Guy/Guy_swords.txt
+
+##ENEMIES
+
+know	Rolento		                data/chars/Rolento/Rolento.txt
+know	rgran	                        data/chars/Rolento/rgran.txt
+know	rgran2	                        data/chars/Rolento/rgran2.txt
+
+know	soldier		                data/chars/soldier/soldier.txt
+
+know	Andore		                data/chars/Andore/Andore.txt
+know	AndoreC		                data/chars/Andore/AndoreC.txt
+
+know	gneiss		                data/chars/gneiss/gneiss.txt
+know	gneiss1		                data/chars/gneiss/gneiss1.txt
+know	gneiss2		                data/chars/gneiss/gneiss2.txt
+know	gneiss3		                data/chars/gneiss/gneiss3.txt
+know	gneiss_wait0		        data/chars/gneiss/gneiss_wait0.txt
+
+know	Silver		                data/chars/Silver/Silver.txt
+know	macleod		                data/chars/macleod/macleod.txt
+
+know	Butcher		                data/chars/Butcher/Butcher.txt
+know	ButcherC		        data/chars/Butcher/ButcherC.txt
+know	ButcherS		        data/chars/Butcher/ButcherS.txt
+
+
+
+know	Won0		                data/chars/Won/Won0.txt
+know	WonC		                data/chars/Won/WonC.txt
+know	Wons		                data/chars/Won/WonS.txt
+
+
+know	hayate		                data/chars/hayate/hayate.txt
+
+know	Rubby		                data/chars/Rubby/Rubby.txt
+know	Rubby1		                data/chars/Rubby/Rubby1.txt
+know	Rubby2		                data/chars/Rubby/Rubby2.txt
+know	Rubby3		                data/chars/Rubby/Rubby3.txt
+know	Rubby3		                data/chars/Rubby/RubbyC.txt
+know	Rubby_wait		        data/chars/Rubby/Rubby_wait.txt
+know	Rubby_Dance		        data/chars/Rubby/Rubby_Dance.txt
+
+know	Tiger0			        data/chars/Tiger/Tiger0.txt
+know	Tiger1			        data/chars/Tiger/Tiger1.txt
+know	Tiger2			        data/chars/Tiger/Tiger2.txt
+know	Tiger3			        data/chars/Tiger/Tiger3.txt
+know	BTiger			        data/chars/BTiger/BTiger.txt
+load	FireBall			data/chars/weapons/FireBall.txt
+
+know	Slick		        	data/chars/Slick/Slick.txt
+know	Slick1		        	data/chars/Slick/Slick1.txt
+know	Slick2		        	data/chars/Slick/Slick2.txt
+know	Slick3		        	data/chars/Slick/Slick3.txt
+
+know	Wolf0		        	data/chars/Wolf/Wolf0.txt
+know	Wolf1		        	data/chars/Wolf/Wolf1.txt
+know	WolfS		        	data/chars/Wolf/WolfS.txt
+
+know	FunkMan0			data/chars/FunkMan/FunkMAn0.txt
+know	FunkManS			data/chars/FunkMan/FunkMAnS.txt
+know	Shoot   			data/chars/FunkMan/Shoot.txt
+
+know	Madame0				data/chars/Madame/Madame0.txt
+know	MadameC				data/chars/Madame/MadameC.txt
+know	Madames				data/chars/Madame/Madames.txt
+
+know	Mic				data/chars/mic/Mic.txt
+know	Mic1				data/chars/mic/Mic1.txt
+know	Mic2				data/chars/mic/Mic2.txt
+know	Mic3				data/chars/mic/Mic3.txt
+know	Mic3				data/chars/mic/MicC.txt
+know	Mic_wait0			data/chars/mic/Mic_wait0.txt
+know	Mic_Loja			data/chars/mic/Mic_loja.txt
+
+know	Elmer0				data/chars/Elmer/Elmer0.txt
+know	Elmer1				data/chars/Elmer/Elmer1.txt
+know	Elmer2				data/chars/Elmer/Elmer2.txt
+know	Elmer3				data/chars/Elmer/Elmer3.txt
+know	ElmerC				data/chars/Elmer/ElmerC.txt
+know	Elmer_wait0			data/chars/Elmer/Elmer_wait0.txt
+know	Elmer_wait1			data/chars/Elmer/Elmer_wait1.txt
+
+know	BBilly				data/chars/BBilly/BBilly.txt
+know	Billy0				data/chars/Billy/Billy0.txt
+know	Billy1				data/chars/Billy/Billy1.txt
+know	Billy2				data/chars/Billy/Billy2.txt
+know	Billy3				data/chars/Billy/Billy3.txt
+know	BillyC				data/chars/Billy/BillyC.txt
+know	Billy_wait0			data/chars/Billy/Billy_wait0.txt
+know	Billy_wait1			data/chars/Billy/Billy_wait1.txt
+know	Shot			        data/chars/weapons/Shot.txt
+
+know	Galsia0				data/chars/galsia/galsia0.txt
+know	Galsia1				data/chars/galsia/galsia1.txt
+know	Galsia2				data/chars/galsia/galsia2.txt
+know	Galsia3				data/chars/galsia/galsia3.txt
+know	Galsia4				data/chars/galsia/galsia4.txt
+know	GalsiaC				data/chars/galsia/galsiaC.txt
+know	Galsia_Knife		data/chars/galsia/galsia_knife.txt
+know	Galsia_Seat			data/chars/galsia/galsia_seat.txt
+know	Galsia_Wait2		data/chars/galsia/galsia_wait2.txt
+
+know	Donovan0			data/chars/donovan/donovan0.txt
+know	Donovan1			data/chars/donovan/donovan1.txt
+know	Donovan2			data/chars/donovan/donovan2.txt
+know	Donovan3			data/chars/donovan/donovan3.txt
+know	Donovan4			data/chars/donovan/donovan4.txt
+know	DonovanC			data/chars/donovan/donovanC.txt
+know	Donovan_Pipe		data/chars/donovan/donovan_pipe.txt
+know	Donovan_Manhole		data/chars/donovan/donovan_manhole.txt
+know	Donovan_Wait0		data/chars/donovan/donovan_wait0.txt
+know	Donovan_Wait2		data/chars/donovan/donovan_wait2.txt
+know	Donovan_Wait4		data/chars/donovan/donovan_wait4.txt
+
+know	Signal0				data/chars/signal/signal0.txt
+know	Signal1				data/chars/signal/signal1.txt
+know	Signal2				data/chars/signal/signal2.txt
+know	Signal3				data/chars/signal/signal3.txt
+know	Signal4				data/chars/signal/signal4.txt
+know	SignalC				data/chars/signal/signalC.txt
+know	Signal_Gate			data/chars/signal/signal_gate.txt
+know	Signal_Bottle		data/chars/signal/signal_bottle.txt
+know	Signal_Wait0		data/chars/signal/signal_wait0.txt
+know	Signal_Wait2		data/chars/signal/signal_wait2.txt
+
+know	Biker0				data/chars/biker/biker0.txt
+know	Biker1				data/chars/biker/biker1.txt
+know	Biker2				data/chars/biker/biker2.txt
+know	Biker3				data/chars/biker/biker3.txt
+know	Biker4				data/chars/biker/biker4.txt
+know	Biker4				data/chars/biker/bikerC.txt
+know	Biker_Pipe			data/chars/biker/biker_pipe.txt
+know	Biker_Bomb			data/chars/biker/biker_bomb.txt
+know	Biker_Wait1			data/chars/biker/biker_wait1.txt
+know	Biker_Wait2			data/chars/biker/biker_wait2.txt
+know	Biker_Wait3			data/chars/biker/biker_wait3.txt
+
+know	Moto0				data/chars/biker/moto0.txt
+know	Moto1				data/chars/biker/moto1.txt
+know	Moto2				data/chars/biker/moto2.txt
+know	Moto3				data/chars/biker/moto3.txt
+know	Moto4				data/chars/biker/moto4.txt
+
+know	Hakuyo0				data/chars/hakuyo/hakuyo0.txt
+know	Hakuyo1				data/chars/hakuyo/hakuyo1.txt
+know	Hakuyo2				data/chars/hakuyo/hakuyo2.txt
+know	Hakuyo3				data/chars/hakuyo/hakuyo3.txt
+know	Hakuyo4				data/chars/hakuyo/hakuyo4.txt
+know	Hakuyo_Wait0		data/chars/hakuyo/hakuyo_wait0.txt
+know	Hakuyo_Wait2		data/chars/hakuyo/hakuyo_wait2.txt
+
+know	Ninja0				data/chars/ninja/ninja0.txt
+know	Ninja1				data/chars/ninja/ninja1.txt
+know	Ninja2				data/chars/ninja/ninja2.txt
+know	Ninja3				data/chars/ninja/ninja3.txt
+know	Ninja4				data/chars/ninja/ninja4.txt
+know	Ninja5				data/chars/ninja/ninja5.txt
+know	Ninja_Kunai			data/chars/ninja/ninja_kunai.txt
+know	Ninja_Sword			data/chars/ninja/ninja_sword.txt
+know	Ninja_Evade			data/chars/ninja/ninja_evade.txt
+know	Ninja_Wait0			data/chars/ninja/ninja_wait0.txt
+know	Ninja_Wait1			data/chars/ninja/ninja_wait1.txt
+know	Ninja_Wait2			data/chars/ninja/ninja_wait2.txt
+know	Ninja_Wait3			data/chars/ninja/ninja_wait3.txt
+know	Ninja_Wait4			data/chars/ninja/ninja_wait4.txt
+
+know	KickBoxer0			data/chars/kickboxer/kickboxer0.txt
+know	KickBoxer1			data/chars/kickboxer/kickboxer1.txt
+know	KickBoxer2			data/chars/kickboxer/kickboxer2.txt
+know	KickBoxer3			data/chars/kickboxer/kickboxer3.txt
+know	KickBoxer4			data/chars/kickboxer/kickboxer4.txt
+know	KickBoxerC			data/chars/kickboxer/kickboxerC.txt
+
+know	Bigben0				data/chars/Bigben/bigben0.txt
+know	Bigben1				data/chars/Bigben/bigben1.txt
+know	Bigben2				data/chars/Bigben/bigben2.txt
+know	Bigben3				data/chars/Bigben/bigben3.txt
+know	Bigben4				data/chars/Bigben/bigben4.txt
+know	Bigben_Fire			data/chars/Bigben/fire/fire.txt
+
+know	Escarlate			data/chars/Escarlate/Escarlate.txt
+
+know	Electra0			data/chars/electra/electra0.txt
+know	Electra1			data/chars/electra/electra1.txt
+know	Electra2			data/chars/electra/electra2.txt
+know	Electra3			data/chars/electra/electra3.txt
+know	Electra4			data/chars/electra/electra4.txt
+know	ElectraC			data/chars/electra/electraC.txt
+know	Electra_Wait0		data/chars/electra/electra_wait0.txt
+
+know	Jack0				data/chars/jack/jack0.txt
+know	Jack1				data/chars/jack/jack1.txt
+know	Jack2				data/chars/jack/jack2.txt
+know	BJack				data/chars/Bjack/Bjack.txt
+know	Jack_Knife			data/chars/jack/jack_knife.txt
+know	BikeXP				data/chars/bike/bikeXP.txt
+
+know	Vehelits			data/chars/vehelits/vehelits.txt
+know	Vehelits_Tail		data/chars/vehelits/tail.txt
+
+##BOSSES
+know	NeoX				data/chars/NeoX/NeoX.txt
+know	Barbon0				data/chars/barbon/barbon0.txt
+know	Barbon1				data/chars/barbon/barbon1.txt
+know	Barbon2				data/chars/barbon/barbon2.txt
+know	Barbon_Cocktail		data/chars/barbon/barbon_cocktail.txt
+know	Barbon_Jacket1		data/chars/barbon/jacket/jacket1.txt
+know	Barbon_Jacket2		data/chars/barbon/jacket/jacket2.txt
+know	Barbon_Jacket3		data/chars/barbon/jacket/jacket3.txt
+know	Barbon_Jacket4		data/chars/barbon/jacket/jacket4.txt
+know	Barbon_Jacket5		data/chars/barbon/jacket/jacket5.txt
+know	Barbon_Jacket6		data/chars/barbon/jacket/jacket6.txt
+know	Barbon_Jacket7		data/chars/barbon/jacket/jacket7.txt
+know	BarbonS				data/chars/barbon/barbonS.txt
+
+
+know	Mona				data/chars/Monalisa/Mona.txt
+know	Lisa				data/chars/Monalisa/Lisa.txt
+know	Monalisa			data/chars/Monalisa/MonaLisa.txt
+know	popo				data/chars/Monalisa/popo/popo.txt
+know	popoR				data/chars/Monalisa/popoR/popoR.txt
+know	PowerG			        data/chars/weapons/PowerG.txt
+know	Tornado			        data/chars/weapons/Tornado.txt
+know	Jet0				data/chars/jet/jet0.txt
+know	Jet1				data/chars/jet/jet1.txt
+know	Jet2				data/chars/jet/jet2.txt
+know	Jet3				data/chars/jet/jet3.txt
+know	Jet4				data/chars/jet/jet4.txt
+know	Jet5				data/chars/jet/jet5.txt
+know	JetS				data/chars/jet/jetS.txt
+
+know	Zamza0				data/chars/zamza/zamza0.txt
+know	Zamza1				data/chars/zamza/zamza1.txt
+know	Zamza2				data/chars/zamza/zamza2.txt
+know	ZamzaS				data/chars/zamza/zamzaS.txt
+
+know	Abadede0			data/chars/abadede/abadede0.txt
+know	Abadede1			data/chars/abadede/abadede1.txt
+know	AbadedeS			data/chars/abadede/abadedeS.txt
+
+know	Bear0				data/chars/bear/bear0.txt
+know	Bear1				data/chars/bear/bear1.txt
+know	BearS				data/chars/bear/bearS.txt
+
+know	Particle0			data/chars/particle/particle0.txt
+know	Particle1			data/chars/particle/particle1.txt
+know	Particle2			data/chars/particle/particle2.txt
+know	Particle3			data/chars/particle/particle3.txt
+know	Particle_Laser		data/chars/particle/laser/laser.txt
+know	Particle_LaserR		data/chars/particle/laser/laserR.txt
+know	Particle_Explosion	data/chars/particle/explosion/explosion.txt
+know	ParticleS			data/chars/particle/particleS.txt
+
+know	Shiva0				data/chars/shiva/shiva0.txt
+know	Shiva1				data/chars/shiva/shiva1.txt
+know	Shiva_Orb			data/chars/shiva/orb/orb.txt
+know	ShivaS				data/chars/shiva/shivaS.txt
+know	Shiva_Dodge			data/chars/shiva/shiva_dodge.txt
+
+
+know	Mrx0				data/chars/mrx/mrx0.txt
+know	Mrx1				data/chars/mrx/mrx1.txt
+know	Mrx_Shot1			data/chars/mrx/shot/shot1.txt
+know	Mrx_Shot2			data/chars/mrx/shot/shot2.txt
+know	Mrx_Shot3			data/chars/mrx/shot/shot3.txt
+know	Mrx_Bullet			data/chars/mrx/shot/bullet.txt
+
+##RANDOM
+know	BasicX0				data/chars/random/basicX0.txt
+know	BasicX1				data/chars/random/basicX1.txt
+know	BasicX2				data/chars/random/basicX2.txt
+know	BasicX3				data/chars/random/basicX3.txt
+know	BasicX4				data/chars/random/basicX4.txt
+know	BikerX				data/chars/random/bikerX.txt
+know	HakuyoX				data/chars/random/hakuyoX.txt
+know	NinjaX				data/chars/random/ninjaX.txt
+know	KickBoxerX			data/chars/random/kickBoxerX.txt
+know	BigbenX				data/chars/random/bigbenX.txt
+know	ElectraX			data/chars/random/electraX.txt
+know	JetX				data/chars/random/jetX.txt
+know	ParticleX			data/chars/random/particleX.txt
+know	MotoX0				data/chars/random/motoX0.txt
+know	MotoX1				data/chars/random/motoX1.txt
+know	WeaponX				data/chars/random/weaponX.txt

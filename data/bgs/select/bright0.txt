@@ -1,0 +1,11 @@
+name		Portrait_Bright0
+type		none
+shadow		0
+setlayer	-1000
+alpha		1
+
+anim idle
+	loop	0
+	delay	1
+	offset	65 65
+	frame	data/bgs/select/bright00.gif

@@ -1,0 +1,154 @@
+background	data/bgs/Br02/back01.gif		#1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/Br02/pn02.gif		none	none
+frontpanel	data/bgs/Br02/Front02.gif	
+music		data/music/Lv2B.ogg
+order		a
+bgspeed 25 1 
+settime		99
+direction	both
+scrollspeed 0.5
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+#########################################################################################
+
+
+
+
+#########################################################################################
+
+spawn		St1_Rain2
+flip		1
+coords		1 200
+at			0
+
+
+
+
+#########################################################################################
+
+spawn		Galsia_Seat
+flip		0
+coords		438 152 0
+at			0
+
+spawn		donovan_wait0
+flip		0
+coords		230 275 0
+at			0
+
+spawn		Billy_wait1
+Alias           Joe
+Map             3
+flip		0
+coords		125 275 0
+at			0
+
+group		4 4
+at			4
+
+spawn		Billy1
+Alias           Billy
+coords		-30 300 0
+at			0
+
+spawn		Mic
+flip		1
+coords		550 300 0
+at			0
+
+spawn		BasicX2
+flip		1
+coords		550 300 0
+at			0
+
+spawn		Gneiss
+Map             2
+flip		0
+coords		438 152 0
+at			0
+
+spawn		Elmer1
+Alias           Elmer
+coords		-30 300 0
+at			0
+
+spawn		Mic
+map             1
+flip		1
+coords		550 300 0
+at			0
+
+spawn		BasicX2
+flip		1
+coords		550 300 0
+at			0
+
+spawn		Elmer0
+Alias           Elmer
+coords		-30 300 0
+at			0
+
+spawn		Rubby
+flip		1
+coords		550 300 0
+at			0
+
+spawn		Gneiss
+flip		1
+coords		550 300 0
+at			0
+
+##
+
+
+2pspawn		Billy0
+Alias           Billy
+coords		-30 300 0
+at			0
+
+2pspawn		Rubby
+flip		1
+coords		550 300 0
+at			0
+
+2pspawn		BasicX2
+flip		1
+coords		550 300 0
+at			0
+
+3pspawn		Mic
+coords		-30 300 0
+at			0
+
+3pspawn		Gneiss
+flip		1
+coords		550 300 0
+at			0
+
+3pspawn		BasicX2
+flip		1
+coords		550 300 0
+at			0
+
+4pspawn		Gneiss
+Map             2
+coords		-30 300 0
+at			0
+
+4pspawn		BasicX0
+flip		1
+coords		550 300 0
+at			0
+
+4pspawn		BasicX2
+flip		1
+coords		550 300 0
+at			0

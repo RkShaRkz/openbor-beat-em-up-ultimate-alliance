@@ -1,0 +1,39 @@
+name			Counter
+type			none
+shadow			0
+nomove			1 0
+alpha			1
+animationscript	data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	2
+	offset	66 107
+	sound	data/sounds/sf/Counter.wav
+	frame	data/chars/misc/counter/counter00.gif
+	frame	data/chars/misc/counter/counter01.gif
+	frame	data/chars/misc/counter/counter02.gif
+	frame	data/chars/misc/counter/counter03.gif
+	frame	data/chars/misc/counter/counter04.gif
+	frame	data/chars/misc/counter/counter05.gif
+	frame	data/chars/misc/counter/counter06.gif
+	frame	data/chars/misc/counter/counter07.gif
+	frame	data/chars/misc/counter/counter08.gif
+	frame	data/chars/misc/counter/counter09.gif
+	frame	data/chars/misc/counter/counter10.gif
+	frame	data/chars/misc/counter/counter11.gif
+	frame	data/chars/misc/counter/counter12.gif
+	frame	data/chars/misc/counter/counter13.gif
+	frame	data/chars/misc/counter/counter14.gif
+	frame	data/chars/misc/counter/counter15.gif
+	frame	data/chars/misc/counter/counter16.gif
+	frame	data/chars/misc/counter/counter17.gif
+	frame	data/chars/misc/counter/counter18.gif
+	frame	data/chars/misc/counter/counter19.gif
+	frame	data/chars/misc/counter/counter20.gif
+	frame	data/chars/misc/counter/counter21.gif
+	frame	data/chars/misc/counter/counter22.gif
+	frame	data/chars/misc/counter/counter23.gif
+	@cmd suicide
+	frame	data/chars/misc/counter/empty.gif
+

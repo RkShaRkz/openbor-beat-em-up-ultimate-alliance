@@ -1,0 +1,324 @@
+##ATTRIBUTES
+
+#SKILLS		****
+#LIFE		**
+#POWER		**
+#SPEED		***
+#JUMP		***
+#SPECIAL	***
+
+##MAIN
+name				Hannah_sword
+type				none
+hostile				enemy
+candamage	                enemy obstacle
+projectilehit		        enemy obstacle
+
+##LIFE
+health				0 #200/300/400/500/600/700
+
+##POWER
+offense 			all 1.5 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				12 #8/10/12/14/16/18
+running 			24 3.1 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			17 #13/15/17/19/21/23
+jumpheight 			3.3 #2.9/3.1/3.3/3.5/3.7/3.9
+jumpmove			0 1 #PLAYER ONLY
+
+##SPECIAL
+mp					0
+mprate  			6 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		21 #BASE 36
+grabfinish 			0 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-3 #-3/-6/-9
+height				72
+
+##MISC
+jugglepoints		30
+guardpoints			87
+guardrate			13
+risetime			170
+riseinv				0.2 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 2 3
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+keyscript		data/scripts/key/Blaze.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+script			data/scripts/updateentity/Hannah.c
+
+##ICONS
+icon				data/chars/Hannah/icon.gif 1
+#iconmphigh			data/chars/Hannah/sword/iconmp.gif 1
+
+##PARROWS
+parrow				data/sprites/parrow.gif 	-15 -140
+parrow2				data/sprites/parrow2.gif 	-15 -140
+parrow3				data/sprites/parrow3.gif 	-15 -140
+parrow4				data/sprites/parrow4.gif 	-15 -140
+
+##DIESOUND
+diesound			data/voices/Hannah/sword/Hannah1.wav
+
+com 				a2	freespecial		#RAGE
+
+##REMAPS
+remap				data/chars/Hannah/idle00.gif data/chars/Hannah/alter1.gif
+remap				data/chars/Hannah/idle00.gif data/chars/Hannah/alter2.gif
+remap				data/chars/Hannah/idle00.gif data/chars/Hannah/alter3.gif
+remap				data/chars/Hannah/idle00.gif data/chars/Hannah/alter4.gif
+remap				data/chars/Hannah/idle00.gif data/chars/Hannah/alter5.gif
+remap				data/chars/Hannah/idle00.gif data/chars/Hannah/alter6.gif
+
+
+##LOADS
+knife				swordT
+
+##ANIMATIONS#############################################################################
+
+anim idle
+	loop	1
+	delay	16
+	offset	238 177
+	bbox	226 102 23 76
+	@cmd clearL
+        drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Hannah/sword/idle00.gif
+
+anim	walk
+	loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	6
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Hannah/sword/walk01.gif
+	frame	data/chars/Hannah/sword/walk02.gif
+	frame	data/chars/Hannah/sword/walk03.gif
+	frame	data/chars/Hannah/sword/walk04.gif
+	frame	data/chars/Hannah/sword/walk05.gif
+	frame	data/chars/Hannah/sword/walk06.gif
+	frame	data/chars/Hannah/sword/walk07.gif
+	frame	data/chars/Hannah/sword/walk08.gif
+	frame	data/chars/Hannah/sword/walk09.gif
+	frame	data/chars/Hannah/sword/walk10.gif
+	frame	data/chars/Hannah/sword/walk11.gif
+	frame	data/chars/Hannah/sword/walk12.gif
+
+anim	run
+	loop	1
+	offset	238 177
+	bbox	226 105 30 72
+	delay	8
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Hannah/sword/run01.gif
+	frame	data/chars/Hannah/sword/run02.gif
+	frame	data/chars/Hannah/sword/run03.gif
+	frame	data/chars/Hannah/sword/run04.gif
+	frame	data/chars/Hannah/sword/run05.gif
+	frame	data/chars/Hannah/sword/run06.gif
+	frame	data/chars/Hannah/sword/run07.gif
+	frame	data/chars/Hannah/sword/run08.gif
+
+anim jumpdelay
+	loop	0
+	delay	12
+	offset	239 180
+	bbox 	229 126 34 56
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Hannah/sword/land01.gif
+
+anim jump
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	1
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Hannah/sword/jump01.gif
+	delay	24
+	frame	data/chars/Hannah/sword/jump01.gif
+	delay	10
+	frame	data/chars/Hannah/sword/jump02.gif
+	delay 5
+	frame	data/chars/Hannah/sword/jump03.gif
+	delay	10
+	frame	data/chars/Hannah/sword/jump02.gif
+	delay	999
+	frame	data/chars/Hannah/sword/jump01.gif
+
+anim walkoff
+	loop	0
+	delay	30
+	offset	235 179
+	bbox 	230 107 16 52
+	@cmd jump 1
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Hannah/sword/jump01.gif
+		offset  234  163
+	frame	data/chars/Hannah/sword/jump02.gif
+
+anim jumpland
+	loop	0
+	delay	12
+	offset	241 178
+	bbox 	230 121 21 60
+		drawmethod  245  245  0  0  0  -1  -1
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/Hannah/sword/land01.gif
+
+anim attack1
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+        loop	0
+	offset	238 177
+	bbox	230 102 33 76
+	delay	8
+	hitflash blood
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh3.wav
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Hannah/sword/a101.gif
+	delay 15
+	attack	259 117 84 26 20 0 0 0 10 15
+	frame	data/chars/Hannah/sword/a102.gif
+
+anim attack2
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	offset	238 177
+	bbox	240 102 33 76
+		drawmethod  245  245  0  0  0  -1  -1
+        hitfx	data/sounds/sf/MediumPunch.wav
+	sound	data/chars/hannah/hannah02.wav
+	delay	6
+		move  5
+	frame	data/chars/hannah/sword/a201.gif
+	delay 8
+	attack	240 130 70 20 5 0 0 0 10 15
+	frame	data/chars/hannah/sword/a202.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/hannah/sword/a201.gif
+
+anim attack3
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+        loop	0
+	offset	238 177
+	bbox	230 102 33 76
+	delay	8
+	hitflash blood
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh3.wav
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Hannah/sword/a301.gif
+	delay 15
+	attack	263 135 77 34 20 10 0 0 10 15
+	frame	data/chars/Hannah/sword/a302.gif
+
+
+anim jumpattack #JUMP STATIC
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	8
+	offset	229 175
+	bbox 	214 109 35 44
+		drawmethod  245  245  0  0  0  -1  -1
+	hitfx	data/sounds/sf/HighKick.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Hannah/sword/ja101.gif
+	sound	data/voices/Hannah/Hannah2.wav
+		attack1  240  125  73  18  8  1  0  0  1  10
+	frame	data/chars/Hannah/sword/ja102.gif
+
+anim jumpattack2 #JUMP DOWN
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	4
+	offset	241 157
+	bbox 	231 100 25 54
+		drawmethod  245  245  0  0  0  -1  -1
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Hannah/sword/jump02.gif
+	attack 249 120 39 32 8 0 0 0 10 12
+	sound	data/voices/Hannah/sword/Hannah2.wav
+	frame	data/chars/Hannah/sword/ja201.gif
+
+anim jumpattack3 #JUMP UP
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	2
+	offset	249 160
+	bbox 	228 100 53 55
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Hannah/sword/ja301.gif
+	sound	data/voices/Hannah/sword/Hannah2.wav
+	frame	data/chars/Hannah/sword/ja302.gif
+	frame	data/chars/Hannah/sword/ja301.gif
+		delay  4
+	frame	data/chars/Hannah/sword/ja302.gif
+		attack1  253  112  77  27  8  0  0  0  10  12
+	frame	data/chars/Hannah/sword/ja303.gif
+	frame	data/chars/Hannah/sword/ja304.gif
+	frame	data/chars/Hannah/sword/ja305.gif
+		Attack1  0
+	frame	data/chars/Hannah/sword/ja306.gif
+
+anim jumpforward #JUMP FORWARD
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	1 4 7
+	delay	6
+	offset	230 176
+	bbox 	214 110 28 66
+	hitfx	data/sounds/sf/HighKick.wav
+	sound	data/sounds/sf/HighAttack.wav
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Hannah/sword/frsp301.gif
+		delay	3
+	sound	data/voices/Hannah/sword/Hannah2.wav
+	frame	data/chars/Hannah/sword/frsp301.gif
+		attack1  232  122  79  28  8  1  0  0  0  10
+	frame	data/chars/Hannah/sword/frsp302.gif
+	frame	data/chars/Hannah/sword/frsp302.gif
+
+anim attackboth #THROW sword
+	throwframe 1 9999
+	loop	0
+	delay	8
+	offset	230 176
+	bbox 	233 106 24 72
+	@cmd antiwall 20 -20 -1
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Hannah/sword/a401.gif
+	@cmd throweap 54 41 -1 3 0 0
+	frame	data/chars/Hannah/sword/a402.gif
+	frame	data/chars/Hannah/a101.gif
+

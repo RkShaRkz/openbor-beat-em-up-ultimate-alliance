@@ -1,0 +1,119 @@
+background		data/bgs/st3/back01.gif		1 1 0 0 0 0 1 1 0 0
+panel			data/bgs/st3/pn11.gif		none	none
+order			a
+music			data/music/st3a.ogg
+settime			99
+scrollspeed 	0.5
+cameraoffset 	0 -200
+stagenumber 	3
+spawn1			30 20 300
+spawn2			60 40 300
+spawn3			90 20 300
+spawn4			120 40 300
+updatescript 	data/scripts/updatelevel/camera_st3b.c
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+wall		-200 450 -1000 -1000 0 570 285 1000
+
+wall		17 387 0 570 1500 1500 285 1000
+
+#########################################################################################
+
+spawn		St3_Fliper
+flip		1
+coords		-180 180 0
+at			0
+
+spawn		St3_Lamp1
+flip		1
+coords		1 1 0
+at			0
+
+spawn		St3_Grade
+flip		1
+coords		0 470 0
+at			0
+
+#########################################################################################
+
+spawn		Arcade
+flip		1
+coords		200 195 0
+at			0
+
+spawn		Arcade
+flip		1
+coords		300 245 0
+at			0
+
+spawn		Arcade
+flip		1
+coords		350 270 0
+at			0
+
+spawn		Arcade
+flip		1
+coords		400 295 0
+at			0
+
+spawn		Arcade
+flip		1
+coords		510 350 0
+at			0
+
+spawn		Arcade
+flip		1
+coords		550 370 0
+at			0
+
+spawn		Galsia_Wait2
+flip		1
+coords		170 200 0
+at			0
+
+spawn		Galsia_Wait2
+flip		1
+coords		270 250 0
+at			0
+
+spawn		Galsia_Wait2
+flip		1
+coords		480 355 0
+at			0
+
+spawn		Galsia_Wait2
+flip		1
+coords		520 375 0
+at			0
+
+group		1000 1000
+at			1
+
+spawn		BasicX1
+flip		1
+coords		800 400 0
+at			1
+
+spawn		BasicX1
+flip		1
+coords		800 400 0
+at			1
+
+spawn		BasicX1
+flip		1
+coords		-100 180 0
+at			100
+
+spawn		BasicX1
+flip		1
+coords		-100 180 0
+at			100

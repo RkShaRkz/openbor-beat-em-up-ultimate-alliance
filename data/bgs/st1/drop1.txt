@@ -1,0 +1,27 @@
+name				st1_drop1
+type				none
+shadow				0
+alpha				4
+animationscript	 	data/scripts/script.c
+
+anim idle
+	loop	1
+	delay	6
+	offset	50 54
+	frame	data/bgs/st1/drop00.gif
+	@cmd spawn01 "st1_drop2" -60 0 0
+	frame	data/bgs/st1/drop01.gif
+	@cmd spawn01 "st1_drop2" 60 0 0
+	frame	data/bgs/st1/drop02.gif
+	@cmd spawn01 "st1_drop2" 0 0 -30
+	frame	data/bgs/st1/drop03.gif
+	@cmd spawn01 "st1_drop2" 0 0 10
+	frame	data/bgs/st1/drop04.gif
+	@cmd spawn01 "st1_drop2" -30 0 30
+	@cmd spawn01 "st1_drop2" -30 0 -30
+	frame	data/bgs/st1/drop05.gif
+	@cmd spawn01 "st1_drop2" 30 0 30
+	@cmd spawn01 "st1_drop2" 30 0 -30
+	frame	data/bgs/st1/drop00.gif
+	frame	data/bgs/st1/empty.gif
+

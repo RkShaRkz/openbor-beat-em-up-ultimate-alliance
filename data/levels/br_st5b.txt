@@ -1,0 +1,243 @@
+background	data/bgs/Br05/back02.gif
+panel		data/bgs/Br05/pn02.gif		none	none
+frontpanel	data/bgs/Front.gif		#100 0 1 -32 -4 0 0 1 1 1 0
+order		a
+music		data/music/Lv5b.ogg
+settime		99
+bgspeed 35 2
+scrollspeed 0.5
+stagenumber 5
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+Wall  4  275  -5  0  21  80  72  300
+
+spawn		Box
+flip		1
+coords		250 215 0
+at			0
+
+spawn		Box
+flip		1
+coords		350 215 0
+at			0
+
+
+spawn		Pipe
+flip		1
+coords		350 240 0
+at			0
+
+
+group		5 5
+at			300
+
+wait
+at			300
+
+spawn		BasicX3
+flip		1
+coords		600 230 0
+at			300
+
+spawn		Mic2
+Alias           Michael
+Map             4
+flip		1
+coords		600 260 0
+at			300
+
+spawn		Andore
+Map             3
+flip		1
+coords		-100 230 0
+at			300
+
+spawn		Gneiss
+Alias           Sonny
+flip		1
+coords		-100 260 0
+at			300
+
+spawn		KickBoxer0
+flip		0
+coords		300 250 300
+at			300
+
+spawn		KickBoxer1
+flip		0
+coords		350 250 300
+at                      300
+
+2pspawn		KickBoxer0
+flip		0
+coords		600 250 0
+at			300
+
+3pspawn		KickBoxer1
+flip		0
+coords		-100 250 0
+at			300
+
+spawn		KickBoxer0
+4pspawn
+flip		0
+coords		700 250 0
+at			300
+
+group		5 5
+at			600
+
+wait
+at			600
+
+spawn		Gneiss2
+map             3
+Alias           Elmer
+map             2
+flip		0
+coords		650 230 0
+at			600
+
+spawn		BasicX3
+flip		1
+coords		-100 230 0
+at			600
+
+spawn		Billy1
+Alias           Billy
+flip		1
+coords		-200 230 0
+at			600
+
+spawn		Elmer2
+Alias           Elmer
+flip		1
+coords		-100 230 0
+at			600
+
+spawn		Rubby1
+alias           Rubby
+flip		1
+coords		-200 230 0
+at			600
+
+spawn		Gneiss_wait0
+map             3
+alias           THug
+flip		0
+coords		700 230 0
+at			601
+
+spawn		Mic_wait0
+alias           Marley
+Map             3
+flip		0
+coords		600 245 0
+at			601
+
+group		5 5
+at			1000
+
+wait
+at			1000
+
+spawn		BasicX3
+flip		1
+coords		600 230 0
+at			1000
+
+spawn		MIc2
+alias           Mic
+flip		1
+coords		600 260 0
+at			1000
+
+spawn		Gneiss1
+alias           Jhow
+flip		1
+coords		-100 230 0
+at			1000
+
+spawn		BasicX1
+flip		1
+coords		-100 260 0
+at			1000
+
+spawn		KickBoxer0
+flip		0
+coords		300 250 300
+at			1000
+
+spawn		KickBoxer1
+flip		0
+coords		350 250 300
+at			1000
+
+spawn		KickBoxer0
+2pspawn
+flip		0
+coords		600 250 0
+at			1000
+
+spawn		KickBoxer1
+3pspawn
+flip		0
+coords		-100 250 0
+at			1000
+
+spawn		KickBoxer0
+4pspawn
+flip		0
+coords		700 250 0
+at			1000
+
+spawn		Rubby2
+alias           Rubby
+Map             3
+flip		1
+coords		-100 230 0
+at			1000
+
+spawn		BasicX3
+flip		1
+coords		-200 230 0
+at			1000
+
+spawn		Slick2
+alias           Slick
+MAp             3
+flip		1
+coords		-100 230 0
+at			1000
+
+spawn		Elmer2
+Alias           Elmer
+flip		1
+coords		-200 230 0
+at			1000
+
+group		5 5
+at			1100
+
+wait
+at			1100
+
+spawn		Jack1
+flip		0
+coords		400 210 300
+at			1100
+
+spawn		Barbon1
+flip		0
+coords		400 230 300
+at			1100

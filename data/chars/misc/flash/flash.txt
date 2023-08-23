@@ -1,0 +1,24 @@
+name			Flash
+type			none
+shadow			0
+antigravity 	100
+toflip			1
+animationscript	data/scripts/script.c
+
+
+anim idle
+	loop	0
+	delay	2
+	offset	195 155
+	frame	data/chars/misc/flash/flash00.gif
+	frame	data/chars/misc/flash/flash01.gif
+	frame	data/chars/misc/flash/flash02.gif
+	frame	data/chars/misc/flash/flash03.gif
+	frame	data/chars/misc/flash/flash04.gif
+	frame	data/chars/misc/flash/flash05.gif
+	frame	data/chars/misc/flash/flash06.gif
+	frame	data/chars/misc/flash/flash07.gif
+	frame	data/chars/misc/flash/flash08.gif
+	frame	data/chars/misc/flash/flash09.gif
+	@cmd suicide
+	frame	data/chars/misc/flash/empty.gif

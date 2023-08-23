@@ -1,0 +1,23 @@
+name			Burn
+type			none
+shadow			0
+antigravity		100
+toflip			1
+alpha			1
+animationscript	data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	6
+	offset	110 120
+	sound	data/sounds/kof/Burn.wav
+	frame	data/chars/misc/burn/burn00.gif
+	frame	data/chars/misc/burn/burn01.gif
+	frame	data/chars/misc/burn/burn02.gif
+	frame	data/chars/misc/burn/burn03.gif
+	frame	data/chars/misc/burn/burn04.gif
+	frame	data/chars/misc/burn/burn05.gif
+	frame	data/chars/misc/burn/burn06.gif
+	@cmd suicide
+	frame	data/chars/misc/burn/empty.gif
+

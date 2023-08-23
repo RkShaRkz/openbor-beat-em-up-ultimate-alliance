@@ -1,0 +1,22 @@
+name			st1_thunder
+type			none
+shadow			0
+setlayer		1000
+animationscript data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	6
+	offset	1200 1200
+	@cmd sampleX "data/sounds/thunder.wav" "data/sounds/thunder2.wav" 0
+	drawmethod alpha 1
+	frame	data/bgs/st1/thunder00.gif
+	drawmethod alpha 3
+	frame	data/bgs/st1/thunder00.gif
+	drawmethod alpha 6
+	frame	data/bgs/st1/thunder00.gif
+	@cmd looper 1 1
+	nodrawmethod
+	@cmd suicide
+	frame	data/bgs/st1/thunder01.gif
+

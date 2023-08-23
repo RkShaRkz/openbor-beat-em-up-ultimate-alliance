@@ -1,0 +1,355 @@
+##ATTRIBUTES
+
+#SKILLS		***
+#LIFE		***
+#POWER		***
+#SPEED		**
+#JUMP		**
+#SPECIAL	**
+
+##MAIN
+name				Guy_sword
+type				none
+hostile				enemy
+candamage			enemy obstacle
+projectilehit		        enemy obstacle
+
+##LIFE
+health				0 #200/300/400/500/600/700
+
+##POWER
+offense 			all 2 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				10 #8/10/12/14/16/18
+running 			24 2.9 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			15 #13/15/17/19/21/23
+jumpheight 			3.1 #2.9/3.1/3.3/3.5/3.7/3.9
+jumpmove			0 1 #PLAYER ONLY
+
+##SPECIAL
+mp					0
+mprate  			5 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		33 #BASE 36
+grabfinish 			0 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				74
+
+##MISC
+jugglepoints		30
+guardpoints			87
+guardrate			13
+risetime			170
+riseinv				0.2 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+keyscript			data/scripts/key/Axel.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+script				data/scripts/updateentity/Guy_sword.c
+
+##ICONS
+icon				data/chars/Guy/icon.gif 1
+#iconmphigh			data/chars/Guy/sword/iconmp.gif 1
+
+##PARROWS
+parrow				data/sprites/parrow.gif 	-15 -140
+parrow2				data/sprites/parrow2.gif 	-15 -140
+parrow3				data/sprites/parrow3.gif 	-15 -140
+parrow4				data/sprites/parrow4.gif 	-15 -140
+
+##DIESOUND
+diesound			data/voices/Guy/sword/Guy1.wav
+
+##REMAPS
+remap				data/chars/guy/idle00.gif data/chars/guy/alter1.gif
+remap				data/chars/guy/idle00.gif data/chars/guy/alter2.gif
+remap				data/chars/guy/idle00.gif data/chars/guy/alter3.gif
+remap				data/chars/guy/idle00.gif data/chars/guy/alter4.gif
+remap				data/chars/guy/idle00.gif data/chars/guy/alter5.gif
+
+com 				a2	freespecial		#RAGE
+
+##LOADS
+knife				swordT
+load                            Guy_swords
+
+##ANIMATIONS#############################################################################
+
+anim idle
+        loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	16
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Guy/sword/idle01.gif
+	frame	data/chars/Guy/sword/idle02.gif
+	frame	data/chars/Guy/sword/idle03.gif
+	frame	data/chars/Guy/sword/idle02.gif
+
+anim walk
+	loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Guy/sword/walk01.gif
+	frame	data/chars/Guy/sword/walk02.gif
+	frame	data/chars/Guy/sword/walk03.gif
+	frame	data/chars/Guy/sword/walk04.gif
+	frame	data/chars/Guy/sword/walk05.gif
+	frame	data/chars/Guy/sword/walk06.gif
+
+anim run
+        loop	1
+	offset	238 177
+	bbox	226 105 30 72
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Guy/sword/run01.gif
+	frame	data/chars/Guy/sword/run02.gif
+	sound	data/chars/players/haggar/hagg11.wav
+	frame	data/chars/Guy/sword/run03.gif
+	frame	data/chars/Guy/sword/run04.gif
+	frame	data/chars/Guy/sword/run05.gif
+	sound	data/chars/players/haggar/hagg11.wav
+	frame	data/chars/Guy/sword/run06.gif
+
+anim jumpdelay
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Guy/sword/land01.gif
+
+anim jump
+        offset	238 177
+	bbox	226 102 23 50
+	delay	1
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Guy/sword/jump01.gif
+	delay	16
+	frame	data/chars/Guy/sword/jump01.gif
+	delay	17
+	frame	data/chars/Guy/sword/jump01.gif
+	delay	15
+	frame	data/chars/Guy/sword/jump02.gif
+	delay	999
+	frame	data/chars/Guy/sword/jump01.gif
+
+anim walkoff
+	loop	0
+	delay	30
+	offset	243 176
+	bbox 	230 89 21 69
+	@cmd jump 1
+	drawmethod  245  245  0  0  0  -1  -1
+        frame	data/chars/Guy/sword/jump01.gif
+	delay	16
+	frame	data/chars/Guy/sword/jump02.gif
+
+anim jumpland
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/Guy/sword/land01.gif
+
+anim attack1
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	hitflash blood
+	loop	0
+	delay	8
+	offset	238 177
+	bbox 	225 114 28 63
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh.wav
+	attack 79 77 19 3 8 1 1 0 10 12
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Guy/sword/a101.gif
+	attack 254 48 81 89 25 1 1 0 10 12
+		delay  4
+	frame	data/chars/Guy/sword/a102.gif
+	attack 257 87 97 44 25 1 0 0 10 12
+	frame	data/chars/Guy/sword/a103.gif
+		attack1  252  125  81  58  25  1  0  0  10  12
+	frame	data/chars/Guy/sword/a104.gif
+		Attack1  0
+	frame	data/chars/Guy/sword/a105.gif
+
+anim jumpattack #JUMP STATIC
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+        offset	238 177
+	bbox	226 102 23 50
+         hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/chars/Guy/sword/guy03.wav
+	delay	5
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Guy/sword/jump02.gif
+	delay	7
+	frame	data/chars/Guy/sword/ja101.gif
+	attack	240 79 40 50 7 1 0 0 20 15
+	delay	35
+	frame	data/chars/Guy/sword/ja102.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	7
+	frame	data/chars/Guy/sword/ja101.gif
+	delay	5
+	frame	data/chars/Guy/sword/jump02.gif
+	delay	999
+	frame	data/chars/Guy/sword/jump01.gif
+
+anim jumpattack2 #JUMP DOWN
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	4
+	offset	233 171
+	bbox 	223 87 33 86
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+		attack1  222  87  36  85  8  1  0  0  0  10
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Guy/sword/ja301.gif
+
+anim jumpattack3 #JUMP UP
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	offset	238 177
+	bbox	226 102 23 50
+	delay	1
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Guy/sword/ja301.gif
+	attack	226 122 32 35 4 0 0 0 15 15
+	delay	999
+	frame	data/chars/Guy/sword/ja301.gif
+
+anim jumpforward #JUMP FORWARD
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	offset	238 177
+	bbox	226 102 23 50
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+	delay	4
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Guy/sword/jump02.gif
+	frame	data/chars/Guy/sword/ja201.gif
+	attack	240 115 54 20 7 1 0 0 20 15
+	delay	35
+	frame	data/chars/Guy/sword/ja202.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/Guy/sword/ja201.gif
+	delay	999
+	frame	data/chars/Guy/sword/jump01.gif
+
+anim attackboth #THROW sword
+	throwframe 1 9999
+	loop	0
+	delay	8
+	offset	238 177
+	@cmd antiwall 20 -20 -1
+	drawmethod  245  245  0  0  0  -1  -1
+		bbox  230  113  25  64
+	frame	data/chars/Guy/sword/a101.gif
+	@cmd throweap 46 47 -1 3 0 0
+	frame	data/chars/Guy/sword/a102.gif
+	frame	data/chars/Guy/a202.gif
+
+anim Freespecial
+	fastattack 1
+	jugglecost 5
+	energycost 120 1
+	mponly	1
+        hitflash blood
+	hitfx	data/sounds/kof/Cutter.wav
+		offset  238  177
+		delay  15
+	drawmethod  245  245  0  0  0  -1  -1
+	@cmd projectile 1 "rage" 0 -1 0
+	@cmd spawnbind "ragefull" 0 0 1
+	frame	data/chars/Guy/sword/sp101.gif
+        delay  4
+	sound	data/sounds/Whoosh.wav
+		attack1  279  61  50  58  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp102.gif
+		Attack1  0
+	frame	data/chars/Guy/sword/sp103.gif
+	sound	data/sounds/Whoosh.wav
+		attack1  266  136  50  48  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp104.gif
+		Attack1  0
+	frame	data/chars/Guy/sword/sp105.gif
+	sound	data/sounds/Whoosh.wav
+		attack1  250  102  102  41  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp106.gif
+		Attack1  0
+	frame	data/chars/Guy/sword/sp107.gif
+	frame	data/chars/Guy/sword/sp108.gif
+	frame	data/chars/Guy/sword/sp101.gif
+	sound	data/sounds/Whoosh.wav
+		attack1  280  69  55  52  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp102.gif
+		Attack1  0
+	frame	data/chars/Guy/sword/sp103.gif
+	sound	data/sounds/Whoosh.wav
+		attack1  254  133  65  55  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp104.gif
+		Attack1  0
+	frame	data/chars/Guy/sword/sp105.gif
+	sound	data/sounds/Whoosh.wav
+		attack1  246  103  108  42  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp106.gif
+		Attack1  0
+	frame	data/chars/Guy/sword/sp107.gif
+	frame	data/chars/Guy/sword/sp108.gif
+	frame	data/chars/Guy/sword/sp101.gif
+	sound	data/sounds/Whoosh.wav
+		attack1  273  59  53  68  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp102.gif
+		Attack1  0
+	frame	data/chars/Guy/sword/sp103.gif
+	sound	data/sounds/Whoosh.wav
+		attack1  239  151  87  37  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp104.gif
+		Attack1  0
+	frame	data/chars/Guy/sword/sp105.gif
+	sound	data/sounds/Whoosh.wav
+		attack1  242  101  110  42  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp106.gif
+		Attack1  0
+	frame	data/chars/Guy/sword/sp107.gif
+	frame	data/chars/Guy/sword/sp108.gif
+        delay  12
+	frame	data/chars/Guy/sword/sp109.gif
+		attack1  255  100  88  43  15  1  0  0  10  10		
+	sound	data/chars/guy/guy02.wav
+	@cmd target 4 4 0 0 0
+	@cmd dash
+	frame	data/chars/Guy/sword/sp110.gif
+	frame  data/chars/Guy/sword/sp110.gif
+

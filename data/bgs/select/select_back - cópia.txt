@@ -1,0 +1,112 @@
+name				select_back
+type				none
+shadow				0
+setlayer			-1010
+onspawnscript	 	data/scripts/onspawn/select.c
+
+anim idle
+	loop	1
+	delay	5
+	offset	1 125
+	drawmethod alpha 6
+	drawmethod channel 0.50
+	frame	data/bgs/select/back00.gif
+	frame	data/bgs/select/back01.gif
+	frame	data/bgs/select/back02.gif
+	frame	data/bgs/select/back03.gif
+	frame	data/bgs/select/back04.gif
+	frame	data/bgs/select/back05.gif
+	frame	data/bgs/select/back06.gif
+	frame	data/bgs/select/back07.gif
+	frame	data/bgs/select/back08.gif
+	frame	data/bgs/select/back09.gif
+	frame	data/bgs/select/back10.gif
+	frame	data/bgs/select/back11.gif
+	frame	data/bgs/select/back12.gif
+	frame	data/bgs/select/back13.gif
+	frame	data/bgs/select/back14.gif
+	frame	data/bgs/select/back15.gif
+	frame	data/bgs/select/back16.gif
+	frame	data/bgs/select/back17.gif
+	frame	data/bgs/select/back18.gif
+	frame	data/bgs/select/back19.gif
+	frame	data/bgs/select/back20.gif
+	frame	data/bgs/select/back21.gif
+	frame	data/bgs/select/back22.gif
+	frame	data/bgs/select/back23.gif
+	frame	data/bgs/select/back24.gif
+	frame	data/bgs/select/back25.gif
+	frame	data/bgs/select/back26.gif
+	frame	data/bgs/select/back27.gif
+	frame	data/bgs/select/back28.gif
+	frame	data/bgs/select/back29.gif
+	frame	data/bgs/select/back30.gif
+	frame	data/bgs/select/back31.gif
+	frame	data/bgs/select/back32.gif
+	frame	data/bgs/select/back33.gif
+	frame	data/bgs/select/back34.gif
+	frame	data/bgs/select/back35.gif
+	frame	data/bgs/select/back36.gif
+	frame	data/bgs/select/back37.gif
+	frame	data/bgs/select/back38.gif
+	frame	data/bgs/select/back39.gif
+	frame	data/bgs/select/back40.gif
+	frame	data/bgs/select/back41.gif
+	frame	data/bgs/select/back42.gif
+	frame	data/bgs/select/back43.gif
+	frame	data/bgs/select/back44.gif
+	frame	data/bgs/select/back45.gif
+	frame	data/bgs/select/back46.gif
+	frame	data/bgs/select/back47.gif
+	frame	data/bgs/select/back48.gif
+	frame	data/bgs/select/back49.gif
+	frame	data/bgs/select/back50.gif
+	frame	data/bgs/select/back51.gif
+	frame	data/bgs/select/back52.gif
+	frame	data/bgs/select/back53.gif
+	frame	data/bgs/select/back54.gif
+	frame	data/bgs/select/back55.gif
+	frame	data/bgs/select/back56.gif
+	frame	data/bgs/select/back57.gif
+	frame	data/bgs/select/back58.gif
+	frame	data/bgs/select/back59.gif
+	frame	data/bgs/select/back60.gif
+	frame	data/bgs/select/back61.gif
+	frame	data/bgs/select/back62.gif
+	frame	data/bgs/select/back63.gif
+	frame	data/bgs/select/back64.gif
+	frame	data/bgs/select/back65.gif
+	frame	data/bgs/select/back66.gif
+	frame	data/bgs/select/back67.gif
+	frame	data/bgs/select/back68.gif
+	frame	data/bgs/select/back69.gif
+	frame	data/bgs/select/back70.gif
+	frame	data/bgs/select/back71.gif
+	frame	data/bgs/select/back72.gif
+	frame	data/bgs/select/back73.gif
+	frame	data/bgs/select/back74.gif
+	frame	data/bgs/select/back75.gif
+	frame	data/bgs/select/back76.gif
+	frame	data/bgs/select/back77.gif
+	frame	data/bgs/select/back78.gif
+	frame	data/bgs/select/back79.gif
+	frame	data/bgs/select/back80.gif
+	frame	data/bgs/select/back81.gif
+	frame	data/bgs/select/back82.gif
+	frame	data/bgs/select/back83.gif
+	frame	data/bgs/select/back84.gif
+	frame	data/bgs/select/back85.gif
+	frame	data/bgs/select/back86.gif
+	frame	data/bgs/select/back87.gif
+	frame	data/bgs/select/back88.gif
+	frame	data/bgs/select/back89.gif
+	frame	data/bgs/select/back90.gif
+	frame	data/bgs/select/back91.gif
+	frame	data/bgs/select/back92.gif
+	frame	data/bgs/select/back93.gif
+	frame	data/bgs/select/back94.gif
+	frame	data/bgs/select/back95.gif
+	frame	data/bgs/select/back96.gif
+	frame	data/bgs/select/back97.gif
+	frame	data/bgs/select/back98.gif
+	frame	data/bgs/select/back99.gif

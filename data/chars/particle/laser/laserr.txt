@@ -1,0 +1,28 @@
+name			Particle_LaserR
+type			none
+candamage		player obstacle
+health			1
+nolife			1
+lifespan		3
+remove			1
+offense 		all 3.5
+shadow			0
+antigravity		100
+alpha			1
+animationscript	data/scripts/script.c
+
+anim idle
+	fastattack 1
+	jugglecost 0
+	forcedirection -1
+	dot 0 1 3 120 1
+	hitflash laserhit
+	loop	1
+	delay	2
+	offset	143 192
+	hitfx	data/sounds/kof/StrongPunch.wav
+	burn 163 134 95 11 8 1 1 0 12 12
+	frame	data/chars/particle/laser/laser01.gif
+		delay	3
+	frame	data/chars/particle/laser/laser01.gif
+

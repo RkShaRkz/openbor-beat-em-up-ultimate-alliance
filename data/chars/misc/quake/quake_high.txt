@@ -1,0 +1,16 @@
+name				Quake_High
+type				none
+shadow				0
+animationscript		data/scripts/script.c
+
+anim idle
+	loop	0
+	quakeframe 0 4 12
+	delay	6
+	offset	160 120
+	frame	data/chars/misc/quake/empty.gif
+	frame	data/chars/misc/quake/empty.gif
+	frame	data/chars/misc/quake/empty.gif
+	frame	data/chars/misc/quake/empty.gif
+	@cmd suicide
+	frame	data/chars/misc/quake/empty.gif

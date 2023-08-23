@@ -1,0 +1,198 @@
+name				st7_elevatorM #ELEVATOR ANIMATED BGLAYER
+type				none
+shadow				0
+setlayer			-50
+animationscript	 	data/scripts/script.c
+
+load				BasicX4
+load				Signal_Bottle
+load				Biker_Bomb
+load				BikerX
+load				HakuyoX
+load				NinjaX
+load				Ninja5
+load				KickBoxerX
+load				BigBenX
+load				Jack1
+load				Jack2
+load				JetX
+load				ParticleX
+load				WeaponX
+
+anim idle
+	loop	1 2 3
+	delay	64
+	offset	1 1229
+	frame	data/bgs/st7/bg03.gif
+	@cmd spawnparent "st7_elevatorS" 0 0 0
+	frame	data/bgs/st7/bg03.gif
+	@cmd anichangeLESS "ANI_FOLLOW1" 1
+	frame	data/bgs/st7/bg03.gif
+	frame	data/bgs/st7/bg03.gif
+	
+anim follow1
+	loop	0
+	delay	449
+	offset	1 1229
+	sound	data/sounds/elevator.wav
+	@cmd leaper -0.25 0 0.25
+	@cmd spawn01 "quake_high" 0 0 0
+	frame	data/bgs/st7/bg03.gif
+		delay	64
+	@cmd leaper 0 0 0
+	@cmd spawn01 "BasicX4" -100 0 240
+	@cmd spawn01 "BasicX4" -125 0 240
+	@cmd spawn01 "BasicX4" -150 0 240
+	@cmd spawn01 "BasicX4" -100 0 260
+	@cmd spawn01 "BasicX4" -125 0 260
+	@cmd spawn01 "BasicX4" -150 0 260
+	@cmd spawn01 "JetX" 400 300 -50
+	frame	data/bgs/st7/bg03.gif
+	@cmd anichangeMORE "ANI_FOLLOW2" 2
+	frame	data/bgs/st7/bg03.gif
+	
+anim follow2
+	loop	1 1 2
+	delay	64
+	offset	1 1229
+	frame	data/bgs/st7/bg03.gif
+	@cmd anichangeLESS "ANI_FOLLOW3" 1
+	frame	data/bgs/st7/bg03.gif
+	frame	data/bgs/st7/bg03.gif
+
+anim follow3
+	loop	0
+	delay	450
+	offset	1 1229
+	sound	data/sounds/elevator.wav
+	@cmd leaper -0.25 0 0.25
+	@cmd spawn01 "quake_high" 0 0 0
+	frame	data/bgs/st7/bg03.gif
+		delay	64
+	@cmd leaper 0 0 0
+	@cmd spawn01 "WeaponX" 650 230 -215
+	@cmd spawn01 "HakuyoX" 650 300 -200
+	@cmd spawn01 "HakuyoX" 600 300 -230
+	@cmd spawn01 "HakuyoX" -200 0 -215
+	@cmd spawn01 "HakuyoX" -200 0 -230
+	@cmd spawn01 "NinjaX" 200 0 -100
+	@cmd spawn01 "NinjaX" 200 0 -100
+	@cmd spawn01 "Ninja5" -200 0 -200
+	@cmd spawn01 "Ninja5" -300 0 -200
+	frame	data/bgs/st7/bg03.gif
+	@cmd anichangeMORE "ANI_FOLLOW4" 2
+	frame	data/bgs/st7/bg03.gif
+	
+anim follow4
+	loop	1 1 2
+	delay	64
+	offset	1 1229
+	frame	data/bgs/st7/bg03.gif
+	@cmd anichangeLESS "ANI_FOLLOW5" 1
+	frame	data/bgs/st7/bg03.gif
+	frame	data/bgs/st7/bg03.gif
+	
+anim follow5
+	loop	0
+	delay	416
+	offset	1 1229
+	sound	data/sounds/elevator.wav
+	@cmd leaper 0 0 0.25
+	@cmd spawn01 "quake_high" 0 0 0
+	frame	data/bgs/st7/bg03.gif
+		delay	1024
+	@cmd leaper 0 0 0
+	@cmd spawn01 "BikerX" 300 0 -400
+	@cmd spawn01 "BikerX" 250 0 -430
+	@cmd spawn01 "BikerX" 290 0 -400
+	@cmd spawn01 "BikerX" 260 0 -430
+	@cmd spawn01 "BikerX" 280 0 -400
+	@cmd spawn01 "BikerX" 270 0 -430
+	@cmd spawn01 "BikerX" 310 0 -400
+	@cmd spawn01 "BikerX" 240 0 -430
+	@cmd spawn01 "KickBoxerX" 730 300 -400
+	@cmd spawn01 "KickBoxerX" 680 300 -430
+	@cmd spawn01 "KickBoxerX" 710 300 -400
+	@cmd spawn01 "KickBoxerX" 720 300 -430
+	frame	data/bgs/st7/bg03.gif
+		delay	64
+	@cmd spawn01 "Biker_Bomb" 600 0 -400
+	frame	data/bgs/st7/bg03.gif
+		delay	64
+	@cmd spawn01 "Biker_Bomb" 500 0 -400
+	frame	data/bgs/st7/bg03.gif
+		delay	64
+	@cmd spawn01 "Biker_Bomb" 700 0 -400
+	frame	data/bgs/st7/bg03.gif
+	@cmd anichangeMORE "ANI_FOLLOW6" 2
+	frame	data/bgs/st7/bg03.gif
+
+anim follow6
+	loop	1 1 2
+	delay	64
+	offset	1 1229
+	@cmd spawnscreen "st7_backchange" 0 0 0
+	frame	data/bgs/st7/bg03.gif
+	@cmd anichangeLESS "ANI_FOLLOW7" 1
+	frame	data/bgs/st7/bg03.gif
+	frame	data/bgs/st7/bg03.gif
+	
+anim follow7
+	loop	0
+	delay	416
+	offset	1 1229
+	sound	data/sounds/elevator.wav
+	@cmd leaper 0 0 0.25
+	@cmd spawn01 "quake_high" 0 0 0
+	frame	data/bgs/st7/bg03.gif
+		delay	64
+	@cmd leaper 0 0 0
+	@cmd spawn01 "BasicX4" 780 300 -600
+	@cmd spawn01 "BasicX4" 760 300 -610
+	@cmd spawn01 "BasicX4" 740 300 -620
+	@cmd spawn01 "BasicX4" 720 300 -630
+	@cmd spawn01 "Signal_Bottle" 300 0 -500
+	@cmd spawn01 "Signal_Bottle" 320 0 -500
+	@cmd spawn01 "Signal_Bottle" 340 0 -500
+	@cmd spawn01 "Signal_Bottle" 360 0 -500
+	@cmd spawn01 "Bigben3" 300 0 -500
+	@cmd spawn01 "Bigben4" 200 0 -500
+	@cmd spawn01 "Bigben3" 260 0 -500
+	@cmd spawn01 "Bigben4" 240 0 -500
+	@cmd spawn01 "Jack1" 300 0 -500
+	@cmd spawn01 "Jack2" 350 0 -500
+	frame	data/bgs/st7/bg03.gif
+	@cmd anichangeMORE "ANI_FOLLOW8" 2
+	frame	data/bgs/st7/bg03.gif
+
+anim follow8
+	loop	1 1 2
+	delay	64
+	offset	1 1229
+	frame	data/bgs/st7/bg03.gif
+	@cmd anichangeLESS "ANI_FOLLOW9" 1
+	frame	data/bgs/st7/bg03.gif
+	frame	data/bgs/st7/bg03.gif
+	
+anim follow9
+	loop	0
+	delay	832
+	offset	1 1229
+	sound	data/sounds/elevator2.wav
+	@cmd leaper 0 0 0.25
+	@cmd spawn01 "quake_high" 0 0 0
+	frame	data/bgs/st7/bg03.gif
+		delay	64
+	@cmd leaper 0 0 0
+	@cmd baseMap 0 0 0 0 0 0 0 0
+	@cmd bossMusicX
+	@cmd spawn01 "ParticleX" 400 0 -1000
+	frame	data/bgs/st7/bg03.gif
+	@cmd anichangeMORE "ANI_FOLLOW10" 2
+	frame	data/bgs/st7/bg03.gif
+
+anim follow10
+	loop	0
+	delay	4
+	offset	1 1229
+	frame	data/bgs/st7/bg03.gif

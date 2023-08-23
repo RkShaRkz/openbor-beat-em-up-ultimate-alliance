@@ -1,0 +1,36 @@
+##MAIN
+name				BarbonS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle #RAGE
+	loop	0
+	delay	1
+	offset	143 192
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/barbon/stripclothes04.gif
+	frame	data/chars/barbon/special00.gif
+	frame	data/chars/barbon/special01.gif
+	frame	data/chars/barbon/special02.gif
+	frame	data/chars/barbon/special03.gif
+	frame	data/chars/barbon/special04.gif
+	frame	data/chars/barbon/special05.gif
+	frame	data/chars/barbon/special06.gif
+	frame	data/chars/barbon/special00.gif
+	frame	data/chars/barbon/special01.gif
+	frame	data/chars/barbon/special02.gif
+	frame	data/chars/barbon/special03.gif
+	frame	data/chars/barbon/special04.gif
+	frame	data/chars/barbon/special05.gif
+	frame	data/chars/barbon/special06.gif
+	frame	data/chars/barbon/idle00.gif

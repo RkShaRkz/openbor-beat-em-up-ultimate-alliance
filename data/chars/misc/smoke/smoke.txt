@@ -1,0 +1,56 @@
+name			Smoke
+type			none
+shadow			0
+antigravity		100
+toflip			1
+alpha			1
+animationscript	data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	3
+	offset	67 50
+	frame	data/chars/misc/smoke/smoke00.gif
+	frame	data/chars/misc/smoke/smoke01.gif
+	frame	data/chars/misc/smoke/smoke02.gif
+	frame	data/chars/misc/smoke/smoke03.gif
+	frame	data/chars/misc/smoke/smoke04.gif
+	frame	data/chars/misc/smoke/smoke05.gif
+	frame	data/chars/misc/smoke/smoke06.gif
+	frame	data/chars/misc/smoke/smoke07.gif
+	frame	data/chars/misc/smoke/smoke08.gif
+	frame	data/chars/misc/smoke/smoke09.gif
+	frame	data/chars/misc/smoke/smoke10.gif
+	frame	data/chars/misc/smoke/smoke11.gif
+	frame	data/chars/misc/smoke/smoke12.gif
+	frame	data/chars/misc/smoke/smoke13.gif
+	frame	data/chars/misc/smoke/smoke14.gif
+	frame	data/chars/misc/smoke/smoke15.gif
+	frame	data/chars/misc/smoke/smoke16.gif
+	frame	data/chars/misc/smoke/smoke17.gif
+	frame	data/chars/misc/smoke/smoke18.gif
+	frame	data/chars/misc/smoke/smoke19.gif
+		delay	6
+	frame	data/chars/misc/smoke/smoke20.gif
+	frame	data/chars/misc/smoke/smoke21.gif
+	frame	data/chars/misc/smoke/smoke22.gif
+	frame	data/chars/misc/smoke/smoke23.gif
+	frame	data/chars/misc/smoke/smoke24.gif
+	frame	data/chars/misc/smoke/smoke25.gif
+	frame	data/chars/misc/smoke/smoke26.gif
+	frame	data/chars/misc/smoke/smoke27.gif
+	frame	data/chars/misc/smoke/smoke28.gif
+	frame	data/chars/misc/smoke/smoke29.gif
+	frame	data/chars/misc/smoke/smoke30.gif
+	frame	data/chars/misc/smoke/smoke31.gif
+	frame	data/chars/misc/smoke/smoke32.gif
+	frame	data/chars/misc/smoke/smoke33.gif
+	frame	data/chars/misc/smoke/smoke34.gif
+	frame	data/chars/misc/smoke/smoke35.gif
+	frame	data/chars/misc/smoke/smoke36.gif
+	frame	data/chars/misc/smoke/smoke37.gif
+	frame	data/chars/misc/smoke/smoke38.gif
+	@cmd suicide
+	frame	data/chars/misc/smoke/empty.gif
+
+

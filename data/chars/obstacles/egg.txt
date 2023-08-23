@@ -1,0 +1,45 @@
+name				Egg
+type				obstacle
+health				1
+nolife				1
+score				2000
+offscreenkill 		1000
+gfxshadow			1 1
+animationscript 	data/scripts/script.c
+noatflash			1
+flash				flash
+
+diesound			data/sounds/Glass2.wav
+
+load				egg_explosion
+load				quake_high
+
+anim idle
+	loop	1 1 5
+	delay	8
+	offset	100 167
+	bbox 	84 118 32 51
+	platform 75 75 125 125 5 45
+	frame	data/chars/obstacles/egg00.gif
+	frame	data/chars/obstacles/egg00.gif
+	frame	data/chars/obstacles/egg01.gif
+	frame	data/chars/obstacles/egg02.gif
+	@cmd offscreenkill 30 0
+	frame	data/chars/obstacles/egg01.gif
+	
+anim fall
+	landframe 4
+	loop	1 1 4
+	delay	8
+	offset	100 167
+	hitfx	data/sounds/kof/Explosion2.wav
+	@cmd tosserX 0 0 0 0 1 0
+	frame	data/chars/obstacles/egg03.gif
+	frame	data/chars/obstacles/egg03.gif
+	frame	data/chars/obstacles/egg04.gif
+	frame	data/chars/obstacles/egg05.gif
+	@cmd spawn01 "egg_explosion" 0 0 0
+	@cmd spawn01 "quake_high" 0 0 0
+	frame	data/chars/obstacles/egg05.gif
+	@cmd suicide
+	frame	data/chars/obstacles/egg05.gif

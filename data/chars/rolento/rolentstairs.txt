@@ -1,0 +1,169 @@
+name	rolentstairs
+type	none
+projectilehit   enemy obstacle trap
+speed   0
+setlayer -40
+shadow  0
+nomove  1
+
+load			rgran2
+
+anim idle 
+	loop	0
+	offset	122 0
+	delay	4
+	movez	2
+	frame	data/chars/enemies/rolent/climbing01.gif #0
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #5
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #10
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #15
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #20
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #25
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #30
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #35
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #40
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #45
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #50
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #55
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #60
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #65
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #70
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif
+	frame	data/chars/enemies/rolent/climbing01.gif #75
+
+	
+	delay	5
+	movez	0
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing04a.gif
+	@cmd	projectile 1 "rgran2" 96 210 200 0 0 1 1
+	@cmd	projectile 1 "rgran2" 384 260 200 0 0 1 1
+	frame	data/chars/enemies/rolent/climbing04b.gif
+	frame	data/chars/enemies/rolent/climbing04c.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing04a.gif
+	@cmd	projectile 1 "rgran2" 192 190 200 0 0 1 1
+	@cmd	projectile 1 "rgran2" 30 220 200 0 0 1 1
+	@cmd	projectile 1 "rgran2" 288 250 200 0 0 1 1
+	frame	data/chars/enemies/rolent/climbing04b.gif
+	frame	data/chars/enemies/rolent/climbing04c.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing05a.gif
+	@cmd	projectile 1 "rgran2" 288 230 200 0 0 1 1
+	@cmd	projectile 1 "rgran2" 450 220 200 0 0 1 1
+	@cmd	projectile 1 "rgran2" 192 240 200 0 0 1 1
+	frame	data/chars/enemies/rolent/climbing05b.gif
+	frame	data/chars/enemies/rolent/climbing05c.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing05a.gif
+	@cmd	projectile 1 "rgran2" 384 200 200 0 0 1 1
+	@cmd	projectile 1 "rgran2" 96 260 200 0 0 1 1
+	frame	data/chars/enemies/rolent/climbing05b.gif
+	frame	data/chars/enemies/rolent/climbing05c.gif
+	
+	delay	10
+	movez	-12
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+	frame	data/chars/enemies/rolent/climbing02.gif
+	frame	data/chars/enemies/rolent/climbing03.gif
+
+	

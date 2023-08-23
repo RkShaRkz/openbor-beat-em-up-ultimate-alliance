@@ -1,0 +1,177 @@
+background	data/bgs/st4/back03.gif		0.8 1 0 0 0 0 1 1 0 0
+panel		data/bgs/st4/pn04.gif		none	none
+frontpanel	data/bgs/st4/fpn00.gif
+order		a
+settime		99
+scrollspeed 0.5
+stagenumber 1
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+spawn		St4_People
+flip		1
+coords		1 1 0
+at			0
+
+#########################################################################################
+
+spawn		Box
+flip		1
+coords		450 230 0
+at			0
+
+spawn		Drum
+flip		1
+coords		200 260 0
+at			0
+
+spawn		Drum
+flip		1
+coords		300 180 0
+at			0
+
+spawn		WeaponX
+flip		0
+coords		400 180 0
+at			0
+
+#########################################################################################
+
+group		1 1
+at			0
+wait
+at			0
+
+spawn		BasicX1
+flip		0
+coords		600 250 0
+at			0
+
+spawn		BasicX2
+flip		0
+coords		-100 250 0
+at			0
+
+spawn		BasicX3
+flip		0
+coords		600 250 0
+at			0
+
+spawn		BasicX4
+flip		0
+coords		-100 250 0
+at			0
+
+spawn		HakuyoX
+flip		0
+coords		600 250 0
+at			0
+
+spawn		NinjaX
+flip		0
+coords		-100 250 0
+at			0
+
+spawn		KickboxerX
+flip		0
+coords		600 250 0
+at			0
+
+#########################################################################################
+
+group		1 1
+at			1
+wait
+at			100
+
+spawn		BigbenX
+flip		0
+coords		-100 250 0
+at			1
+
+spawn		ElectraX
+flip		0
+coords		600 250 0
+at			1
+
+spawn		Jack2
+flip		0
+coords		-100 250 0
+at			1
+
+#########################################################################################
+
+spawn		Box
+flip		1
+coords		600 190 0
+at			101
+
+spawn		Vase
+flip		1
+coords		500 220 0
+at			101
+
+spawn		Vase
+flip		1
+coords		550 250 0
+at			101
+
+group		1 1
+at			101
+wait
+at			500
+
+spawn		Barbon2
+flip		0
+coords		600 250 0
+at			101
+
+spawn		JetX
+flip		0
+coords		-100 250 0
+at			101
+
+spawn		Zamza2
+flip		0
+coords		600 250 0
+at			101
+
+spawn		Abadede1
+flip		0
+coords		-100 250 0
+at			101
+
+spawn		Bear1
+flip		0
+coords		600 250 0
+at			101
+
+spawn		ParticleX
+flip		0
+coords		-100 250 0
+at			101
+
+spawn		Shiva1
+spawnscript data/scripts/spawnlevel/music_shiva.c
+flip		0
+coords		600 250 0
+at			101
+
+spawn		Mrx1
+spawnscript data/scripts/spawnlevel/music_mrx.c
+flip		0
+boss		1
+coords		-100 250 0
+at			101

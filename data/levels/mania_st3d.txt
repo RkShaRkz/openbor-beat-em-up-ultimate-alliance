@@ -1,0 +1,80 @@
+background	data/bgs/st3/back03.gif		1 1 0 0 0 0 1 1 0 0
+panel		data/bgs/st3/pn13.gif		none	none
+frontpanel	data/bgs/st3/fpn02.gif
+order		a
+music		data/music/st3a.ogg
+settime		60
+scrollspeed 0.5
+stagenumber 3
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+spawn		St3_Lamp3
+flip		1
+coords		1 1 0
+at			0
+
+#########################################################################################
+
+spawn		Hakuyo_Wait2
+flip		0
+coords		420 230 0
+at			0
+
+group		1000 1000
+at			1
+
+spawn		BasicX4
+flip		1
+coords		200 230 200
+at			1
+
+spawn		BasicX4
+flip		1
+coords		600 230 0
+at			1
+
+spawn		BasicX4
+flip		1
+coords		200 230 200
+at			50
+
+spawn		BasicX4
+flip		1
+coords		-100 230 0
+at			50
+
+spawn		Hakuyo4
+flip		1
+coords		-100 230 0
+at			100
+
+spawn		Hakuyo3
+2pspawn
+flip		0
+coords		-100 260 0
+at			100
+
+spawn		Hakuyo4
+3pspawn
+flip		1
+coords		200 250 300
+at			100
+
+spawn		Hakuyo3
+4pspawn
+flip		0
+coords		300 250 300
+at			100

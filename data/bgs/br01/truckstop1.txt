@@ -1,0 +1,14 @@
+name		TruckStop1
+type		panel
+speed		5
+scroll		-1
+shadow		0
+#alpha		1
+setlayer	1000
+
+anim idle
+	loop	1
+	delay	4
+	offset	158 107
+	frame	data/bgs/Br01/Truck01.gif
+

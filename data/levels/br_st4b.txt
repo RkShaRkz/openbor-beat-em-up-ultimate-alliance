@@ -1,0 +1,265 @@
+background	data/bgs/Br04/back02.gif		#1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/Br04/pn02.gif		none	none
+frontpanel	data/bgs/Front.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn03.gif
+order		a
+music		data/music/st4B.ogg
+
+settime		99
+scrollspeed 0.5
+stagenumber 4
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+spawn		Bin
+flip		1
+coords		109 215 0
+at			0
+
+spawn		Bin
+flip		1
+coords		314 200 0
+at			0
+
+spawn		bin
+flip		1
+coords		377 200 0
+at			0
+
+spawn		Bin
+flip		1
+coords		548 235 0
+at			0
+
+spawn		pipe
+flip		1
+coords		500 235 0
+at			0
+
+
+spawn		knife
+flip		1
+coords		300 280 0
+at			0
+
+
+#########################################################################################
+
+group		5 5
+at			1
+
+wait
+at			1
+
+spawn		Slick
+flip		1
+coords		600 270 0
+at			1
+
+
+spawn		Slick1
+alias           Slick
+Map             1
+flip		1
+coords		-100 270 0
+at			1
+
+
+spawn		electra1
+flip		1
+coords		-100 270 0
+at			1
+
+spawn		BasicX2
+flip		1
+coords		700 270 0
+at			1
+
+
+spawn		electra1
+flip		1
+coords		600 270 0
+at			1
+
+spawn		Mic
+flip		1
+coords		-100 270 0
+at			1
+
+spawn		Gneiss
+flip		1
+coords		700 270 0
+at			1
+
+spawn		Biker0
+flip		1
+coords		-200 270 0
+at			1
+
+
+
+spawn		Mic1
+alias           Mic
+flip		1
+coords		600 270 0
+at			1
+
+spawn		Pipe
+flip		1
+coords		-100 270 0
+at			1
+
+spawn		Biker4
+flip		1
+coords		-100 270 0
+at			1
+
+
+
+
+
+wait
+at			550
+
+spawn		Bigben1
+flip		1
+coords		300 270 50
+at			550
+
+spawn		Bigben0
+flip		1
+coords		-100 270 0
+at			550
+
+#########################################################################################
+
+
+
+#########################################################################################
+
+
+group		5 5
+at			600
+
+wait
+at			600
+
+spawn		electra3
+flip		1
+coords		600 270 0
+at			600
+
+spawn		electra0
+flip		1
+coords		-100 270 0
+at			600
+
+spawn		kickboxer0
+flip		1
+coords		-100 270 0
+at			600
+
+
+spawn		Rubby2
+alias           Rubby
+flip		1
+coords		600 270 0
+at			1200
+
+spawn		MIc
+alias           Tonny
+flip		1
+coords		-100 270 0
+at			1200
+
+spawn		Billy1
+Map             4
+Alias           Billy
+flip		1
+coords		400 270 0
+at			1500
+
+spawn		Elmer1
+Alias           Elmer
+Map             3
+flip		1
+coords		-100 270 0
+at			1500
+
+spawn		Pipe
+flip		1
+coords		-200 270 0
+at			1500
+
+group		6 6
+at			1700
+
+wait
+at			1700
+
+spawn		hakuyo0
+flip		1
+coords		600 270 0
+at			1700
+
+spawn		Gneiss2
+flip		1
+coords		-100 270 0
+at			1700
+
+spawn		basicx1
+flip		1
+coords		700 270 0
+at			1700
+
+spawn		Rubby1
+Alias           Rubby
+flip		1
+coords		-200 270 0
+at			1700
+
+spawn		Elmer1
+Alias           Elmer
+flip		1
+coords		600 270 0
+at			1700
+
+2pspawn		Mic
+flip		1
+coords		-100 270 0
+at			1700
+
+2pspawn		basicx2
+flip		1
+coords		700 270 0
+at			1700
+
+3pspawn		kickboxer2
+flip		1
+coords		-200 270 0
+at			1700
+
+
+
+3pspawn		basicx0
+flip		1
+coords		600 270 0
+at			1700
+
+spawn		bigben1
+flip		1
+coords		-100 270 0
+at			1700
+

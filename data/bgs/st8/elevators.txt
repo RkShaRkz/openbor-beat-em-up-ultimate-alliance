@@ -1,0 +1,12 @@
+name		st8_elevatorS #ENEMY ELEVATOR SHADOW UNTIL TOP FLOOR
+type		enemy
+health		1
+shadow		0
+nomove		1 1
+script	 	data/scripts/updateentity/st8_elevatorS.c
+
+anim idle
+	loop	0
+	delay	1
+	offset	1 743
+	frame	data/bgs/st8/empty.gif

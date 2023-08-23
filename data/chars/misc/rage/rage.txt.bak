@@ -1,0 +1,40 @@
+name			Rage
+type			none
+shadow			0
+antigravity 	100
+nomove			1 1
+toflip			1
+alpha			1
+animationscript	data/scripts/script.c
+
+anim idle
+	loop	0
+		offset  78  78
+		delay  2
+	sound	data/sounds/sf/Rage.wav
+	frame	data/chars/misc/rage/s101.gif
+	frame	data/chars/misc/rage/s102.gif
+	frame	data/chars/misc/rage/s103.gif
+	frame	data/chars/misc/rage/s104.gif
+	frame	data/chars/misc/rage/s105.gif
+	frame	data/chars/misc/rage/s106.gif
+	frame	data/chars/misc/rage/s107.gif
+	frame	data/chars/misc/rage/s108.gif
+	frame	data/chars/misc/rage/s109.gif
+	frame	data/chars/misc/rage/s110.gif
+	frame	data/chars/misc/rage/s111.gif
+	frame	data/chars/misc/rage/s112.gif
+	frame	data/chars/misc/rage/s113.gif
+	frame	data/chars/misc/rage/s114.gif
+	frame	data/chars/misc/rage/s115.gif
+	frame	data/chars/misc/rage/s116.gif
+	frame	data/chars/misc/rage/s117.gif
+	frame	data/chars/misc/rage/s118.gif
+	frame	data/chars/misc/rage/s119.gif
+	frame	data/chars/misc/rage/s120.gif
+	frame	data/chars/misc/rage/s120.gif
+	frame	data/chars/misc/rage/s121.gif
+	frame	data/chars/misc/rage/s122.gif
+	@cmd suicide
+	frame	data/chars/misc/rage/empty.gif
+

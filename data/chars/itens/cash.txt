@@ -1,0 +1,16 @@
+name			Cash
+type			item
+score			2500
+nolife			1
+facing 			1
+gfxshadow		1 1
+offscreenkill	5
+onblockwscript	data/scripts/onblockw/wall.c
+
+anim idle
+	loop	0
+	delay	1
+	offset	51 61
+	bbox 	44 47 16 16
+	frame	data/chars/itens/cash00.gif
+

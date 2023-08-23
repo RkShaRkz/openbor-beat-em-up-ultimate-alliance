@@ -1,0 +1,368 @@
+background	data/bgs/br05/back03.gif		#0.8 1 0 0 0 0 1 1 0 0
+#bglayer		data/bgs/st5/bg00.gif		0.8 1 0 0 0 0 -1 1 1 0 1 0 0 0 1
+#bglayer		data/bgs/st5/bg01.gif		0.6 1 0 0 0 0 -1 1 1 0 3 0.1 1.2 0 3
+panel		data/bgs/Br05/pn03.gif		none	none
+frontpanel	data/bgs/Front.gif		#100 0 1 -32 -4 0 0 1 1 1 0
+order		a
+music		data/music/Lv5a.ogg
+settime		99
+#rock		1
+scrollspeed 0.5
+stagenumber 5
+spawn1		178 25 300
+spawn2		182 47 300
+spawn3		212 27 300
+spawn4		242 47 300
+
+Wall  2  257  10  0  144  51  70  257
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+#########################################################################################
+
+spawn		Box
+flip		1
+coords		560 250 0
+at			0
+
+spawn		Bin
+flip		1
+coords		480 240 0
+at			0
+
+spawn		Drum
+flip		1
+coords		550 270 0
+at			0
+spawn		Banco
+flip		0
+coords		297 216 0
+at			0
+
+group		5 5
+at			300
+
+wait
+at			300
+
+spawn		Billy1
+Alias           Billy
+Map             5
+health          200
+flip		1
+coords		-20 260 0
+at			300
+
+spawn		Elmer1
+Alias           Elmer
+MAp             3
+health          200
+flip		1
+coords		500 260 10
+at			300
+
+spawn		BasicX3
+flip		1
+coords		400 260 10
+at			300
+
+spawn		Slick2
+alias           Slick
+flip		1
+coords		-30 260 0
+at			300
+
+spawn		Rubby2
+alias           Rubby
+map             2
+health          200
+flip		1
+coords		500 260 10
+at			300
+
+spawn		Metro
+flip		1
+coords		-150 226 0
+at			300
+
+spawn		MIc3
+Alias           Michael
+flip		1
+coords		-10 270 0
+at			300
+
+
+
+#########################################################################################
+
+
+group		5  5
+at			301
+
+wait
+at			301
+
+
+spawn		Biker2
+flip		1
+coords		600 230 0
+at			301
+
+spawn		Gneiss2
+alias           Gneiss.jr
+Map             3
+flip		1
+coords		-100 230 0
+at			301
+
+spawn		Tiger2
+Alias           Tiger
+flip		1
+coords		600 260 0
+at			301
+
+spawn		BasicX2
+flip		1
+coords		-100 260 0
+at			301
+
+spawn		Box
+flip		1
+coords		560 250 0
+at			302
+
+spawn		LataEX
+flip		1
+coords		480 240 0
+at		        302
+
+spawn		Drum
+flip		1
+coords		550 270 0
+at			302
+
+spawn		Bin
+flip		1
+coords		700 270 0
+at			302
+
+
+spawn		Banco
+flip		1
+coords		534 214 0
+at			302
+
+spawn		galsia_seat
+flip		1
+coords		534 214 0
+at			302
+
+
+
+
+
+group		5  5
+at			601
+
+Wait
+at			601
+
+
+spawn		Metro
+flip		1
+coords		-150 226 0
+at			601
+
+spawn		Ninja0
+flip		1
+coords		920 230 0
+at			601
+
+spawn		Hayate
+flip		1
+coords		600 260 0
+at			601
+
+spawn		Billy2
+Alias           Billy
+flip		1
+coords		-100 260 0
+at			601
+
+spawn		Electra0
+flip		1
+coords		600 260 0
+at			601
+
+
+
+group		5  5
+at			700
+
+wait
+at			700
+
+spawn		Banco
+flip		1
+coords		700 270 0
+at			700
+
+spawn		Box
+flip		1
+coords		400 230 0
+at			700
+
+spawn		Drum
+flip		1
+coords		500 270 0
+at			700
+
+spawn		Bin
+flip		1
+coords		560 240 0
+at			700
+
+spawn		Mic2
+Alias           Mic
+flip		1
+coords		-100 260 0
+at			700
+
+spawn		Gneiss3
+map             4
+alias           Bernestin
+flip		1
+coords		600 260 0
+at			700
+
+spawn		BasicX3
+flip		1
+coords		-100 260 0
+at			700
+
+spawn		Ninja3
+flip		1
+coords		600 260 0
+at			700
+
+spawn		Ninja3
+2pspawn
+flip		1
+coords		-100 260 0
+at			700
+
+spawn		Ninja3
+3pspawn
+flip		1
+coords		600 230 0
+at			700
+
+spawn		Ninja3
+4pspawn
+flip		1
+coords		-100 230 0
+at			700
+
+spawn		MetroBoss
+flip		1
+coords		-150 226 0
+at			700
+
+spawn		Billy3
+Alias           Billy
+flip		1
+coords		600 230 0
+at			700
+
+spawn		BasicX3
+flip		1
+coords		-100 230 0
+at			700
+
+spawn		Elmer2
+Alias           Elmer
+flip		1
+coords		600 260 0
+at			700
+
+
+
+spawn		kickboxer2
+flip		1
+coords		-100 260 0
+at			700
+
+group		5  5
+at			700
+
+#########################################################################################
+
+
+
+spawnscript data/scripts/spawnlevel/music_boss.c
+at			1001
+
+wait
+at			900
+
+spawn		Butcher
+flip		0
+boss		1
+coords		460 260 0
+at			900
+
+spawn		Bigben0
+flip		1
+coords		600 250 0
+at			900
+
+spawn		kickboxer3
+flip		1
+coords		600 250 0
+at			900
+
+spawn		Andore
+flip		1
+coords		600 250 0
+at			900
+
+spawn		Billy2
+alias           Billy
+flip		1
+coords		600 250 0
+at			900
+
+spawn		Mic3
+Alias           Mic.jr
+map             5
+flip		1
+coords		-100 250 0
+at			900
+
+spawn		Gneiss3
+Map             4
+alias           Pedrinha
+flip		1
+coords		-100 250 0
+at			900
+
+spawn		BigBen1
+flip		1
+coords		700 230 0
+at			900
+
+spawn		BigBen2
+flip		1
+coords		700 260 0
+at			900
+
+#########################################################################################
+
+
+

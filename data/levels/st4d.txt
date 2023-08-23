@@ -1,0 +1,48 @@
+background	data/bgs/st4/back03.gif		0.8 1 0 0 0 0 1 1 0 0
+panel		data/bgs/st4/pn03.gif		none	none
+frontpanel	data/bgs/st4/fpn00.gif
+order		a
+music		data/music/boss2.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 4
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+spawnscript data/scripts/spawnlevel/music_boss.c
+at			0
+
+spawn		St4_People
+flip		1
+coords		1 1 0
+at			0
+
+#########################################################################################
+
+spawn		Box
+flip		1
+coords		425 200 0
+at			0
+
+spawn		Box
+flip		1
+coords		500 210 0
+at			0
+
+spawn		Abadede0
+flip		0
+boss		1
+coords		600 200 0
+at			1

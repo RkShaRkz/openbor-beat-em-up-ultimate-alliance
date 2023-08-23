@@ -1,0 +1,29 @@
+name			BasicX4
+type			none
+lifespan		1
+shadow			0
+alpha			1
+onspawnscript 	data/scripts/onspawn/basicx4.c
+
+load			Galsia1
+load			Galsia2
+load			Galsia3
+load			Galsia4
+load			Donovan1
+load			Donovan2
+load			Donovan3
+load			Donovan4
+load			Signal1
+load			Signal2
+load			Signal3
+load			Signal4
+load			Biker1
+load			Biker2
+load			Biker3
+load			Biker4
+
+anim idle
+	loop	0
+	delay	1
+	offset	50 72
+	frame	data/chars/random/empty.gif

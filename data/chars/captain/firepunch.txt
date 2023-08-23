@@ -1,0 +1,50 @@
+name			FirePunch
+type			none
+candamage		enemy obstacle
+health			1
+nolife			1
+lifespan		4
+nomove                  1
+remove			0
+offense 		all 1.5
+shadow			0
+antigravity		100
+alpha			1
+animationscript	data/scripts/script.c
+didhitscript	data/scripts/didhit/blaze_orb.c
+
+anim idle
+        fastattack 1
+	jugglecost 5
+	forcedirection -1
+
+		offset  230  100
+		delay  3
+                hitflash burn
+        frame	data/chars/captain/fire01.gif
+		burn 283 104 79 34 10 1 0 0 5 12
+        frame	data/chars/captain/fire02.gif
+		Attack1  0
+        frame	data/chars/captain/fire03.gif
+		burn 286 102 96 35 10 1 0 0 5 12
+        frame	data/chars/captain/fire04.gif
+		Attack1  0
+        frame	data/chars/captain/fire05.gif
+		burn 289 90 110 52 10 1 0 0 5 12
+        frame	data/chars/captain/fire06.gif
+		Attack1  0
+        frame	data/chars/captain/fire07.gif
+		burn 279 75 117 68 10 1 0 0 5 12
+        frame	data/chars/captain/fire08.gif
+		Attack1  0
+        frame	data/chars/captain/fire09.gif
+		burn 307 85 91 61 10 1 0 0 5 12
+        frame	data/chars/captain/fire10.gif
+		Attack1  0
+        frame	data/chars/captain/fire11.gif
+		burn 316 87 76 46 10 1 0 0 5 12
+        frame	data/chars/captain/fire12.gif
+        frame	data/chars/captain/fire13.gif
+		Attack1  0
+        frame	data/chars/captain/fire14.gif
+

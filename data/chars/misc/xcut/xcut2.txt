@@ -1,0 +1,19 @@
+name			Xcut2
+type			none
+shadow			0
+antigravity		100
+toflip			1
+animationscript	data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	4
+	offset	218 175
+	frame	data/chars/misc/xcut/xcut04.gif
+	frame	data/chars/misc/xcut/xcut05.gif
+	frame	data/chars/misc/xcut/xcut06.gif
+	frame	data/chars/misc/xcut/xcut07.gif
+	@cmd suicide
+	frame	data/chars/misc/xcut/empty.gif
+
+

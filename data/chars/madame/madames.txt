@@ -1,0 +1,61 @@
+##MAIN
+name				MadameS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 		data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle #RAGE
+	loop	0
+	delay	24
+	offset	144 193
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+        frame	data/chars/Madame/a100.gif
+		delay  5
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a100.gif
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a100.gif
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a100.gif
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a100.gif
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a100.gif
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a100.gif
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a200.gif
+		move  10
+	frame	data/chars/Madame/a201.gif
+	frame	data/chars/Madame/a201.gif
+	frame  data/chars/Madame/a201.gif
+		move  0
+		Attack1  0
+		delay  24
+		offset  140  188
+	frame	data/chars/Madame/a202.gif
+	frame  data/chars/Madame/wait01.gif
+	frame  data/chars/Madame/wait02.gif

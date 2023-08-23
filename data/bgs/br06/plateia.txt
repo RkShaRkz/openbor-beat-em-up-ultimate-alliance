@@ -1,0 +1,19 @@
+name		Plateia
+type		Panel
+shadow		0
+speed		1
+setlayer	-56
+
+anim idle
+	loop	1
+	delay	8
+	offset	0 129
+	frame	data/bgs/br06/Plateia00.gif
+	frame	data/bgs/br06/Plateia01.gif
+	frame	data/bgs/br06/Plateia02.gif
+	frame	data/bgs/br06/Plateia03.gif
+	frame	data/bgs/br06/Plateia04.gif
+	frame	data/bgs/br06/Plateia05.gif
+	frame	data/bgs/br06/Plateia06.gif
+	frame	data/bgs/br06/Plateia07.gif
+

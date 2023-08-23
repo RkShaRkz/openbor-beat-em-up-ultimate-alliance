@@ -1,0 +1,308 @@
+#Edited by Christuserloeser@DCEvolution.net
+
+name    Hayate
+health	110
+speed	15
+aggression -53
+grabdistance 19
+type	enemy
+dust    dust
+throw 3 3
+nodieblink 0
+risetime 130
+projectilehit obstacle enemy npc
+hostile player npc
+candamage obstacle player npc
+noquake 0
+shadow	3.7
+icon	 data/chars/hayate/icon.gif
+diesound data/chars/hayate/die.wav
+
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/bigben.c
+onfallscript		data/scripts/onfall/koCount.c
+
+score   9 9
+
+remap	data/chars/hayate/idle1.gif data/chars/hayate/alter1.gif
+remap	data/chars/hayate/idle1.gif data/chars/hayate/alter2.gif
+remap	data/chars/hayate/idle1.gif data/chars/hayate/alter3.gif
+remap	data/chars/hayate/idle1.gif data/chars/hayate/alter4.gif
+remap	data/chars/hayate/idle1.gif data/chars/hayate/alter5.gif
+remap	data/chars/hayate/idle1.gif data/chars/hayate/alter6.gif
+remap	data/chars/hayate/idle1.gif data/chars/hayate/alter7.gif
+remap	data/chars/hayate/idle1.gif data/chars/hayate/alter8.gif
+remap	data/chars/hayate/idle1.gif data/chars/hayate/alter9.gif
+
+anim idle
+	loop	2
+	delay	17
+	offset	28 80
+	bbox	15 13 25 68
+	frame	data/chars/hayate/idle1.gif
+	frame	data/chars/hayate/idle2.gif
+	frame	data/chars/hayate/idle3.gif
+	frame	data/chars/hayate/idle2.gif
+
+anim burn
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	147 175
+	bbox 	119 117 44 42
+	drawmethod tintmode 6
+	drawmethod tintcolor 255
+	frame	data/chars/hayate/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/hayate/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	frame	data/chars/hayate/fall01.gif
+
+anim walk
+	loop	3
+	offset	33 82
+	bbox	20 12 28 70
+	delay	13
+	frame	data/chars/hayate/walk1.gif
+	frame	data/chars/hayate/walk2.gif
+	frame	data/chars/hayate/walk3.gif
+
+anim grabbed
+	loop	0
+	delay	3
+	offset	24 76
+	bbox	6 13 31 63
+	frame	data/chars/hayate/pain1.gif
+
+anim spain
+	loop	0
+	delay	19
+        bbox    12 10 31 66
+	offset	28 76
+	frame	data/chars/hayate/pain2.gif
+	delay	17
+	offset	24 76
+	bbox	6 13 31 63
+	frame	data/chars/hayate/pain1.gif
+
+anim bpain
+	loop	0
+	delay	19
+        bbox    12 10 31 66
+	offset	28 76
+	frame	data/chars/hayate/pain2.gif
+	delay	17
+	offset	24 76
+	bbox	6 13 31 63
+	frame	data/chars/hayate/pain1.gif
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	123 178
+	bbox 	107 105 28 75
+	frame	data/chars/hayate/pain00.gif
+	frame	data/chars/hayate/pain01.gif
+	frame	data/chars/hayate/pain00.gif
+	frame	data/chars/hayate/pain01.gif
+	frame	data/chars/hayate/pain00.gif
+	frame	data/chars/hayate/pain01.gif
+	frame	data/chars/hayate/pain00.gif
+	frame	data/chars/hayate/pain01.gif
+	frame	data/chars/hayate/pain00.gif
+	frame	data/chars/hayate/pain01.gif
+	frame	data/chars/hayate/pain00.gif
+	frame	data/chars/hayate/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	123 178
+	bbox 	104 116 34 65
+	frame	data/chars/hayate/pain200.gif
+	frame	data/chars/hayate/pain201.gif
+	frame	data/chars/hayate/pain200.gif
+	frame	data/chars/hayate/pain201.gif
+	frame	data/chars/hayate/pain200.gif
+	frame	data/chars/hayate/pain201.gif
+	frame	data/chars/hayate/pain200.gif
+	frame	data/chars/hayate/pain201.gif
+	frame	data/chars/hayate/pain200.gif
+	frame	data/chars/hayate/pain201.gif
+	frame	data/chars/hayate/pain200.gif
+	frame	data/chars/hayate/pain201.gif
+
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	123 178
+	bbox 	100 110 39 54
+	frame	data/chars/hayate/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/hayate/fall01.gif
+
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	123 178
+	bbox 	100 110 39 54
+	drawmethod tintmode 6
+	drawmethod tintcolor 255
+	frame	data/chars/hayate/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/hayate/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	nodrawmethod
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/hayate/fall01.gif
+
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	123 178
+	bbox 	100 110 39 54
+	drawmethod tintmode 6
+	drawmethod tintcolor -255
+	frame	data/chars/hayate/fall00.gif
+	drawmethod tintmode 2
+	drawmethod tintcolor -255
+	frame	data/chars/hayate/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	nodrawmethod
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/hayate/fall01.gif
+	
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	123 178
+	frame	data/chars/hayate/fall600.gif
+	frame	data/chars/hayate/fall601.gif
+	frame	data/chars/hayate/fall602.gif
+	frame	data/chars/hayate/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/hayate/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	123 178
+	frame	data/chars/hayate/fall700.gif
+	frame	data/chars/hayate/fall701.gif
+	frame	data/chars/hayate/fall702.gif
+	frame	data/chars/hayate/fall703.gif
+	frame	data/chars/hayate/fall704.gif
+	frame	data/chars/hayate/fall705.gif
+
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 1
+	loop	0
+	delay	999
+	offset	123 178
+	bbox 	100 110 39 54
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 100 110 39 54 4 1 0 0 0 12
+	frame	data/chars/hayate/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/hayate/fall01.gif
+
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 1
+	loop	0
+	delay	999
+	offset	123 178
+	bbox 	107 123 33 54
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 107 123 33 54 4 1 0 0 0 12
+	frame	data/chars/hayate/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/hayate/fall01.gif
+
+anim rise
+	loop	0
+	delay	12
+	offset	27 69
+	frame	data/chars/hayate/rise1.gif
+	delay	13
+	frame	data/chars/hayate/rise2.gif
+	delay	11
+	frame	data/chars/hayate/rise3.gif
+
+anim upper
+	range	30 50
+	loop	0
+	delay	11
+        offset	27 89
+#	bbox	15 25 24 68
+	frame	data/chars/hayate/upt1.gif
+	delay	9
+        sound   data/chars/hayate/hit1.wav
+        attack  47 10 15 40 7 1
+	frame	data/chars/hayate/upt2.gif
+	delay	13
+        attack  35 2 13 30 5 1
+	frame	data/chars/hayate/upt3.gif
+
+anim attack1
+	range	0 90
+	loop	0
+        fastattack 1
+	delay	7
+        offset	57 78
+	bbox	57 13 21 69
+        move    0
+        hitflash   Blood
+	hitfx	data/sounds/kof/Cutter.wav
+	frame	data/chars/hayate/act1.gif
+	bbox	45 17 26 65
+        attack  47 22 97 15 13 1
+        sound   data/chars/hayate/hit2.wav
+	frame	data/chars/hayate/act2.gif
+        attack  2 30 106 5 3 1
+	bbox	45 13 28 69
+	frame	data/chars/hayate/act3.gif
+
+anim jumpattack
+	loop	0
+	delay	10
+        range   70 130
+	offset	59 67
+        jumpheight  3.1
+        hitflash   Blood
+	hitfx	data/sounds/kof/Cutter.wav
+        bbox    46 21 27 46
+	frame	data/chars/hayate/jps1.gif
+        bbox    56 12 22 55
+        sound   data/chars/hayate/hit3.wav
+	frame	data/chars/hayate/jps2.gif
+        bbox    46 21 27 46
+        attack  47 26 99 17 9 1
+	frame	data/chars/hayate/jps3.gif
+        attack  2 37 107 5 3 1
+	frame	data/chars/hayate/jps4.gif
+

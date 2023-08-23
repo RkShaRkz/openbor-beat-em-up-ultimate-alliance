@@ -1,0 +1,1462 @@
+name	    		Private-2
+type	    		enemy
+projectilehit   enemy obstacle trap
+#hostile		player
+#candamage		player enemy npc
+health	    	70
+mp          	50
+speed	    		12
+jumpspeed	    	10
+jumpheight   	3
+jumpmove 		3
+turndelay 		12
+mprate		3
+#grabdistance	40
+#grabfinish		0
+#paingrab		1
+grabback		1
+antigravity 	10
+bounce		1
+noquake     	1
+#shadow	    	3
+gfxshadow 1 3
+diesound    	data/sounds/die01.wav
+flash 		flash
+bflash 		guard
+dust    		dust2
+toflip		1
+jugglepoints	50
+
+aggression		0
+nodieblink		1
+#makeinv     	5 0 
+falldie 		2
+risetime 		250
+#riseinv 		1 0
+
+blockodds 1
+thold     		49
+
+atchain     		1 2
+
+
+takedamagescript data/scripts/cmbdmg.c
+
+icon	      data/chars/enemies/private-2/eicon.gif
+icondie     data/chars/enemies/private-2/eicond.gif
+
+palette data/chars/enemies/private-2/pal/indexado.gif #1
+
+#	weapons     fighter1 fighter2 fighter3
+
+#-------Select screen!
+
+anim waiting
+	 loop       1
+	 offset     238 177
+	 delay      8
+       frame      data/chars/enemies/private-2/idle01.gif
+
+anim select
+#	 summonframe 3 -500 110 0 0
+#	 subentity	super01
+#	 unsummonframe 11
+	 loop       1
+	 offset     238 177
+	 delay      8
+       frame      data/chars/enemies/private-2/idle01.gif
+
+#-------Moves
+
+anim spawn
+	 loop       0
+	 offset     238 177
+	 bbox		230 102 22 76
+	 delay      8
+       frame      data/chars/enemies/private-2/idle01.gif
+
+
+anim idle
+	 loop       1
+	 offset     238 177
+	 bbox		230 102 22 76
+	 delay      8
+       frame      data/chars/enemies/private-2/idle01.gif
+       frame      data/chars/enemies/private-2/idle01.gif
+       frame      data/chars/enemies/private-2/idle01.gif
+       frame      data/chars/enemies/private-2/idle01.gif
+       frame      data/chars/enemies/private-2/idle01.gif
+       frame      data/chars/enemies/private-2/idle01.gif
+       delay 24
+       frame      data/chars/enemies/private-2/idle02.gif
+
+
+anim walk
+	 loop       1
+	 offset     238 177
+	 bbox		230 102 22 76
+	 delay      7
+       frame      data/chars/enemies/private-2/walk01.gif
+       frame      data/chars/enemies/private-2/walk02.gif
+       frame      data/chars/enemies/private-2/walk03.gif
+       frame      data/chars/enemies/private-2/walk04.gif
+       frame      data/chars/enemies/private-2/walk05.gif
+       frame      data/chars/enemies/private-2/walk06.gif
+       frame      data/chars/enemies/private-2/walk07.gif
+       frame      data/chars/enemies/private-2/walk08.gif
+
+
+anim attack1
+	range 0 50
+	jugglecost 	2
+	 fastattack 1
+	 hitfx	data/sounds/beat1.wav
+
+	 loop       0
+	 offset     238 177
+	 bbox		230 102 30 76
+	 
+	 delay      4
+       frame      data/chars/enemies/private-2/a101.gif
+       frame      data/chars/enemies/private-2/a102.gif
+		sound data/sounds/punch.wav
+	 delay      8
+	 attack  	245 	120 	55 		15 		8 		0 		0 		0 		15 15
+       frame      data/chars/enemies/private-2/a103.gif
+	 attack  	0 	0 	0 		0 		0 		0 		0 		0 		0
+	 delay      4
+       frame      data/chars/enemies/private-2/a102.gif
+   delay 21
+   frame      data/chars/enemies/private-2/a102.gif
+
+anim attack2
+	range 0 50
+	jugglecost 	2
+	 fastattack 1
+	 hitfx   	data/sounds/beat3.wav
+	 hitflash	flash
+	 loop       0
+	 offset     238 177
+	 bbox		240 102 30 76
+	 delay      6
+   frame      data/chars/enemies/private-2/a201.gif
+   frame      data/chars/enemies/private-2/a202.gif
+	 delay      10
+	  attack  	245 	115 	80 		30 		12 		1 		0 		0 		25 15
+       frame      data/chars/enemies/private-2/a203.gif
+	 attack  	0 	0 	0 		0 		0 		0 		0 		0 		0
+	 delay      8
+       frame      data/chars/enemies/private-2/a202.gif
+       frame      data/chars/enemies/private-2/a201.gif
+       
+
+
+   
+anim block
+	 loop       0
+	 offset     238 177
+	 bbox		0 0 0 0
+	 delay      3
+	 move		-5
+       frame      data/chars/enemies/private-2/guard01.gif
+	 move		-4
+       frame      data/chars/enemies/private-2/guard01.gif
+	 move		-3
+       frame      data/chars/enemies/private-2/guard01.gif
+	 move		-2
+       frame      data/chars/enemies/private-2/guard01.gif
+	 move		-1
+       frame      data/chars/enemies/private-2/guard01.gif
+	 move		0
+	 delay      25
+       frame      data/chars/enemies/private-2/guard01.gif  
+
+
+#-----------------NORMAL PUNCH 01-----------------#
+
+anim pain
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 delay      4
+       frame      data/chars/enemies/private-2/pain01.gif
+	 offset     237 177
+       frame      data/chars/enemies/private-2/pain01.gif
+	 offset     238 177
+       frame      data/chars/enemies/private-2/pain01.gif
+	 offset     239 177
+       frame      data/chars/enemies/private-2/pain01.gif
+	 offset     238 177
+       frame      data/chars/enemies/private-2/pain01.gif
+	 offset     237 177
+       frame      data/chars/enemies/private-2/pain01.gif
+	 offset     238 177
+	 delay      12
+       frame      data/chars/enemies/private-2/pain01.gif
+
+anim fall
+	 landframe  1
+	 loop       0
+	 offset     238 177
+	 delay      999
+	 bbox		226 102 23 76
+       frame      data/chars/enemies/private-2/fall01.gif
+	 delay      1
+       frame      data/chars/enemies/private-2/fall02.gif
+
+
+#-----------------NORMAL PUNCH 01-----------------#
+
+
+#-----------------NORMAL PUNCH 02-----------------#
+
+anim pain2
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 delay      4
+       frame      data/chars/enemies/private-2/pain02.gif
+	 offset     237 177
+       frame      data/chars/enemies/private-2/pain02.gif
+	 offset     238 177
+       frame      data/chars/enemies/private-2/pain02.gif
+	 offset     239 177
+       frame      data/chars/enemies/private-2/pain02.gif
+	 offset     238 177
+       frame      data/chars/enemies/private-2/pain02.gif
+	 offset     237 177
+       frame      data/chars/enemies/private-2/pain02.gif
+	 offset     238 177
+	 delay      12
+       frame      data/chars/enemies/private-2/pain02.gif
+
+anim fall2
+	 landframe  1
+	 loop       0
+	 offset     238 177
+	 delay      999
+	 bbox		226 102 23 76
+       frame      data/chars/enemies/private-2/fall01.gif
+	 delay      1
+       frame      data/chars/enemies/private-2/fall02.gif
+
+#-----------------NORMAL PUNCH 02-----------------#
+
+
+#-----------------SPECIAL ATTACK-----------------#
+
+anim pain3
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 delay      4
+       frame      data/chars/enemies/private-2/pain01.gif
+	 offset     237 177
+       frame      data/chars/enemies/private-2/pain01.gif
+	 offset     238 177
+       frame      data/chars/enemies/private-2/pain01.gif
+	 offset     239 177
+       frame      data/chars/enemies/private-2/pain01.gif
+	 offset     238 177
+       frame      data/chars/enemies/private-2/pain01.gif
+	 offset     237 177
+       frame      data/chars/enemies/private-2/pain01.gif
+	 offset     238 177
+	 delay      12
+       frame      data/chars/enemies/private-2/pain01.gif
+
+anim fall3
+	 landframe  1
+	 loop       0
+	 offset     238 177
+	 delay      999
+	 bbox		0 0 0 0
+       frame      data/chars/enemies/private-2/fall01.gif
+	 delay      1
+       frame      data/chars/enemies/private-2/fall02.gif
+       
+anim fall27
+	 landframe  1
+	 loop       0
+	 offset     238 177
+	 delay      999
+	 bbox		0 0 0 0
+       frame      data/chars/enemies/private-2/fall01.gif
+	 delay      1
+       frame      data/chars/enemies/private-2/fall02.gif
+
+#-----------------SPECIAL ATTACK-----------------#
+
+#-----------------THROW LAUNCH-----------------#
+
+anim fall4
+#	 jumpframe 	2 2.5 -2
+#	 landframe	5
+	 flipframe	0 
+	 loop       0
+	 offset     238 177
+	 bbox		0 0 0 0
+
+#-------------------------------------------cody
+	 delay      999
+       frame      data/chars/enemies/private-2/cody01.gif	# 0
+	 delay      999
+       frame      data/chars/enemies/private-2/cody02.gif	# 1
+#-------------------------------------------cody
+#-------------------------------------------Haggar
+	 delay      999
+       frame      data/chars/enemies/private-2/hagg01.gif	# 2
+	 delay      999
+       frame      data/chars/enemies/private-2/hagg02.gif	# 3
+ 	 delay      999
+       frame      data/chars/enemies/private-2/hagg03.gif	# 4
+	 delay      999
+       frame      data/chars/enemies/private-2/hagg04.gif	# 5
+#-------------------------------------------Haggar
+	 delay      999
+       frame      data/chars/enemies/private-2/hagg05.gif	# 6
+	 delay      999
+       frame      data/chars/enemies/private-2/hagg06.gif	# 7
+#-------------------------------------------Haggar
+	 delay      999
+       frame      data/chars/enemies/private-2/hagg07.gif	# 8
+	 delay      999
+       frame      data/chars/enemies/private-2/hagg08.gif	# 9
+	 delay      999
+       frame      data/chars/enemies/private-2/hagg09.gif	# 10
+	 delay      999
+       frame      data/chars/enemies/private-2/hagg10.gif	# 11
+	 delay      999
+       frame      data/chars/enemies/private-2/hagg11.gif	# 12
+#-------------------------------------------Haggar
+	 delay      999
+       frame      data/chars/enemies/private-2/hagg12.gif	# 13
+	 delay      999
+       frame      data/chars/enemies/private-2/hagg13.gif	# 14
+#-------------------------------------------Haggar
+#-------------------------------------------Dean
+	 delay      999
+       frame      data/chars/enemies/private-2/dean01.gif	# 15
+	 delay      999
+       frame      data/chars/enemies/private-2/dean02.gif	# 16
+#-------------------------------------------Dean
+	 delay      999
+       frame      data/chars/enemies/private-2/dean03.gif	# 17
+
+	 delay      999
+       frame      data/chars/enemies/private-2/dean04.gif	# 18
+
+	 delay      999
+       frame      data/chars/enemies/private-2/dean05.gif	# 19
+#-------------------------------------------Dean
+	   
+
+#-----------------THROW LAUNCH-----------------#
+
+#-----------------THROW FALL-----------------#
+
+anim fall5
+	shadowcoords 238 177
+	fastattack	1
+	 landframe  1
+	 loop       0
+	 offset     198 177
+	 delay      999
+#	 attack{#} 	{x}	{y}	{right}	{down}	{damage}	{power}	{block}	{noflash}	{pausetime}	{z}
+	 attack  	205 110 85 		55 		5 			1 		0 		0 			25			15
+	 bbox		226 102 23 76
+       frame      data/chars/enemies/private-2/fall01.gif
+	 attack  	0 0 0 		0 		0 			0 		0 		0 			0			0
+	 offset     238 177
+	shadowcoords 238 177
+	move	50
+	 delay      1
+       frame      data/chars/enemies/private-2/fall02.gif
+
+#-----------------THROW FALL-----------------#
+
+#-----------------THROW FALL 2-----------------#
+
+anim fall6
+	fastattack	1
+	 landframe  1
+	 loop       0
+	 offset     238 177
+	 delay      999
+#	 attack{#} 	{x}	{y}	{right}	{down}	{damage}	{power}	{block}	{noflash}	{pausetime}	{z}
+	 attack  	205 110 85 		55 		5 			1 		0 		0 			25			15
+	 bbox		226 102 23 76
+       frame      data/chars/enemies/private-2/fall01.gif
+	 attack  	0 0 0 		0 		0 			0 		0 		0 			0			0
+	 delay      1
+       frame      data/chars/enemies/private-2/fall02.gif
+
+#-----------------THROW FALL 2-----------------#
+
+
+#-----------------BURN1-----------------#
+
+anim pain11
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 sound   	data/sounds/burn101.wav
+	 delay      2
+       frame      data/chars/misc/burn1/burn102.gif
+       frame      data/chars/misc/burn1/burn101.gif
+	 offset     237 177
+       frame      data/chars/misc/burn1/burn103.gif
+       frame      data/chars/misc/burn1/burn101.gif
+	 offset     238 177
+       frame      data/chars/misc/burn1/burn104.gif
+       frame      data/chars/misc/burn1/burn101.gif
+	 offset     239 177
+       frame      data/chars/misc/burn1/burn102.gif
+       frame      data/chars/misc/burn1/burn101.gif
+	 offset     238 177
+       frame      data/chars/misc/burn1/burn103.gif
+       frame      data/chars/misc/burn1/burn101.gif
+	 offset     237 177
+       frame      data/chars/misc/burn1/burn104.gif
+       frame      data/chars/misc/burn1/burn101.gif
+	 offset     238 177
+	 delay      12
+       frame      data/chars/enemies/private-2/pain01.gif
+
+anim fall11
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	       changeentityproperty(self, "animation", openborconstant("ANI_FALL20"));
+	    } 
+	   }  
+    @end_script
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+	 delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/misc/diebyfire/fall02.gif
+	
+anim fall20
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+	 delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame      data/chars/enemies/private-2/fall02.gif
+	
+anim fall21
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	       changeentityproperty(self, "animation", openborconstant("ANI_FALL30"));
+	    } 
+	   }  
+    @end_script
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		0 0 0 0
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+	 delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/misc/diebyfire/fall02.gif
+	
+anim fall30
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		0 0 0 0
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+	 delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame      data/chars/enemies/private-2/fall02.gif
+
+#-----------------BURN1-----------------#
+
+#-----------------BURN2-----------------#
+
+anim pain12
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 sound   	data/sounds/burn101.wav
+	 delay      2
+       frame      data/chars/misc/burn2/burn202.gif
+       frame      data/chars/misc/burn2/burn201.gif
+	 offset     237 177
+       frame      data/chars/misc/burn2/burn203.gif
+       frame      data/chars/misc/burn2/burn201.gif
+	 offset     238 177
+       frame      data/chars/misc/burn2/burn204.gif
+       frame      data/chars/misc/burn2/burn201.gif
+	 offset     239 177
+       frame      data/chars/misc/burn2/burn202.gif
+       frame      data/chars/misc/burn2/burn201.gif
+	 offset     238 177
+       frame      data/chars/misc/burn2/burn203.gif
+       frame      data/chars/misc/burn2/burn201.gif
+	 offset     237 177
+       frame      data/chars/misc/burn2/burn204.gif
+       frame      data/chars/misc/burn2/burn201.gif
+	 offset     238 177
+	 delay      12
+       frame      data/chars/enemies/private-2/pain01.gif
+
+anim	fall12
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	       changeentityproperty(self, "animation", openborconstant("ANI_FALL40"));
+	    } 
+	   }  
+    @end_script
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+	 delay      999
+       frame      data/chars/misc/burn2/burn214.gif
+	 delay      1
+       frame	data/chars/misc/diebyfire2/fall02.gif
+       
+anim	fall40
+
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+	 delay      999
+       frame      data/chars/misc/burn2/burn214.gif
+	 delay      1
+       frame      data/chars/enemies/private-2/fall02.gif
+       
+anim	fall32
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	       changeentityproperty(self, "animation", openborconstant("ANI_FALL33"));
+	    } 
+	   }  
+    @end_script
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+	 attack12  	205 110 85 		55 		5 			1 		0 		0 			25			15
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+	 delay      999
+       frame      data/chars/misc/burn2/burn214.gif
+	 delay      1
+	 attack 0 0 0 0 0 0 0 0
+       frame	data/chars/misc/diebyfire2/fall02.gif
+       
+anim	fall33
+
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+	 attack12  	205 110 85 		55 		5 			1 		0 		0 			25			15
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+	 delay      999
+       frame      data/chars/misc/burn2/burn214.gif
+	 delay      1
+	 attack 0 0 0 0 0 0 0 0
+       frame      data/chars/enemies/private-2/fall02.gif
+       
+anim fall22
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	       changeentityproperty(self, "animation", openborconstant("ANI_FALL50"));
+	    } 
+	   }  
+    @end_script
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		0 0 0 0
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+	 delay      999
+       frame      data/chars/misc/burn2/burn214.gif
+	 delay      1
+       frame	data/chars/misc/diebyfire2/fall02.gif
+       
+ anim fall50
+
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		0 0 0 0
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn214.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn212.gif
+       frame      data/chars/misc/burn2/burn211.gif
+       frame      data/chars/misc/burn2/burn213.gif
+       frame      data/chars/misc/burn2/burn211.gif
+	 delay      999
+       frame      data/chars/misc/burn2/burn214.gif
+	 delay      1
+       frame      data/chars/enemies/private-2/fall02.gif
+
+#-----------------BURN2-----------------#
+
+#-----------------SHOCK-----------------#
+
+anim pain13
+	 loop       0
+	 offset     238 167
+	 bbox		226 102 23 76
+	 sound   	data/sounds/shock01.wav
+	 delay      2
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 offset     237 167
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 offset     238 167
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 offset     239 167
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 sound   	data/sounds/shock01.wav
+	 offset     238 167
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 offset     237 167
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 offset     238 167
+	 delay      12
+       frame      data/chars/enemies/private-2/pain01.gif
+
+anim	fall13
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	@script
+	   void self = getlocalvar("self");
+	    if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death13", 0, 0, 0);
+	    	spawn01("exp2", 0, 0, 0);
+				 changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	    }
+	    
+	    @end_script
+	 landframe  37
+	 loop       0
+	 offset     238 167
+	 bbox		226 102 23 76
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+	 sound   	data/sounds/shock01.wav
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 sound   	data/sounds/shock01.wav
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 sound   	data/sounds/shock01.wav
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 sound   	data/sounds/shock01.wav
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 sound   	data/sounds/shock01.wav
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 offset     238 177
+	 delay      999
+       frame      data/chars/enemies/private-2/fall01.gif
+	 delay      1
+       frame      data/chars/enemies/private-2/fall02.gif
+       
+anim	fall23
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	@script
+	   void self = getlocalvar("self");
+	    if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death13", 0, 0, 0);
+	    	spawn01("exp2", 0, 0, 0);
+				 changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	    }
+	    
+	    @end_script
+	 landframe  37
+	 loop       0
+	 offset     238 167
+	 bbox		0 0 0 0
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+	 sound   	data/sounds/shock01.wav
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 sound   	data/sounds/shock01.wav
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 sound   	data/sounds/shock01.wav
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 sound   	data/sounds/shock01.wav
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 sound   	data/sounds/shock01.wav
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+       frame      data/chars/misc/shock/shock02.gif
+       frame      data/chars/misc/shock/shock01.gif
+	 offset     238 177
+	 delay      999
+       frame      data/chars/enemies/private-2/fall01.gif
+	 delay      1
+       frame      data/chars/enemies/private-2/fall02.gif
+
+#-----------------SHOCK-----------------#
+
+anim rise
+	 loop       0
+	 offset     238 177
+	 delay      75
+       frame      data/chars/enemies/private-2/fall02.gif
+	 delay      80
+       frame      data/chars/enemies/private-2/rise01.gif
+
+	 delay      24
+       frame      data/chars/enemies/private-2/rise02.gif
+	 delay      16
+       frame      data/chars/enemies/private-2/pain02.gif
+
+anim death
+	 loop       0
+	 offset     238 177
+	 delay      1
+       frame      data/chars/enemies/private-2/fall02.gif
+
+anim death17
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebymack/die01.gif
+	frame	data/chars/misc/diebymack/die02.gif
+	frame	data/chars/misc/diebymack/die03.gif
+	frame	data/chars/misc/diebymack/die04.gif
+	
+anim death27
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebymack/die01.gif
+	frame	data/chars/misc/diebymack/die02.gif
+	frame	data/chars/misc/diebymack/die03.gif
+	frame	data/chars/misc/diebymack/die04.gif
+	
+anim death11
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire/fire1.gif
+	frame	data/chars/misc/diebyfire/fire2.gif
+	frame	data/chars/misc/diebyfire/fire3.gif
+	frame	data/chars/misc/diebyfire/fire4.gif
+	frame	data/chars/misc/diebyfire/fire5.gif
+	frame	data/chars/misc/diebyfire/fire6.gif
+	frame	data/chars/misc/diebyfire/fire7.gif
+	frame	data/chars/misc/diebyfire/fire8.gif	
+	frame	data/chars/misc/diebyfire/fire9.gif
+	frame	data/chars/misc/diebyfire/fire10.gif
+	frame	data/chars/misc/diebyfire/fire11.gif
+	
+	
+anim death21
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire/fire1.gif
+	frame	data/chars/misc/diebyfire/fire2.gif
+	frame	data/chars/misc/diebyfire/fire3.gif
+	frame	data/chars/misc/diebyfire/fire4.gif
+	frame	data/chars/misc/diebyfire/fire5.gif
+	frame	data/chars/misc/diebyfire/fire6.gif
+	frame	data/chars/misc/diebyfire/fire7.gif
+	frame	data/chars/misc/diebyfire/fire8.gif	
+	frame	data/chars/misc/diebyfire/fire9.gif
+	frame	data/chars/misc/diebyfire/fire10.gif
+	frame	data/chars/misc/diebyfire/fire11.gif
+	
+anim death12
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire2/fire1.gif
+	frame	data/chars/misc/diebyfire2/fire2.gif
+	frame	data/chars/misc/diebyfire2/fire3.gif
+	frame	data/chars/misc/diebyfire2/fire4.gif
+	frame	data/chars/misc/diebyfire2/fire5.gif
+	frame	data/chars/misc/diebyfire2/fire6.gif
+	frame	data/chars/misc/diebyfire2/fire7.gif
+	frame	data/chars/misc/diebyfire2/fire8.gif	
+	frame	data/chars/misc/diebyfire2/fire9.gif
+	frame	data/chars/misc/diebyfire2/fire10.gif
+	frame	data/chars/misc/diebyfire2/fire11.gif
+	
+anim death22
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire2/fire1.gif
+	frame	data/chars/misc/diebyfire2/fire2.gif
+	frame	data/chars/misc/diebyfire2/fire3.gif
+	frame	data/chars/misc/diebyfire2/fire4.gif
+	frame	data/chars/misc/diebyfire2/fire5.gif
+	frame	data/chars/misc/diebyfire2/fire6.gif
+	frame	data/chars/misc/diebyfire2/fire7.gif
+	frame	data/chars/misc/diebyfire2/fire8.gif	
+	frame	data/chars/misc/diebyfire2/fire9.gif
+	frame	data/chars/misc/diebyfire2/fire10.gif
+	frame	data/chars/misc/diebyfire2/fire11.gif
+	
+anim death32
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire2/fire1.gif
+	frame	data/chars/misc/diebyfire2/fire2.gif
+	frame	data/chars/misc/diebyfire2/fire3.gif
+	frame	data/chars/misc/diebyfire2/fire4.gif
+	frame	data/chars/misc/diebyfire2/fire5.gif
+	frame	data/chars/misc/diebyfire2/fire6.gif
+	frame	data/chars/misc/diebyfire2/fire7.gif
+	frame	data/chars/misc/diebyfire2/fire8.gif	
+	frame	data/chars/misc/diebyfire2/fire9.gif
+	frame	data/chars/misc/diebyfire2/fire10.gif
+	frame	data/chars/misc/diebyfire2/fire11.gif
+
+	
+	
+anim grabbedwalk
+	 loop       0
+	 offset     238 177
+	 bbox		226 82 23 76
+	 delay      4
+	 frame      data/chars/enemies/private-2/hagg01-2.gif
+	 
+animationscript         data/scripts/drago.c	 
+
+anim fall19
+	 loop       0
+	 offset     238 177
+	 landframe	1 
+	 bbox 0 0 0 0
+	  delay      999
+    frame      data/chars/misc/empty.gif
+    delay      1
+    frame      data/chars/misc/empty.gif
+
+
+anim death18
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+    
+anim death28
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+    
+anim death13
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+    
+anim death23
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+
+
+anim	fall18
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	@script
+	   void self = getlocalvar("self");
+	    if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death18", 0, 0, 0);
+				 changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	    }
+	    
+	    @end_script
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+	 		delay	999
+			frame	data/chars/misc/burn1/burn111.gif
+			delay	1
+			frame      data/chars/enemies/private-2/fall02.gif
+			
+			
+anim	fall28
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	@script
+	   void self = getlocalvar("self");
+	    if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death18", 0, 0, 0);
+				 changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	    }
+	    
+	    @end_script
+	 sound   	data/sounds/burn111.wav
+
+	 delay      2
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+	 		delay	999
+			frame	data/chars/misc/burn1/burn111.gif
+			delay	1
+			frame      data/chars/enemies/private-2/fall02.gif
+	
+
+
+
+
+
+

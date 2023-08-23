@@ -1,0 +1,488 @@
+##ATTRIBUTES
+
+#SKILLS		**
+#LIFE		***
+#POWER		****
+#SPEED		*
+#JUMP		*
+#SPECIAL	****
+
+##MAIN
+name				MadameC
+type				enemy
+hostile				player
+candamage			player obstacle
+projectilehit		player enemy obstacle
+
+##LIFE
+health				600 #SCRIPT
+
+##POWER
+offense 			all 2.5 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				8 #8/10/12/14/16/18
+running 			16 2.7 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			13 #13/15/17/19/21/23
+jumpheight 			2.9 #2.9/3.1/3.3/3.5/3.7/3.9
+
+##SPECIAL
+mp					120
+mprate  			7 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		39 #36/33/30
+grabfinish 			1 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				84
+
+##MISC
+jugglepoints		30
+guardpoints			87
+guardrate			13
+risetime			170
+riseinv				0.4 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 1 1 2
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+aimove				avoid #ENEMY ONLY
+escapehits			2 #ENEMY ONLY
+blockodds 			1
+bflash				block
+nopassiveblock		1
+
+##SCRIPTS
+didblockscript		data/scripts/didblock/barbon.c
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/barbon.c
+onfallscript		data/scripts/onfall/koCount.c
+script			data/scripts/updateentity/MAdame.c
+
+
+##ICONS
+icon				data/chars/Madame/icon.gif 1
+
+##DIESOUND
+diesound			data/chars/madame/Death.wav
+
+##REMAPS
+remap				data/chars/Madame/idle00.gif data/chars/Madame/alter1.gif
+remap				data/chars/Madame/idle00.gif data/chars/Madame/alter2.gif
+remap				data/chars/Madame/idle00.gif data/chars/Madame/alter3.gif
+remap				data/chars/Madame/idle00.gif data/chars/Madame/alter4.gif
+##LOADS
+load				MadameS
+
+##ANIMATIONS#############################################################################
+
+
+anim spawn #FULL CLOTHES SPAWN
+loop	0
+	delay	40
+	offset	44 141
+	frame	data/chars/Billy/s12.gif
+		delay  10
+		offset  44  135
+	frame	data/chars/Billy/s11.gif
+	frame	data/chars/Billy/s10.gif
+	frame	data/chars/Billy/s09.gif
+	frame	data/chars/Billy/s08.gif
+	frame	data/chars/Billy/s07.gif
+	frame	data/chars/Billy/s06.gif
+	frame	data/chars/Billy/s05.gif
+	frame	data/chars/Billy/s04.gif
+	frame	data/chars/Billy/s03.gif
+	frame	data/chars/Billy/s01.gif
+	frame	data/chars/Billy/s02.gif
+	offset	144 193
+	bbox 	128 112 32 82
+	frame	data/chars/Madame/idle00.gif
+
+
+
+
+anim idle
+	loop	1
+	delay	16
+	offset	144 193
+	bbox 	128 112 32 82
+	@cmd clearL
+	frame	data/chars/Madame/idle00.gif
+
+anim walk
+	loop	1
+	delay	16
+	offset	143 192
+	bbox 	128 110 33 84
+	frame	data/chars/Madame/walk00.gif
+	frame	data/chars/Madame/walk01.gif
+	frame	data/chars/Madame/walk02.gif
+	frame	data/chars/Madame/walk01.gif
+
+anim block
+	range 0 500
+	rangea 0 500
+	rangez -500 500
+	loop	0
+	delay	32
+	offset	143 192
+	bbox 	122 108 33 86
+	frame	data/chars/Madame/block00.gif
+
+anim get
+	loop	0
+	delay	16
+	offset	152 192
+	frame	data/chars/Madame/get00.gif
+
+anim grab
+	loop	0
+	delay	8
+	offset	143 192
+	bbox 	128 110 33 84
+	frame	data/chars/Madame/grab00.gif
+
+anim grabbed
+	loop	0
+	delay	8
+	offset	143 192
+	bbox 	132 118 35 76
+	frame	data/chars/Madame/grabbed00.gif
+
+
+anim guardbreak
+	loop	0
+	delay	4
+	offset	143 192
+	bbox 	119 107 32 87
+	@cmd spawnbind "break" 0 60 0
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Madame/pain00.gif
+	frame	data/chars/Madame/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Madame/pain00.gif
+	frame	data/chars/Madame/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Madame/pain00.gif
+	frame	data/chars/Madame/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Madame/pain00.gif
+	frame	data/chars/Madame/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Madame/pain00.gif
+	frame	data/chars/Madame/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Madame/pain00.gif
+	frame	data/chars/Madame/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Madame/pain00.gif
+	frame	data/chars/Madame/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Madame/pain00.gif
+	frame	data/chars/Madame/pain01.gif
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	143 192
+	bbox 	119 107 32 87
+	frame	data/chars/Madame/pain00.gif
+	frame	data/chars/Madame/pain01.gif
+	frame	data/chars/Madame/pain00.gif
+	frame	data/chars/Madame/pain01.gif
+	frame	data/chars/Madame/pain00.gif
+	frame	data/chars/Madame/pain01.gif
+	frame	data/chars/Madame/pain00.gif
+	frame	data/chars/Madame/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	143 192
+	bbox 	125 120 32 73
+	frame	data/chars/Madame/pain200.gif
+	frame	data/chars/Madame/pain201.gif
+	frame	data/chars/Madame/pain200.gif
+	frame	data/chars/Madame/pain201.gif
+	frame	data/chars/Madame/pain200.gif
+	frame	data/chars/Madame/pain201.gif
+	frame	data/chars/Madame/pain200.gif
+	frame	data/chars/Madame/pain201.gif
+
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	143 192
+	bbox 	118 116 56 43
+	frame	data/chars/Madame/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	frame	data/chars/Madame/fall01.gif
+
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	143 192
+	bbox 	118 116 56 43
+	drawmethod tintmode 6
+	drawmethod tintcolor 255
+	frame	data/chars/Madame/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/Madame/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	frame	data/chars/Madame/fall01.gif
+
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	143 192
+	bbox 	118 116 56 43
+	drawmethod tintmode 6
+	drawmethod tintcolor -255
+	frame	data/chars/Madame/fall00.gif
+	drawmethod tintmode 2
+	drawmethod tintcolor -255
+	frame	data/chars/Madame/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	frame	data/chars/Madame/fall01.gif
+
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	143 192
+	frame	data/chars/Madame/fall600.gif
+	frame	data/chars/Madame/fall601.gif
+	frame	data/chars/Madame/fall602.gif
+	frame	data/chars/Madame/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/Madame/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	143 192
+	frame	data/chars/Madame/fall700.gif
+	frame	data/chars/Madame/fall701.gif
+	frame	data/chars/Madame/fall702.gif
+	frame	data/chars/Madame/fall703.gif
+	frame	data/chars/Madame/fall704.gif
+	frame	data/chars/Madame/fall705.gif
+
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 1
+	loop	0
+	delay	999
+	offset	143 192
+	bbox 	118 116 56 43
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 118 116 56 43 4 1 0 0 0 12
+	frame	data/chars/Madame/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/Madame/fall01.gif
+
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 1
+	loop	0
+	delay	999
+	offset	143 192
+	bbox 	133 133 35 56
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 133 133 35 56 4 1 0 0 0 12
+	frame	data/chars/Madame/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/Madame/fall01.gif
+
+anim rise
+	loop	0
+	delay	7
+		offset  44  135
+	frame	data/chars/Billy/s06.gif
+	frame	data/chars/Billy/s07.gif
+	frame	data/chars/Billy/s08.gif
+	frame	data/chars/Billy/s09.gif
+	frame	data/chars/Billy/s12.gif
+		delay  7
+		offset  44  135
+	frame	data/chars/Billy/s11.gif
+	frame	data/chars/Billy/s10.gif
+	frame	data/chars/Billy/s09.gif
+	frame	data/chars/Billy/s08.gif
+	frame	data/chars/Billy/s07.gif
+	frame	data/chars/Billy/s06.gif
+	frame	data/chars/Billy/s05.gif
+	frame	data/chars/Billy/s04.gif
+	frame	data/chars/Billy/s03.gif
+	frame	data/chars/Billy/s01.gif
+	frame	data/chars/Billy/s02.gif
+	offset	144 193
+	bbox 	128 112 32 82
+	frame	data/chars/Madame/idle00.gif
+
+anim attack1
+	range 20 100
+	rangea 0 0
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	loop	0
+	delay	8
+	offset	144 194
+	bbox 	126 112 33 82
+	hitfx	data/sounds/kof/StrongPunch.wav
+	sound	data/chars/madame/a1.wav
+	frame	data/chars/Madame/a100.gif
+	bbox 	136 112 27 82
+		attack1  166  173  76  29  20  1  0  0  10  20
+	frame	data/chars/Madame/a101.gif
+	frame	data/chars/Madame/a101.gif
+	bbox 	143 120 32 74
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+
+anim attack2
+	range 20 100
+	rangea 0 400
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	loop	0
+	delay	5
+	offset	143 192
+	hitfx	data/sounds/kof/Blow.wav
+	sound	data/chars/madame/a2.wav
+	frame	data/chars/Madame/a200.gif
+	attack 114 149 63 34 12 1 0 0 20 12
+	dropv 3.7 0.7 0
+		move  10
+		delay  4
+		movea  2
+	frame	data/chars/Madame/a201.gif
+	frame  data/chars/Madame/a201.gif
+		movea  0
+	frame  data/chars/Madame/a201.gif
+	frame  data/chars/Madame/a201.gif
+	frame  data/chars/Madame/a201.gif
+		movea  -2
+	frame	data/chars/Madame/a201.gif
+	frame  data/chars/Madame/a201.gif
+		delay	24
+	bbox 	116 139 52 51
+		Attack1  0
+	dropv 3.7 0.7 0
+		offset  143  190
+		movea  0
+	frame	data/chars/Madame/a202.gif
+
+
+
+anim freespecial3 #RAGE
+	range 0 100
+	rangea 0 0
+	fastattack 1
+        jugglecost 0
+	forcedirection 0
+	energycost 120 1
+	dot 0 1 3 120 1
+	loop	0
+	delay	24
+	offset	144 193
+	hitfx	data/sounds/kof/Blow.wav
+	sound	data/voices/Madame/Madame2.wav
+	@cmd projectile 1 "rage" 0 -1 0
+	@cmd spawnbind "ragefull" 0 0 1
+	frame	data/chars/Madame/a100.gif
+	sound	data/chars/madame/a1.wav
+		attack1  180  172  61  31  10  0  0  0  10  20
+		delay  5
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	sound	data/chars/madame/a1.wav
+	frame	data/chars/Madame/a100.gif
+		attack1  165  170  82  31  10  0  0  0  20  20
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a100.gif
+	sound	data/chars/madame/a1.wav
+		attack1  170  172  77  30  10  0  0  0  10  20
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a100.gif
+	sound	data/chars/madame/a1.wav
+		attack1  168  164  76  41  10  0  0  0  10  20
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a100.gif
+	sound	data/chars/madame/a1.wav
+		attack1  165  171  82  30  10  0  0  0  10  20
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a100.gif
+	sound	data/chars/madame/a1.wav
+		attack1  179  178  68  23  10  0  0  0  10  20
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a100.gif
+	sound	data/chars/madame/a1.wav
+		attack1  170  173  79  32  10  0  0  0  10  20
+	frame	data/chars/Madame/a101.gif
+		Attack1  0
+	frame	data/chars/Madame/a102.gif
+	frame	data/chars/Madame/a200.gif
+	sound	data/chars/madame/a2.wav
+		burn  106  157  80  33  30  10  0  0  20  50
+		move  10
+	frame	data/chars/Madame/a201.gif
+	frame	data/chars/Madame/a201.gif
+	frame  data/chars/Madame/a201.gif
+		move  0
+		Attack1  0
+		delay  24
+		offset  140  188
+	frame	data/chars/Madame/a202.gif
+		bbox  126  136  49  56
+		offset  150  193
+	frame  data/chars/Madame/wait01.gif
+	frame  data/chars/Madame/wait02.gif
+

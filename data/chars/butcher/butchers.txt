@@ -1,0 +1,42 @@
+##MAIN
+name				ButcherS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 		data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle #RAGE RUN
+loop	0
+	delay	6
+	offset	166 200
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp02.gif
+	frame	data/chars/Butcher/sp03.gif
+	frame	data/chars/Butcher/sp04.gif

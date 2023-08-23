@@ -1,0 +1,408 @@
+name	Jetto
+health	100
+speed	11
+type	player
+dust    dust
+shadow	3
+icon	data/chars/jet/icon.gif
+diesound data/sounds/jetdie.wav
+
+
+
+remap	data/chars/jet/idle1.gif data/chars/jet/alt1.gif
+remap	data/chars/jet/idle1.gif data/chars/jet/alt2.gif
+#remap	data/chars/electra/idle1.gif data/chars/jet/map2.gif
+
+
+
+anim idle
+        loop	1
+        offset	55 100
+        bbox	29 10 37 84
+        delay	20
+        frame	data/chars/jet/idle1.gif
+        bbox	29 4 37 84
+        frame	data/chars/jet/idle2.gif
+	 
+
+anim grab
+         loop	0
+        offset	55 100
+        bbox	29 10 37 84
+        delay	20
+        frame	data/chars/jet/idle1.gif
+        bbox	29 4 37 84
+        frame	data/chars/jet/idle2.gif
+
+anim walk
+ 	loop	1
+        offset	55 100
+ 	bbox	41 10 32 90
+ 	delay	20
+       	frame	data/chars/jet/walk1.gif
+        bbox	41 6 32 90
+       	frame	data/chars/jet/walk2.gif
+
+anim grabbed
+	loop	0
+	offset	55 100
+	bbox	32 15 32 77
+	delay	3
+	frame	data/chars/jet/pain2.gif  
+
+anim pain
+	loop	0
+	offset	55 100
+	bbox	32 15 32 77
+	delay	13
+	frame	data/chars/jet/pain2.gif
+        move    -7
+	bbox	43 11 30 79
+        frame   data/chars/jet/pain1.gif
+        move    7
+	bbox	32 15 32 77
+   	frame	data/chars/jet/pain2.gif
+	
+anim fall
+	loop	0
+	delay	40
+	offset	53 90
+        attack	20 2 41 57 5 1
+	frame	data/chars/jet/fall1.gif
+        offset	46 90
+	attack	4 57 49 39 5 1
+	frame	data/chars/jet/fall2.gif
+        attack  0
+
+anim rise
+	loop	0
+        delay	10
+	offset	46 90
+	frame	data/chars/jet/rise1.gif
+        delay	25
+        frame	data/chars/jet/rise2.gif
+
+
+anim special
+      	loop	0
+        delay	5
+        offset	56 195
+#       bbox	41 106 29 81
+        frame	data/chars/jet/launch1.gif
+        frame	data/chars/jet/launch2.gif
+        frame	data/chars/jet/launch3.gif
+        offset	56 196
+       	frame	data/chars/jet/launch4.gif
+        frame	data/chars/jet/launch5.gif
+        offset	56 228
+        frame	data/chars/jet/launch6.gif
+        offset	56 195 
+        frame	data/chars/jet/launch1.gif
+        frame	data/chars/jet/launch2.gif
+        frame	data/chars/jet/launch3.gif
+        offset	56 196
+       	frame	data/chars/jet/launch4.gif
+        frame	data/chars/jet/launch5.gif
+        offset	56 228
+        frame	data/chars/jet/launch6.gif
+        offset	56 195
+        frame	data/chars/jet/launch1.gif
+        frame	data/chars/jet/launch2.gif
+        frame	data/chars/jet/launch3.gif
+        offset	56 196
+       	frame	data/chars/jet/launch4.gif
+        frame	data/chars/jet/launch5.gif
+        offset	56 228
+        frame	data/chars/jet/launch6.gif
+        delay	9 
+        offset	67 244
+        frame 	data/chars/jet/rain1a.gif
+        frame	data/chars/jet/rain2a.gif
+        offset	67 245
+        frame	data/chars/jet/rain3a.gif
+        offset	67 196
+        frame	data/chars/jet/rain3.gif
+        offset	67 195
+        frame	data/chars/jet/rain4.gif
+        attack  226 135 49 48 28 0
+	sound data/sounds/bang.wav
+        frame	data/chars/jet/rain5.gif
+        offset	67 196
+        attack  160 135 115 48 28 1
+        frame	data/chars/jet/rain6.gif
+        attack  100 135 177 48 28 1
+        frame	data/chars/jet/rain7.gif
+        offset	67 195
+        frame	data/chars/jet/rain8.gif
+        attack  100 135 117 48 28 1
+       	frame	data/chars/jet/rain9.gif
+        offset	67 196
+        attack  100 135 58 48 28 1
+        frame   data/chars/jet/rain10.gif
+
+
+anim attack3
+	loop	0
+ 	delay	20
+ 	offset	55 100
+ 	bbox	32 15 32 77
+	sound data/sounds/jet.wav
+       	frame	data/chars/jet/sman1.gif
+        delay	2
+        offset	62 83
+       	attack	63 9 69 46 25 1
+ 	frame	data/chars/jet/sman2.gif
+        move    15
+        frame	data/chars/jet/sman2.gif
+ 	frame	data/chars/jet/sman3.gif
+        frame	data/chars/jet/sman3.gif
+ 	frame	data/chars/jet/sman4.gif
+        frame	data/chars/jet/sman4.gif
+       	frame	data/chars/jet/sman2.gif
+ 	frame	data/chars/jet/sman2.gif
+ 	frame	data/chars/jet/sman3.gif
+ 	frame	data/chars/jet/sman3.gif
+        frame	data/chars/jet/sman4.gif
+        frame	data/chars/jet/sman4.gif
+       	frame	data/chars/jet/sman2.gif
+ 	frame	data/chars/jet/sman2.gif
+
+	
+      #  offset	33 74
+      #  bbox	13 10 40 62
+      #  attack	37 6 20 67 10 1
+      #  frame	data/chars/jet/roll4.gif
+
+anim jumpattack  
+	loop	0
+	delay	6
+	offset  55 120
+	bbox	41 30 32 90
+	sound data/sounds/jet.wav
+	frame	data/chars/jet/walk1.gif
+        offset  55 140
+	bbox	41 50 32 90
+	frame	data/chars/jet/walk2.gif
+       	delay	8
+        offset  55 160
+	bbox	41 70 32 90
+	frame	data/chars/jet/walk1.gif
+ 	delay	18
+        offset	48 160
+        bbox    34 89 39 60
+	frame	data/chars/jet/dive2.gif
+        move    18
+ 	delay	2
+       	bbox	34 89 39 60
+        attack	50 87 28 45 10 1
+	frame	data/chars/jet/dive1.gif
+        offset	48 140
+        bbox	34 69 39 60
+        attack	60 67 28 80 10 1
+	frame	data/chars/jet/dive1.gif
+        offset	48 120 
+        bbox	34 49 39 60
+        attack	60 47 28 80 10 1
+        frame	data/chars/jet/dive2.gif
+        offset	48 100
+        bbox	34 29 39 60
+        attack	60 27 28 80 10 1
+        frame	data/chars/jet/dive1.gif
+        delay	4
+        frame	data/chars/jet/dive1.gif
+        frame	data/chars/jet/dive2.gif
+        frame	data/chars/jet/dive1.gif
+
+
+anim jumpattack2  
+	loop	0
+	delay	6
+	offset  55 120
+	bbox	41 30 32 90
+	sound data/sounds/jet.wav
+	frame	data/chars/jet/walk1.gif
+        offset  55 140
+	bbox	41 50 32 90
+	frame	data/chars/jet/walk2.gif
+       	delay	8
+        offset  55 160
+	bbox	41 70 32 90
+	frame	data/chars/jet/walk1.gif
+ 	delay	18
+        offset	48 160
+        bbox    34 89 39 60
+        offset	33 89
+        bbox    34 89 39 60
+	frame	data/chars/jet/dive2.gif
+        move    18
+ 	delay	2
+       	bbox	34 89 39 60
+        attack	50 87 28 45 10 1
+	frame	data/chars/jet/dive1.gif
+        offset	48 140
+        bbox	34 69 39 60
+        attack	60 67 28 80 10 1
+	frame	data/chars/jet/dive1.gif
+        offset	48 120 
+        bbox	34 49 39 60
+        attack	60 47 28 80 10 1
+        frame	data/chars/jet/dive2.gif
+        offset	48 100
+        bbox	34 29 39 60
+        attack	60 27 28 80 10 1
+        frame	data/chars/jet/dive1.gif
+        delay	4
+        frame	data/chars/jet/dive1.gif
+        frame	data/chars/jet/dive2.gif
+        frame	data/chars/jet/dive1.gif
+
+anim attack1 
+      	loop	0
+        offset	29 98
+       	bbox	7 20 42 71
+	sound data/sounds/jfire.wav
+        frame	data/chars/jet/flame1.gif
+        delay	10
+        attack	50 25 45 33 15  
+       	frame	data/chars/jet/flame2.gif
+        attack	0
+        delay	8
+        frame	data/chars/jet/flame3.gif
+        delay	10
+       	bbox	7 20 42 71
+        attack	50 25 45 33 15
+        frame	data/chars/jet/flame4.gif
+        attack	0
+        delay	8
+        frame	data/chars/jet/flame5.gif
+        delay	10
+       	bbox	7 20 42 71
+        attack	50 25 45 33 15
+        frame	data/chars/jet/flame2.gif
+        attack	0
+        delay	8
+        frame	data/chars/jet/flame5.gif
+        delay	10
+        bbox	7 20 42 71
+        attack	50 25 45 33 15
+        frame	data/chars/jet/flame2.gif
+        attack	0
+        delay	10
+ 	frame	data/chars/jet/flame10.gif
+
+
+anim freespecial
+        loop	0
+ 	delay	20
+ 	offset	55 100
+# 	bbox	32 15 32 77
+	sound data/sounds/jet.wav
+       	frame	data/chars/jet/sman1.gif
+        delay	2
+        offset	62 83
+       	attack	63 9 69 46 25 1
+ 	frame	data/chars/jet/sman2.gif
+        move    15
+        frame	data/chars/jet/sman2.gif
+ 	frame	data/chars/jet/sman3.gif
+        frame	data/chars/jet/sman3.gif
+ 	frame	data/chars/jet/sman4.gif
+        frame	data/chars/jet/sman4.gif
+       	frame	data/chars/jet/sman2.gif
+ 	frame	data/chars/jet/sman2.gif
+ 	frame	data/chars/jet/sman3.gif
+ 	frame	data/chars/jet/sman3.gif
+        frame	data/chars/jet/sman4.gif
+        frame	data/chars/jet/sman4.gif
+       	frame	data/chars/jet/sman2.gif
+ 	frame	data/chars/jet/sman2.gif
+
+
+anim attack2
+ 	loop	0
+	delay	20
+	offset	33 89
+       #bbox	13 25 40 62
+        attack	10 5 52 67 15 1
+        frame	data/chars/jet/spin1.gif
+        delay	6
+        frame	data/chars/jet/spin2.gif
+        attack	4 5 52 67 15 1
+        frame	data/chars/jet/spin3.gif
+        frame	data/chars/jet/spin4.gif
+        attack	10 5 52 67 15 1
+        frame	data/chars/jet/spin1.gif
+        frame	data/chars/jet/spin2.gif
+        attack	4 5 52 67 15 1
+        frame	data/chars/jet/spin3.gif
+        frame	data/chars/jet/spin4.gif
+
+
+anim grabattack
+	loop	0
+	delay	20
+	offset	33 89
+       #bbox	13 25 40 62
+        attack	10 5 52 67 10 0
+        frame	data/chars/jet/spin1.gif
+        delay	6
+        frame	data/chars/jet/spin2.gif
+        attack	4 5 52 67 10 0
+        frame	data/chars/jet/spin3.gif
+        frame	data/chars/jet/spin4.gif
+        attack	10 5 52 67 10 0
+
+
+anim grabattack2
+         loop	0
+        offset	29 98
+       	bbox	7 20 42 71
+	sound data/sounds/jfire.wav
+        frame	data/chars/jet/flame1.gif
+        delay	10
+        attack	50 25 45 33 10  
+       	frame	data/chars/jet/flame2.gif
+        attack	0
+        delay	8
+        frame	data/chars/jet/flame3.gif
+        delay	10
+       	bbox	7 20 42 71
+        attack	50 25 45 33 10
+        frame	data/chars/jet/flame4.gif
+        attack	0
+        delay	8
+        frame	data/chars/jet/flame5.gif
+        delay	10
+       	bbox	7 20 42 71
+        attack	50 25 45 33 10 1
+
+anim throw
+ 	loop	0
+        delay	13
+        offset	29 98
+        attack	50 25 45 33 15 1  
+	sound data/sounds/jfire.wav
+    	frame	data/chars/jet/flame2.gif
+        delay	31
+        attack	0
+  	frame	data/chars/jet/flame10.gif
+
+anim jump
+        loop	0
+	delay	6
+	offset  55 120
+	bbox	41 30 32 90
+	sound data/sounds/jet.wav
+	frame	data/chars/jet/walk1.gif
+        offset  55 140
+	bbox	41 50 32 90
+	frame	data/chars/jet/walk2.gif
+
+anim get
+        loop 0
+        offset	62 83
+       	attack	63 9 69 46 20 1
+ 	frame	data/chars/jet/sman2.gif
+
+
+

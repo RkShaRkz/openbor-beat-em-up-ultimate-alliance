@@ -1,0 +1,22 @@
+name				st1_dunk_a
+type				none
+shadow				0
+setlayer			-1
+animationscript	 	data/scripts/script.c
+
+anim idle
+	loop	1
+	delay	9
+	offset	1 200
+	@cmd offscreenkill 500 0
+	frame	data/bgs/st1/dunk_a00.gif
+	frame	data/bgs/st1/dunk_a01.gif
+	frame	data/bgs/st1/dunk_a02.gif
+	frame	data/bgs/st1/dunk_a03.gif
+	frame	data/bgs/st1/dunk_a04.gif
+	frame	data/bgs/st1/dunk_a05.gif
+	frame	data/bgs/st1/dunk_a06.gif
+	frame	data/bgs/st1/dunk_a07.gif
+	frame	data/bgs/st1/dunk_a08.gif
+	frame	data/bgs/st1/dunk_a09.gif
+	frame	data/bgs/st1/dunk_a10.gif

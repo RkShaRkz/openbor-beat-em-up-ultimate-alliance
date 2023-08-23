@@ -1,0 +1,44 @@
+##MAIN
+name				FunkmanS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle #RAGE
+	loop	0
+	delay	1
+	offset	30 100
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/FunkMan/SP01.gif
+		offset  102  152
+		delay  8
+	frame	data/chars/FunkMan/SP02.gif
+	frame	data/chars/FunkMan/SP03.gif
+		Attack1  0
+	frame	data/chars/FunkMan/SP04.gif
+	frame	data/chars/FunkMan/SP05.gif
+		Attack1  0
+	frame	data/chars/FunkMan/SP06.gif
+	frame	data/chars/FunkMan/SP07.gif
+		Attack1  0
+	frame	data/chars/FunkMan/SP08.gif
+	frame	data/chars/FunkMan/SP07.gif
+		Attack1  0
+	frame	data/chars/FunkMan/SP08.gif
+	frame	data/chars/FunkMan/SP07.gif
+		Attack1  0
+	frame	data/chars/FunkMan/SP08.gif
+	frame	data/chars/FunkMan/SP07.gif
+		Attack1  0
+	frame	data/chars/FunkMan/SP08.gif
+	frame	data/chars/FunkMan/SP07.gif
+		Attack1  0

@@ -1,0 +1,430 @@
+background	data/bgs/Br02/back03.gif		#1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/Br02/pn03.gif		none	none
+frontpanel	data/bgs/Br02/Front03.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn03.gif
+order		a
+music		data/music/Lv2b.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 2
+spawn1		191 17 300
+spawn2		242 5 300
+spawn3		239 26 300
+spawn4		190 35 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowcolor 2
+at			0
+
+shadowalpha 6
+at			0
+
+spawn		St1_Rain
+flip		1
+coords		1 200
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		100 260
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		140 240
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		180 250
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		220 240
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		260 260
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		300 250
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		340 260
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		400 240
+at			0
+
+#--------------------------------
+spawn		St1_Rain
+flip		1
+coords		638 200
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		738 260
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		778 240
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		818 250
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		858 240
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		898 260
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		938 250
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		978 260
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		1038 240
+at			0
+
+#-------------------
+spawn		St1_Rain
+flip		1
+coords		1275 200
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		1375 260
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		1415 240
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		1455 250
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		1495 240
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		1535 260
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		1575 250
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		1615 260
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		1675 240
+at			0
+
+
+#########################################################################################
+
+Wall  -32  275  10  0  131  189  30  124
+Wall  1705  200  -40  0  424  434  30  192
+
+#########################################################################################
+
+
+spawn  Rio
+flip    1
+	coords  0  4
+	at  0
+
+spawn  Box
+	coords  595  242
+	at  0
+
+spawn  Box
+	coords  699  263  0
+	at  0
+
+spawn		Donovan_Wait4
+flip		0
+coords		500 270 0
+at			301
+
+spawn		gNEISS_Wait0
+Alias           Gneiss
+coords		500 240 0
+at			301
+
+
+group		4 4
+at			400
+
+wait
+at			400
+
+spawn		Jack0
+flip		1
+coords		-5 270 0
+at			400
+
+
+spawn		Mic
+Map             2
+flip		1
+coords		600 270 0
+at			400
+
+
+spawn		Billy1
+Alias           Billy
+map             1
+flip		1
+coords		600 270 0
+at			400
+
+spawn		Gneiss
+flip		1
+coords		600 270 0
+at			400
+
+spawn		Rubby
+Map             1
+flip		1
+coords		600 270 0
+at			400
+
+2pspawn		Elmer1
+alias           elmer
+flip		1
+coords		600 270 0
+at			400
+
+2pspawn		miC
+flip		1
+coords		600 270 0
+at			400
+
+3pspawn		Mic
+flip		1
+coords		600 270 0
+at			400
+
+
+3pspawn		BasicX0
+flip		1
+coords		600 270 0
+at			400
+
+spawn  Rio
+flip    1
+	coords  0  4
+	at  401
+
+spawn  Drum
+	coords  1070  246
+	at  401
+
+spawn  Drum
+	coords  1009  246
+	at  401
+
+spawn		Billy1
+alias           Billy
+flip		1
+coords		-20 270 0
+at			500
+
+
+spawn		Rubby1
+map             2
+flip		1
+coords		600 270 0
+at			500
+
+group		1000 1000
+at			600
+
+wait
+at			600
+
+spawn		Gneiss
+flip		1
+coords		-40 270 0
+at			600
+
+spawn		BasicX0
+flip		1
+coords		-30 270 0
+at			600
+
+2pspawn		Mic
+map             2
+flip		1
+coords		600 270 0
+at			600
+
+2pspawn		BasicX1
+flip		1
+coords		-50 270 0
+at			600
+
+3pspawn		Billy1
+map             2
+flip		1
+coords		600 270 0
+at			600
+
+
+3pspawn		BasicX0
+flip		1
+coords		-100 270 0
+at			600
+
+
+spawn		Biker_bomb
+flip		1
+coords		428 192 0
+at			601
+
+spawn		Biker_bomb
+flip		1
+coords		555 192 0
+at			601
+
+spawn		Biker_bomb
+flip		1
+coords		826 210 0
+at			601
+
+spawn		Gneiss
+Map             2
+flip		1
+coords		-40 270 0
+at			700
+
+spawn		Gneiss
+flip		1
+coords		-30 270 0
+at			800
+
+2pspawn		BasicX0
+flip		1
+coords		600 270 0
+at			900
+
+2pspawn		Mic
+flip		1
+coords		-50 270 0
+at			900
+
+3pspawn		BasicX0
+flip		1
+coords		600 270 0
+at			900
+
+
+3pspawn		Billy1
+flip		1
+coords		-100 270 0
+at			900
+
+spawn		Elmer0
+Alias           Elmer
+coords		600 265 0
+at			1500
+
+spawn		Billy0
+alias           Billy
+coords		600 260 0
+at			1500
+
+spawn		Billy1
+alias           Ryuji
+map             6
+coords		-10 250 0
+at			1500
+
+2pspawn		BikerX
+coords		600 260 0
+at			1500
+
+3pspawn		Billy0
+coords		600 260 0
+at			1500
+
+4pspawn		BikerX
+coords		-10 250 0
+at			1500
+
+spawn		BasicX1
+flip		1
+coords		-40 270 0
+at			1500
+
+spawn		Billy0
+alias           Billy
+flip		1
+coords		-30 270 0
+at			1500
+
+2pspawn		BasicX0
+flip		1
+coords		600 270 0
+at			1500
+
+2pspawn		BasicX1
+flip		1
+coords		-50 270 0
+at			1500
+
+3pspawn		Mic
+flip		1
+coords		600 270 0
+at			1500
+
+
+3pspawn		BasicX1
+flip		1
+coords		-100 270 0
+at			1500
+
+

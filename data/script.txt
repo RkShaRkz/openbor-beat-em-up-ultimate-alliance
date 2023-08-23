@@ -1,0 +1,6 @@
+alwaysupdate		1
+maxscriptvars		2048
+maxentityvars   	2048
+maxindexedvars  	2048
+maxlocalvars 		2048
+maxglobalvars		2048

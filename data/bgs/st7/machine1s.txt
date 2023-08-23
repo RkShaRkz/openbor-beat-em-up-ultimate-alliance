@@ -1,0 +1,15 @@
+name				st7_machine1S
+type				none
+shadow				0
+antigravity 		100
+animationscript	 	data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	42
+	offset	1 32
+	@cmd dasher 0.2 0 0
+	platform 52 -10 288 226 32 0.1
+	frame	data/bgs/st7/empty.gif
+	@cmd suicide
+	frame	data/bgs/st7/empty.gif

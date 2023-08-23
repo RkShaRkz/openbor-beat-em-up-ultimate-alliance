@@ -1,0 +1,1173 @@
+##ATTRIBUTES
+
+#SKILLS		***
+#LIFE		***
+#POWER		***
+#SPEED		**
+#JUMP		**
+#SPECIAL	**
+
+##MAIN
+name				Guy
+type				player
+hostile				enemy
+candamage			enemy obstacle
+projectilehit		        enemy obstacle
+
+##LIFE
+health				400 #200/300/400/500/600/700
+
+##POWER
+offense 			all 2 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				10 #8/10/12/14/16/18
+running 			20 2.9 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			15 #13/15/17/19/21/23
+jumpheight 			3.1 #2.9/3.1/3.3/3.5/3.7/3.9
+jumpmove			0 1 #PLAYER ONLY
+
+##SPECIAL
+mp					120
+mprate  			5 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		33 #BASE 36
+grabfinish 			0 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				74
+
+##MISC
+jugglepoints		30
+guardpoints			87
+guardrate			13
+risetime			170
+riseinv				0.2 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 1 2 3 4
+#weapons				axel_knife axel_sword axel_pipe axel_kunai axel
+gfxshadow			1 1
+dust				dust
+bflash				block
+
+##SCRIPTS
+didblockscript		data/scripts/didblock/axel.c
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/player.c
+keyscript			data/scripts/key/axel.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+script				data/scripts/updateentity/guy.c
+
+##ICONS
+icon				data/chars/guy/icon.gif 1
+iconmphigh			data/chars/guy/iconmp.gif 1
+
+##PARROWS
+parrow				data/sprites/parrow.gif 	-15 -140
+parrow2				data/sprites/parrow2.gif 	-15 -140
+parrow3				data/sprites/parrow3.gif 	-15 -140
+parrow4				data/sprites/parrow4.gif 	-15 -140
+
+##DIESOUND
+diesound			data/voices/guy/Axel1.wav
+
+##REMAPS
+#remap				data/chars/guy/idle00.gif data/chars/guy/alter1.gif
+#remap				data/chars/guy/idle00.gif data/chars/guy/alter2.gif
+#remap				data/chars/guy/idle00.gif data/chars/guy/alter3.gif
+
+##COMMANDS
+com 				a2	freespecial		#RAGE
+com 				a4	freespecial2	#BLOCK
+
+##LOADS
+
+load				gokusa
+load				gokusas
+load				izuna
+load				hassou
+
+##ANIMATIONS#############################################################################
+
+#anim waiting
+
+
+#anim select
+
+
+
+
+
+anim idle
+        loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	16
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/idle01.gif
+	frame	data/chars/guy/idle02.gif
+	frame	data/chars/guy/idle03.gif
+	frame	data/chars/guy/idle02.gif
+
+anim walk
+	loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/walk01.gif
+	frame	data/chars/guy/walk02.gif
+	frame	data/chars/guy/walk03.gif
+	frame	data/chars/guy/walk04.gif
+	frame	data/chars/guy/walk05.gif
+	frame	data/chars/guy/walk06.gif
+
+anim run
+loop	1
+	offset	238 177
+	bbox	226 105 30 72
+	delay	8
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/run01.gif
+	frame	data/chars/guy/run02.gif
+	sound	data/chars/players/haggar/hagg11.wav
+	frame	data/chars/guy/run03.gif
+	frame	data/chars/guy/run04.gif
+	frame	data/chars/guy/run05.gif
+	sound	data/chars/players/haggar/hagg11.wav
+	frame	data/chars/guy/run06.gif
+
+anim get
+	loop	0
+	offset	238 177
+	delay	30
+	drawmethod  250  250  0  0  0  -1  -1
+	sound	data/sounds/get/guyget.wav
+	frame	data/chars/guy/get01.gif
+
+anim grab
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	6
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/grab01.gif
+
+anim grabbed
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	6
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/pain02.gif
+
+anim land
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/land01.gif
+
+anim jumpdelay
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/land01.gif
+
+anim jump
+        offset	238 177
+	bbox	226 102 23 50
+	delay	1
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/jump01.gif
+	delay	16
+	frame	data/chars/guy/jump01.gif
+	delay	17
+	frame	data/chars/guy/jump01.gif
+	delay	15
+	frame	data/chars/guy/jump02.gif
+	delay	999
+	frame	data/chars/guy/jump01.gif
+
+anim walkoff
+	loop	0
+	delay	30
+	offset	243 176
+	bbox 	230 89 21 69
+	@cmd jump 1
+	drawmethod  250  250  0  0  0  -1  -1
+        frame	data/chars/guy/jump01.gif
+	delay	16
+	frame	data/chars/guy/jump02.gif
+
+anim jumpland
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	drawmethod  250  250  0  0  0  -1  -1
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/guy/land01.gif
+
+anim guardbreak
+	loop	0
+	delay	4
+	offset	238 177
+	bbox 	227 106 21 71
+	@cmd spawnbind "break" 0 50 0
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/pain00.gif
+	frame	data/chars/guy/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/guy/pain00.gif
+	frame	data/chars/guy/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/guy/pain00.gif
+	frame	data/chars/guy/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/guy/pain00.gif
+	frame	data/chars/guy/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/guy/pain00.gif
+	frame	data/chars/guy/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/guy/pain00.gif
+	frame	data/chars/guy/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/guy/pain00.gif
+	frame	data/chars/guy/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/guy/pain00.gif
+	frame	data/chars/guy/pain01.gif
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	238 177
+	bbox 	228 104 21 71
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/pain00.gif
+	frame	data/chars/guy/pain01.gif
+	frame	data/chars/guy/pain00.gif
+	frame	data/chars/guy/pain01.gif
+	frame	data/chars/guy/pain00.gif
+	frame	data/chars/guy/pain01.gif
+	frame	data/chars/guy/pain00.gif
+	frame	data/chars/guy/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	238 177
+	bbox 	228 104 31 60
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/pain200.gif
+	frame	data/chars/guy/pain201.gif
+	frame	data/chars/guy/pain200.gif
+	frame	data/chars/guy/pain201.gif
+	frame	data/chars/guy/pain200.gif
+	frame	data/chars/guy/pain201.gif
+	frame	data/chars/guy/pain200.gif
+	frame	data/chars/guy/pain201.gif
+
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	238 177
+	bbox 	198 113 72 57
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/guy/fall01.gif
+
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	238 177
+	bbox 	39 75 41 34
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	drawmethod tintmode 6
+	drawmethod tintcolor 255
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/guy/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/guy/fall01.gif
+
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	238 104
+	bbox 	222 75 41 34
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	drawmethod tintmode 6
+	drawmethod tintcolor -255
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/fall00.gif
+	drawmethod tintmode 2
+	drawmethod tintcolor -255
+	frame	data/chars/guy/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/guy/fall01.gif
+
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	219 167
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/fall600.gif
+		offset  203  179
+	frame	data/chars/guy/fall601.gif
+		offset  277  179
+	frame	data/chars/guy/fall602.gif
+		offset  277  166
+	frame	data/chars/guy/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+		offset  235  181
+	frame	data/chars/guy/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	246 178
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/fall700.gif
+	frame	data/chars/guy/fall701.gif
+	frame	data/chars/guy/fall702.gif
+		offset  224  154
+	frame	data/chars/guy/fall703.gif
+		offset  245  154
+	frame	data/chars/guy/fall704.gif
+	frame	data/chars/guy/fall705.gif
+
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 2
+	loop	0
+	delay	30
+	offset	225 173
+	bbox 	205 119 41 34
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 39 75 41 34 4 1 0 0 0 12
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/fall00.gif
+		delay	999
+	@cmd cancelfall "ANI_LAND" 0 0
+	frame	data/chars/guy/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+		offset  227  181
+	frame	data/chars/guy/fall01.gif
+
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 2
+	loop	0
+	delay	30
+	offset	249 153
+	bbox 	226 119 32 35
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 226 119 32 35 4 1 0 0 0 12
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/fall900.gif
+		delay	999
+	@cmd cancelfall "ANI_LAND" 0 0
+	frame	data/chars/guy/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+		offset  231  182
+	frame	data/chars/guy/fall01.gif
+
+anim rise
+        loop	0
+	offset	238 177
+	delay	55
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/fall02.gif
+	delay	20
+	frame	data/chars/guy/rise01.gif
+	delay	14
+	frame	data/chars/guy/fall02.gif
+	delay	10
+	frame	data/chars/guy/rise01.gif
+	frame	data/chars/guy/get01.gif
+
+anim riseattack
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	drawmethod  250  250  0  0  0  -1  -1
+	hitfx	data/sounds/beat2.wav
+	delay	10
+	frame	data/chars/guy/rise01.gif
+	frame	data/chars/guy/get01.gif
+	sound	data/chars/guy/guy03.wav
+	delay	4
+	frame	data/chars/guy/jump01.gif
+	delay	9
+	frame	data/chars/guy/sp01.gif
+	attack	234 111 41 	81 	8 	1 	1 	0 	20	15
+	delay	12
+	frame	data/chars/guy/sp02.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	8
+	frame	data/chars/guy/sp03.gif
+	attack	194 111 41 	81 	8 	1 	1 	0 	20	15
+	delay	12
+	frame	data/chars/guy/sp04.gif
+	attack 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	8
+	frame	data/chars/guy/sp01.gif
+	attack	234 111 41 	81 	8 	1 	1 	0 	20	15
+	delay	12
+	frame	data/chars/guy/sp02.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	9
+	frame	data/chars/guy/sp03.gif
+	delay	999
+	frame	data/chars/guy/jump01.gif
+	delay	9
+	frame	data/chars/guy/land01.gif
+
+
+anim attack1
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	offset	238 177
+	bbox	226 90 30 87
+	delay	2
+	hitfx	data/sounds/sf/LowPunch.wav
+	sound	data/sounds/sf/LowAttack.wav
+	frame	data/chars/guy/a101.gif
+	delay	8
+	attack	240 95 50 40 4 0 0 0 15 15
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/a102.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/guy/a101.gif
+
+anim attack2
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	offset	238 177
+	bbox	226 90 30 87
+	delay	4
+	hitfx	data/sounds/sf/MediumPunch.wav
+	sound	data/sounds/sf/MediumAttack.wav
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/a201.gif
+	attack2	240 115 53 25 2 0 0 0 15 15
+	delay	10
+	frame	data/chars/guy/a202.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/guy/a201.gif
+
+anim attack3
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	offset	238 177
+	bbox	240 102 35 76
+	delay	4
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/a301.gif
+	attack	240 100 56 40 2 0 0 0 15 15
+	delay	10
+	frame	data/chars/guy/a302.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/guy/a301.gif
+
+anim attack4
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	offset	238 177
+	bbox	240 102 30 76
+        hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/chars/guy/guy02.wav
+	delay	3
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/a401.gif
+	delay	5
+	frame	data/chars/guy/a402.gif
+	attack	240 85 59 55 8 1 0 0 20 15
+	delay	8
+	frame	data/chars/guy/a403.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/guy/a404.gif
+	frame	data/chars/guy/a405.gif
+
+
+anim attackboth #BACK ATTACK
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	offset	227 177
+	bbox	211 102 30 76
+        hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/chars/guy/guy02.wav
+	delay	3
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/a501.gif
+	delay	5
+	frame	data/chars/guy/a502.gif
+	attack	190 78 39 65 8 1 0 0 20 15
+	delay	8
+	frame	data/chars/guy/a503.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/guy/a504.gif
+		bbox  225  102  30  76
+	frame	data/chars/guy/a505.gif
+
+anim grabattack #HEADBUTT
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	hitfx	data/sounds/sf/MediumPunch.wav
+	delay	16
+	attack2	240 116 52 	88 	8 	1 	0 	0 	20	0
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/th101.gif
+
+anim grabforward #KNEE
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	hitfx	data/sounds/sf/MediumPunch.wav
+	delay	16
+	attack2	240 116 52 	88 	4 	0 	0 	0 	15	0
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/th101.gif
+
+anim grabforward2 #KNEE END
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	hitfx	data/sounds/sf/MediumPunch.wav
+	delay	16
+	attack2	240 116 52 	88 	8 	1 	0 	0 	20	0
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/th101.gif
+
+
+anim grabbackward #THROW
+	loop	0
+	delay	24
+	offset	238 177
+	@cmd slamstart
+	@cmd position 0 5 0 0 0
+	@cmd antiwall -30 30 0
+	sound	data/voices/guy/guy03.wav
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/th201.gif
+		delay	8
+	@cmd position 5 -5 5 0 0
+	frame	data/chars/guy/th202.gif
+	@cmd position 2 -30 25 0 0
+	frame	data/chars/guy/th202.gif
+		delay	24
+	@cmd depost 0
+	@cmd throw 12 2 2 2 0 0
+	frame	data/chars/guy/Idle01.gif
+		delay	8
+	@cmd clearL
+	frame	data/chars/guy/Idle02.gif
+
+anim grabdown #SLAM
+	landframe 7
+	loop	0
+	delay	24
+	offset	238 177
+	@cmd slamstart
+	@cmd position 0 15 0 0 0
+	@cmd antiwall -60 60 0
+	sound	data/voices/guy/guy03.wav
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/th201.gif
+		delay	8
+	@cmd position 5 -5 5 0 0
+	frame	data/chars/guy/th201.gif
+	@cmd position 2 -15 55 0 0
+	frame	data/chars/guy/th201.gif
+		delay	4
+	@cmd position 2 -40 30 0 0
+	frame	data/chars/guy/th202.gif
+		delay	12
+	@cmd position 4 -55 0 0 0
+	@cmd spawn01 "quake_high" 0 0 0
+	sound	data/sounds/sf/Slam.wav
+	frame	data/chars/guy/th202.gif
+	@cmd leaper 1 2.5 0
+	@cmd depost 0
+	@cmd finish 18 2 2 2 0 0
+	frame	data/chars/guy/th202.gif
+		delay	999
+	frame	data/chars/guy/jump01.gif
+		delay	8
+	frame	data/chars/guy/jump01.gif
+	@cmd clearL
+	frame	data/chars/guy/Idle01.gif
+
+anim jumpattack #JUMP STATIC
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+        offset	238 177
+	bbox	226 102 23 50
+         hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/chars/guy/guy03.wav
+	delay	5
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/jump02.gif
+	delay	7
+	frame	data/chars/guy/ja101.gif
+	attack	240 79 40 50 7 1 0 0 20 15
+	delay	35
+	frame	data/chars/guy/ja102.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	7
+	frame	data/chars/guy/ja101.gif
+	delay	5
+	frame	data/chars/guy/jump02.gif
+	delay	999
+	frame	data/chars/guy/jump01.gif
+
+anim jumpattack2 #JUMP DOWN
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	4
+	offset	233 171
+	bbox 	223 87 33 86
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+		attack1  222  87  36  85  8  1  0  0  0  10
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/ja301.gif
+
+anim jumpattack3 #JUMP UP
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	offset	238 177
+	bbox	226 102 23 50
+	delay	1
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/ja301.gif
+	attack	226 122 32 35 4 0 0 0 15 15
+	delay	999
+	frame	data/chars/guy/ja301.gif
+
+anim jumpforward #JUMP FORWARD
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	offset	238 177
+	bbox	226 102 23 50
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+	delay	4
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/jump02.gif
+	frame	data/chars/guy/ja201.gif
+	attack	240 115 54 20 7 1 0 0 20 15
+	delay	35
+	frame	data/chars/guy/ja202.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/guy/ja201.gif
+	delay	999
+	frame	data/chars/guy/jump01.gif
+
+anim runattack #GRANDUPPER
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+        loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	2
+	move	6
+	drawmethod  250  250  0  0  0  -1  -1
+	sound	data/chars/guy/guy02.wav
+	frame	data/chars/guy/ca01.gif
+	frame	data/chars/guy/ca01.gif
+	frame	data/chars/guy/ca01.gif
+	frame	data/chars/guy/ca01.gif
+	@cmd	projectile 1 "dust02" 0 0 0
+	attack1	250 106 40 	46 	8 	1 	0 	0 	15	15
+	bbox	220 110 30 70
+	dropv	1.5 1.5
+	frame	data/chars/guy/ca02.gif
+	frame	data/chars/guy/ca02.gif
+	frame	data/chars/guy/ca02.gif
+	frame	data/chars/guy/ca02.gif
+	move	4
+	frame	data/chars/guy/ca02.gif
+	move	2
+	frame	data/chars/guy/ca03.gif
+	move	1
+	frame	data/chars/guy/ca03.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	move	0
+	attack2	0	0	0	0	0	0	0	0	0	0
+	delay	8
+	frame	data/chars/guy/ca03.gif
+	frame	data/chars/guy/ca03.gif
+	bbox	226 102 23 76
+	frame	data/chars/guy/ca03.gif
+
+
+anim freespecial #RAGE
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+        followanim	1
+	followcond	1
+	energycost 120 1
+	mponly	1
+	hitfx	data/sounds/empty.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/chars/guy/guy06.wav
+	delay	6
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/land01.gif
+	@cmd projectile 1 "rage" 0 -1 0
+	@cmd spawnbind "ragefull" 0 0 1
+	attack	230 87 40 80 0 0 1 1 10 15
+	dropv	1 0
+	bbox	226 102 23 76
+	delay	2
+	move	1
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	move	2
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	move	4
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	move	6
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	move	8
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	move	6
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	move	4
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	move	2
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	move	1
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	frame	data/chars/guy/frsp201.gif
+	move	0
+	bbox	226 102 23 76
+	delay	9
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/guy/land01.gif
+
+anim	follow1
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	hitfx	data/sounds/sf/HighPunch.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	attack2	240 87 30 92 0 0 1 1 10 20
+	dropv	1 0
+	sound	data/chars/guy/guy08.wav
+	delay	9
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/frsp201.gif
+	attack 0 0 0 0 0 0 0 0
+	delay	2
+	frame	data/chars/guy/frsp401.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	delay	8
+	attack	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.5 0
+	frame	data/chars/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	delay	8
+	attack2	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp404.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	delay	8
+	attack	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp405.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	delay	8
+	attack2	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp406.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	delay	8
+	attack	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp407.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	delay	8
+	attack2	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp408.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	delay	8
+	attack	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	delay	8
+	attack2	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp404.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	delay	8
+	attack	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp405.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	delay	8
+	attack2	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp406.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	delay	8
+	attack	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp407.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	delay	8
+	attack2	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp408.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	delay	8
+	attack	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	delay	8
+	attack2	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp404.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	delay	8
+	attack	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp405.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	delay	8
+	attack2	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp406.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	delay	8
+	attack	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp407.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	delay	8
+	attack2	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.40
+	frame	data/chars/guy/frsp408.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	delay	8
+	attack	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	delay	8
+	attack2	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp404.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	delay	8
+	attack	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp405.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	delay	8
+	attack2	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp406.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	delay	8
+	attack	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/guy/frsp407.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	delay	8
+	attack2	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.5 0
+	frame	data/chars/guy/frsp408.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	delay	8
+	attack	240 120 41 	9 	29 	0 	1 	0 	5	20
+	dropv	1 0
+	frame	data/chars/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/guy/frsp403.gif
+	sound	data/chars/guy/guy04.wav
+	frame	data/chars/guy/frsp101.gif
+	sound	data/sounds/blast01.wav
+	delay	8
+	frame	data/chars/guy/frsp102.gif
+	bbox	0 0 0 0
+	@cmd	projectile 1 "dust02" 0 0 0
+	@cmd	projectile 1 "gokusas" 0 0 0
+	delay	70
+	frame	data/chars/guy/frsp103.gif
+	bbox	226 102 23 76
+	delay	6
+	frame	data/chars/guy/a301.gif
+
+anim special2 #OFFENSIVE SPECIAL
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	energycost 40 1
+	offset	238 177
+	bbox	0 0 0 0
+        hitfx	data/sounds/sf/MediumPunch.wav
+	sound	data/chars/guy/especial21.wav
+	delay	8
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/frsp101.gif
+        @cmd	projectile 1 "gokusas" 0 0 0
+	frame	data/chars/guy/frsp102.gif
+	delay	40
+	frame	data/chars/guy/frsp103.gif
+	delay	6
+	frame	data/chars/guy/a301.gif
+
+
+anim special #DEFENSIVE SPECIAL
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	energycost 40 1
+        jumpframe	0 0 1
+	landframe	16
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/chars/guy/guy03.wav
+	delay	8
+	attack	234 111 41 	81 	5 	1 	1 	0 	20	15
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/sp02.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/guy/sp03.gif
+	attack	194 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/guy/sp04.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/guy/sp01.gif
+	attack	234 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/guy/sp02.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/guy/sp03.gif
+	attack	194 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/guy/sp04.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/guy/sp01.gif
+	attack	234 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/guy/sp02.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/guy/sp03.gif
+	attack	194 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/guy/sp04.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/guy/sp01.gif
+	attack	234 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/guy/sp02.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/guy/sp03.gif
+	attack	194 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/guy/sp04.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/guy/sp01.gif
+	delay	12
+	frame	data/chars/guy/land01.gif
+
+anim freespecial2 #BLOCK
+	loop	0
+	delay	32
+	offset	238 177
+	bbox 	50 61 22 68
+	@cmd block 1
+	drawmethod  250  250  0  0  0  -1  -1
+	frame	data/chars/guy/a301.gif
+		delay	1
+	@cmd block 0
+		bbox  231  89  40  89
+		offset  245  177
+	frame	data/chars/guy/a301.gif
+

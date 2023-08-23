@@ -1,0 +1,445 @@
+##ATTRIBUTES
+
+#SKILLS		*
+#LIFE		**
+#POWER		**
+#SPEED		**
+#JUMP		**
+#SPECIAL	**
+
+##MAIN
+name				Electra
+type				player
+hostile				enemy
+candamage			player enemy obstacle
+projectilehit		player enemy obstacle
+secret				0 1
+
+##LIFE
+health				300 #200/300/400/500/600/700
+
+##POWER
+offense 			all 1.5 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				10 #8/10/12/14/16/18
+running 			20 2.9 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			15 #13/15/17/19/21/23
+jumpheight 			3.1 #2.9/3.1/3.3/3.5/3.7/3.9
+jumpmove			0 1 #PLAYER ONLY
+
+##SPECIAL
+mp					120
+mprate  			5 #4/5/6/7/8/9
+
+##WEIGHT/HEIGHT
+antigravity			-3 #-3/-6/-9
+height				79
+
+##MISC
+jugglepoints		30
+guardpoints			87
+guardrate			13
+risetime			170
+riseinv				0.1 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 2
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/player.c
+
+##ICONS
+icon				data/chars/electra/icon.gif 1
+iconmphigh			data/chars/electra/iconmp.gif 1
+
+##PARROWS
+parrow				data/sprites/parrow.gif 	-15 -140
+parrow2				data/sprites/parrow2.gif 	-15 -140
+parrow3				data/sprites/parrow3.gif 	-15 -140
+parrow4				data/sprites/parrow4.gif 	-15 -140
+
+##DIESOUND
+diesound			data/voices/enemy/Die3.wav
+
+##REMAPS
+remap				data/chars/electra/idle00.gif data/chars/electra/alter1.gif
+remap				data/chars/electra/idle00.gif data/chars/electra/alter2.gif
+remap				data/chars/electra/idle00.gif data/chars/electra/alter3.gif
+remap				data/chars/electra/idle00.gif data/chars/electra/alter4.gif
+
+##COMMANDS
+com 				a3	freespecial	#JUMP EVADE
+
+##ANIMATIONS#############################################################################
+
+anim waiting
+	fshadow 0
+	loop	1
+	delay	16
+	offset	130 190
+	frame	data/chars/electra/idle00.gif
+	
+anim select
+	fshadow 0
+	loop	0
+	delay	2
+	offset	130 190
+	drawmethod tintmode 4
+	drawmethod tintcolor 0
+	frame	data/chars/electra/idle00.gif
+		delay	3
+	nodrawmethod
+	frame	data/chars/electra/idle00.gif
+		delay	2
+	drawmethod tintmode 4
+	drawmethod tintcolor 0
+	frame	data/chars/electra/idle00.gif
+		delay	3
+	nodrawmethod
+	frame	data/chars/electra/idle00.gif
+	@cmd looper 2 8
+	frame	data/chars/electra/idle00.gif
+
+anim idle
+	loop	1
+	delay	16
+	offset	130 190
+	bbox 	120 115 17 77
+	@cmd clearL
+	frame	data/chars/electra/idle00.gif
+	
+anim walk
+	loop	1
+	delay	16
+	offset	130 190
+	bbox 	120 115 17 77
+	frame	data/chars/electra/walk00.gif
+	frame	data/chars/electra/walk01.gif
+	frame	data/chars/electra/walk02.gif
+	frame	data/chars/electra/walk01.gif
+	
+anim run
+	loop	1
+	delay	16
+	offset	130 190
+	bbox 	120 115 17 77
+	frame	data/chars/electra/walk00.gif
+	frame	data/chars/electra/walk01.gif
+	frame	data/chars/electra/walk02.gif
+	frame	data/chars/electra/walk01.gif
+
+anim get
+	loop	0
+	delay	16
+	offset	130 190
+	frame	data/chars/electra/get00.gif
+	
+anim grabbed
+	loop	0
+	delay	8
+	offset	130 190
+	bbox 	123 120 20 72
+	frame	data/chars/electra/grabbed00.gif
+
+anim jumpdelay
+	loop	0
+	delay	12
+	offset	130 190
+	bbox 	125 129 15 63
+	frame	data/chars/electra/jumpdelay00.gif
+
+anim jump
+	loop	0
+	delay	30
+	offset	130 190
+	bbox 	118 112 20 63
+	sound	data/sounds/kof/Jump.wav
+	frame	data/chars/electra/jump00.gif
+	
+anim walkoff
+	loop	0
+	delay	30
+	offset	130 190
+	bbox 	118 112 20 63
+	@cmd jump 1
+	frame	data/chars/electra/jump00.gif
+	
+anim jumpland
+	loop	0
+	delay	12
+	offset	130 190
+	bbox 	125 129 15 63
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/electra/jumpland00.gif
+	
+anim pain #UP
+	loop	0
+	delay	4
+	offset	130 190
+	bbox 	118 122 20 70
+	frame	data/chars/electra/pain00.gif
+	frame	data/chars/electra/pain01.gif
+	frame	data/chars/electra/pain00.gif
+	frame	data/chars/electra/pain01.gif
+	frame	data/chars/electra/pain00.gif
+	frame	data/chars/electra/pain01.gif
+	frame	data/chars/electra/pain00.gif
+	frame	data/chars/electra/pain01.gif
+	frame	data/chars/electra/pain00.gif
+	frame	data/chars/electra/pain01.gif
+	frame	data/chars/electra/pain00.gif
+	frame	data/chars/electra/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	130 190
+	bbox 	119 121 21 70
+	frame	data/chars/electra/pain200.gif
+	frame	data/chars/electra/pain201.gif
+	frame	data/chars/electra/pain200.gif
+	frame	data/chars/electra/pain201.gif
+	frame	data/chars/electra/pain200.gif
+	frame	data/chars/electra/pain201.gif
+	frame	data/chars/electra/pain200.gif
+	frame	data/chars/electra/pain201.gif
+	frame	data/chars/electra/pain200.gif
+	frame	data/chars/electra/pain201.gif
+	frame	data/chars/electra/pain200.gif
+	frame	data/chars/electra/pain201.gif
+	
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	130 190
+	bbox 	106 122 32 46
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	frame	data/chars/electra/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/electra/fall01.gif
+	
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	130 190
+	bbox 	106 122 32 46
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	drawmethod tintmode 6	
+	drawmethod tintcolor 255
+	frame	data/chars/electra/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2	
+	drawmethod tintcolor 255
+	frame	data/chars/electra/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	nodrawmethod
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/electra/fall01.gif
+	
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	130 190
+	bbox 	106 122 32 46
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	drawmethod tintmode 6	
+	drawmethod tintcolor -255
+	frame	data/chars/electra/fall00.gif
+	drawmethod tintmode 2	
+	drawmethod tintcolor -255
+	frame	data/chars/electra/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	nodrawmethod
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/electra/fall01.gif
+	
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	130 190
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	frame	data/chars/electra/fall600.gif
+	frame	data/chars/electra/fall601.gif
+	frame	data/chars/electra/fall602.gif
+	frame	data/chars/electra/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/electra/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	130 190
+	frame	data/chars/electra/fall700.gif
+	frame	data/chars/electra/fall701.gif
+	frame	data/chars/electra/fall702.gif
+	frame	data/chars/electra/fall703.gif
+	frame	data/chars/electra/fall704.gif
+	frame	data/chars/electra/fall705.gif
+	
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 1
+	loop	0
+	delay	999
+	offset	130 190
+	bbox 	106 122 32 46
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 106 122 32 46 4 1 0 0 0 12
+	frame	data/chars/electra/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/electra/fall01.gif
+	
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 1
+	loop	0
+	delay	999
+	offset	130 190
+	bbox 	112 144 22 46
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 112 144 22 46 4 1 0 0 0 12
+	frame	data/chars/electra/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/electra/fall01.gif
+	
+anim rise
+	loop	0
+	delay	16
+	offset	130 190
+	@cmd obstacle 1
+	frame	data/chars/electra/rise00.gif
+	frame	data/chars/electra/rise01.gif
+	frame	data/chars/electra/rise00.gif
+	frame	data/chars/electra/rise02.gif
+	
+anim riseattack
+	loop	0
+	delay	16
+	offset	130 190
+	@cmd obstacle 1
+	frame	data/chars/electra/rise00.gif
+	frame	data/chars/electra/rise01.gif
+	frame	data/chars/electra/rise00.gif
+		delay	64
+	frame	data/chars/electra/rise02.gif
+		delay	4
+	frame	data/chars/electra/rise03.gif
+	
+anim attack1
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	loop	0
+	delay	5
+	offset	130 190
+	bbox 	121 116 17 76
+	hitfx	data/sounds/Whip.wav
+	sound	data/sounds/Whoosh2.wav
+	frame	data/chars/electra/a100.gif
+	frame	data/chars/electra/a101.gif
+	frame	data/chars/electra/a102.gif
+	frame	data/chars/electra/a103.gif
+	bbox 	130 133 18 59
+	attack 172 109 31 52 8 0 0 0 10 12
+	frame	data/chars/electra/a104.gif
+	attack 174 121 41 39 8 0 0 0 10 12
+	frame	data/chars/electra/a105.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/electra/a106.gif
+	frame	data/chars/electra/a107.gif
+	frame	data/chars/electra/a108.gif
+	frame	data/chars/electra/a109.gif
+	
+anim attack2
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	loop	0
+	delay	5
+	offset	130 190
+	bbox 	130 133 18 59
+	hitfx	data/sounds/Whip.wav
+	sound	data/sounds/Whoosh2.wav
+	frame	data/chars/electra/a200.gif
+	frame	data/chars/electra/a201.gif
+	attack 180 147 47 15 8 0 0 0 10 12
+	frame	data/chars/electra/a202.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	bbox 	121 116 17 76
+	frame	data/chars/electra/a203.gif
+	frame	data/chars/electra/a204.gif
+	frame	data/chars/electra/a205.gif
+	frame	data/chars/electra/a206.gif
+	
+anim special #FAKE PAIN
+	energycost 20 1
+	loop	0
+	delay	128
+	offset	130 190
+	sound	data/voices/electra/Electra1.wav
+	frame	data/chars/electra/pain300.gif
+	
+anim special2 #SHOCK
+	fastattack 1
+	jugglecost 0
+	forcedirection -1
+	energycost 40 1
+	loop	0
+	delay	5
+	offset	130 190
+	bbox 	121 116 17 76
+	hitflash shock
+	hitfx	data/sounds/Whip.wav
+	sound	data/sounds/Whoosh2.wav
+	frame	data/chars/electra/a100.gif
+	frame	data/chars/electra/a101.gif
+	frame	data/chars/electra/a102.gif
+	bbox 	130 133 18 59
+	frame	data/chars/electra/shock00.gif
+	shock 180 96 28 54 24 1 1 0 10 12
+	frame	data/chars/electra/shock01.gif
+		delay	15
+	shock 175 148 57 21 24 1 1 0 10 12
+	frame	data/chars/electra/shock02.gif
+
+anim freespecial #JUMP EVADE
+	landframe 2
+	loop	0
+	delay	12
+	offset	130 190
+	frame	data/chars/electra/jumpdelay00.gif
+		delay	999
+	@cmd leaper -2 2 0
+	sound	data/sounds/kof/Jump.wav
+	frame	data/chars/electra/jump00.gif
+		delay	12
+	bbox 	125 129 15 63
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/electra/jumpland00.gif

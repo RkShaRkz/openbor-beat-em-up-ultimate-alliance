@@ -1,0 +1,82 @@
+##MAIN
+name				Guy_swords
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 		data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle
+	loop	0
+	delay	1
+	offset	238 177
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+		delay  15
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Guy/sword/sp101.gif
+        delay  4
+	#sound	data/sounds/Whoosh.wav
+		#attack1  279  61  50  58  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp102.gif
+		#attack1  0
+	frame	data/chars/Guy/sword/sp103.gif
+	#sound	data/sounds/Whoosh.wav
+		#attack1  266  136  50  48  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp104.gif
+		#attack1  0
+	frame	data/chars/Guy/sword/sp105.gif
+	#sound	data/sounds/Whoosh.wav
+		#attack1  250  102  102  41  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp106.gif
+		#attack1  0
+	frame	data/chars/Guy/sword/sp107.gif
+	frame	data/chars/Guy/sword/sp108.gif
+	frame	data/chars/Guy/sword/sp101.gif
+	#sound	data/sounds/Whoosh.wav
+		#attack1  280  69  55  52  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp102.gif
+		#attack1  0
+	frame	data/chars/Guy/sword/sp103.gif
+	#sound	data/sounds/Whoosh.wav
+		#attack1  254  133  65  55  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp104.gif
+		#attack1  0
+	frame	data/chars/Guy/sword/sp105.gif
+	#sound	data/sounds/Whoosh.wav
+		#attack1  246  103  108  42  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp106.gif
+		#attack1  0
+	frame	data/chars/Guy/sword/sp107.gif
+	frame	data/chars/Guy/sword/sp108.gif
+	frame	data/chars/Guy/sword/sp101.gif
+	#sound	data/sounds/Whoosh.wav
+		#attack1  273  59  53  68  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp102.gif
+		#attack1  0
+	frame	data/chars/Guy/sword/sp103.gif
+	#sound	data/sounds/Whoosh.wav
+		#attack1  239  151  87  37  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp104.gif
+		#attack1  0
+	frame	data/chars/Guy/sword/sp105.gif
+	#sound	data/sounds/Whoosh.wav
+		#attack1  242  101  110  42  10  0  0  0  10  10
+	frame	data/chars/Guy/sword/sp106.gif
+		#attack1  0
+	frame	data/chars/Guy/sword/sp107.gif
+	frame	data/chars/Guy/sword/sp108.gif
+        delay  12
+	frame	data/chars/Guy/sword/sp109.gif
+		#attack1  255  100  88  43  15  1  0  0  10  10		
+	sound	data/chars/guy/guy02.wav
+	frame	data/chars/Guy/sword/sp110.gif
+	frame  data/chars/Guy/sword/sp110.gif
+
+        

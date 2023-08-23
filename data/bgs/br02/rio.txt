@@ -1,0 +1,20 @@
+name		Rio
+type		panel
+speed		5
+scroll		-1
+shadow		0
+#alpha		1
+setlayer	-56
+
+anim idle
+	loop	1
+	delay	7
+	offset	0 0
+	frame	data/bgs/Br02/Rio01.gif
+	frame	data/bgs/Br02/Rio02.gif
+	frame	data/bgs/Br02/Rio03.gif
+	frame	data/bgs/Br02/Rio04.gif	
+	frame	data/bgs/Br02/Rio05.gif	
+	frame	data/bgs/Br02/Rio06.gif	
+	
+	

@@ -1,0 +1,3267 @@
+name	    		Guy_2
+type	    		player
+health	    		105
+mp          		100
+nolife				1
+hostile				player npc
+candamage			player obstacle npc
+speed	    		15
+running             20 1 1 1 1
+jumpspeed	    	15
+jumpheight   		3.3
+projectilehit   enemy obstacle trap
+
+turndelay 			0
+mprate				3
+grabdistance		25
+grabfinish			1
+grabback			0
+antigravity 		10
+bounce				1
+noquake     		1
+#shadow 3
+gfxshadow 1 3
+diesound    		data/chars/players/guy/guy05.wav
+flash 				flash
+bflash 				guard
+dust    			dust01
+toflip				1
+nodieblink			3
+makeinv     		5 0 
+falldie 			2
+riseinv 			0.65 0
+atchain     		1 1 2 3 4 5
+jugglepoints		15
+animationscript		data/scripts/drago.c
+
+blockpain 1
+holdblock 0
+
+load				quake
+load				gokusa_2
+load				gokusa_2s
+load				izuna_2
+load				hassou_2
+load				tigg_2
+
+com  d f j  		freespecial2
+com  d u a  		freespecial3
+com  d f u a  		freespecial3
+com  d b u a  		freespecial3
+com  d f a  		freespecial4
+com  d f d f j  	freespecial5
+com  d f b d b j  	freespecial5
+com  d u j  		freespecial9
+com  d f u j  		freespecial9
+com  d b u j  		freespecial9
+
+com  d f d f a  	freespecial11
+com  d f b d b a  	freespecial11
+
+
+com  b d b b d b j  	freespecial5
+com  b d b d f j  	freespecial5
+com  d b d f j  	freespecial5
+com  d b b d b j  	freespecial5
+
+com  b d b b d b a  	freespecial11
+com  b d b d f a  	freespecial11
+com  d b d f a  	freespecial11
+com  d b b d b a  	freespecial11
+
+com  d d   	freespecial28
+com  u u   	freespecial29
+
+icon	      		data/chars/players/guy/icon.gif 1
+icondie     		data/chars/players/guy/icond.gif 1
+
+parrow		data/chars/misc/parrow/01.gif -215 -185
+parrow2		data/chars/misc/parrow/02.gif -215 -185
+parrow3		data/chars/misc/parrow/03.gif -215 -185
+parrow4		data/chars/misc/parrow/04.gif -215 -185
+
+palette 			data/chars/players/guy/pal/pal01.gif #1
+alternatepal		data/chars/players/guy/pal/pal02.gif #2
+alternatepal		data/chars/players/guy/pal/pal03.gif #3
+alternatepal		data/chars/players/guy/pal/pal04.gif #4
+alternatepal		data/chars/players/guy/pal/pal05.gif #5
+alternatepal		data/chars/players/guy/pal/pal06.gif #6
+alternatepal		data/chars/players/guy/pal/pal07.gif #7
+alternatepal		data/chars/players/guy/pal/pal08.gif #8
+alternatepal		data/chars/players/guy/pal/pal09.gif #9
+alternatepal		data/chars/players/guy/pal/pal10.gif #10
+
+
+anim BLOCK
+      loop	0
+	    delay	19
+	    offset	238 177
+			bbox	226 90 30 87
+	    frame	data/chars/players/guy/a301.gif
+      @cmd submp 20
+      delay	1
+      frame	data/chars/players/guy/a301.gif
+
+
+@script	
+    if(frame==0){
+      void vSelf = getlocalvar("self");
+      if(getentityproperty(vSelf,"mp") < 20){
+        changeentityproperty(vSelf, "animation", openborconstant("ANI_FOLLOW9"));
+      }
+    }
+@end_script
+
+anim	follow9
+			loop	0
+	    delay	40
+	    offset	238 177
+			bbox	226 90 30 87
+	    @cmd subhealthkill 10
+	    frame	data/chars/players/guy/pain01.gif
+
+	
+
+anim BLOCKPAIN
+			@script
+		if(frame >= 1 && frame < 999) {
+			if (readKey("atk")||readKey("j")) { changeState("RUNATTACK"); }
+		}
+			@end_script	
+      loop	0
+			bbox	0 0 0 0
+      offset	238 177
+      @cmd submp -20
+      @cmd puntosparry
+      delay	2
+      move -8
+      @cmd	projectile 1 "dust02" 0 0 0
+			frame	data/chars/players/guy/frsp102.gif
+			frame	data/chars/players/guy/frsp102.gif
+			move -6
+			frame	data/chars/players/guy/frsp102.gif
+			frame	data/chars/players/guy/frsp102.gif
+			move -4
+			frame	data/chars/players/guy/frsp102.gif
+			frame	data/chars/players/guy/frsp102.gif
+			move -2
+			frame	data/chars/players/guy/frsp102.gif
+			frame	data/chars/players/guy/frsp102.gif
+			move -0
+			delay 40
+			frame	data/chars/players/guy/frsp102.gif
+			
+
+
+
+
+
+
+anim	attack1
+	jugglecost	2
+	cancel	0 	999 	0  d f j  		freespecial2
+	cancel	0 	999 	0  d u a  		freespecial3
+	cancel	0 	999 	0  d f u a  		freespecial3
+	cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	cancel	0 	999 	0  d f a  		freespecial4
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	226 90 30 87
+	delay	2
+	frame	data/chars/players/guy/a101.gif
+	delay	8
+	attack	240 95 50 40 4 0 0 0 15 15
+	frame	data/chars/players/guy/a102.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/players/guy/a101.gif
+		
+anim	attack2
+	jugglecost	2
+	cancel	0 	999 	0  d f j  		freespecial2
+	cancel	0 	999 	0  d u a  		freespecial3
+	cancel	0 	999 	0  d f u a  		freespecial3
+	cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	cancel	0 	999 	0  d f a  		freespecial4
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	226 90 30 87
+	delay	4
+	frame	data/chars/players/guy/a201.gif
+	attack2	240 115 53 25 2 0 0 0 15 15
+	delay	10
+	frame	data/chars/players/guy/a202.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/players/guy/a201.gif
+		
+anim	attack3
+	jugglecost	2
+	cancel	0 	999 	0  d f j  		freespecial2
+	cancel	0 	999 	0  d u a  		freespecial3
+	cancel	0 	999 	0  d f u a  		freespecial3
+	cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	cancel	0 	999 	0  d f a  		freespecial4
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	240 102 35 76
+	delay	4
+	frame	data/chars/players/guy/a301.gif
+	attack	240 100 56 40 2 0 0 0 15 15
+	delay	10
+	frame	data/chars/players/guy/a302.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/players/guy/a301.gif
+		
+anim	attack4
+	jugglecost	2
+	cancel	0 	999 	0  d f j  		freespecial2
+	cancel	0 	999 	0  d u a  		freespecial3
+	cancel	0 	999 	0  d f u a  		freespecial3
+	cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	cancel	0 	999 	0  d f a  		freespecial4
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+				@script
+		if(frame == 0) {
+			if (readKey("d")) { changeState("GRABBACKWARD"); }
+			else if (readKey("u")) { changeState("GRABFORWARD"); }
+		}
+		@end_script	
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	240 102 30 76
+	sound	data/chars/players/guy/guy02.wav
+	delay	3
+	frame	data/chars/players/guy/a401.gif
+	delay	5
+	frame	data/chars/players/guy/a402.gif
+	attack	240 85 59 55 8 1 0 0 20 15
+	delay	8
+	frame	data/chars/players/guy/a403.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/players/guy/a404.gif
+	frame	data/chars/players/guy/a405.gif
+	
+anim	attack5
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	235 102 23 76
+	delay 1
+  frame	data/chars/players/guy/idle01.gif
+  
+anim	attack9
+	jugglecost	2
+	cancel	0 	999 	0  d f j  		freespecial2
+	cancel	0 	999 	0  d u a  		freespecial3
+	cancel	0 	999 	0  d f u a  		freespecial3
+	cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	cancel	0 	999 	0  d f a  		freespecial4
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+				
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	240 102 30 76
+	sound	data/chars/players/guy/guy02.wav
+	delay	3
+	frame	data/chars/players/guy/a401.gif
+	delay	5
+	frame	data/chars/players/guy/a402.gif
+	attack	240 85 59 55 8 1 0 0 20 15
+	delay	8
+	frame	data/chars/players/guy/a403.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/players/guy/a404.gif
+	frame	data/chars/players/guy/a405.gif
+
+	
+anim	freespecial28
+	jumpframe	0 1.5 0 1
+	landframe 6
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	6
+	frame	data/chars/players/guy/jump01.gif
+	delay 6
+	frame	data/chars/players/guy/fjump01.gif
+	frame	data/chars/players/guy/fjump02.gif
+	frame	data/chars/players/guy/fjump03.gif
+	frame	data/chars/players/guy/fjump04.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+	delay 8
+	frame	data/chars/players/guy/land01.gif
+
+anim	freespecial29
+	jumpframe	0 1.5 0 -1
+	landframe 6
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	6
+	frame	data/chars/players/guy/jump01.gif
+	delay 6
+	frame	data/chars/players/guy/fjump01.gif
+	frame	data/chars/players/guy/fjump02.gif
+	frame	data/chars/players/guy/fjump03.gif
+	frame	data/chars/players/guy/fjump04.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+	delay 8
+	frame	data/chars/players/guy/land01.gif
+	
+anim	freespecial20
+jugglecost	2
+	cancel	0 	999 	0  d f j  		freespecial2
+	cancel	0 	999 	0  d u a  		freespecial3
+	cancel	0 	999 	0  d f u a  		freespecial3
+	cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	cancel	0 	999 	0  d f a  		freespecial4
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/chars/players/guy/guy02.wav
+	delay	3
+	frame	data/chars/players/guy/a401.gif
+	delay	5
+	frame	data/chars/players/guy/a402.gif
+	attack	240 85 50 55 8 1 0 0 20 15
+	delay	10
+	frame	data/chars/players/guy/a403.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/players/guy/a404.gif
+	frame	data/chars/players/guy/a405.gif
+		
+anim	death
+	loop	0
+	offset	238 177
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+		
+anim	fall
+@script
+	   void self = getlocalvar("self");
+	   
+	   if(frame==0){
+	     if(getentityproperty(self,"jugglepoints") <= 0){ 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL3"));
+	     } 
+	   }
+	    
+    @end_script
+	cancel 		1 				1 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	2
+	loop	0
+	offset	238 177
+	delay	2
+	bbox	226 102 23 76
+	frame	data/chars/players/guy/fall01.gif
+	delay	999
+	frame	data/chars/players/guy/fall01.gif
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+		
+
+	
+anim fall19
+	 loop       0
+	 offset     238 177
+	 landframe	1 
+	 bbox 0 0 0 0
+	  delay      999
+    frame      data/chars/misc/empty.gif
+    delay      1
+    frame      data/chars/misc/empty.gif
+
+
+anim death18
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+    
+anim death28
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+    
+anim death13
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+    
+anim death23
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+
+anim fall18
+	 cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 sound   	data/sounds/burn111.wav
+	 		@script
+	   void self = getlocalvar("self");
+	    if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death18", 0, 0, 0);
+	    	changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	     else if(getentityproperty(self,"jugglepoints") <= 0){ 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL28"));
+	     }
+	    }
+	    @end_script
+		 delay      2
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+	 		delay	999
+			frame	data/chars/misc/burn1/burn111.gif
+			delay	1
+			frame	data/chars/players/guy/fall02.gif
+			
+anim fall28
+	 cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		0 0 0 0
+	 sound   	data/sounds/burn111.wav
+	 		@script
+	   void self = getlocalvar("self");
+	    if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death18", 0, 0, 0);
+	    	changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	    
+	    }
+	    @end_script
+		 delay      2
+       frame      data/chars/misc/burn1/burn114.gif
+       sound	data/sounds/nojug.wav
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+	 		delay	999
+			frame	data/chars/misc/burn1/burn111.gif
+			delay	1
+			frame	data/chars/players/guy/fall02.gif
+			
+anim fall11
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	     		if(getentityproperty(self,"jugglepoints") > 0){
+	       	changeentityproperty(self, "animation", openborconstant("ANI_FALL20"));
+	    		} 
+	    		else { 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL30"));
+	    		} 
+	    	}		
+	   }  
+ @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/misc/diebyfire/fall02.gif
+	
+anim	fall20
+	cancel 		0 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+	
+
+		
+anim	fall12
+	@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	     		if(getentityproperty(self,"jugglepoints") > 0){
+	       	changeentityproperty(self, "animation", openborconstant("ANI_FALL40"));
+	    		} 
+	    		else { 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL50"));
+	    		} 
+	    	}		
+	   }  
+ @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	delay	999
+	frame	data/chars/misc/burn2/burn214.gif
+	delay	1
+	frame	data/chars/misc/diebyfire2/fall02.gif
+
+anim	fall40
+	cancel 		0 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	delay	999
+	frame	data/chars/misc/burn2/burn214.gif
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+		
+anim	fall13
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death13", 0, 0, 0);
+	    	spawn01("exp2", 0, 0, 0);
+	    	changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	     else if(getentityproperty(self,"jugglepoints") <= 0){
+	     changeentityproperty(self, "animation", openborconstant("ANI_FALL23"));
+	     }
+	   } 
+    @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 167
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	238 177
+	delay	999
+	frame	data/chars/players/guy/fall01.gif
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+	
+anim fall21
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	       changeentityproperty(self, "animation", openborconstant("ANI_FALL30"));
+	    } 
+	   }  
+    @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/misc/diebyfire/fall02.gif
+	
+anim	fall30
+	cancel 		0 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn114.gif
+	sound	data/sounds/nojug.wav
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+	
+
+		
+anim	fall22
+	@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	       changeentityproperty(self, "animation", openborconstant("ANI_FALL50"));
+	    } 
+	   }  
+     @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn214.gif
+
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	delay	999
+	frame	data/chars/misc/burn2/burn214.gif
+	delay	1
+	frame	data/chars/misc/diebyfire2/fall02.gif
+	
+anim	fall50
+	cancel 		0 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn214.gif
+	sound	data/sounds/nojug.wav
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	delay	999
+	frame	data/chars/misc/burn2/burn214.gif
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+		
+anim	fall23
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death13", 0, 0, 0);
+	    	spawn01("exp2", 0, 0, 0);
+	    	changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	   } 
+     @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 167
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	sound	data/sounds/nojug.wav
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	238 177
+	delay	999
+	frame	data/chars/players/guy/fall01.gif
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+		
+anim	fall2
+@script
+	   void self = getlocalvar("self");
+	   
+	   if(frame==0){
+	     if(getentityproperty(self,"jugglepoints") <= 0){ 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL3"));
+	     } 
+	   }
+	    
+    @end_script
+	cancel 		1 				1 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	2
+	loop	0
+	offset	238 177
+	delay	2
+	bbox	226 102 23 76
+	frame	data/chars/players/guy/fall01.gif
+	delay	999
+	frame	data/chars/players/guy/fall01.gif
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+		
+anim	fall3
+	cancel 		0 				0 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	1
+	loop	0
+	offset	238 177
+	delay	999
+	bbox	0 0 0 0
+	sound	data/sounds/nojug.wav
+	frame	data/chars/players/guy/fall01.gif
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+	
+anim	fall27
+	cancel 		0 				0 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	1
+	loop	0
+	offset	238 177
+	delay	999
+	bbox	0 0 0 0
+	sound	data/sounds/nojug.wav
+	frame	data/chars/players/guy/fall01.gif
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+		
+anim	fall4
+	flipframe	0
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	999
+       frame      data/chars/players/guy/cody01.gif	# 0
+	delay	999
+       frame      data/chars/players/guy/cody02.gif	# 1
+	delay	999
+       frame      data/chars/players/guy/hagg01.gif	# 2
+	delay	999
+       frame      data/chars/players/guy/hagg02.gif	# 3
+	delay	999
+       frame      data/chars/players/guy/hagg03.gif	# 4
+	delay	999
+       frame      data/chars/players/guy/hagg04.gif	# 5
+	delay	999
+       frame      data/chars/players/guy/hagg05.gif	# 6
+	delay	999
+       frame      data/chars/players/guy/hagg06.gif	# 7
+	delay	999
+       frame      data/chars/players/guy/hagg07.gif	# 8
+	delay	999
+       frame      data/chars/players/guy/hagg08.gif	# 9
+	delay	999
+       frame      data/chars/players/guy/hagg09.gif	# 10
+	delay	999
+       frame      data/chars/players/guy/hagg10.gif	# 11
+	delay	999
+       frame      data/chars/players/guy/hagg11.gif	# 12
+	delay	999
+       frame      data/chars/players/guy/hagg12.gif	# 13
+	delay	999
+       frame      data/chars/players/guy/hagg13.gif	# 14
+	delay	999
+       frame      data/chars/players/guy/dean01.gif	# 15
+	delay	999
+       frame      data/chars/players/guy/dean02.gif	# 16
+	delay	999
+       frame      data/chars/players/guy/dean03.gif	# 17
+	delay	999
+       frame      data/chars/players/guy/dean04.gif	# 18
+	delay	999
+       frame      data/chars/players/guy/dean05.gif	# 19
+		
+anim	fall5
+
+	cancel 		0 				0 			0 			u a						freespecial10	# cancel jump release attack
+	shadowcoords	238 177
+	fastattack	1
+	landframe	1
+	loop	0
+	offset	198 177
+	delay	999
+	attack	205 110 85 	55 	5 	1 	0 	0 	25	15
+	bbox	226 102 23 76
+	frame	data/chars/players/guy/fall01.gif
+	attack	0 0 0 	0 	0 	0 	0 	0 	0	0
+	offset	238 177
+	shadowcoords	238 177
+	move	50
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+		
+anim	fall6
+
+	cancel 		0 				0 			0 			u a						freespecial10	# cancel jump release attack
+	fastattack	1
+	landframe	1
+	loop	0
+	offset	238 177
+	delay	999
+	attack	205 110 85 	55 	5 	1 	0 	0 	25	15
+	bbox	226 102 23 76
+	frame	data/chars/players/guy/fall01.gif
+	attack	0 0 0 	0 	0 	0 	0 	0 	0	0
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+		
+anim	fall9
+	landframe	1
+	loop	0
+	offset	238 177
+	delay	999
+	bbox	226 102 23 76
+	frame	data/chars/players/guy/fall01.gif
+	delay	1
+	frame	data/chars/players/guy/fall02.gif
+		
+anim	follow1
+	cancel	17 	999 	0  d f j  		freespecial2
+	#cancel	0 	999 	0  d u a  		freespecial3
+	#cancel	0 	999 	0  d f u a  		freespecial3
+	#cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	17 	999 	0  d u j 		freespecial9
+	cancel	17 	999 	0  d f u j  		freespecial9
+	cancel	17 	999 	0  d b u j 		freespecial9
+	cancel	17 	999 	0  d f a  		freespecial4
+	cancel	17 	999 	0  d f d f j  	freespecial5
+	cancel	17 	999 	0  d f b d f j  	freespecial5
+	cancel	17 	999 	0  d f d f a  	freespecial11
+	cancel	17 	999 	0  d f b d f a  	freespecial11
+	unsummonframe	17
+	jumpframe	11 2 -0.55
+	landframe	17
+	jugglecost	1
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	attack2	230 87 45 80 0 0 1 1 10 15
+	dropv	1 0
+	delay	9
+	frame	data/chars/players/guy/frsp201.gif
+	attack 0 0 0 0 0 0 0 0
+	delay	8
+	frame	data/chars/players/guy/land01.gif
+	delay	4
+	frame	data/chars/players/guy/frsp205.gif
+	frame	data/chars/players/guy/frsp206.gif
+	sound	data/chars/players/guy/guy02.wav
+	attack2	230 111 50 	68 	4 	0 	1 	0 	20	15
+	dropv	1 0
+	delay	12
+	frame	data/chars/players/guy/frsp207.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/players/guy/frsp208.gif
+	frame	data/chars/players/guy/ja201.gif
+	sound	data/chars/players/guy/guy02.wav
+	attack	230 111 50 	68 	4 	0 	1 	0 	20	15
+	dropv	1 0
+	delay	12
+	frame	data/chars/players/guy/frsp209.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/players/guy/jump01.gif
+	frame	data/chars/players/guy/ja201.gif
+	sound	data/chars/players/guy/guy03.wav
+	jugglecost 0
+	attack	230 99 	64 	80 	10 	1 	1 	0 	40	15
+	dropv 3.5 0.5
+	delay	12
+	frame	data/chars/players/guy/ja202.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	8
+	bbox	226 102 23 50
+	frame	data/chars/players/guy/jump01.gif
+	delay	7
+	frame	data/chars/players/guy/fjump04.gif
+	frame	data/chars/players/guy/fjump03.gif
+	frame	data/chars/players/guy/fjump02.gif
+	frame	data/chars/players/guy/fjump01.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+	bbox	226 102 23 76
+	@cmd	projectile 1 "dust03" 0 0 0
+	delay	8
+	frame	data/chars/players/guy/land01.gif
+		
+
+		
+anim	follow4
+	cancel	54 	999 	0  d f d f j  	freespecial5
+	cancel	54 	999 	0  d f b d f j  	freespecial5
+	cancel	54 	999 	0  d f d f a  	freespecial11
+	cancel	54 	999 	0  d f b d f a  	freespecial11
+	jugglecost	0
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	attack2	240 87 30 92 0 0 1 1 10 20
+	dropv	1 0
+	sound	data/chars/players/guy/guy08.wav
+	delay	9
+	frame	data/chars/players/guy/frsp201.gif
+	attack 0 0 0 0 0 0 0 0
+	delay	2
+	frame	data/chars/players/guy/frsp401.gif
+	@cmd	projectile 1 "hassou_2" 0 0 0
+	delay	8
+	attack	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.5 0
+	frame	data/chars/players/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 -10
+	delay	8
+	attack2	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp404.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 10
+	delay	8
+	attack	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp405.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 0
+	delay	8
+	attack2	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp406.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 -10
+	delay	8
+	attack	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp407.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 10
+	delay	8
+	attack2	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp408.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 0
+	delay	8
+	attack	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 -10
+	delay	8
+	attack2	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp404.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 10
+	delay	8
+	attack	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp405.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 0
+	delay	8
+	attack2	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp406.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 -10
+	delay	8
+	attack	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp407.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 10
+	delay	8
+	attack2	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp408.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 0
+	delay	8
+	attack	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 -10
+	delay	8
+	attack2	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp404.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 10
+	delay	8
+	attack	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp405.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 0
+	delay	8
+	attack2	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp406.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 -10
+	delay	8
+	attack	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp407.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 10
+	delay	8
+	attack2	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.40
+	frame	data/chars/players/guy/frsp408.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 0
+	delay	8
+	attack	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 -10
+	delay	8
+	attack2	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp404.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 10
+	delay	8
+	attack	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp405.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 0
+	delay	8
+	attack2	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp406.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 -10
+	delay	8
+	attack	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp407.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 10
+	delay	8
+	attack2	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.5 0
+	frame	data/chars/players/guy/frsp408.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou_2" 0 0 0
+	delay	8
+	attack	240 120 41 	9 	29 	0 	1 	0 	5	20
+	dropv	1 0
+	frame	data/chars/players/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	sound	data/chars/players/guy/guy04.wav
+	delay	2
+	frame	data/chars/players/guy/frsp101.gif
+	sound	data/sounds/blast01.wav
+	delay	8
+	frame	data/chars/players/guy/frsp102.gif
+	bbox	0 0 0 0
+	@cmd	projectile 1 "dust02" 0 0 0
+	@cmd	projectile 1 "gokusa_2s" 0 0 0
+	delay	70
+	frame	data/chars/players/guy/frsp103.gif
+	bbox	226 102 23 76
+	delay	6
+	frame	data/chars/players/guy/a301.gif
+		
+anim	forwardjump
+	loop	0
+	@script
+    void vSelf = getlocalvar("self");
+    if(frame > 0 && isBlockedFront2(15)){
+      if  (readKey("jump")){
+		changeState("FREESPECIAL8");
+	  }
+    }
+	@end_script	
+	offset	238 177
+	bbox	226 102 23 50
+	delay	16
+	frame	data/chars/players/guy/jump01.gif
+	frame	data/chars/players/guy/jump01.gif
+	delay	7
+	frame	data/chars/players/guy/fjump01.gif
+	frame	data/chars/players/guy/fjump02.gif
+	frame	data/chars/players/guy/fjump03.gif
+	frame	data/chars/players/guy/fjump04.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+		
+anim	freespecial8
+	loop	0
+	flipframe	0
+	jumpframe	1 1.5 2.5
+	offset	238 177
+	bbox	226 102 23 50
+	@script
+		void vSelf = getlocalvar("self");
+		if(frame==0){
+		  int  iTime = openborvariant("elapsed_time");
+		  changeentityproperty(vSelf, "velocity", 0, 0 , 0); // This is to stop entity from moving forward
+		  changeentityproperty(vSelf, "tosstime", iTime + 15);
+		}
+				if(frame == 1){
+		 			changeState("RUNJUMP");
+		}
+	@end_script	
+	delay 12
+	frame	data/chars/players/guy/wjump.gif
+	delay	32
+	frame	data/chars/players/guy/jump01.gif
+	delay	7
+	frame	data/chars/players/guy/fjump01.gif
+	frame	data/chars/players/guy/fjump02.gif
+	frame	data/chars/players/guy/fjump03.gif
+	frame	data/chars/players/guy/fjump04.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+		
+anim	freespecial10
+	@cmd subhealthkill 10
+	jugglecost	100
+	jumpframe	0 0 -1
+	landframe	16
+	loop	0
+	offset	209 233
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	@cmd	changeentityproperty getlocalvar("self") "aiflag" "drop" 0
+	@cmd	changeentityproperty getlocalvar("self") "aiflag" "falling" 0
+	sound	data/chars/players/guy/guy03.wav
+	delay	8
+	attack3	234 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/players/guy/sp02.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/sp03.gif
+	attack3	194 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/players/guy/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/sp01.gif
+	attack3	234 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/players/guy/sp02.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/sp03.gif
+	attack3	194 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/players/guy/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/sp01.gif
+	attack3	234 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/players/guy/sp02.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/sp03.gif
+	attack3	194 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/players/guy/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/sp01.gif
+	attack3	234 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/players/guy/sp02.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/sp03.gif
+	attack3	194 111 41 	81 	5 	1 	1 	0 	20	15
+	frame	data/chars/players/guy/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/sp01.gif
+	delay	12
+	frame	data/chars/players/guy/land01.gif
+		
+anim	freespecial2
+	jugglecost	2
+	#cancel	0 	999 	0  d f j  		freespecial2
+	cancel	0 	999 	0  d u a  		freespecial3
+	cancel	0 	999 	0  d f u a  		freespecial3
+	cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	cancel	0 	999 	0  d f a  		freespecial4
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+	fastattack	1
+	energycost	20
+	mponly	1
+	hitfx	data/sounds/beat1.wav
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/chars/players/guy/guy04.wav
+	delay	2
+	frame	data/chars/players/guy/frsp101.gif
+	sound	data/sounds/blast01.wav
+	delay	8
+	frame	data/chars/players/guy/frsp102.gif
+	@cmd	projectile 1 "dust02" 0 0 0
+	@cmd	projectile 1 "gokusa_2" 0 0 0
+	delay	70
+	frame	data/chars/players/guy/frsp103.gif
+	bbox	226 102 23 76
+	delay	6
+	frame	data/chars/players/guy/a301.gif
+		
+anim	freespecial3
+	followanim	1
+	followcond	1
+	jugglecost	0
+	cancel	0 	999 	0  d f j  		freespecial2
+	#cancel	0 	999 	0  d u a  		freespecial3
+	#cancel	0 	999 	0  d f u a  		freespecial3
+	#cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	cancel	0 	999 	0  d f a  		freespecial4
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+	fastattack	1
+	energycost	20
+	mponly	1
+	hitfx	data/sounds/empty.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/chars/players/guy/guy06.wav
+	delay	6
+	frame	data/chars/players/guy/land01.gif
+	@cmd	projectile 1 "dust02" 0 0 0
+	attack2	230 87 40 80 0 0 1 1 10 15
+	dropv	1 0
+	bbox	226 102 23 76
+	delay	2
+	move	1
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	2
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	4
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	6
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	8
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	6
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	4
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	2
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	1
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	0
+	bbox	226 102 23 76
+	delay	9
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/guy/land01.gif
+		
+anim	freespecial4
+	cancel	0 	999 	0 	d f a 	freespecial6
+	followanim	2
+	followcond	1
+	jugglecost	1
+	cancel	0 	999 	0  d f j  		freespecial2
+	cancel	0 	999 	0  d u a  		freespecial3
+	cancel	0 	999 	0  d f u a  		freespecial3
+	cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	#cancel	0 	999 	0  d f a  		freespecial4
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+	fastattack	1
+	energycost	20
+	mponly	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	6
+	sound	data/chars/players/guy/guy07.wav
+	frame	data/chars/players/guy/land01.gif
+	@cmd	projectile 1 "dust02" 0 0 0
+	delay	2
+	attack2	240	120 35 30 6 0 0 0 15 15
+	bbox	226 102 23 76
+	dropv	1.5 0
+	move	0
+	frame	data/chars/players/guy/frsp301.gif
+	frame	data/chars/players/guy/frsp301.gif
+	move	12
+	frame	data/chars/players/guy/frsp301.gif
+	frame	data/chars/players/guy/frsp301.gif
+	move	10
+	frame	data/chars/players/guy/frsp301.gif
+	frame	data/chars/players/guy/frsp301.gif
+	move	8
+	frame	data/chars/players/guy/frsp301.gif
+	frame	data/chars/players/guy/frsp301.gif
+	move	6
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	move	4
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	move	2
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	move	1
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	attack2	0	0	0	0	0	0	0	0	0	0
+	@cmd	projectile 1 "quake" 0 0 0
+	@cmd	projectile 1 "dust03" 0 0 0
+	move	0
+	delay	20
+	frame	data/chars/players/guy/frsp302.gif
+	delay	30
+	frame	data/chars/players/guy/frsp302.gif
+	bbox	226 102 23 76
+	delay	9
+	frame	data/chars/players/guy/land01.gif
+	
+anim	follow2
+	cancel	0 	999 	0 	d f a 	freespecial6
+	cancel	0 	999 	0  d f j  		freespecial2
+	cancel	0 	999 	0  d u a  		freespecial3
+	cancel	0 	999 	0  d f u a  		freespecial3
+	cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+	jugglecost	1
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	230 120 40 60
+	delay	20
+	attack2	240	120 45 30 6 0 0 0 15 15
+	dropv	1.5 0
+	move 1
+	delay	2
+	@cmd	projectile 1 "quake" 0 0 0
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	frame	data/chars/players/guy/frsp302.gif
+	attack2 0 0 0 0 0 0 0 0
+	delay	30
+	@cmd	projectile 1 "dust03" 0 0 0
+	move 0
+	frame	data/chars/players/guy/frsp302.gif
+	bbox	226 102 23 76
+	delay	9
+	frame	data/chars/players/guy/land01.gif
+		
+anim	freespecial5
+	followanim	4
+	followcond	1
+	summonframe	1 -235 -200 0 0
+	subentity	super
+	unsummonframe	30
+	jugglecost	0
+	fastattack	1
+	energycost	100
+	mponly	1
+	hitfx	data/sounds/empty.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/chars/players/guy/guy03.wav
+	delay	6
+	frame	data/chars/players/guy/land01.gif
+	attack2	240 87 20 92 0 0 1 1 15 20
+	dropv	1 0
+	delay	2
+	move	5
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	6
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	6.5
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	7
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	7.5
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	8
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	8.5
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	frame	data/chars/players/guy/frsp201.gif
+	move	9
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	move	7
+	frame	data/chars/players/guy/frsp201.gif
+	move	5
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	move	3
+	frame	data/chars/players/guy/frsp201.gif
+	#bbox	225 100 30 80
+	move	1
+	@cmd	projectile 1 "izuna_2" 0 0 0
+	frame	data/chars/players/guy/frsp201.gif
+	move	0
+	delay	9
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/land01.gif
+	
+anim	freespecial11
+	summonframe	0 -235 -200 0 0
+	subentity	super
+	unsummonframe	30
+	jugglecost	0
+	fastattack	1
+	energycost	100
+	mponly	1
+	hitfx	data/sounds/empty.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/chars/players/guy/especial21.wav
+	delay	8
+	frame	data/chars/players/guy/frsp101.gif
+	frame	data/chars/players/guy/frsp102.gif
+	@cmd	projectile 1 "dust02" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	@cmd	projectile 1 "tigg_2" 0 0 0
+	delay	40
+	sound	data/chars/players/guy/rugido.wav
+	frame	data/chars/players/guy/frsp103.gif
+	delay	6
+	frame	data/chars/players/guy/a301.gif
+		
+anim	freespecial6
+	cancel	0 	999 	0 	d f a 	freespecial7
+	jugglecost	1
+	cancel	0 	999 	0  d f j  		freespecial2
+	cancel	0 	999 	0  d u a  		freespecial3
+	cancel	0 	999 	0  d f u a  		freespecial3
+	cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	2
+	move	2
+	@cmd	projectile 1 "dust02" 0 0 0
+	frame	data/chars/players/guy/frsp303.gif
+	frame	data/chars/players/guy/frsp303.gif
+	move	1
+	frame	data/chars/players/guy/frsp303.gif
+	frame	data/chars/players/guy/frsp303.gif
+	sound	data/chars/players/guy/guy02.wav
+	move	0
+	delay	20
+	attack1	240 105 50 	40 	6 	0 	0 	0 	15	15
+	bbox	220 110 30 70
+	dropv	1.5 0
+	frame	data/chars/players/guy/frsp304.gif
+	delay	30
+	frame	data/chars/players/guy/frsp304.gif
+	delay	9
+	attack1	0	0	0	0	0	0	0	0	0	0
+	frame	data/chars/players/guy/land01.gif
+		
+anim	freespecial7
+	jugglecost	0
+	cancel	0 	999 	0  d f j  		freespecial2
+	cancel	0 	999 	0  d u a  		freespecial3
+	cancel	0 	999 	0  d f u a  		freespecial3
+	cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	2
+	move	4
+	@cmd	projectile 1 "dust02" 0 0 0
+	frame	data/chars/players/guy/frsp305.gif
+	frame	data/chars/players/guy/frsp305.gif
+	move	3
+	frame	data/chars/players/guy/frsp305.gif
+	frame	data/chars/players/guy/frsp305.gif
+	move	2
+	frame	data/chars/players/guy/frsp306.gif
+	frame	data/chars/players/guy/frsp306.gif
+	move	1
+	frame	data/chars/players/guy/frsp306.gif
+	frame	data/chars/players/guy/frsp306.gif
+	sound	data/chars/players/guy/guy03.wav
+	move	0
+	delay	30
+	attack2	240 125 65 	54 	8 	1 	0 	0 	30	15
+	dropv	2.5 1.5
+	bbox	230 110 30 70
+	frame	data/chars/players/guy/frsp307.gif
+	attack2	0 0 0 0 0 0 0 0 0 0
+	delay	9
+	frame	data/chars/players/guy/frsp308.gif
+	frame	data/chars/players/guy/frsp309.gif
+
+anim	freespecial9
+	cancel	19 	999 	0  d f j  		freespecial2
+	cancel	19 	999 	0  d u a  		freespecial3
+	cancel	19 	999 	0  d f u a  		freespecial3
+	cancel	19 	999 	0  d b u a  		freespecial3
+	cancel	19 	999 	0  d f a  		freespecial4
+	cancel	19 	999 	0  d f d f j  	freespecial5
+	cancel	19	999 	0  d f b d f j  	freespecial5
+	cancel	19 	999 	0  d f d f a  	freespecial11
+	cancel	19 	999 	0  d f b d f a  	freespecial11
+	fastattack	1
+	jugglecost	1
+	jumpframe 0 3
+	landframe 19
+	energycost	20
+	mponly	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	sound	data/chars/players/guy/BushinSenpukyaku.wav
+	@cmd	projectile 1 "dust02" 0 0 0
+	move 5
+	delay	2
+	frame	data/chars/players/guy/jump01.gif
+	frame	data/chars/players/guy/jump01.gif
+	frame	data/chars/players/guy/sp01.gif
+	frame	data/chars/players/guy/sp01.gif
+	attack	220 111 65 	51 	6 	1 	1 	0 	10	15
+	bbox	226 102 23 50
+	dropv 1.95 1.8
+	frame	data/chars/players/guy/sp02.gif
+	frame	data/chars/players/guy/sp02.gif
+	frame	data/chars/players/guy/sp02.gif
+
+	attack	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/sp03.gif
+	frame	data/chars/players/guy/sp03.gif
+
+	attack	194 111 93 	51 	6 	1 	1 	0 	10	15
+	dropv 1.95 1.8
+	frame	data/chars/players/guy/sp04.gif
+	frame	data/chars/players/guy/sp04.gif
+	frame	data/chars/players/guy/sp04.gif
+
+	attack	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/sp01.gif
+	frame	data/chars/players/guy/sp01.gif
+
+	attack  220 111 69  51 	8 	1 	1 	0 	20	15
+	dropv 2.45 0.85
+	move 0
+	frame	data/chars/players/guy/sp02.gif
+	frame	data/chars/players/guy/sp02.gif
+	frame	data/chars/players/guy/sp02.gif
+
+	attack	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/players/guy/sp03.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	delay	4
+	frame	data/chars/players/guy/land01.gif
+	delay	6
+	frame	data/chars/players/guy/get01.gif
+	delay	4
+	frame	data/chars/players/guy/land01.gif
+		
+anim	get
+	loop	0
+	offset	238 177
+	delay	30
+	sound	data/sounds/get/guyget.wav
+	frame	data/chars/players/guy/get01.gif
+		
+anim	grab
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	6
+	frame	data/chars/players/guy/grab01.gif
+		
+anim	grabattack
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	hitfx	data/sounds/beat2.wav
+	delay	16
+	attack2	240 116 52 	88 	4 	0 	0 	0 	15	0
+	frame	data/chars/players/guy/th101.gif
+		
+anim	grabattack2
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	hitfx	data/sounds/beat2.wav
+	delay	16
+	attack2	240 116 52 	88 	8 	1 	0 	0 	20	0
+	frame	data/chars/players/guy/th101.gif
+		
+anim	grabbackward
+@script
+	
+    void self = getlocalvar("self");
+    void target = getentityproperty(self, "opponent");
+    void x, y, z;
+    x= getentityproperty(self, "x") - getentityproperty(target, "x");
+  	if (x < 0){
+  	x *= -1;
+  	}
+  	y= getentityproperty(self, "y") - getentityproperty(target, "y");
+  	if (y < 0){
+  	y *= -1;
+  	}
+  	z= getentityproperty(self, "z") - getentityproperty(target, "z");
+  	if (z < 0){
+  	z *= -1;
+  	}
+    if (frame==0){
+				if(getentityproperty(target, "health")<=0 || x>125 || y>25 || z>25)  {
+						changeentityproperty(self, "animation", openborconstant("ANI_ATTACK9"));
+     		}
+    }
+	@end_script
+	flipframe	4
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	sound	data/chars/players/guy/guy03.wav
+	attackone	0
+	delay	18
+	@cmd	slamstart
+	@cmd	position 0 1 1 0 1
+	frame	data/chars/players/guy/th201.gif
+	delay	18
+	@cmd	screenBound -62 0 0 0 1
+	@cmd	position 1 1 -11 0 1
+	frame	data/chars/players/guy/th202.gif
+	hitfx	data/sounds/punch.wav
+	@cmd	position 1 -49 -11 0 1
+	@cmd	depost 0
+	@cmd	throw 8 3 -2.5 2.5 0 1
+	@cmd	clearL
+	damageonlanding	2 1
+	delay	55
+	frame	data/chars/players/guy/th202.gif
+	delay	1
+	frame	data/chars/players/guy/th202.gif
+	delay	1
+	frame	data/chars/players/guy/idle01.gif
+		
+anim	grabdown
+	flipframe	4
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	sound	data/chars/players/guy/guy03.wav
+	attackone	0
+	delay	18
+	@cmd	slamstart
+	@cmd	position 0 1 1 0 1
+	frame	data/chars/players/guy/th201.gif
+	delay	18
+	@cmd	screenBound -62 0 0 0 1
+	@cmd	position 1 1 -11 0 1
+	frame	data/chars/players/guy/th202.gif
+	hitfx	data/sounds/punch.wav
+	@cmd	position 1 -49 -11 0 1
+	@cmd	depost 0
+	@cmd	throw 8 3 -2.5 2.5 0 1
+	@cmd	clearL
+	delay	55
+	frame	data/chars/players/guy/th202.gif
+	delay	1
+	frame	data/chars/players/guy/th202.gif
+	delay	1
+	frame	data/chars/players/guy/idle01.gif
+		
+anim	grabforward
+@script
+	
+    void self = getlocalvar("self");
+    void target = getentityproperty(self, "opponent");
+    void x, y, z;
+    x= getentityproperty(self, "x") - getentityproperty(target, "x");
+  	if (x < 0){
+  	x *= -1;
+  	}
+  	y= getentityproperty(self, "y") - getentityproperty(target, "y");
+  	if (y < 0){
+  	y *= -1;
+  	}
+  	z= getentityproperty(self, "z") - getentityproperty(target, "z");
+  	if (z < 0){
+  	z *= -1;
+  	}
+    if (frame==0){
+				if(getentityproperty(target, "health")<=0 || x>125 || y>25 || z>25)  {
+						changeentityproperty(self, "animation", openborconstant("ANI_ATTACK9"));
+     		}
+    }
+	@end_script
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	sound	data/chars/players/guy/guy03.wav
+	attackone	0
+	delay	18
+	@cmd	slamstart
+	@cmd	position 0 1 1 0 0
+	frame	data/chars/players/guy/th301.gif
+	delay	18
+	@cmd	screenBound 62 0 0 0 1
+	@cmd	position 1 1 -11 0 0
+	frame	data/chars/players/guy/th302.gif
+	hitfx	data/sounds/punch.wav
+	@cmd	position 1 51 -11 0 1
+	@cmd	depost 0
+	@cmd	throw 8 3 2.5 2.5 0 1
+	@cmd	clearL
+	delay	55
+	frame	data/chars/players/guy/th302.gif
+	delay	1
+	frame	data/chars/players/guy/th302.gif
+	delay	1
+	frame	data/chars/players/guy/idle01.gif
+		
+anim	grabup
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	sound	data/chars/players/guy/guy03.wav
+	attackone	0
+	delay	18
+	@cmd	slamstart
+	@cmd	position 0 1 1 0 0
+	frame	data/chars/players/guy/th301.gif
+	delay	18
+	@cmd	screenBound 62 0 0 0 1
+	@cmd	position 1 1 -11 0 0
+	frame	data/chars/players/guy/th302.gif
+	hitfx	data/sounds/punch.wav
+	@cmd	position 1 51 -11 0 1
+	@cmd	depost 0
+	@cmd	throw 8 3 2.5 2.5 0 1
+	@cmd	clearL
+	delay	55
+	frame	data/chars/players/guy/th302.gif
+	delay	1
+	frame	data/chars/players/guy/th302.gif
+	delay	1
+	frame	data/chars/players/guy/idle01.gif
+		
+anim	idle
+	loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	16
+	frame	data/chars/players/guy/idle01.gif
+	frame	data/chars/players/guy/idle02.gif
+	frame	data/chars/players/guy/idle03.gif
+	frame	data/chars/players/guy/idle02.gif
+	
+		
+anim	jump
+	cancel	0 	0 	0  b  		freespecial39
+	loop	0
+	@script
+    void vSelf = getlocalvar("self");
+	if(frame > 1 && readKey("jump")) {
+		if(isBlockedFront2(15)){changeState("FREESPECIAL8"); }
+		else if(isBlockedBack2(15)){
+			turn();
+			changeState("FREESPECIAL8");
+		}
+	}
+	@end_script	
+	offset	238 177
+	bbox	226 102 23 50
+	delay	1
+	frame	data/chars/players/guy/jump01.gif
+	delay	16
+	frame	data/chars/players/guy/jump01.gif
+	delay	17
+	frame	data/chars/players/guy/jump01.gif
+	delay	15
+	frame	data/chars/players/guy/jump02.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+
+anim	freespecial39
+  jumpframe	0 3.3 -1.7
+	loop	0
+	@script
+    void vSelf = getlocalvar("self");
+
+    if(frame > 0 && isBlockedBack2(15)){
+      if  (readKey("jump")){
+    turn(); 
+		changeState("FREESPECIAL8");
+	  }
+
+    }
+	@end_script	
+	offset	238 177
+	bbox	226 102 23 50
+	delay	16
+	frame	data/chars/players/guy/jump01.gif
+	delay 4
+	frame	data/chars/players/guy/jump01.gif
+	delay	7
+	frame	data/chars/players/guy/fjump04.gif
+	frame	data/chars/players/guy/fjump03.gif
+	frame	data/chars/players/guy/fjump02.gif
+	frame	data/chars/players/guy/fjump01.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+		
+anim	jumpattack
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	@script
+	if(frame >= 0 && readKey("jump")) {
+		if(isBlockedFront2(15)){changeState("FREESPECIAL8"); }
+		else if(isBlockedBack2(15)){
+			turn();
+			changeState("FREESPECIAL8");
+		}
+	}
+	@end_script	
+	offset	238 177
+	bbox	226 102 23 50
+	sound	data/chars/players/guy/guy02.wav
+	delay	5
+	frame	data/chars/players/guy/jump02.gif
+	delay	7
+	frame	data/chars/players/guy/ja101.gif
+	attack	240 79 40 50 7 1 0 0 20 15
+	delay	35
+	frame	data/chars/players/guy/ja102.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	7
+	frame	data/chars/players/guy/ja101.gif
+	delay	5
+	frame	data/chars/players/guy/jump02.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+		
+anim	jumpattack2
+	jugglecost	2
+	fastattack	1
+	loop	1
+	hitfx	data/sounds/beat1.wav
+	@script
+	if(readKey("jump")) {
+		if(isBlockedFront2(15)){changeState("FREESPECIAL8"); }
+		else if(isBlockedBack2(15)){
+			turn();
+			changeState("FREESPECIAL8");
+		}
+	}
+	@end_script	
+	offset	238 177
+	bbox	226 102 23 50
+	delay	1
+	frame	data/chars/players/guy/ja301.gif
+	attack	226 122 32 35 4 0 0 0 15 15
+	delay	999
+	frame	data/chars/players/guy/ja301.gif
+		
+anim	jumpdelay
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	frame	data/chars/players/guy/land01.gif
+		
+anim	jumpforward
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	@script
+	if(frame >= 0 && readKey("jump")) {
+		if(isBlockedFront2(15)){changeState("FREESPECIAL8"); }
+		else if(isBlockedBack2(15)){
+			turn();
+			changeState("FREESPECIAL8");
+		}
+	}
+	@end_script	
+	offset	238 177
+	bbox	226 102 23 50
+	sound	data/chars/players/guy/guy02.wav
+	delay	4
+	frame	data/chars/players/guy/jump02.gif
+	frame	data/chars/players/guy/ja201.gif
+	attack	240 115 54 20 7 1 0 0 20 15
+	delay	35
+	frame	data/chars/players/guy/ja202.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/players/guy/ja201.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+		
+anim	jumpland
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	frame	data/chars/players/guy/land01.gif
+		
+anim	pain
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	4
+	frame	data/chars/players/guy/pain01.gif
+	offset	237 177
+	frame	data/chars/players/guy/pain01.gif
+	offset	238 177
+	frame	data/chars/players/guy/pain01.gif
+	offset	239 177
+	frame	data/chars/players/guy/pain01.gif
+	offset	238 177
+	frame	data/chars/players/guy/pain01.gif
+	offset	237 177
+	frame	data/chars/players/guy/pain01.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/guy/pain01.gif
+		
+anim	pain11
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn101.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn102.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	237 177
+	frame	data/chars/misc/burn1/burn103.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	238 177
+	frame	data/chars/misc/burn1/burn104.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	239 177
+	frame	data/chars/misc/burn1/burn102.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	238 177
+	frame	data/chars/misc/burn1/burn103.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	237 177
+	frame	data/chars/misc/burn1/burn104.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/guy/pain01.gif
+		
+anim	pain12
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn101.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn202.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	237 177
+	frame	data/chars/misc/burn2/burn203.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	238 177
+	frame	data/chars/misc/burn2/burn204.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	239 177
+	frame	data/chars/misc/burn2/burn202.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	238 177
+	frame	data/chars/misc/burn2/burn203.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	237 177
+	frame	data/chars/misc/burn2/burn204.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/guy/pain01.gif
+		
+anim	pain13
+	loop	0
+	offset	238 167
+	bbox	226 102 23 76
+	sound	data/sounds/shock01.wav
+	delay	2
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	237 167
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	238 167
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	239 167
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	offset	238 167
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	237 167
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	238 167
+	delay	12
+	frame	data/chars/players/guy/pain01.gif
+		
+anim	pain2
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	4
+	frame	data/chars/players/guy/pain02.gif
+	offset	237 177
+	frame	data/chars/players/guy/pain02.gif
+	offset	238 177
+	frame	data/chars/players/guy/pain02.gif
+	offset	239 177
+	frame	data/chars/players/guy/pain02.gif
+	offset	238 177
+	frame	data/chars/players/guy/pain02.gif
+	offset	237 177
+	frame	data/chars/players/guy/pain02.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/guy/pain02.gif
+		
+anim	pain3
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	4
+	frame	data/chars/players/guy/pain01.gif
+	offset	237 177
+	frame	data/chars/players/guy/pain01.gif
+	offset	238 177
+	frame	data/chars/players/guy/pain01.gif
+	offset	239 177
+	frame	data/chars/players/guy/pain01.gif
+	offset	238 177
+	frame	data/chars/players/guy/pain01.gif
+	offset	237 177
+	frame	data/chars/players/guy/pain01.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/guy/pain01.gif
+		
+anim	pain9
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	4
+	frame	data/chars/players/guy/pain02.gif
+	offset	237 177
+	frame	data/chars/players/guy/pain02.gif
+	offset	238 177
+	frame	data/chars/players/guy/pain02.gif
+	offset	239 177
+	frame	data/chars/players/guy/pain02.gif
+	offset	238 177
+	frame	data/chars/players/guy/pain02.gif
+	offset	237 177
+	frame	data/chars/players/guy/pain02.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/guy/pain02.gif
+		
+anim	rise
+	loop	0
+	offset	238 177
+	delay	55
+	frame	data/chars/players/guy/fall02.gif
+	delay	20
+	frame	data/chars/players/guy/rise01.gif
+	delay	14
+	frame	data/chars/players/guy/fall02.gif
+	delay	10
+	frame	data/chars/players/guy/rise01.gif
+	frame	data/chars/players/guy/get01.gif
+		
+anim	riseattack1
+	@cmd subhealthkill 10
+	jugglecost	100
+	jumpframe	2 3.3
+	landframe	11
+	energycost	5
+	mponly	2
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	delay	10
+	frame	data/chars/players/guy/rise01.gif
+	frame	data/chars/players/guy/get01.gif
+	sound	data/chars/players/guy/guy03.wav
+	delay	4
+	frame	data/chars/players/guy/jump01.gif
+	delay	9
+	frame	data/chars/players/guy/sp01.gif
+	attack3	234 111 41 	81 	8 	1 	1 	0 	20	15
+	delay	12
+	frame	data/chars/players/guy/sp02.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	8
+	frame	data/chars/players/guy/sp03.gif
+	attack3	194 111 41 	81 	8 	1 	1 	0 	20	15
+	delay	12
+	frame	data/chars/players/guy/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	8
+	frame	data/chars/players/guy/sp01.gif
+	attack3	234 111 41 	81 	8 	1 	1 	0 	20	15
+	delay	12
+	frame	data/chars/players/guy/sp02.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	9
+	frame	data/chars/players/guy/sp03.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+	delay	9
+	frame	data/chars/players/guy/land01.gif
+	
+anim	run
+	loop	1
+	offset	238 177
+	bbox	226 105 30 72
+	delay	8
+	frame	data/chars/players/guy/run01.gif
+	frame	data/chars/players/guy/run02.gif
+	sound	data/chars/players/haggar/hagg11.wav
+	frame	data/chars/players/guy/run03.gif
+	frame	data/chars/players/guy/run04.gif
+	frame	data/chars/players/guy/run05.gif
+	sound	data/chars/players/haggar/hagg11.wav
+	frame	data/chars/players/guy/run06.gif
+		
+anim	runattack
+	jugglecost	2
+	cancel	0 	999 	0  d f j  		freespecial2
+	cancel	0 	999 	0  d u a  		freespecial3
+	cancel	0 	999 	0  d f u a  		freespecial3
+	cancel	0 	999 	0  d b u a  		freespecial3
+	cancel	0 	999 	0  d u j 		freespecial9
+	cancel	0 	999 	0  d f u j  		freespecial9
+	cancel	0 	999 	0  d b u j 		freespecial9
+	cancel	0 	999 	0  d f a  		freespecial4
+	cancel	0 	999 	0  d f d f j  	freespecial5
+	cancel	0 	999 	0  d f b d f j  	freespecial5
+	cancel	0 	999 	0  d f d f a  	freespecial11
+	cancel	0 	999 	0  d f b d f a  	freespecial11
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	2
+	move	6
+	sound	data/chars/players/guy/guy02.wav
+	frame	data/chars/players/guy/ca01.gif
+	frame	data/chars/players/guy/ca01.gif
+	frame	data/chars/players/guy/ca01.gif
+	frame	data/chars/players/guy/ca01.gif
+	@cmd	projectile 1 "dust02" 0 0 0
+	attack1	250 106 40 	46 	8 	1 	0 	0 	15	15
+	bbox	220 110 30 70
+	dropv	1.5 1.5
+	frame	data/chars/players/guy/ca02.gif
+	frame	data/chars/players/guy/ca02.gif
+	frame	data/chars/players/guy/ca02.gif
+	frame	data/chars/players/guy/ca02.gif
+	move	4
+	frame	data/chars/players/guy/ca02.gif
+	move	2
+	frame	data/chars/players/guy/ca03.gif
+	move	1
+	frame	data/chars/players/guy/ca03.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	move	0
+	attack2	0	0	0	0	0	0	0	0	0	0
+	delay	8
+	frame	data/chars/players/guy/ca03.gif
+	frame	data/chars/players/guy/ca03.gif
+	bbox	226 102 23 76
+	frame	data/chars/players/guy/ca03.gif
+		
+anim	runjump
+	@script
+    void vSelf = getlocalvar("self");
+    if(frame > 0 && isBlockedFront2(15)){
+      if  (readKey("jump")){
+		changeState("FREESPECIAL8");
+	  }
+    }
+	@end_script	
+	jumpframe	0 3 2
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	35
+	frame	data/chars/players/guy/jump01.gif
+	delay	15
+	frame	data/chars/players/guy/jump02.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+		
+anim	select
+fshadow 0
+	loop	0
+	offset	1 1
+	sound	data/sounds/choose.wav
+	delay	2
+	frame	data/chars/players/guy/sel03.gif
+	sound	data/sounds/punch.wav
+	delay	8
+	frame	data/chars/players/guy/sel04.gif
+	delay	2
+	frame	data/chars/players/guy/sel03.gif
+	sound	data/sounds/punch.wav
+	delay	8
+	frame	data/chars/players/guy/sel04.gif
+	delay	4
+	frame	data/chars/players/guy/sel03.gif
+	delay	8
+	frame	data/chars/players/guy/sel05.gif
+	sound	data/sounds/punch.wav
+	delay	15
+	frame	data/chars/players/guy/sel06.gif
+	delay	8
+	frame	data/chars/players/guy/sel07.gif
+	sound	data/sounds/punch.wav
+	delay	15
+	frame	data/chars/players/guy/sel08.gif
+	delay	3
+	frame	data/chars/players/guy/sel09.gif
+	sound	data/sounds/punch.wav
+	delay	5
+	frame	data/chars/players/guy/sel10.gif
+	sound	data/chars/players/guy/guy01.wav
+	delay	100
+	frame	data/chars/players/guy/sel11.gif
+		
+anim	spawn
+	loop	0
+	offset	238 177
+	delay	3
+	@cmd	setLevel
+	frame	data/chars/players/guy/idle01.gif
+	frame	data/chars/players/guy/idle01.gif
+	frame	data/chars/players/guy/idle01.gif
+	frame	data/chars/players/guy/idle01.gif
+	frame	data/chars/players/guy/idle01.gif
+	frame	data/chars/players/guy/idle01.gif
+	frame	data/chars/players/guy/idle01.gif
+	frame	data/chars/players/guy/idle01.gif
+	frame	data/chars/players/guy/idle01.gif
+	frame	data/chars/players/guy/idle01.gif
+		
+anim	special
+	jugglecost	100
+	jumpframe	0 3.3
+	landframe	9
+	energycost	20
+	mponly	2
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	sound	data/chars/players/guy/guy03.wav
+	delay	4
+	frame	data/chars/players/guy/jump01.gif
+	delay	9
+	frame	data/chars/players/guy/sp01.gif
+	attack3	234 111 41 	81 	8 	1 	1 	0 	20	15
+	delay	12
+	frame	data/chars/players/guy/sp02.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	8
+	frame	data/chars/players/guy/sp03.gif
+	attack3	194 111 41 	81 	8 	1 	1 	0 	20	15
+	delay	12
+	frame	data/chars/players/guy/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	8
+	frame	data/chars/players/guy/sp01.gif
+	attack3	234 111 41 	81 	8 	1 	1 	0 	20	15
+	delay	12
+	frame	data/chars/players/guy/sp02.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	9
+	frame	data/chars/players/guy/sp03.gif
+	delay	999
+	frame	data/chars/players/guy/jump01.gif
+	delay	9
+	frame	data/chars/players/guy/land01.gif
+		
+anim	waiting
+fshadow 0
+	loop	1
+	offset	1 1
+	delay	4
+	frame	data/chars/players/guy/sel01.gif
+	frame	data/chars/players/guy/sel02.gif
+		
+anim	walk
+	loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	frame	data/chars/players/guy/walk01.gif
+	frame	data/chars/players/guy/walk02.gif
+	frame	data/chars/players/guy/walk03.gif
+	frame	data/chars/players/guy/walk04.gif
+	frame	data/chars/players/guy/walk05.gif
+	frame	data/chars/players/guy/walk06.gif
+	
+anim grabbedwalk
+	 loop       0
+	 offset     238 177
+	 bbox		226 82 23 76
+	 delay      4
+	 frame   data/chars/players/guy/hagg01-2.gif
+		
+anim death17
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebymack/die01.gif
+	frame	data/chars/misc/diebymack/die02.gif
+	frame	data/chars/misc/diebymack/die03.gif
+	frame	data/chars/misc/diebymack/die04.gif
+	
+anim death11
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire/fire1.gif
+	frame	data/chars/misc/diebyfire/fire2.gif
+	frame	data/chars/misc/diebyfire/fire3.gif
+	frame	data/chars/misc/diebyfire/fire4.gif
+	frame	data/chars/misc/diebyfire/fire5.gif
+	frame	data/chars/misc/diebyfire/fire6.gif
+	frame	data/chars/misc/diebyfire/fire7.gif
+	frame	data/chars/misc/diebyfire/fire8.gif	
+	frame	data/chars/misc/diebyfire/fire9.gif
+	frame	data/chars/misc/diebyfire/fire10.gif
+	frame	data/chars/misc/diebyfire/fire11.gif
+
+anim death27
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebymack/die01.gif
+	frame	data/chars/misc/diebymack/die02.gif
+	frame	data/chars/misc/diebymack/die03.gif
+	frame	data/chars/misc/diebymack/die04.gif
+	
+anim death21
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire/fire1.gif
+	frame	data/chars/misc/diebyfire/fire2.gif
+	frame	data/chars/misc/diebyfire/fire3.gif
+	frame	data/chars/misc/diebyfire/fire4.gif
+	frame	data/chars/misc/diebyfire/fire5.gif
+	frame	data/chars/misc/diebyfire/fire6.gif
+	frame	data/chars/misc/diebyfire/fire7.gif
+	frame	data/chars/misc/diebyfire/fire8.gif	
+	frame	data/chars/misc/diebyfire/fire9.gif
+	frame	data/chars/misc/diebyfire/fire10.gif
+	frame	data/chars/misc/diebyfire/fire11.gif
+	
+anim death12
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire2/fire1.gif
+	frame	data/chars/misc/diebyfire2/fire2.gif
+	frame	data/chars/misc/diebyfire2/fire3.gif
+	frame	data/chars/misc/diebyfire2/fire4.gif
+	frame	data/chars/misc/diebyfire2/fire5.gif
+	frame	data/chars/misc/diebyfire2/fire6.gif
+	frame	data/chars/misc/diebyfire2/fire7.gif
+	frame	data/chars/misc/diebyfire2/fire8.gif	
+	frame	data/chars/misc/diebyfire2/fire9.gif
+	frame	data/chars/misc/diebyfire2/fire10.gif
+	frame	data/chars/misc/diebyfire2/fire11.gif
+	
+anim death22
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire2/fire1.gif
+	frame	data/chars/misc/diebyfire2/fire2.gif
+	frame	data/chars/misc/diebyfire2/fire3.gif
+	frame	data/chars/misc/diebyfire2/fire4.gif
+	frame	data/chars/misc/diebyfire2/fire5.gif
+	frame	data/chars/misc/diebyfire2/fire6.gif
+	frame	data/chars/misc/diebyfire2/fire7.gif
+	frame	data/chars/misc/diebyfire2/fire8.gif	
+	frame	data/chars/misc/diebyfire2/fire9.gif
+	frame	data/chars/misc/diebyfire2/fire10.gif
+	frame	data/chars/misc/diebyfire2/fire11.gif
+	
+anim victory
+
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	8
+	frame	data/chars/players/guy/land01.gif
+	delay	2
+	frame	data/chars/players/guy/frsp401.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	attack	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.5 0
+	frame	data/chars/players/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	attack2	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp404.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	attack	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp405.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	attack2	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp406.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	attack	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp407.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	attack2	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp408.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	attack	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	attack2	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp404.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	attack	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp405.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	attack2	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp406.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	attack	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp407.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	attack2	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp408.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	attack	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	attack2	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp404.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	attack	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp405.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	attack2	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp406.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	attack	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp407.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	attack2	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.40
+	frame	data/chars/players/guy/frsp408.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	attack	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	attack2	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp404.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	attack	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp405.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	attack2	240 120 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp406.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 -10
+	attack	240 130 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.4 0
+	frame	data/chars/players/guy/frsp407.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 10
+	attack2	240 110 41 	9 	1 	0 	1 	0 	5	20
+	dropv	0.5 0
+	frame	data/chars/players/guy/frsp408.gif
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/guy/frsp403.gif
+	@cmd	projectile 1 "hassou" 0 0 0
+	attack	240 120 41 	9 	29 	0 	1 	0 	5	20
+	dropv	1 0
+	frame	data/chars/players/guy/frsp402.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	2
+	frame	data/chars/players/guy/frsp403.gif
+	delay 14
+	frame	data/chars/players/guy/frsp401.gif
+	 
+
+			
+
+		
+
+		

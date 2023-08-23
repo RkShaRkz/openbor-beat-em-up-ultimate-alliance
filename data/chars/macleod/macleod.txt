@@ -1,0 +1,298 @@
+name	Macleod
+health	200
+speed	14
+aggression 10
+risetime 130
+type	enemy
+projectilehit obstacle enemy npc
+dust    dust
+hostile player npc
+candamage obstacle player npc
+grabdistance 19
+nodieblink 0
+throw 3 3
+noquake 0
+shadow	3
+icon	data/chars/Macleod/icon.gif
+diesound data/sounds/die1.wav
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/Ninja.c
+onfallscript		data/scripts/onfall/koCount.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+
+load Shot 
+
+remap	data/chars/MACLEOD/walk1.gif data/chars/MACLEOD/alt1.gif
+remap	data/chars/MACLEOD/walk1.gif data/chars/MACLEOD/alt2.gif
+remap	data/chars/MACLEOD/walk1.gif data/chars/MACLEOD/alt3.gif
+remap	data/chars/MACLEOD/walk1.gif data/chars/MACLEOD/alt4.gif
+remap	data/chars/MACLEOD/walk1.gif data/chars/MACLEOD/alt5.gif
+
+score   6 6
+
+anim idle
+	loop	1
+	offset	22 85
+	bbox	6 7 37 81
+	delay	12
+	frame	data/chars/Macleod/walk1.gif
+
+anim grabbed
+	loop	0
+	offset	28 74
+	bbox	9 4 38 73
+	delay	3
+	frame	data/chars/Macleod/pain.gif
+	
+anim walk
+	loop	1
+	offset	22 85
+	bbox	6 7 37 81
+	delay	18
+	frame	data/chars/Macleod/walk1.gif
+	frame	data/chars/Macleod/walk2.gif
+       frame	data/chars/Macleod/walk3.gif
+	frame	data/chars/Macleod/walk2.gif
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	145 181
+	bbox 	131 111 25 72
+	frame	data/chars/macleod/pain00.gif
+	frame	data/chars/macleod/pain01.gif
+	frame	data/chars/macleod/pain00.gif
+	frame	data/chars/macleod/pain01.gif
+	frame	data/chars/macleod/pain00.gif
+	frame	data/chars/macleod/pain01.gif
+	frame	data/chars/macleod/pain00.gif
+	frame	data/chars/macleod/pain01.gif
+	frame	data/chars/macleod/pain00.gif
+	frame	data/chars/macleod/pain01.gif
+	frame	data/chars/macleod/pain00.gif
+	frame	data/chars/macleod/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	145 181
+	bbox 	135 111 30 72
+	frame	data/chars/macleod/pain200.gif
+	frame	data/chars/macleod/pain201.gif
+	frame	data/chars/macleod/pain200.gif
+	frame	data/chars/macleod/pain201.gif
+	frame	data/chars/macleod/pain200.gif
+	frame	data/chars/macleod/pain201.gif
+	frame	data/chars/macleod/pain200.gif
+	frame	data/chars/macleod/pain201.gif
+	frame	data/chars/macleod/pain200.gif
+	frame	data/chars/macleod/pain201.gif
+	frame	data/chars/macleod/pain200.gif
+	frame	data/chars/macleod/pain201.gif
+
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	145 181
+	bbox 	126 115 40 42
+	frame	data/chars/macleod/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/macleod/fall01.gif
+
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	145 181
+	bbox 	126 115 40 42
+	drawmethod tintmode 6
+	drawmethod tintcolor 255
+	frame	data/chars/macleod/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/macleod/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	nodrawmethod
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/macleod/fall01.gif
+
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	145 181
+	bbox 	126 115 40 42
+	drawmethod tintmode 6
+	drawmethod tintcolor -255
+	frame	data/chars/macleod/fall00.gif
+	drawmethod tintmode 2
+	drawmethod tintcolor -255
+	frame	data/chars/macleod/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	nodrawmethod
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/macleod/fall01.gif
+	
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	145 181
+	frame	data/chars/macleod/fall600.gif
+	frame	data/chars/macleod/fall601.gif
+	frame	data/chars/macleod/fall602.gif
+	frame	data/chars/macleod/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/macleod/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	145 181
+	frame	data/chars/macleod/fall700.gif
+	frame	data/chars/macleod/fall701.gif
+	frame	data/chars/macleod/fall702.gif
+	frame	data/chars/macleod/fall703.gif
+	frame	data/chars/macleod/fall704.gif
+	frame	data/chars/macleod/fall705.gif
+
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 1
+	loop	0
+	delay	999
+	offset	145 181
+	bbox 	126 115 40 42
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 126 115 40 42 4 1 0 0 0 12
+	frame	data/chars/macleod/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/macleod/fall01.gif
+
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 1
+	loop	0
+	delay	999
+	offset	145 181
+	bbox 	129 128 32 53
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 129 128 32 53 4 1 0 0 0 12
+	frame	data/chars/macleod/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/macleod/fall01.gif
+anim rise
+	delay 15
+	loop	0
+	offset	41 61
+	frame	data/chars/Macleod/rise1.gif
+	offset	40 81
+	frame	data/chars/Macleod/fall2.gif
+	offset	41 61
+	
+	frame	data/chars/Macleod/rise1.gif
+        frame	data/chars/Macleod/rise2.gif
+
+
+
+
+
+anim attack1
+	range 20 50
+	loop	0
+       	delay	20
+       	offset	21 76
+	bbox	12 5 29 72
+        attack	33 14 36 16 8  
+        frame	data/chars/Macleod/punch1.gif
+
+        
+
+
+anim attack2
+        range 0 50
+        loop	0
+	delay	15
+	offset	31 67
+	bbox	12 5 31 74
+	attack	38 20 39 15 8 0 1
+	
+	frame	data/chars/Macleod/kneel1.gif
+		
+	attack 0
+	frame	data/chars/Macleod/kneel1.gif
+	offset	25 78
+	bbox	18 11 31 57
+	attack	35 16 27 18 8 1
+	delay 30
+	frame	data/chars/Macleod/b-hand.gif
+
+anim attack3
+	range	150 250
+	loop	0
+	offset	21 85
+	bbox	5 3 37 81
+	shootframe	3
+delay 10	
+	frame	data/chars/Macleod/shoot1.gif
+	frame	data/chars/Macleod/shoot1.gif
+        sound   data/chars/bronz/handgun2.wav
+	frame	data/chars/Macleod/shoot2.gif
+delay 40
+	frame	data/chars/Macleod/shoot2.gif
+	frame	data/chars/Macleod/shoot1.gif
+
+anim Throw
+     loop 0
+     offset 55 81
+     #bbox 40 8 46 74
+     delay 5
+	frame data/chars/Macleod/grab.gif
+	delay 15
+     frame data/chars/Macleod/throw1.gif
+     #frame data/chars/Macleod/throw2.gif
+     #bbox 20 35 42 47
+     
+     #frame data/chars/Macleod/throw3.gif
+     #delay   40
+
+     frame data/chars/Macleod/throw4.gif
+
+
+  anim special
+        range 0 50
+        loop	0
+	delay	15
+	offset	31 67
+	bbox	12 5 31 74
+	attack	38 20 39 15 8 0 1
+	
+	frame	data/chars/Macleod/kneel1.gif
+		
+	attack 0
+	frame	data/chars/Macleod/kneel1.gif
+	offset	25 78
+	bbox	18 11 31 57
+	attack	35 16 27 18 8 1
+	delay 30
+	frame	data/chars/Macleod/b-hand.gif
+
+
+	

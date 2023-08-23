@@ -1,0 +1,14 @@
+name		L07
+type		panel
+speed		5
+scroll		0.4
+shadow		0
+alpha		1
+setlayer	1000
+
+anim idle
+	loop	1
+	delay	4
+	offset	0 0
+	frame	data/bgs/Br01/L07.gif
+

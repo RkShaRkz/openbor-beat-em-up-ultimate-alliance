@@ -1,0 +1,25 @@
+name	PopoR
+health	1
+speed   15
+type	enemy
+candamage npc player
+hitenemy 0 0
+#candamage obstacle player
+alpha			1
+gfxshadow			1 1
+nolife        1
+#icon	data/chars/misc/popoicon.gif
+
+anim idle
+	loop	1
+	delay	9
+	offset	51 25
+	hitflash burn
+	hitfx   data/sounds/hpain.wav
+        burn  44 19 7 6 10 1
+	frame	data/chars/monalisa/popor/popo1.gif
+        burn  19 4 32 21 10 1
+	frame	data/chars/monalisa/popor/popo2.gif
+        burn  2 2 49 23 10 1
+	frame	data/chars/monalisa/popor/popo3.gif
+

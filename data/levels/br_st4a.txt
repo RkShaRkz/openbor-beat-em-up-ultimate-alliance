@@ -1,0 +1,196 @@
+background	data/bgs/Br04/back01.gif		#1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/Br04/pn01.gif		none	none
+frontpanel	data/bgs/Front.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn03.gif
+order		a
+music		data/music/st4a.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 4
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 6
+at			0
+Wall  656  249  -97  0  131  109  55  178
+
+spawn		Bin
+flip		1
+coords		109 215 0
+at			0
+
+spawn		Bin
+flip		1
+coords		146 250 0
+at			0
+
+spawn		Banco
+flip		1
+coords		377 218 0
+at			0
+
+spawn		Bin
+flip		1
+coords		548 235 0
+at			0
+
+spawn		pipe
+flip		1
+coords		350 230 0
+at			0
+
+
+spawn		knife
+flip		1
+coords		300 250 0
+at			0
+
+spawn		Billy_wait0
+Map             4
+flip		0
+coords		371 219 0
+at			0
+
+
+#########################################################################################
+
+group		5 5
+at			1
+
+wait
+at			1
+
+
+spawn		BasicX1
+flip		1
+coords		-100 270 0
+at			1
+
+spawn		Mic2
+map             3
+flip		1
+coords		700 270 0
+at			1
+
+spawn		Gneiss2
+Alias           Alfred.jr
+flip		1
+coords		-200 270 0
+at			1
+
+spawn		Elmer0
+Alias           Elmer
+flip		1
+coords		600 270 0
+at			1
+
+spawn		Rubby
+flip		1
+coords		-100 270 0
+at			150
+
+spawn		Tiger0
+flip		1
+coords		700 270 0
+at			1
+
+spawn		MIc2
+Map             1
+flip		1
+coords		-200 270 0
+at			1
+
+
+
+spawn		BasicX1
+flip		1
+coords		600 270 0
+at			1
+
+spawn		Biker0
+flip		1
+coords		-100 270 0
+at			1
+
+
+spawn		Mic2
+alias           Mic.jr
+flip		1
+coords		600 270 0
+at			500
+
+spawn		BasicX0
+flip		1
+coords		-100 270 0
+at			500
+
+
+wait
+at			550
+
+#########################################################################################
+
+
+
+#########################################################################################
+
+
+group		5 5
+at			600
+
+spawn		Elmer1
+Alias           Elmer
+Map             0
+flip		1
+coords		600 270 0
+at			600
+spawn		Elmer2
+Alias           Jhow
+Map             1
+coords		-100 270 0
+at			600
+
+spawn		Gneiss1
+Alias           Bob.B
+Map             2
+coords		-100 270 0
+at			900
+
+
+spawn		Mic
+flip		1
+coords		600 270 0
+at			1200
+
+spawn		BasicX1
+flip		1
+coords		-100 270 0
+at			1200
+
+spawn		Billy1
+Alias           Billy
+flip		1
+coords		400 270 0
+at			1500
+
+spawn		Billy2
+MAp             1
+Alias           GE
+flip		1
+coords		-100 270 0
+at			1500
+
+spawn		Biker2
+flip		1
+coords		-200 270 0
+at			1500
+

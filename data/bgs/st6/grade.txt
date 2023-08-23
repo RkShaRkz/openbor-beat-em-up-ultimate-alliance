@@ -1,0 +1,13 @@
+name			st6_grade
+type			panel
+shadow			0
+script			data/scripts/updateentity/st6_grade.c
+
+anim idle
+	loop	0
+	delay	16
+	offset	1 1
+	platform 0 0 2000 2000 200 1000
+	frame	data/bgs/st3/back00.gif
+	
+	

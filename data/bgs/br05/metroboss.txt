@@ -1,0 +1,84 @@
+name				MetroBoss
+type				panel
+shadow				0
+speed				5
+scroll				-0.5
+setlayer			-50
+animationscript 	data/scripts/script.c
+
+#diesound			data/sounds/Glass.wav
+
+
+anim spawn
+	loop	0
+	delay	600
+	offset	2542 183
+	sound	data/Bgs/Br05/MetroBoss.wav
+	frame	data/Bgs/Br05/MetroBoss.gif
+
+anim idle
+	loop	1
+	delay	400
+	offset	2542 183
+	#platform 49 49 151 151 11 1
+	@cmd dasher 3 0 0
+	#hitfx	data/sounds/Glass.wav
+	#sound	data/sounds/Wheel.wav
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+	frame	data/Bgs/Br05/MetroBoss.gif
+        silence 1
+	frame	data/Bgs/Br05/MetroBoss.gif
+
+#anim fall
+	#loop	0
+	#delay	128
+	#offset 2542 183
+	#@cmd tosserX 0 0 0 0 1 0
+	#frame	data/Bgs/Br05/MetroBoss.gif
+        #frame	data/Bgs/Br05/MetroBoss.gif
+        #frame	data/Bgs/Br05/MetroBoss.gif
+        #frame	data/Bgs/Br05/MetroBoss.gif
+        #frame	data/Bgs/Br05/MetroBoss.gif
+        #frame	data/Bgs/Br05/MetroBoss.gif
+        #frame	data/Bgs/Br05/MetroBoss.gif
+        #frame	data/Bgs/Br05/MetroBoss.gif
+        #frame	data/Bgs/Br05/MetroBoss.gif
+        #frame	data/Bgs/Br05/MetroBoss.gif
+        #frame	data/Bgs/Br05/MetroBoss.gif
+        #frame	data/Bgs/Br05/MetroBoss.gif
+	#@cmd suicide
+	#frame	data/Bgs/Br05/MetroBoss.gif
+

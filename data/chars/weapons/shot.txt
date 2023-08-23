@@ -1,0 +1,19 @@
+name	Shot
+health	1
+nolife        1
+grabdistance 13
+hitenemy 0 0
+type	enemy
+candamage player cpu
+shadow	0
+speed   18
+
+anim idle
+	loop	1
+	delay	1
+	offset	-30 65
+        hitflash   Blood
+	hitfx   data/sounds/kof/cutter2.wav
+	attack	2 3 10 5 15 1
+	frame	data/chars/weapons/shot.gif
+

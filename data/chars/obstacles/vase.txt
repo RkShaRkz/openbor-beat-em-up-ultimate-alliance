@@ -1,0 +1,31 @@
+name				Vase
+type				obstacle
+health				1
+nolife				1
+score				2000
+offscreenkill 		1000
+gfxshadow			1 1
+animationscript 	data/scripts/script.c
+noatflash			1
+flash				flash
+
+diesound			data/sounds/Glass2.wav
+
+anim idle
+	loop	1 1 2
+	delay	32
+	offset	100 167
+	bbox 	86 113 28 56
+	platform 78 78 122 122 4 50
+	frame	data/chars/obstacles/vase00.gif
+	@cmd offscreenkill 30 0
+	frame	data/chars/obstacles/vase00.gif
+	
+anim fall
+	loop	0
+	delay	128
+	offset	100 167
+	@cmd tosserX 0 0 0 0 1 0
+	frame	data/chars/obstacles/vase01.gif
+	@cmd suicide
+	frame	data/chars/obstacles/vase01.gif

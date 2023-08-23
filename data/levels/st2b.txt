@@ -1,0 +1,110 @@
+background	data/bgs/st2/back01.gif		1 1 0 0 0 0 1 1 0 0
+panel		data/bgs/st2/back01.gif		none	none
+order		a
+music		data/music/st2c.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 2
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+wall		0 257 -500 -500 134 0 66 1000
+
+wall		379 257 0 134 634 634 66 1000
+
+#########################################################################################
+
+spawn		St2_Truck
+flip		1
+coords		1 180 0
+at			0
+
+#########################################################################################
+
+spawn		Box
+flip		1
+coords		200 270 0
+at			0
+
+spawn		Box
+flip		1
+coords		300 270 0
+at			0
+
+spawn		Box
+flip		1
+coords		450 240 0
+at			0
+
+spawn		Box
+flip		1
+coords		470 270 0
+at			0
+
+group		5 5
+at			0
+wait
+at			0
+
+spawn		Biker_Wait1
+flip		1
+coords		100 215 0
+at			0
+
+spawn		Biker_Wait2
+flip		1
+coords		200 215 0
+at			0
+
+spawn		Biker_Wait1
+flip		1
+coords		300 215 0
+at			0
+
+spawn		Biker_Wait2
+flip		1
+coords		400 215 0
+at			0
+
+spawn		Hakuyo_Wait0
+flip		0
+coords		350 240 0
+at			0
+
+group		2 2
+at			1
+
+spawn		Hakuyo1
+flip		0
+coords		350 240 300
+at			1
+
+spawn		Hakuyo0
+2pspawn
+flip		1
+coords		400 240 300
+at			1
+
+spawn		Hakuyo1
+3pspawn
+flip		0
+coords		350 240 300
+at			1
+
+spawn		Hakuyo0
+4pspawn
+flip		1
+coords		400 240 300
+at			1

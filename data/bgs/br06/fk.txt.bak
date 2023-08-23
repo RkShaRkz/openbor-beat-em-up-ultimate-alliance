@@ -1,0 +1,22 @@
+name		Laser01
+type		None
+gfxshadow			1 1
+speed		1
+setlayer	60
+
+anim idle
+	loop	1
+	delay	4
+	offset	0 175
+	frame	data/bgs/br06/fk01.gif
+	frame	data/bgs/br06/fk03.gif
+	frame	data/bgs/br06/fk02.gif
+	frame	data/bgs/br06/fk03.gif
+	frame	data/bgs/br06/fk04.gif
+	frame	data/bgs/br06/fk03.gif
+	frame	data/bgs/br06/fk05.gif
+	frame	data/bgs/br06/fk03.gif
+	frame	data/bgs/br06/fk06.gif
+	frame	data/bgs/br06/fk07.gif
+	frame	data/bgs/br06/fk03.gif
+

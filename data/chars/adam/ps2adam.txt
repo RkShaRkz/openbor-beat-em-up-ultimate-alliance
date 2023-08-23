@@ -1,0 +1,291 @@
+name	Adam
+health	200
+speed	7
+type	player
+shadow	3.5
+icon	data/chars/adam/icon.gif
+diesound data/sounds/adamdie.wav
+#secret	1
+
+#remap	data/chars/adam/idle1.gif data/chars/adam/alt1.gif
+
+anim idle
+	loop	1
+	delay	17
+	offset	14 78
+	bbox	2 2 34 82
+	frame	data/chars/adam/idle1.gif
+
+	frame	data/chars/adam/idle2.gif
+	frame	data/chars/adam/idle3.gif
+
+
+anim walk
+	loop	1
+	delay	14
+	offset	26 81
+	bbox	9 2 29 81
+	frame	data/chars/adam/walk1.gif
+	frame	data/chars/adam/walk2.gif
+	frame	data/chars/adam/walk3.gif
+frame	data/chars/adam/walk4.gif
+
+
+anim get
+	loop	0
+	delay	10
+offset	30 100
+	bbox	20 39 27 61
+	frame	data/chars/adam/jump1.gif
+
+
+anim jump
+	loop	0
+	delay	13
+	offset	30 100
+	bbox	20 39 27 61
+	frame	data/chars/adam/jump1.gif
+	delay       80
+	offset	24 90
+	bbox	9 8 35 82
+	frame	data/chars/adam/jump2.gif
+	delay	3
+	offset	30 100
+	bbox	20 39 27 61
+	sound	data/sounds/land.wav
+	frame	data/chars/adam/jump1.gif
+	
+	
+
+anim jumpattack
+	loop	0
+	delay	7
+	offset	23 72
+	bbox	6 8 34 63
+	
+	attack	25 44 55 15 12 1
+	delay 	7
+sound data/sounds/adam.wav
+frame	data/chars/adam/jumpa.gif
+
+
+anim jumpattack2
+	loop	0
+	delay	7
+	offset	58 45
+	bbox	11 15 71 30
+	attack	60 12 23 20 9 0
+	frame	data/chars/adam/jumpe.gif
+	
+
+anim attack1
+	loop	0
+	delay	15
+	offset	20 88
+	bbox	11 13 28 76
+	attack	31 21 40 8 7
+	frame	data/chars/adam/attack1.gif
+
+	attack	0 0 0 0 0
+	
+
+anim attack2
+	loop	0
+	delay	8
+	offset	20 88
+	bbox	11 13 28 76
+	frame	data/chars/adam/attack2.gif
+	frame	data/chars/adam/attack3.gif
+	delay	14
+	attack	45 1 24 40 7
+	frame	data/chars/adam/attack4.gif
+	attack	0 0 0 0 0
+	delay	8
+	frame	data/chars/adam/attack3.gif
+	frame	data/chars/adam/attack2.gif
+	
+	
+
+anim attack3
+	loop	0
+	delay	7
+	offset	20 88
+	bbox	11 13 41 76
+	frame	data/chars/adam/attack7.gif
+	delay	 20
+	
+	attack	45 26 50 20 15 1
+	frame	data/chars/adam/attack8.gif
+	attack	0 0 0 0 0
+	delay	 7
+	frame	data/chars/adam/attack7.gif
+
+
+	
+
+anim grab
+	loop	0
+	delay	100
+	offset	30 79
+	bbox	33 2 25 77
+	frame	data/chars/adam/grab1.gif
+
+anim throw
+	loop	0
+	delay	6
+	offset	42 79
+	
+	sound data/sounds/adam.wav
+	frame	data/chars/adam/grab2.gif
+	delay 40
+	frame	data/chars/adam/grab3.gif
+	
+
+
+
+anim pain
+	loop	0
+	offset	23 79
+	bbox	10 3 31 76
+	delay	3
+	frame	data/chars/adam/pain1.gif
+	delay	2
+	offset	28 79
+	frame	data/chars/adam/pain1.gif
+		offset	23 79
+	frame	data/chars/adam/pain1.gif
+		offset	28 79
+	frame	data/chars/adam/pain1.gif
+		offset	23 79
+	delay	30
+	frame	data/chars/adam/pain1.gif
+	
+
+anim fall
+	loop	0
+	offset	29 53
+	delay	40
+	attack	2 3 42 29 12 1
+	frame	data/chars/adam/fall1.gif
+	offset	31 58
+	attack	4 48 69 11 12 1
+	frame	data/chars/adam/getup1.gif
+
+
+anim rise
+	loop	0
+	offset	31 58
+	delay	20
+	frame	data/chars/adam/getup2.gif
+	frame	data/chars/adam/getup3.gif
+
+
+
+# Escape move
+anim special
+	loop	0
+	delay	12
+	offset	37 88
+	
+	sound data/sounds/adam.wav
+	offset	20 88
+frame	data/chars/adam/attack7.gif
+	offset	42 78
+	frame	data/chars/adam/battackr.gif
+	offset	23 92
+	delay	14
+	attack	25 44 55 15 15 1
+	frame	data/chars/adam/jumpa.gif
+	delay	12
+	offset	53 88
+frame	data/chars/adam/attack7l.gif
+	offset	45 78
+	#frame	data/chars/adam/battackl.gif
+	#frame	data/chars/adam/jumpal.gif
+	offset	53 88
+	delay	20
+	attack	1 25 59 26 15 1
+	frame	data/chars/adam/attack8l.gif
+
+# FFP special.
+anim freespecial
+ 	loop	0
+ 	delay	5
+
+	offset	30 100
+	bbox	20 39 27 61
+	frame	data/chars/adam/jump1.gif
+	move 7
+ 	offset	23 95
+ 	bbox	3 1 45 52 
+	attack	4 3 43 50 10 0 1
+ 	frame	data/chars/adam/roll1.gif
+	offset	23 100
+	attack 0
+	frame	data/chars/adam/roll2.gif
+	offset	23 105
+	attack	4 3 43 50 10 0 1
+	frame	data/chars/adam/roll3.gif
+	offset	23 110
+	attack 0
+	frame	data/chars/adam/roll4.gif
+	attack	4 3 43 50 10 0 1
+	offset	23 115
+	frame	data/chars/adam/roll1.gif
+	attack 0
+	offset	23 120
+	frame	data/chars/adam/roll2.gif
+	offset	23 115
+	attack	4 3 43 50 10 1 1
+	frame	data/chars/adam/roll3.gif
+	attack 0
+	offset	23 110
+	frame	data/chars/adam/roll4.gif
+	#delay 10
+	bbox	11 15 71 30
+	attack	60 12 23 20 15 1 1
+	frame	data/chars/adam/jumpe.gif
+	frame	data/chars/adam/jumpe.gif
+	offset	23 100
+	frame	data/chars/adam/jumpe.gif
+	offset	23 90
+	frame	data/chars/adam/jumpe.gif
+	offset	23 80
+	frame	data/chars/adam/jumpe.gif
+	offset	23 70
+	frame	data/chars/adam/jumpe.gif
+	offset	30 100
+	bbox	20 39 27 61 
+        sound   sound data/sounds/land.wav
+	frame	data/chars/adam/jump1.gif
+
+anim grabattack
+	loop	0
+	offset	30 79
+	bbox	32 5 28 78
+        attack	37 31 27 40 12 0
+	delay	15
+	frame	data/chars/adam/graba1.gif
+                attack	0
+	
+
+anim grabattack2
+                loop	0
+	offset	30 79
+	bbox	32 5 28 78
+	delay 10
+	frame	data/chars/adam/graba2.gif
+                attack	58 7 21 24 15 1
+delay 20
+frame	data/chars/adam/graba3.gif
+             
+
+
+anim land
+	loop	0
+	delay	25
+offset	30 100
+	bbox	20 39 27 61
+	sound	data/sounds/land.wav
+	frame	data/chars/adam/jump1.gif
+

@@ -1,0 +1,22 @@
+name				st1_rim
+type				none
+shadow				0
+setlayer			-1
+animationscript	 	data/scripts/script.c
+
+anim idle
+	loop	1
+	delay	9
+	offset	1 200
+	@cmd offscreenkill 500 0
+	frame	data/bgs/st1/rim00.gif
+	frame	data/bgs/st1/rim01.gif
+	frame	data/bgs/st1/rim02.gif
+	frame	data/bgs/st1/rim03.gif
+	frame	data/bgs/st1/rim04.gif
+	frame	data/bgs/st1/rim05.gif
+	frame	data/bgs/st1/rim06.gif
+	frame	data/bgs/st1/rim07.gif
+	frame	data/bgs/st1/rim08.gif
+	frame	data/bgs/st1/rim09.gif
+	

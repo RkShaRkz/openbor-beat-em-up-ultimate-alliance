@@ -1,0 +1,140 @@
+name  		misilb
+type 		npc
+remove		1
+antigravity	100
+#shadow					0
+gfxshadow 1 3
+hostile					enemy npc obstacle shot
+candamage				enemy npc obstacle shot
+
+palette data/chars/players/COM/baby/misilb/misilb01.gif #1
+
+load				quake
+
+
+
+
+
+anim	death
+	loop	0
+	offset	265 177
+	bbox	0 0 0 0
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	@cmd	changeentityproperty getlocalvar("self") "velocity" 0 0 0
+	delay	5
+	move	1000
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+		
+anim	fall
+	loop	0
+	offset	238 17
+	bbox	0 0 0 0
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	@cmd	changeentityproperty getlocalvar("self") "velocity" 0 0 0
+	delay	5
+	move	1000
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+		
+anim	follow1
+	offset	205 185
+	jugglecost 2
+	bbox	0 0 0 0
+	@cmd	changeentityproperty getlocalvar("self") "velocity" 0 0 0
+	sound	data/sounds/gre.wav
+	delay 2
+	@cmd	projectile 1 "quake" 0 0 0
+	attack18	250 145 55 55 27 1 1 0 10 15
+	frame	data/chars/players/COM/baby/misilb/misilbexp01.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp02.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp03.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp04.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp05.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp06.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp07.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp08.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp09.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp10.gif
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/COM/baby/misilb/misilbexp11.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp12.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp13.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp14.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp15.gif
+	frame	data/chars/players/COM/baby/misilb/misilbexp16.gif
+	delay	5
+	move	1000
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	
+anim	follow2
+	loop	0
+	offset	265 177
+	bbox	0 0 0 0
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	@cmd	changeentityproperty getlocalvar("self") "velocity" 0 0 0
+	delay	5
+	move	1000
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+		
+anim	idle
+	jugglecost 2
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat3.wav
+	@script
+		void self=getlocalvar("self");
+		if(getentityproperty(self,"a")>=getentityproperty(self,"base")+400) {
+		     changeentityproperty(self, "animation", openborconstant("ANI_FOLLOW2"));}
+	@end_script	
+	followanim	1
+	followcond	1
+	loop	1 1 6
+	offset	238 185
+	delay 1
+	frame	data/chars/players/COM/baby/misilb/misilb01.gif
+	delay	2
+	attack18	245 167 53 15 27 1 1 0 10 15
+	frame	data/chars/players/COM/baby/misilb/misilb02.gif
+	frame	data/chars/players/COM/baby/misilb/misilb01.gif
+	frame	data/chars/players/COM/baby/misilb/misilb02.gif
+	frame	data/chars/players/COM/baby/misilb/misilb01.gif
+	frame	data/chars/players/COM/baby/misilb/misilb02.gif
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/COM/baby/misilb/misilb01.gif
+		
+
+		

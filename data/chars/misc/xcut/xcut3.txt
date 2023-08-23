@@ -1,0 +1,25 @@
+name			Xcut3
+type			none
+shadow			0
+antigravity		100
+toflip			1
+animationscript	data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	4
+	offset	278 225
+	sound	data/sounds/Shring3.wav
+	frame	data/chars/misc/xcut/xcut08.gif
+	frame	data/chars/misc/xcut/xcut09.gif
+	frame	data/chars/misc/xcut/xcut10.gif
+	frame	data/chars/misc/xcut/xcut11.gif
+	frame	data/chars/misc/xcut/xcut12.gif
+	frame	data/chars/misc/xcut/xcut13.gif
+	frame	data/chars/misc/xcut/xcut14.gif
+	frame	data/chars/misc/xcut/xcut15.gif
+	frame	data/chars/misc/xcut/xcut16.gif
+	@cmd suicide
+	frame	data/chars/misc/xcut/empty.gif
+
+

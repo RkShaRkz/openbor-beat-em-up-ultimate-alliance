@@ -1,0 +1,87 @@
+background	data/bgs/Br04/back01.gif		#1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/Br04/pn03.gif		none	none
+frontpanel	data/bgs/Front.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn03.gif
+order		a
+music		data/music/Boss2.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 4
+shadowalpha 6
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+spawnscript data/scripts/spawnlevel/music_boss.c
+at			0
+
+
+#########################################################################################
+
+spawn		Box
+flip		1
+coords		425 210 0
+at			0
+
+spawn		Box
+flip		1
+coords		500 240 0
+at			0
+
+Group           3 3
+at                1
+
+spawn		Won0
+Alias           Won-Won
+flip		0
+boss		1
+coords		738 235 0
+at			1
+
+spawn		bigben4
+flip		0
+coords		420 240 0
+at			400
+
+spawn		bigben3
+flip		1
+coords		-10 240 0
+at			400
+
+spawn		bigben2
+flip		0
+coords		405 240 0
+at			400
+
+spawn		bigben1
+flip		1
+coords		-10 240 0
+at			400
+
+spawn		bigben0
+flip		0
+coords		405 240 0
+at			400
+
+spawn		bigben3
+flip		1
+coords		-10 240 0
+at			400
+
+spawn		bigben4
+flip		0
+coords		405 240 0
+at			400
+
+spawn		bigben3
+flip		1
+coords		-10 240 0
+at			400
+
+
+

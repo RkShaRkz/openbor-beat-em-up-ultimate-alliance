@@ -1,0 +1,31 @@
+name				Sandbag
+type				obstacle
+health				1
+nolife				1
+score				2000
+offscreenkill 		1000
+gfxshadow			1 1
+animationscript 	data/scripts/script.c
+noatflash			1
+flash				flash
+
+diesound			data/sounds/Tire.wav
+
+anim idle
+	loop	1 1 2
+	delay	32
+	offset	100 167
+	bbox 	78 127 45 42
+	platform 73 73 127 127 5 32
+	frame	data/chars/obstacles/sandbag00.gif
+	@cmd offscreenkill 30 0
+	frame	data/chars/obstacles/sandbag00.gif
+	
+anim fall
+	loop	0
+	delay	128
+	offset	100 167
+	@cmd tosserX 0 0 0 0 1 0
+	frame	data/chars/obstacles/sandbag01.gif
+	@cmd suicide
+	frame	data/chars/obstacles/sandbag01.gif

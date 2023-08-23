@@ -1,0 +1,109 @@
+name			Particle_ExplosionP
+type			none
+candamage		player enemy obstacle
+health			1
+nolife			1
+lifespan		4
+remove			0
+shadow			0
+antigravity		100
+alpha			1
+animationscript	data/scripts/script.c
+
+anim idle
+	fastattack 1
+	jugglecost 31
+	forcedirection 0
+	hitflash burn
+	loop	0
+	delay	2
+	offset	400 310
+	sound	data/sounds/kof/explosion.wav
+	burn 339 253 135 106 90 1 1 0 0 24
+	dropv 4 4 0
+	frame	data/chars/misc/explosion/explosion00.gif
+	frame	data/chars/misc/explosion/explosion01.gif
+	frame	data/chars/misc/explosion/explosion02.gif
+	frame	data/chars/misc/explosion/explosion03.gif
+	frame	data/chars/misc/explosion/explosion04.gif
+	frame	data/chars/misc/explosion/explosion05.gif
+	frame	data/chars/misc/explosion/explosion06.gif
+	frame	data/chars/misc/explosion/explosion07.gif
+	frame	data/chars/misc/explosion/explosion08.gif
+	frame	data/chars/misc/explosion/explosion09.gif
+	frame	data/chars/misc/explosion/explosion10.gif
+	frame	data/chars/misc/explosion/explosion11.gif
+	frame	data/chars/misc/explosion/explosion12.gif
+	frame	data/chars/misc/explosion/explosion13.gif
+	frame	data/chars/misc/explosion/explosion14.gif
+	frame	data/chars/misc/explosion/explosion15.gif
+	frame	data/chars/misc/explosion/explosion16.gif
+	frame	data/chars/misc/explosion/explosion17.gif
+	frame	data/chars/misc/explosion/explosion18.gif
+	frame	data/chars/misc/explosion/explosion19.gif
+	frame	data/chars/misc/explosion/explosion20.gif
+	frame	data/chars/misc/explosion/explosion21.gif
+	frame	data/chars/misc/explosion/explosion22.gif
+	frame	data/chars/misc/explosion/explosion23.gif
+	frame	data/chars/misc/explosion/explosion24.gif
+	frame	data/chars/misc/explosion/explosion25.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/misc/explosion/explosion26.gif
+	frame	data/chars/misc/explosion/explosion27.gif
+	frame	data/chars/misc/explosion/explosion28.gif
+	frame	data/chars/misc/explosion/explosion29.gif
+	frame	data/chars/misc/explosion/explosion30.gif
+	frame	data/chars/misc/explosion/explosion31.gif
+	frame	data/chars/misc/explosion/explosion32.gif
+	frame	data/chars/misc/explosion/explosion33.gif
+	frame	data/chars/misc/explosion/explosion34.gif
+	frame	data/chars/misc/explosion/explosion35.gif
+	frame	data/chars/misc/explosion/explosion36.gif
+	frame	data/chars/misc/explosion/explosion37.gif
+	frame	data/chars/misc/explosion/explosion38.gif
+	frame	data/chars/misc/explosion/explosion39.gif
+	frame	data/chars/misc/explosion/explosion40.gif
+	frame	data/chars/misc/explosion/explosion41.gif
+	frame	data/chars/misc/explosion/explosion42.gif
+	frame	data/chars/misc/explosion/explosion43.gif
+	frame	data/chars/misc/explosion/explosion44.gif
+	frame	data/chars/misc/explosion/explosion45.gif
+	frame	data/chars/misc/explosion/explosion46.gif
+	frame	data/chars/misc/explosion/explosion47.gif
+	frame	data/chars/misc/explosion/explosion48.gif
+	frame	data/chars/misc/explosion/explosion49.gif
+	frame	data/chars/misc/explosion/explosion50.gif
+	frame	data/chars/misc/explosion/explosion51.gif
+	frame	data/chars/misc/explosion/explosion52.gif
+	frame	data/chars/misc/explosion/explosion53.gif
+	frame	data/chars/misc/explosion/explosion54.gif
+	frame	data/chars/misc/explosion/explosion55.gif
+	frame	data/chars/misc/explosion/explosion56.gif
+	frame	data/chars/misc/explosion/explosion57.gif
+	frame	data/chars/misc/explosion/explosion58.gif
+	frame	data/chars/misc/explosion/explosion59.gif
+	frame	data/chars/misc/explosion/explosion60.gif
+	frame	data/chars/misc/explosion/explosion61.gif
+	frame	data/chars/misc/explosion/explosion62.gif
+	frame	data/chars/misc/explosion/explosion63.gif
+	frame	data/chars/misc/explosion/explosion64.gif
+	frame	data/chars/misc/explosion/explosion65.gif
+	frame	data/chars/misc/explosion/explosion66.gif
+	frame	data/chars/misc/explosion/explosion67.gif
+	frame	data/chars/misc/explosion/explosion68.gif
+	frame	data/chars/misc/explosion/explosion69.gif
+	frame	data/chars/misc/explosion/explosion70.gif
+	frame	data/chars/misc/explosion/explosion71.gif
+	frame	data/chars/misc/explosion/explosion72.gif
+	frame	data/chars/misc/explosion/explosion73.gif
+	frame	data/chars/misc/explosion/explosion74.gif
+	frame	data/chars/misc/explosion/explosion75.gif
+	frame	data/chars/misc/explosion/explosion76.gif
+	frame	data/chars/misc/explosion/explosion77.gif
+	frame	data/chars/misc/explosion/explosion78.gif
+	frame	data/chars/misc/explosion/explosion79.gif
+	frame	data/chars/misc/explosion/explosion80.gif
+	frame	data/chars/misc/explosion/explosion81.gif
+	frame	data/chars/misc/explosion/explosion82.gif
+	@cmd suicide
+	frame	data/chars/misc/explosion/empty.gif

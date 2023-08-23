@@ -1,0 +1,73 @@
+##MAIN
+name				JetS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle #RAGE
+	loop	0
+	delay	1
+	offset	158 183
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/jet/a102.gif
+	frame	data/chars/jet/a103.gif
+	frame	data/chars/jet/a102.gif
+	frame	data/chars/jet/a103.gif
+	frame	data/chars/jet/a102.gif
+	frame	data/chars/jet/a103.gif
+	frame	data/chars/jet/rage00.gif
+	frame	data/chars/jet/rage01.gif
+	frame	data/chars/jet/rage00.gif
+	frame	data/chars/jet/rage01.gif
+	frame	data/chars/jet/a102.gif
+	frame	data/chars/jet/a103.gif
+	frame	data/chars/jet/a102.gif
+	frame	data/chars/jet/a103.gif	
+	frame	data/chars/jet/rise01.gif
+	frame	data/chars/jet/rise02.gif
+	frame	data/chars/jet/rise01.gif
+	frame	data/chars/jet/rise02.gif
+	frame	data/chars/jet/backwalk00.gif
+	frame	data/chars/jet/backwalk01.gif
+	frame	data/chars/jet/backwalk02.gif
+	frame	data/chars/jet/backwalk03.gif
+	
+anim idle2 #RAGE THROW
+	loop	0
+	delay	1
+	offset	158 183
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/jet/grab00.gif
+	frame	data/chars/jet/grab01.gif
+	frame	data/chars/jet/grab01.gif
+	frame	data/chars/jet/grab01.gif
+	frame	data/chars/jet/throw00.gif
+	frame	data/chars/jet/throw00.gif
+	frame	data/chars/jet/throw00.gif
+	frame	data/chars/jet/throw00.gif
+	frame	data/chars/jet/a102.gif
+	frame	data/chars/jet/a103.gif
+	frame	data/chars/jet/a104.gif
+	frame	data/chars/jet/a105.gif
+	frame	data/chars/jet/backwalk00.gif
+	frame	data/chars/jet/backwalk01.gif
+	frame	data/chars/jet/backwalk02.gif
+	frame	data/chars/jet/backwalk03.gif
+	frame	data/chars/jet/backwalk00.gif
+	frame	data/chars/jet/backwalk01.gif
+	frame	data/chars/jet/backwalk02.gif
+	frame	data/chars/jet/backwalk03.gif
+	frame	data/chars/jet/backwalk00.gif
+	frame	data/chars/jet/backwalk01.gif
+	frame	data/chars/jet/backwalk02.gif
+	frame	data/chars/jet/backwalk03.gif

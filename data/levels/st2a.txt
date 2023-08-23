@@ -1,0 +1,331 @@
+background	data/bgs/st2/back00.gif		1 1 0 0 0 0 1 1 0 0
+panel		data/bgs/st2/pn00.gif		none	none
+order		a
+music		data/music/st2a.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 2
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+wall		2315 275 0 0 1000 1000 38 1000
+
+#########################################################################################
+
+spawn		St2_City1
+flip		1
+coords		1 160 0
+at			0
+
+spawn		St2_RearTruck
+flip		1
+coords		1 180 0
+at			0
+
+#########################################################################################
+
+spawn		Drum
+flip		1
+coords		200 220 0
+at			0
+
+spawn		Drum
+flip		1
+coords		230 240 0
+at			0
+
+spawn		Drum
+flip		1
+coords		260 260 0
+at			0
+
+spawn		Drum
+flip		1
+coords		290 220 0
+at			0
+
+spawn		Drum
+flip		1
+coords		330 250 0
+at			0
+
+spawn		Drum
+flip		1
+coords		360 270 0
+at			0
+
+group		1000 1000
+at			1
+
+spawn		BasicX1
+flip		1
+coords		-100 230 0
+at			1
+
+spawn		BasicX1
+flip		1
+coords		-200 230 0
+at			1
+
+spawn		BasicX1
+flip		1
+coords		-100 260 0
+at			1
+
+spawn		MotoX0
+flip		1
+coords		600 220 0
+at			100
+
+spawn		MotoX0
+flip		1
+coords		600 260 0
+at			200
+
+spawn		BasicX1
+flip		1
+coords		600 260 0
+at			200
+
+spawn		BasicX1
+flip		1
+coords		600 260 0
+at			200
+
+wait
+at			400
+
+#########################################################################################
+
+spawn		Drum
+flip		1
+coords		550 250 0
+at			401
+
+spawn		Drum
+flip		1
+coords		600 260 0
+at			401
+
+spawn		Drum
+flip		1
+coords		650 270 0
+at			401
+
+spawn		Drum
+flip		1
+coords		700 270 0
+at			401
+
+group		1000 1000
+at			450
+
+spawn		BasicX1
+flip		1
+coords		600 230 0
+at			450
+
+spawn		BasicX1
+flip		1
+coords		-100 230 0
+at			450
+
+spawn		BasicX1
+flip		1
+coords		-100 260 0
+at			450
+
+spawn		MotoX0
+flip		1
+coords		600 220 0
+at			550
+
+spawn		MotoX0
+flip		1
+coords		600 260 0
+at			600
+
+spawn		MotoX0
+flip		1
+coords		600 220 0
+at			650
+
+spawn		MotoX0
+flip		1
+coords		600 260 0
+at			700
+
+wait
+at			800
+
+#########################################################################################
+
+spawn		Drum
+flip		1
+coords		550 220 0
+at			801
+
+spawn		Drum
+flip		1
+coords		600 240 0
+at			801
+
+spawn		Drum
+flip		1
+coords		650 260 0
+at			801
+
+group		1000 1000
+at			850
+
+spawn		BasicX1
+flip		1
+coords		600 230 0
+at			850
+
+spawn		BasicX1
+flip		1
+coords		-100 230 0
+at			850
+
+spawn		BasicX1
+flip		1
+coords		-100 260 0
+at			850
+
+spawn		MotoX0
+flip		1
+coords		600 220 0
+at			900
+
+spawn		MotoX0
+flip		1
+coords		600 260 0
+at			950
+
+spawn		MotoX0
+flip		1
+coords		600 220 0
+at			1000
+
+spawn		MotoX0
+flip		1
+coords		600 260 0
+at			1050
+
+wait
+at			1200
+
+#########################################################################################
+
+spawn		Drum
+flip		1
+coords		550 260 0
+at			1201
+
+spawn		Drum
+flip		1
+coords		570 220 0
+at			1201
+
+group		2 2
+at			1250
+wait
+at			1600
+
+spawn		MotoX0
+flip		1
+coords		600 220 0
+at			1250
+
+spawn		MotoX0
+flip		1
+coords		600 260 0
+at			1300
+
+spawn		BasicX1
+flip		1
+coords		600 230 0
+at			1350
+
+spawn		BasicX1
+flip		1
+coords		600 260 0
+at			1350
+
+spawn		BasicX1
+flip		1
+coords		-100 230 0
+at			1350
+
+spawn		BasicX1
+flip		1
+coords		-100 260 0
+at			1350
+
+spawn		MotoX0
+flip		1
+coords		600 220 0
+at			1350
+
+spawn		MotoX0
+flip		1
+coords		600 260 0
+at			1400
+
+spawn		MotoX0
+flip		1
+coords		600 220 0
+at			1450
+
+spawn		MotoX0
+flip		1
+coords		600 260 0
+at			1500
+
+#########################################################################################
+
+spawn		Drum
+flip		1
+coords		650 220 0
+at			1601
+
+spawn		Drum
+flip		1
+coords		670 240 0
+at			1601
+
+spawn		Drum
+flip		1
+coords		690 260 0
+at			1601
+
+group		1000 1000
+at			1650
+
+spawn		BasicX1
+flip		1
+coords		600 250 0
+at			1650
+
+spawn		BasicX1
+flip		1
+coords		-100 230 0
+at			1650
+
+spawn		BasicX1
+flip		1
+coords		-100 260 0
+at			1650

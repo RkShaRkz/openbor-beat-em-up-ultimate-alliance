@@ -1,0 +1,26 @@
+name			Mrx_Shot3
+type			none
+candamage		player enemy obstacle
+health			1
+nolife			1
+lifespan		2
+remove			1
+offense 		all 2.5
+shadow			0
+antigravity		100
+animationscript	data/scripts/script.c
+onblockwscript	data/scripts/onblockw/wall.c
+
+anim idle
+	fastattack 1
+	jugglecost 0
+	dot 0 1 3 12 1
+	forcedirection -1
+	hitflash blood
+	loop	0
+	delay	2
+	offset	150 200
+	sound	data/sounds/Shot.wav
+	attack 151 145 3 8 12 1 1 0 10 12
+	frame	data/chars/mrx/shot/shot02.gif
+	

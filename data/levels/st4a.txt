@@ -1,0 +1,200 @@
+background	data/bgs/st4/back00.gif		0.9 1 0 0 0 0 1 1 0 0
+panel		data/bgs/st4/pn00.gif		none	none
+order		a
+music		data/music/st4a.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 4
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+spawn		Trash
+flip		1
+coords		180 275 0
+at			0
+
+spawn		Bin
+flip		1
+coords		320 217 0
+at			0
+
+spawn		Bin
+flip		1
+coords		540 217 0
+at			0
+
+spawn		Galsia_Seat
+flip		0
+coords		461 191 0
+at			0
+
+spawn		Galsia_Seat
+flip		0
+coords		669 191 0
+at			0
+
+group		1000 1000
+at			1
+
+spawn		BasicX2
+flip		1
+coords		600 230 0
+at			1
+
+spawn		BasicX2
+flip		1
+coords		-100 230 0
+at			1
+
+spawn		BasicX2
+flip		1
+coords		600 260 0
+at			50
+
+spawn		BasicX2
+flip		1
+coords		-100 260 0
+at			50
+
+spawn		BasicX2
+flip		1
+coords		600 230 0
+at			100
+
+spawn		BasicX2
+flip		1
+coords		-100 230 0
+at			150
+
+spawn		BasicX2
+flip		1
+coords		600 260 0
+at			200
+
+spawn		BasicX2
+flip		1
+coords		-100 260 0
+at			250
+
+wait
+at			300
+
+#########################################################################################
+
+spawn		Bin
+flip		1
+coords		1000 217 0
+at			301
+
+spawn		Bin
+flip		1
+coords		1100 217 0
+at			301
+
+spawn		Galsia_Seat
+flip		0
+coords		672 191 0
+at			301
+
+spawn		Galsia_Seat
+flip		0
+coords		880 191 0
+at			301
+
+group		1000 1000
+at			400
+
+spawn		Donovan_Wait2
+flip		0
+coords		1100 230 0
+at			400
+
+spawn		BasicX1
+flip		1
+coords		600 230 0
+at			450
+
+spawn		BasicX2
+flip		1
+coords		600 260 0
+at			500
+
+spawn		BasicX1
+flip		1
+coords		-100 230 0
+at			550
+
+spawn		BasicX1
+flip		1
+coords		-100 230 0
+at			600
+
+spawn		BasicX2
+flip		1
+coords		600 230 0
+at			650
+
+spawn		BasicX2
+flip		1
+coords		-100 230 0
+at			700
+
+spawn		BasicX1
+flip		1
+coords		600 230 0
+at			750
+
+spawn		BasicX2
+flip		1
+coords		-100 230 0
+at			800
+
+spawn		BasicX2
+flip		1
+coords		600 230 0
+at			850
+
+spawn		BasicX2
+flip		1
+coords		-100 230 0
+at			900
+
+spawn		BasicX2
+flip		1
+coords		-100 230 0
+at			1000
+
+spawn		Hakuyo1
+flip		0
+coords		350 240 300
+at			1300
+
+spawn		Hakuyo2
+2pspawn
+flip		1
+coords		400 240 300
+at			1300
+
+spawn		Hakuyo1
+3pspawn
+flip		0
+coords		600 240 0
+at			1300
+
+spawn		Hakuyo2
+4pspawn
+flip		1
+coords		-100 240 0
+at			1300

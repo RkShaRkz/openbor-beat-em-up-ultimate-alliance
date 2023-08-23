@@ -1,0 +1,17 @@
+name			JetX
+type			none
+lifespan		0.5
+shadow			0
+alpha			1
+onspawnscript 	data/scripts/onspawn/jetx.c
+
+load			Jet2
+load			Jet3
+load			Jet4
+load			Jet5
+
+anim idle
+	loop	0
+	delay	1
+	offset	50 72
+	frame	data/chars/random/empty.gif

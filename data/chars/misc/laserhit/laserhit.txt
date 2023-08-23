@@ -1,0 +1,20 @@
+name			LaserHit
+type			none
+shadow			0
+antigravity		100
+toflip			1
+alpha			1
+animationscript	data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	2
+	offset	188 195
+	frame	data/chars/misc/laserhit/laserhit00.gif
+	frame	data/chars/misc/laserhit/laserhit01.gif
+	frame	data/chars/misc/laserhit/laserhit02.gif
+	frame	data/chars/misc/laserhit/laserhit03.gif
+	@cmd suicide
+	frame	data/chars/misc/laserhit/empty.gif
+
+

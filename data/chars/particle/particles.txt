@@ -1,0 +1,36 @@
+##MAIN
+name				ParticleS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle #RAGE
+	loop	0
+	delay	1
+	offset	143 192
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/particle/laser00.gif
+	frame	data/chars/particle/laser01.gif
+	frame	data/chars/particle/laser02.gif
+	frame	data/chars/particle/laser03.gif
+	frame	data/chars/particle/laser04.gif
+	frame	data/chars/particle/laser05.gif
+	frame	data/chars/particle/laser06.gif
+	frame	data/chars/particle/laser07.gif
+	frame	data/chars/particle/laser08.gif
+	frame	data/chars/particle/laser09.gif
+	frame	data/chars/particle/laser10.gif
+	frame	data/chars/particle/laser11.gif
+	frame	data/chars/particle/laser12.gif
+	frame	data/chars/particle/laser13.gif
+	frame	data/chars/particle/laser14.gif
+	frame	data/chars/particle/laser15.gif

@@ -1,0 +1,26 @@
+name			Bottle_Broken2
+type			npc
+health			1
+nolife			1
+lifespan		4
+remove			0
+nomove			1 1
+bounce 			1
+noquake 		1
+gfxshadow		1 1
+animationscript	data/scripts/script.c
+	
+anim idle
+	bouncefactor 3
+	loop	0
+	delay	1
+	offset	151 191
+	@cmd hurtself 1
+	frame	data/chars/weapons/bottle05.gif
+	
+anim fall
+	loop	0
+	delay	12
+	offset	151 191
+	frame	data/chars/weapons/bottle05.gif
+	

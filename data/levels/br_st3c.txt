@@ -1,0 +1,291 @@
+background	data/bgs/Br03/back03.gif		#1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/Br03/pn03.gif		none	none
+frontpanel	data/bgs/Br03/Front03.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn03.gif
+order		a
+music		data/music/Lv3B.ogg
+settime		99
+scrollspeed 0.5
+#Rock 1
+#bgspeed 10 0
+stagenumber 3
+spawn1		115 40 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+Wall  30  227  10  0  404  339  53  177
+Wall  427  228  10  0  524  492  60  192
+Wall  1539  222  -60  0  85  87  30  244
+
+shadowalpha 2
+at			0
+
+spawn Rio2
+	coords  0  4
+        Flip 1
+	at  0
+
+spawn  Drum
+	coords  348  263
+	at  0
+
+spawn  LataEx
+	coords  348  263
+	at  0
+
+spawn  Box
+	coords  1230  213
+	at  0
+spawn  RoadBlock
+	coords  982  213
+	at  0
+spawn  RoadBlock
+	coords  1547  257
+	at  0
+
+
+
+spawn  Box
+	coords  1070  212  0
+	at  0
+spawn  Box
+	coords  1397  208
+	at  0
+spawn  Drum
+	coords  292  247
+	at  0
+
+
+spawn		ninja_wait0
+flip		1
+coords		575 260 0
+at			0
+
+
+group		6 5
+at			301
+
+spawn		ninja2
+flip		1
+coords		600 235 0
+at			301
+
+wait
+at			301
+
+spawn		BasicX0
+flip		1
+coords		700 270 0
+at			301
+
+spawn		Elmer2
+Alias           Elmer
+coords		750 245 0
+at			301
+
+spawn		Billy1
+Alias           Billy
+coords		600  280 0
+at			301
+
+spawn		BasicX2
+coords		800  280 0
+at			301
+
+spawn		MIc2
+Alias           Michael
+coords		700  280 0 0
+at			301
+
+spawn		Tiger1
+Alias           Tiger
+coords	        850 270 0
+at			301
+
+spawn		Billy2
+Alias           Ryuji
+Map             2
+flip		1
+coords		-75 245 0
+at			301
+
+spawn		Gneiss2
+Map             1
+Alias           Red
+flip		1
+coords		-70  280 0
+at			301
+
+spawn		BasicX2
+flip		1
+coords		-70  280 0
+at			301
+
+spawn		Mic2
+Alias           Mic
+flip		1
+coords		-70  280 0 0
+at			301
+
+
+#
+
+2pspawn		BasicX0
+flip		1
+coords		-70 270 0
+at			301
+
+2pspawn		Ninja0
+flip		1
+coords		-75 245 0
+at			301
+
+2pspawn		Billy0
+Alias           Billy
+flip		1
+coords		-70  280 0
+at			301
+
+3pspawn		BasicX2
+flip		1
+3pcoords	-100  280 0
+at			301
+
+3pspawn		BasicX1
+flip		1
+coords		-70  280 0 0
+at			301
+
+
+
+spawn		Ninja0
+flip		1
+coords		-70  280 0
+at			301
+
+spawn Rio2
+	coords  0  4
+        Flip 1
+	at  501
+
+group		5 5
+at			502
+
+wait
+at			502
+
+spawn		KickBoxer0
+coords		-70  280 0
+at			502
+
+spawn		Ninja1
+coords		500  280 0
+at			502
+
+spawn		Biker0
+flip		1
+coords		-70  280 0 0
+at			502
+
+
+spawn		Gneiss
+flip		1
+coords		400  280 100 0
+at			502
+
+spawn		Billy2
+Alias           Billy
+flip		1
+coords		-70  280 0
+at			502
+
+spawn		Elmer0
+Alias           Elmer
+flip		1
+coords		400  280 0
+at			502
+
+spawn		Mic
+flip		1
+coords		-70  280 0
+at			502
+
+spawn		Gneiss3
+Alias           NIC
+Map             2
+flip		1
+coords		400  280
+at			502
+
+
+spawn		Billy0
+Alias           Boris
+MAp             3
+flip		1
+coords		-70  280
+at			502
+
+2pspawn		BikerX
+flip		1
+coords		-70  280
+at			502
+
+
+2pspawn		Billy1
+Alias           Billy0
+flip		1
+coords		-70  280 0 0
+at			502
+
+3pspawn		BikerX
+flip		1
+coords		-70  280 0 0
+at			502
+
+
+3pspawn		BikerX
+flip		1
+coords		-70  280 0 0
+at			502
+
+spawnscript data/scripts/spawnlevel/music_boss.c
+at			849
+
+spawn		Wolf0
+Alias           Wolf
+flip		0
+boss		1
+coords		500 272 0
+at			850
+
+spawn		Wolf1
+Alias           Lobo
+map             2
+flip		0
+boss		1
+coords		500 240 0
+at			850
+
+
+
+spawn		Ninja2
+3pspawn
+flip		1
+coords		-200 250 0
+at			1100
+
+
+spawn		Ninja2
+4pspawn
+flip		1
+coords		-200 250 0
+at			1100
+

@@ -1,0 +1,73 @@
+name	cuchillom_3
+health	1
+nolife  1
+type	npc
+hostile player npc obstacle shot
+candamage player npc obstacle shot
+speed	20
+noquake 1
+falldie 1
+subtype flydie
+#shadow					1
+gfxshadow 1 3
+dust					dust01
+subject_to_wall 1
+
+offscreenkill 25
+
+palette data/chars/players/DIN/Mustapha/cuchillom/cuchillom01.gif #1
+
+
+
+anim	death
+	loop	0
+	delay	2
+	offset	238 177
+	frame	data/chars/misc/empty.gif
+	delay	5
+	move	1000
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+		
+anim	fall
+	loop	0
+	delay	2
+	offset	238 177
+	frame	data/chars/misc/empty.gif
+	delay	5
+	move	1000
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+		
+anim	idle
+	jugglecost 2
+	loop	1
+	fastattack	1
+	offset	238 177
+	bbox	270 126 22 13
+	hitfx	data/sounds/slash1.wav
+	hitflash	FqBlood1
+	delay	8
+	attack	245 125 63 18 18 1 0 0 20 15
+	frame data/chars/players/DIN/Mustapha/cuchillom/cuchillom01.gif
+	attack	0 0 0 0 0 0 0 0 0
+	frame data/chars/players/DIN/Mustapha/cuchillom/cuchillom01.gif
+		
+
+		

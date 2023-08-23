@@ -1,0 +1,381 @@
+##ATTRIBUTES
+
+#SKILLS		*
+#LIFE		***
+#POWER		***
+#SPEED		**
+#JUMP		*
+#SPECIAL	**
+
+##MAIN
+name				Jack0
+type				enemy
+hostile				player
+candamage			player obstacle
+projectilehit		player enemy obstacle
+
+##LIFE
+health				1 #SCRIPT
+
+##POWER
+offense 			all 2 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				1 #SCRIPT
+
+##SPECIAL
+mp					120
+mprate  			5 #4/5/6/7/8/9
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				70
+
+##MISC
+jugglepoints		30
+risetime			170
+riseinv				0.1 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 1 2
+weapons				jack_knife none none none
+gfxshadow			1 1
+dust				dust
+aimove				avoid #ENEMY ONLY
+escapehits			99 #ENEMY ONLY
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/jack.c
+onfallscript		data/scripts/onfall/koCount.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+script				data/scripts/updateentity/jack.c
+
+##ICONS
+icon				data/chars/jack/icon.gif 1
+
+##DIESOUND
+diesound			data/voices/enemy/Die2.wav
+
+##REMAPS
+remap				data/chars/jack/idle00.gif data/chars/jack/alter1.gif
+remap				data/chars/jack/idle00.gif data/chars/jack/alter2.gif
+remap				data/chars/jack/idle00.gif data/chars/jack/alter3.gif
+
+##LOADS
+load				jack_knife
+
+##ANIMATIONS#############################################################################
+
+anim spawn
+	landframe 1
+	loop	0
+	delay	999
+	offset	131 184
+	@cmd leaper 2.7 3 0
+	frame	data/chars/jack/jump00.gif
+		delay	12
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/jack/get00.gif
+
+anim idle
+	loop	1
+	delay	16
+	offset	131 184
+	bbox 	117 114 35 72
+	@cmd clearL
+	frame	data/chars/jack/idle00.gif
+	frame	data/chars/jack/idle01.gif
+	frame	data/chars/jack/idle02.gif
+	frame	data/chars/jack/idle01.gif
+
+anim walk
+	loop	1
+	delay	16
+	offset	131 184
+	bbox 	117 114 35 72
+	frame	data/chars/jack/walk00.gif
+	frame	data/chars/jack/walk01.gif
+	frame	data/chars/jack/walk02.gif
+	frame	data/chars/jack/walk03.gif
+
+anim get
+	loop	0
+	delay	16
+	offset	131 184
+	frame	data/chars/jack/get00.gif
+	
+anim grabbed
+	loop	0
+	delay	8
+	offset	131 184
+	bbox 	123 120 30 66
+	frame	data/chars/jack/grabbed00.gif
+	
+anim jumpdelay
+	loop	0
+	delay	12
+	offset	131 184
+	bbox 	119 134 37 52
+	frame	data/chars/jack/jumpdelay00.gif
+	
+anim walkoff
+	loop	0
+	delay	12
+	offset	131 184
+	bbox 	116 117 36 58
+	@cmd jump 1
+	frame	data/chars/jack/jump00.gif
+	
+anim jumpland
+	loop	0
+	delay	12
+	offset	131 184
+	bbox 	119 134 37 52
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/jack/jumpland00.gif
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	131 184
+	bbox 	105 116 37 70
+	frame	data/chars/jack/pain00.gif
+	frame	data/chars/jack/pain01.gif
+	frame	data/chars/jack/pain00.gif
+	frame	data/chars/jack/pain01.gif
+	frame	data/chars/jack/pain00.gif
+	frame	data/chars/jack/pain01.gif
+	frame	data/chars/jack/pain00.gif
+	frame	data/chars/jack/pain01.gif
+	frame	data/chars/jack/pain00.gif
+	frame	data/chars/jack/pain01.gif
+	frame	data/chars/jack/pain00.gif
+	frame	data/chars/jack/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	131 184
+	bbox 	114 120 32 66
+	frame	data/chars/jack/pain200.gif
+	frame	data/chars/jack/pain201.gif
+	frame	data/chars/jack/pain200.gif
+	frame	data/chars/jack/pain201.gif
+	frame	data/chars/jack/pain200.gif
+	frame	data/chars/jack/pain201.gif
+	frame	data/chars/jack/pain200.gif
+	frame	data/chars/jack/pain201.gif
+	frame	data/chars/jack/pain200.gif
+	frame	data/chars/jack/pain201.gif
+	frame	data/chars/jack/pain200.gif
+	frame	data/chars/jack/pain201.gif
+	
+anim pain3 #THROW KNIFE
+	loop	0
+	delay	1
+	offset	131 184
+	bbox 	117 114 35 72
+	frame	data/chars/jack/idle00.gif
+
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	131 184
+	bbox 	112 120 41 46
+	frame	data/chars/jack/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/jack/fall01.gif
+	
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	131 184
+	bbox 	112 120 41 46
+	drawmethod tintmode 6	
+	drawmethod tintcolor 255
+	frame	data/chars/jack/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2	
+	drawmethod tintcolor 255
+	frame	data/chars/jack/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	nodrawmethod
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/jack/fall01.gif
+	
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	131 184
+	bbox 	112 120 41 46
+	drawmethod tintmode 6	
+	drawmethod tintcolor -255
+	frame	data/chars/jack/fall00.gif
+	drawmethod tintmode 2	
+	drawmethod tintcolor -255
+	frame	data/chars/jack/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	nodrawmethod
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/jack/fall01.gif
+	
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	131 184
+	frame	data/chars/jack/fall600.gif
+	frame	data/chars/jack/fall601.gif
+	frame	data/chars/jack/fall602.gif
+	frame	data/chars/jack/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/jack/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	131 184
+	frame	data/chars/jack/fall700.gif
+	frame	data/chars/jack/fall701.gif
+	frame	data/chars/jack/fall702.gif
+	frame	data/chars/jack/fall703.gif
+	frame	data/chars/jack/fall704.gif
+	frame	data/chars/jack/fall705.gif
+	
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 1
+	loop	0
+	delay	999
+	offset	131 184
+	bbox 	112 120 41 46
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 112 120 41 46 4 1 0 0 0 12
+	frame	data/chars/jack/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/jack/fall01.gif
+	
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 1
+	loop	0
+	delay	999
+	offset	131 184
+	bbox 	123 131 33 52
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 123 131 33 52 4 1 0 0 0 12
+	frame	data/chars/jack/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/jack/fall01.gif
+	
+anim rise
+	loop	0
+	delay	16
+	offset	131 184
+	@cmd obstacle 1
+	frame	data/chars/jack/rise00.gif
+	frame	data/chars/jack/rise01.gif
+	frame	data/chars/jack/rise00.gif
+	frame	data/chars/jack/rise02.gif
+	
+anim attack1
+	range 20 60
+	rangea 0 0
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	loop	0
+	delay	6
+	offset	131 184
+	bbox 	117 118 35 68
+	hitfx	data/sounds/sf/LowPunch.wav
+	sound	data/sounds/sf/LowAttack.wav
+	frame	data/chars/jack/a100.gif
+	attack 144 125 41 19 2 0 0 0 15 12
+	frame	data/chars/jack/a101.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/jack/a100.gif
+
+anim attack2
+	range 20 60
+	rangea 0 100
+	fastattack 1
+	jugglecost 20
+	forcedirection -1
+	loop	0
+	delay	8
+	offset	131 184
+	bbox 	120 115 30 71
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/jack/a200.gif
+	bbox 	119 122 33 64
+	frame	data/chars/jack/a201.gif
+		delay	16
+	bbox 	134 122 30 64
+	attack 156 124 52 21 8 1 0 0 30 12
+	frame	data/chars/jack/a202.gif
+		delay	8
+	bbox 	119 122 33 64
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/jack/a201.gif
+	
+anim freespecial #PUNCH
+	range 20 60
+	rangea 0 100
+	fastattack 1
+	jugglecost 20
+	forcedirection -1
+	loop	0
+	delay	8
+	offset	131 184
+	bbox 	120 115 30 71
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/jack/a200.gif
+	bbox 	119 122 33 64
+	frame	data/chars/jack/a201.gif
+		delay	16
+	bbox 	134 122 30 64
+	attack 156 124 52 21 8 1 0 0 30 12
+	frame	data/chars/jack/a202.gif
+		delay	8
+	bbox 	119 122 33 64
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/jack/a201.gif
+	
+anim freespecial2 #SPAWN KNIFE
+	range 200 400
+	rangea 0 200
+	energycost 40 1
+	loop	0
+	delay	8
+	offset	131 184
+	bbox 	120 118 31 68
+	frame	data/chars/jack/getknife00.gif
+		delay	48
+	@cmd shooter2 "knifeJ" 33 66 -1 0 2 0
+	frame	data/chars/jack/getknife01.gif
+		delay	8
+	@cmd spawnbind "knifeS" 0 0 0
+	frame	data/chars/jack/getknife02.gif
+	bbox 	117 118 35 68
+	frame	data/chars/jack/getknife03.gif
+	@cmd changemodel "jack_knife"
+	frame	data/chars/jack/getknife03.gif

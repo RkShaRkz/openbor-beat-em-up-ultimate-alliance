@@ -1,0 +1,308 @@
+##ATTRIBUTES
+
+#SKILLS		***
+#LIFE		***
+#POWER		***
+#SPEED		**
+#JUMP		**
+#SPECIAL	**
+
+##MAIN
+name				mustapha_Kunai
+type				none
+hostile				enemy
+candamage			enemy obstacle
+projectilehit		        enemy obstacle
+
+##LIFE
+health				0 #200/300/400/500/600/700
+
+##POWER
+offense 			all 2 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				10 #8/10/12/14/16/18
+running 			20 2.9 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			15 #13/15/17/19/21/23
+jumpheight 			3.1 #2.9/3.1/3.3/3.5/3.7/3.9
+jumpmove			0 1 #PLAYER ONLY
+
+##SPECIAL
+mp					0
+mprate  			5 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		33 #BASE 36
+grabfinish 			0 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				74
+
+##MISC
+jugglepoints		30
+guardpoints			87
+guardrate			13
+risetime			170
+riseinv				0.2 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+keyscript			data/scripts/key/axel.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+script				data/scripts/updateentity/mustapha.c
+
+##ICONS
+icon				data/chars/mustapha/icon.gif 1
+#iconmphigh			data/chars/mustapha/Kunai/iconmp.gif 1
+
+##PARROWS
+parrow				data/sprites/parrow.gif 	-15 -140
+parrow2				data/sprites/parrow2.gif 	-15 -140
+parrow3				data/sprites/parrow3.gif 	-15 -140
+parrow4				data/sprites/parrow4.gif 	-15 -140
+
+##DIESOUND
+diesound			data/voices/mustapha/Kunai/mustapha1.wav
+
+##REMAPS
+remap				data/chars/mustapha/idle00.gif data/chars/mustapha/alter1.gif
+remap				data/chars/mustapha/idle00.gif data/chars/mustapha/alter2.gif
+remap				data/chars/mustapha/idle00.gif data/chars/mustapha/alter3.gif
+
+
+##LOADS
+knife				KunaiT
+
+##ANIMATIONS#############################################################################
+
+anim idle
+        loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	20
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/mustapha/Kunai/idle00.gif
+
+anim walk
+	loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	6
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/mustapha/Kunai/walk01.gif
+	frame	data/chars/mustapha/Kunai/walk02.gif
+	frame	data/chars/mustapha/Kunai/walk03.gif
+	frame	data/chars/mustapha/Kunai/walk04.gif
+	frame	data/chars/mustapha/Kunai/walk05.gif
+	frame	data/chars/mustapha/Kunai/walk06.gif
+	frame	data/chars/mustapha/Kunai/walk07.gif
+	frame	data/chars/mustapha/Kunai/walk08.gif
+	frame	data/chars/mustapha/Kunai/walk09.gif
+	frame	data/chars/mustapha/Kunai/walk10.gif
+	frame	data/chars/mustapha/Kunai/walk11.gif
+	frame	data/chars/mustapha/Kunai/walk12.gif
+
+anim run
+	loop	1
+	offset	238 177
+	bbox	226 105 30 72
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/mustapha/Kunai/run01.gif
+	frame	data/chars/mustapha/Kunai/run02.gif
+        sound	data/sounds/kof/run.wav
+	frame	data/chars/mustapha/Kunai/run03.gif
+	frame	data/chars/mustapha/Kunai/run04.gif
+	frame	data/chars/mustapha/Kunai/run05.gif
+	sound	data/sounds/kof/run2.wav
+	frame	data/chars/mustapha/Kunai/run06.gif
+	frame	data/chars/mustapha/Kunai/run07.gif
+	frame	data/chars/mustapha/Kunai/run08.gif
+
+anim jumpdelay
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	12
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/mustapha/Kunai/land01.gif
+
+anim jump
+        loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	1
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/mustapha/Kunai/jump01.gif
+	delay	24
+	frame	data/chars/mustapha/Kunai/jump01.gif
+	delay	10
+	frame	data/chars/mustapha/Kunai/jump02.gif
+	delay 5
+	frame	data/chars/mustapha/Kunai/jump03.gif
+	delay	10
+	frame	data/chars/mustapha/Kunai/jump02.gif
+	delay	999
+	frame	data/chars/mustapha/Kunai/jump01.gif
+
+anim walkoff
+	loop	0
+	delay	30
+	offset	238 177
+	bbox 	227 99 28 80
+	@cmd jump 1
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/mustapha/Kunai/jump01.gif
+	frame	data/chars/mustapha/Kunai/jump02.gif
+
+anim jumpland
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	12
+        sound	data/sounds/kof/Jumpland.wav
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/mustapha/Kunai/land01.gif
+
+anim attack1
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	hitflash blood
+	loop	0
+	delay	8
+        offset	238 177
+	bbox	226 102 23 76
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh.wav
+	drawmethod  245  245  0  0  0  -1  -1
+		Attack1  0
+	frame	data/chars/mustapha/Kunai/a101.gif
+	attack 255 120 55 32 8 1 1 0 10 12
+	frame	data/chars/mustapha/Kunai/a102.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/mustapha/Kunai/a101.gif
+
+anim Runattack
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	hitflash blood
+	loop	0
+	delay	4
+        offset	251 187
+	bbox	243 117 35 49
+		move  5
+        drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/mustapha/Kunai/ra101.gif
+		attack1  261  113  38  24  7  0  0  0  0  10
+	frame	data/chars/mustapha/Kunai/ra102.gif
+		Attack1  0
+	frame	data/chars/mustapha/Kunai/ra103.gif
+		attack1  263  102  54  32  7  0  0  0  0  10
+	frame  data/chars/mustapha/Kunai/ra103.gif
+		Attack1  0
+	frame	data/chars/mustapha/Kunai/ra104.gif
+		attack1  247  91  97  95  7  1  0  0  0  10
+	frame	data/chars/mustapha/Kunai/ra105.gif
+		delay  10
+		move  0
+	frame	data/chars/mustapha/Kunai/ra106.gif
+
+anim jumpattack #JUMP STATIC
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/sf/LowPunch.wav
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	sound	data/chars/mustapha/Kunai/musta03.wav
+	delay	4
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/mustapha/Kunai/jump03.gif
+	frame	data/chars/mustapha/Kunai/ja101.gif
+	attack	240 117 65 30 7 1 0 0 20 15
+	delay	8
+	frame	data/chars/mustapha/Kunai/ja102.gif
+	frame	data/chars/mustapha/Kunai/ja103.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	999
+	frame	data/chars/mustapha/Kunai/ja104.gif
+
+anim jumpattack2 #JUMP DOWN
+        jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/sf/MediumKick.wav
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	sound	data/chars/mustapha/Kunai/musta02.wav
+	delay	4
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/mustapha/Kunai/ja201.gif
+	delay	10
+	attack	240 130 63 34 4 0 0 0 15 15
+	frame	data/chars/mustapha/Kunai/ja202.gif
+	delay	999
+	frame	data/chars/mustapha/Kunai/ja202.gif
+
+anim jumpattack3 #JUMP UP
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/sf/LowPunch.wav
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	sound	data/chars/mustapha/Kunai/musta03.wav
+	delay	4
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/mustapha/Kunai/jump03.gif
+	frame	data/chars/mustapha/Kunai/ja101.gif
+	attack	240 117 65 30 7 1 0 0 20 15
+	delay	8
+	frame	data/chars/mustapha/Kunai/ja102.gif
+	frame	data/chars/mustapha/Kunai/ja103.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	999
+	frame	data/chars/mustapha/Kunai/ja104.gif
+
+anim jumpforward #JUMP FORWARD
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/sf/MediumKick.wav
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	sound	data/chars/mustapha/Kunai/musta02.wav
+	delay	4
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/mustapha/Kunai/ja201.gif
+	delay	10
+	attack	240 130 63 34 4 0 0 0 15 15
+	frame	data/chars/mustapha/Kunai/ja202.gif
+	delay	999
+	frame	data/chars/mustapha/Kunai/ja202.gif
+
+anim attackboth #THROW Kunai
+	throwframe 1 9999
+	loop	0
+	delay	8
+	offset	238 177
+	@cmd antiwall 20 -20 -1
+	drawmethod  245  245  0  0  0  -1  -1
+		bbox  223  108  31  68
+	frame	data/chars/mustapha/Kunai/a201.gif
+	@cmd throweap 46 47 -1 3 0 0
+	frame	data/chars/mustapha/Kunai/a202.gif
+	frame	data/chars/mustapha/Kunai/a203.gif
+

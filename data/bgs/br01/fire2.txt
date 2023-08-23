@@ -1,0 +1,28 @@
+name		Fire2
+type		panel
+speed		5
+scroll		-1
+shadow		0
+alpha		1
+setlayer	1000
+
+anim idle
+	loop	1
+	delay	6
+	offset	35 58
+	frame	data/bgs/Br01/Fire01.gif
+	frame	data/bgs/Br01/Fire02.gif
+	frame	data/bgs/Br01/Fire03.gif
+	frame	data/bgs/Br01/Fire04.gif
+	frame	data/bgs/Br01/Fire05.gif
+	frame	data/bgs/Br01/Fire06.gif
+	frame	data/bgs/Br01/Fire07.gif
+	frame	data/bgs/Br01/Fire08.gif
+	frame	data/bgs/Br01/Fire09.gif
+	frame	data/bgs/Br01/Fire10.gif
+	frame	data/bgs/Br01/Fire11.gif
+	frame	data/bgs/Br01/Fire12.gif
+	frame	data/bgs/Br01/Fire13.gif
+	frame	data/bgs/Br01/Fire14.gif
+	frame	data/bgs/Br01/Fire15.gif
+

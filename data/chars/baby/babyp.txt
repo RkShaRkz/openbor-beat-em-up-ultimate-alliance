@@ -1,0 +1,43 @@
+name				BabyP #THROWNED
+type				none
+subtype				weapon
+candamage		        enemy obstacle
+nolife				1
+lifespan			6
+remove				1
+noquake 			1
+gfxshadow			1 1
+noatflash 			1
+flash				explosion
+didblockscript		data/scripts/didblock/Max.c
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/player.c
+keyscript		data/scripts/key/Max.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+script			data/scripts/updateentity/Baby.c
+#alpha			1
+
+anim IDLE
+	loop	1
+	offset	238 106
+	drawmethod tintmode 2
+	drawmethod tintcolor 200
+	sound	data/chars/Baby/baby07.wav
+		delay  5
+		burn  186  105  98  74  75  1  1  0  10  20
+	frame	data/chars/Baby/p01.gif
+	frame	data/chars/Baby/p02.gif
+
+
+anim fall
+	loop	1 1 9
+	delay	2
+	offset	244 148
+	frame	data/chars/Baby/p02.gif
+        @cmd	projectile 1 "Quake_Low" 0 0 0
+        @cmd spawnbind "explosion" 0 0 1
+	frame	data/chars/Baby/p02.gif
+	frame	data/chars/Baby/p02.gif
+

@@ -1,0 +1,128 @@
+##MAIN
+name				HannahS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+candamage		        enemy obstacle
+projectilehit		        enemy obstacle
+
+##SCRIPTS
+animationscript	 	        data/scripts/script.c
+script	 			data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle
+
+        loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+		drawmethod  250  250  0  0  0  -1  -1
+	delay	1
+	frame	data/chars/hannah/get01.gif
+	delay	4
+	frame	data/chars/hannah/sp01.gif
+	frame	data/chars/hannah/sp02.gif
+	attack	240 	91 	72 	89 	5 	0 	1 	0 	0	15
+	frame	data/chars/hannah/sp03.gif
+	frame	data/chars/hannah/sp04.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/hannah/sp05.gif
+	frame	data/chars/hannah/ja301.gif
+	frame	data/chars/hannah/ja302.gif
+	frame	data/chars/hannah/ja303.gif
+		attack1  252  105  77  74  5  0  0  0  0  15
+	frame	data/chars/hannah/ja304.gif
+	frame	data/chars/hannah/ja305.gif
+		Attack1  0
+	frame	data/chars/hannah/ja306.gif
+	frame  data/chars/hannah/sp05.gif
+	delay	1
+	frame	data/chars/hannah/sp01.gif
+	frame	data/chars/hannah/sp02.gif
+	attack	240 	91 	72 	89 	5 	0 	1 	0 	0	15
+	frame	data/chars/hannah/sp03.gif
+	frame	data/chars/hannah/sp04.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/hannah/sp05.gif
+	frame	data/chars/hannah/ja301.gif
+	frame	data/chars/hannah/ja302.gif
+	frame	data/chars/hannah/ja303.gif
+		attack1  252  105  77  74  5  0  0  0  0  15
+	frame	data/chars/hannah/ja304.gif
+	frame	data/chars/hannah/ja305.gif
+		Attack1  0
+	frame	data/chars/hannah/ja306.gif
+	frame  data/chars/hannah/sp05.gif
+	delay	3
+	frame	data/chars/hannah/sp01.gif
+	frame	data/chars/hannah/sp02.gif
+	attack	240 	91 	72 	89 	5 	0 	1 	0 	0	15
+	frame	data/chars/hannah/sp03.gif
+	frame	data/chars/hannah/sp04.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/hannah/sp05.gif
+	frame	data/chars/hannah/ja301.gif
+	frame	data/chars/hannah/ja302.gif
+	frame	data/chars/hannah/ja303.gif
+		attack1  252  105  77  74  5  0  0  0  0  15
+	frame	data/chars/hannah/ja304.gif
+	frame	data/chars/hannah/ja305.gif
+		Attack1  0
+	frame	data/chars/hannah/ja306.gif
+	frame  data/chars/hannah/sp05.gif
+	delay	3
+	frame	data/chars/hannah/sp01.gif
+	frame	data/chars/hannah/sp02.gif
+	attack	240 	91 	72 	89 	5 	0 	1 	0 	0	15
+	frame	data/chars/hannah/sp03.gif
+	frame	data/chars/hannah/sp04.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/hannah/sp05.gif
+	frame	data/chars/hannah/ja301.gif
+	frame	data/chars/hannah/ja302.gif
+	frame	data/chars/hannah/ja303.gif
+		attack1  252  105  77  74  5  0  0  0  0  15
+	frame	data/chars/hannah/ja304.gif
+	frame	data/chars/hannah/ja305.gif
+		Attack1  0
+	frame	data/chars/hannah/ja306.gif
+	frame  data/chars/hannah/sp05.gif
+	delay	3
+	frame	data/chars/hannah/sp01.gif
+	frame	data/chars/hannah/sp02.gif
+	attack	240 	91 	72 	89 	5 	0 	1 	0 	0	15
+	frame	data/chars/hannah/sp03.gif
+	frame	data/chars/hannah/sp04.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/hannah/sp05.gif
+	frame	data/chars/hannah/ja301.gif
+	frame	data/chars/hannah/ja302.gif
+	frame	data/chars/hannah/ja303.gif
+		attack1  252  105  77  74  5  0  0  0  0  15
+	frame	data/chars/hannah/ja304.gif
+	frame	data/chars/hannah/ja305.gif
+		Attack1  0
+	frame	data/chars/hannah/ja306.gif
+	frame  data/chars/hannah/sp05.gif
+	delay	3
+	frame	data/chars/hannah/sp01.gif
+	frame	data/chars/hannah/sp02.gif
+	attack	240 	91 	72 	89 	5 	0 	1 	0 	0	15
+	frame	data/chars/hannah/sp03.gif
+	frame	data/chars/hannah/sp04.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/hannah/sp05.gif
+	frame	data/chars/hannah/ja301.gif
+	frame	data/chars/hannah/ja302.gif
+	frame	data/chars/hannah/ja303.gif
+		attack1  252  105  77  74  5  0  0  0  0  15
+	frame	data/chars/hannah/ja304.gif
+	frame	data/chars/hannah/ja305.gif
+		Attack1  0
+	frame	data/chars/hannah/ja306.gif
+

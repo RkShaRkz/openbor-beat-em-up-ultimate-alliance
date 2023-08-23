@@ -1,0 +1,477 @@
+background		data/bgs/st6/back01.gif		1 0 0 0 0 0 1 1 0 0
+panel			data/bgs/st6/pn01.gif		none	none
+fglayer			data/bgs/st6/fpn00.gif		0 -0.5 0 0 0 0 0 -1 1 1
+order			a
+music			data/music/st6c.ogg
+settime			99
+scrollspeed 	0.5
+cameraoffset 	0 -200
+stagenumber 	6
+spawn1			60 20 300
+spawn2			90 40 300
+spawn3			120 20 300
+spawn4			150 40 300
+updatescript 	data/scripts/updatelevel/camera_st6b.c
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+wall		230 409 0 600 5000 5000 300 1000
+
+#########################################################################################
+
+spawn		St6_Grade
+flip		1
+coords		0 470 0
+at			0
+
+#########################################################################################
+
+spawn		SandBag
+flip		0
+coords		250 160 0
+at			0
+
+spawn		SandBag
+flip		0
+coords		270 200 0
+at			0
+
+spawn		SandBag
+flip		0
+coords		210 220 0
+at			0
+
+spawn		SandBag
+flip		0
+coords		230 275 0
+at			0
+
+spawn		SandBag
+flip		0
+coords		500 330 0
+at			0
+
+spawn		SandBag
+flip		0
+coords		900 420 0
+at			0
+
+spawn		SandBag
+flip		0
+coords		825 440 0
+at			0
+
+spawn		SandBag
+flip		0
+coords		925 460 0
+at			0
+
+group		1000 1000
+at			50
+
+spawn		Hakuyo3
+flip		0
+coords		260 180 300
+at			50
+
+spawn		Hakuyo3
+2pspawn
+flip		0
+coords		260 220 300
+at			50
+
+spawn		Hakuyo3
+3pspawn
+flip		1
+coords		100 180 300
+at			50
+
+spawn		Hakuyo3
+4pspawn
+flip		1
+coords		100 220 300
+at			50
+
+spawn		BasicX3
+flip		1
+coords		-100 230 0
+at			150
+
+spawn		BasicX3
+flip		1
+coords		-100 230 0
+at			200
+
+spawn		Hakuyo3
+flip		0
+coords		150 280 300
+at			250
+
+spawn		Hakuyo3
+2pspawn
+flip		0
+coords		200 320 300
+at			250
+
+spawn		Hakuyo3
+3pspawn
+flip		0
+coords		-100 280 0
+at			250
+
+spawn		Hakuyo3
+4pspawn
+flip		0
+coords		-100 320 0
+at			250
+
+spawn		BasicX3
+flip		1
+coords		-100 320 0
+at			300
+
+spawn		BasicX3
+flip		1
+coords		-100 320 0
+at			400
+
+spawn		Hakuyo3
+flip		0
+coords		300 440 300
+at			650
+
+spawn		Hakuyo3
+2pspawn
+flip		1
+coords		350 440 300
+at			650
+
+spawn		Hakuyo3
+3pspawn
+flip		0
+coords		600 440 0
+at			650
+
+spawn		Hakuyo3
+4pspawn
+flip		0
+coords		-100 440 0
+at			650
+
+wait
+at			700
+
+#########################################################################################
+
+group		1000 1000
+at			800
+
+spawn		BasicX3
+flip		1
+coords		600 420 0
+at			800
+
+spawn		BigBen2
+flip		0
+coords		600 420 0
+at			900
+
+spawn		BigBen3
+flip		0
+coords		600 460 0
+at			900
+
+spawn		BasicX3
+flip		1
+coords		-100 420 0
+at			900
+
+spawn		BasicX3
+flip		1
+coords		-100 420 0
+at			1000
+
+wait
+at			1100
+
+#########################################################################################
+
+group		1000 1000
+at			1200
+
+spawn		MotoX1
+flip		1
+coords		600 420 0
+at			1300
+
+spawn		MotoX1
+flip		1
+coords		600 440 0
+at			1302
+
+spawn		MotoX1
+flip		1
+coords		600 460 0
+at			1304
+
+spawn		MotoX1
+flip		1
+coords		600 420 0
+at			1400
+
+spawn		MotoX1
+flip		1
+coords		600 440 0
+at			1402
+
+spawn		MotoX1
+flip		1
+coords		600 460 0
+at			1404
+
+spawn		MotoX1
+flip		1
+coords		600 420 0
+at			1500
+
+spawn		MotoX1
+flip		1
+coords		600 440 0
+at			1502
+
+spawn		MotoX1
+flip		1
+coords		600 460 0
+at			1504
+
+spawn		MotoX1
+flip		1
+coords		600 420 0
+at			1600
+
+spawn		MotoX1
+flip		1
+coords		600 440 0
+at			1602
+
+spawn		MotoX1
+flip		1
+coords		600 460 0
+at			1604
+
+spawn		SandBag
+flip		0
+coords		550 440 0
+at			1600
+
+spawn		SandBag
+flip		0
+coords		600 440 0
+at			1600
+
+spawn		SandBag
+flip		0
+coords		650 440 0
+at			1600
+
+spawn		MotoX1
+flip		1
+coords		600 420 0
+at			1700
+
+spawn		MotoX1
+flip		1
+coords		600 440 0
+at			1702
+
+spawn		MotoX1
+flip		1
+coords		600 460 0
+at			1704
+
+spawn		Biker1
+flip		1
+coords		-100 420 0
+at			1800
+
+spawn		Biker2
+flip		1
+coords		-100 440 0
+at			1800
+
+spawn		Biker3
+flip		1
+coords		-100 460 0
+at			1800
+
+spawn		Biker4
+flip		1
+coords		-150 440 0
+at			1800
+
+spawn		Biker1
+flip		1
+coords		-200 420 0
+at			1800
+
+spawn		Biker2
+flip		1
+coords		-200 440 0
+at			1800
+
+spawn		Biker3
+flip		1
+coords		-200 460 0
+at			1800
+
+spawn		Biker4
+flip		1
+coords		-250 440 0
+at			1800
+
+spawn		Biker1
+2pspawn
+flip		1
+coords		-300 420 0
+at			1800
+
+spawn		Biker2
+2pspawn
+flip		1
+coords		-300 440 0
+at			1800
+
+spawn		Biker3
+2pspawn
+flip		1
+coords		-300 460 0
+at			1800
+
+spawn		Biker4
+2pspawn
+flip		1
+coords		-350 440 0
+at			1800
+
+spawn		Biker1
+3pspawn
+flip		1
+coords		-400 420 0
+at			1800
+
+spawn		Biker2
+3pspawn
+flip		1
+coords		-400 440 0
+at			1800
+
+spawn		Biker3
+3pspawn
+flip		1
+coords		-400 460 0
+at			1800
+
+spawn		Biker4
+3pspawn
+flip		1
+coords		-450 440 0
+at			1800
+
+spawn		Biker1
+4pspawn
+flip		1
+coords		-500 420 0
+at			1800
+
+spawn		Biker2
+4pspawn
+flip		1
+coords		-500 440 0
+at			1800
+
+spawn		Biker3
+4pspawn
+flip		1
+coords		-500 460 0
+at			1800
+
+spawn		Biker4
+4pspawn
+flip		1
+coords		-550 440 0
+at			1800
+
+spawn		Electra3
+flip		1
+coords		600 420 0
+at			1800
+
+spawn		Electra2
+flip		1
+coords		700 440 0
+at			1800
+
+spawn		Electra3
+2pspawn
+flip		1
+coords		600 460 0
+at			1800
+
+spawn		Electra2
+3pspawn
+flip		1
+coords		-100 420 0
+at			1800
+
+spawn		Electra3
+4pspawn
+flip		1
+coords		-100 460 0
+at			1800
+
+wait
+at			1850
+
+#########################################################################################
+
+spawn		SandBag
+flip		0
+coords		550 410 0
+at			1851
+
+spawn		SandBag
+flip		0
+coords		600 440 0
+at			1851
+
+spawn		SandBag
+flip		0
+coords		650 410 0
+at			1851
+
+spawn		SandBag
+flip		0
+coords		700 460 0
+at			1851
+
+spawnscript data/scripts/spawnlevel/music_boss.c
+at			1851
+
+spawn		Zamza1
+flip		0
+boss		1
+coords		950 430 0
+at			1851
+
+spawn		JetX
+flip		0
+coords		-300 430 0
+at			2350

@@ -1,0 +1,617 @@
+##ATTRIBUTES
+
+#SKILLS		*
+#LIFE		****
+#POWER		*****
+#SPEED		****
+#JUMP		**
+#SPECIAL	****
+
+##MAIN
+name				Butcher
+type				enemy
+hostile				player
+candamage			player obstacle
+projectilehit		player enemy obstacle
+#FallDie                         1
+
+##LIFE
+health				1000 #SCRIPT
+
+##POWER
+offense 			all 3 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				11 #8/10/12/14/16/18
+running 			28 2.9 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			15 #13/15/17/19/21/23
+jumpheight 			3.1 #2.9/3.1/3.3/3.5/3.7/3.9
+
+##SPECIAL
+mp					120
+mprate  			7 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		39 #36/33/30
+grabfinish 			1 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-9 #-3/-6/-9
+height				92
+
+##MISC
+jugglepoints		30
+risetime			170
+riseinv				0.4 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 2 3
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+aimove				avoid #ENEMY ONLY
+escapehits			1 #ENEMY ONLY
+
+##SCRIPTS
+didhitscript		data/scripts/didhit/Abadede.c
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/Abadede.c
+onfallscript		data/scripts/onfall/koCount.c
+script			data/scripts/updateentity/Butcher.c
+
+##ICONS
+icon				data/chars/Butcher/icon.gif 1
+
+##DIESOUND
+diesound			data/voices/enemy/BossDie1.wav
+
+##REMAPS
+remap				data/chars/Butcher/idle00.gif data/chars/Butcher/alter1.gif
+
+##LOADS
+load				ButcherS
+
+##ANIMATIONS#############################################################################
+
+
+	
+
+anim spawn #WAIT SPAWN
+	loop	0
+	delay	30
+	offset	152 199
+	@cmd anichange "ANI_FOLLOW1"
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/idle00.gif
+
+anim follow1 #WAIT LOOP
+	loop	1
+	delay	16
+        offset	152 199
+	@cmd cancel 0 250 0 400 -999 999 "ANI_FOLLOW2"
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/idle00.gif
+
+anim follow2 #LOOP STOP
+        #range 60 120
+	#rangea 0 0
+	#rangez -999 999
+	fastattack 1
+	#jugglecost 10
+	forcedirection -1
+	landframe 2
+	loop	0
+	delay	12
+	offset	152 199
+	bbox 	137 115 32 86
+	hitfx	data/sounds/sf/HighPunch.wav
+        sound	data/chars/Butcher/Spw.wav
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/jumpdelay00.gif
+		delay	999
+	@cmd leaper 0 3 0
+	@cmd target 3 3 0 0 1
+	@cmd dash
+	sound	data/sounds/kof/Jump2.wav
+	bbox 	135 121 63 40
+	delay	5
+		attack1  107  135  105  39  8  0  1  0  10  12
+	frame	data/chars/Butcher/jumpatk00.gif
+		delay	12
+	@cmd spawn01 "quake_low" 0 0 0
+	frame	data/chars/Butcher/jumpatk00.gif
+
+
+
+
+anim idle
+	loop	1
+	delay	16
+	offset	152 199
+	bbox 	135 111 32 90
+	@cmd clearL
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/idle00.gif
+
+
+anim walk
+	loop	1
+	delay	13
+	offset	152 195
+	bbox 	140 111 29 90
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/walk00.gif
+	frame	data/chars/Butcher/walk01.gif
+	frame	data/chars/Butcher/walk02.gif
+	frame	data/chars/Butcher/walk03.gif
+	frame	data/chars/Butcher/walk04.gif
+	frame	data/chars/Butcher/walk05.gif
+
+
+anim run
+	loop	1
+	delay	8
+	offset	152 195
+	bbox 	135 115 30 86
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/walk00.gif
+	frame	data/chars/Butcher/walk01.gif
+	frame	data/chars/Butcher/walk02.gif
+	frame	data/chars/Butcher/walk03.gif
+	frame	data/chars/Butcher/walk04.gif
+	frame	data/chars/Butcher/walk05.gif
+
+anim get
+	loop	0
+	delay	16
+	offset	152 204
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/get00.gif
+
+anim grab
+	loop	0
+	delay	8
+	offset	152 202
+	bbox 	138 111 32 90
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/grab00.gif
+
+anim grabbed
+	loop	0
+	delay	8
+	offset	152 199
+	bbox 	141 123 39 79
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/grabbed00.gif
+
+anim jumpdelay
+	loop	0
+	delay	12
+	offset	152 199
+	bbox 	137 115 32 86
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/jumpdelay00.gif
+
+anim jump
+	loop	0
+	delay	12
+	offset	152 199
+	hitfx	data/sounds/sf/HighPunch.wav
+	@cmd jump 1
+		bbox  144  101  37  97
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/jumP00.gif
+
+anim walkoff
+	loop	0
+	delay	12
+	offset	152 199
+	bbox 	135 121 63 40
+	drawmethod  245  245  0  0  0  -1  -1
+	hitfx	data/sounds/sf/HighPunch.wav
+	@cmd jump 1
+	attack 135 121 63 40 8 0 1 0 10 12
+	frame	data/chars/Butcher/jumpatk00.gif
+
+anim jumpland
+	loop	0
+	delay	12
+	offset	152 199
+	bbox 	137 115 32 86
+	sound	data/sounds/kof/Jumpland3.wav
+	@cmd spawn01 "quake_low" 0 0 0
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/jumpland00.gif
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	152 199
+	bbox 	131 111 32 90
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/pain00.gif
+	frame	data/chars/Butcher/pain01.gif
+	frame	data/chars/Butcher/pain00.gif
+	frame	data/chars/Butcher/pain01.gif
+	frame	data/chars/Butcher/pain00.gif
+	frame	data/chars/Butcher/pain01.gif
+	frame	data/chars/Butcher/pain00.gif
+	frame	data/chars/Butcher/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	152 199
+	bbox 	131 115 32 87
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/pain200.gif
+	frame	data/chars/Butcher/pain201.gif
+	frame	data/chars/Butcher/pain200.gif
+	frame	data/chars/Butcher/pain201.gif
+	frame	data/chars/Butcher/pain200.gif
+	frame	data/chars/Butcher/pain201.gif
+	frame	data/chars/Butcher/pain200.gif
+	frame	data/chars/Butcher/pain201.gif
+
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	152 169
+	bbox 	121 122 60 48
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	frame	data/chars/Butcher/fall01.gif
+
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	152 177
+	bbox 	121 122 60 48
+	drawmethod tintmode 6
+	drawmethod tintcolor 255
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/Butcher/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	frame	data/chars/Butcher/fall01.gif
+
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	152 177
+	bbox 	121 122 60 48
+	drawmethod tintmode 6
+	drawmethod tintcolor -255
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/fall00.gif
+	drawmethod tintmode 2
+	drawmethod tintcolor -255
+	frame	data/chars/Butcher/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	frame	data/chars/Butcher/fall01.gif
+
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	152 177
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/fall600.gif
+	frame	data/chars/Butcher/fall601.gif
+	frame	data/chars/Butcher/fall602.gif
+	frame	data/chars/Butcher/fall603.gif
+		delay	8
+	sound	data/sounds/kof/Fall.wav
+	frame	data/chars/Butcher/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	152 177
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/fall700.gif
+	frame	data/chars/Butcher/fall701.gif
+	frame	data/chars/Butcher/fall702.gif
+	frame	data/chars/Butcher/fall703.gif
+	frame	data/chars/Butcher/fall704.gif
+	frame	data/chars/Butcher/fall705.gif
+
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 1
+	loop	0
+	delay	999
+	offset	152 177
+	bbox 	121 122 60 48
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 121 122 60 48 4 1 0 0 0 12
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/Butcher/fall01.gif
+
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 1
+	loop	0
+	delay	999
+	offset	152 177
+	bbox 	138 116 32 83
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 138 116 32 83 4 1 0 0 0 12
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/Butcher/fall01.gif
+
+anim rise
+	loop	0
+	delay	24
+	offset	152 205
+	@cmd obstacle 1
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/rise00.gif
+	frame	data/chars/Butcher/rise01.gif
+	frame	data/chars/Butcher/rise00.gif
+	frame	data/chars/Butcher/rise02.gif
+
+anim attack1
+	range 30 80
+	rangea 0 0
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+        hitflash blood
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh2.wav
+	loop	0
+	delay	4
+	offset	152 199
+	bbox 	137 111 32 90
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/a100.gif
+	frame	data/chars/Butcher/a101.gif
+	attack1  155  122  120  45  2  1  0  0  15  12
+	frame	data/chars/Butcher/a102.gif
+
+
+anim attack2
+	range 30 80
+	rangea 0 0
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+        hitflash blood
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh2.wav
+	loop	0
+	delay	5
+	offset	165 199
+	bbox 	151 119 30 82
+		Attack1  0
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/a200.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/Butcher/a200.gif
+	attack 180 96 50 50 8 0 0 0 15 12
+	frame	data/chars/Butcher/a201.gif
+	attack 189 148 94 36 8 1 1 1 15 12
+	bbox 	146 125 49 76
+		delay  2
+	frame	data/chars/Butcher/a202.gif
+
+anim attack3
+	range 30 120
+	rangea 0 0
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	5
+	offset	165 199
+	bbox 	151 119 30 82
+        hitflash blood
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh2.wav
+		Attack1  0
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/a300.gif
+	@cmd target 4 4 0 0 0
+	@cmd dash
+	delay	15
+	attack 186 130 114 26 8 1 0 0 15 12
+	frame	data/chars/Butcher/a301.gif
+	frame  data/chars/Butcher/a301.gif
+
+
+anim grabattack #HEAD BREAK
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	12
+	offset	152 199
+	bbox 	135 104 32 97
+        hitflash blood
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh2.wav
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/grabatk00.gif
+	frame	data/chars/Butcher/grabatk01.gif
+	attack 179 148 105 40 8 1 0 0 30 12
+	frame	data/chars/Butcher/grabatk02.gif
+
+
+
+anim special #GROAAR
+	fastattack 1
+	jugglecost 0
+	forcedirection 0
+	energycost 40 1
+	loop	0
+	delay	5
+	offset	152 199
+        hitflash blood
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh2.wav
+	hitfx	data/sounds/kof/SpecialAttack11.wav
+	sound	data/voices/Butcher/Butcher1.wav
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/a100.gif
+	frame	data/chars/Butcher/a101.gif
+		attack1  198  144  85  25  5  1  0  0  10  10
+	frame	data/chars/Butcher/a102.gif
+		delay  5
+		Attack1  0
+	frame	data/chars/Butcher/a200.gif
+		attack1  170  87  58  88  5  1  0  0  10  10
+	frame	data/chars/Butcher/a201.gif
+		attack1  185  136  100  45  5  1  0  0  10  10
+	frame	data/chars/Butcher/a202.gif
+
+
+anim freespecial2 #JUMP DOWN ATTACK
+	range 60 120
+	rangea 0 0
+	rangez -999 999
+        fastattack 1
+	jugglecost 10
+	forcedirection -1
+	landframe 2
+	loop	0
+	delay	12
+	offset	152 199
+	bbox 	137 115 32 86
+	hitfx	data/sounds/sf/HighPunch.wav
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/jumpdelay00.gif
+		delay	999
+	@cmd leaper 0 3 0
+	@cmd target 1.5 1.5 0 0 1
+	@cmd dash
+	sound	data/sounds/kof/Jump2.wav
+	bbox 	135 121 63 40
+	delay	5
+		attack1  107  135  105  39  8  0  1  0  10  12
+	frame	data/chars/Butcher/jumpatk00.gif
+		delay	12
+	@cmd spawn01 "quake_low" 0 0 0
+	frame	data/chars/Butcher/jumpatk00.gif
+
+anim freespecial3 #RAGE 
+	range range 60 120
+	rangea 0 0
+	rangez -100 100
+	fastattack 1
+	jugglecost 0
+	forcedirection -1
+	energycost 120 1
+	loop	0
+	delay	7
+	offset	166 200
+	@cmd projectile 1 "rage" 0 -1 0
+	@cmd spawnbind "ragefull" 0 0 1
+	hitflash burn
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/kof/Fire2.wav
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	frame	data/chars/Butcher/sp01.gif
+	frame	data/chars/Butcher/sp00.gif
+	delay	15
+	frame	data/chars/Butcher/sp01.gif
+		burn  125  76  97  105  40  1  0  0  10  10
+	frame	data/chars/Butcher/sp02.gif
+		burn  154  104  129  70  40  1  0  0  10  10
+	frame	data/chars/Butcher/sp03.gif
+		burn  177  150  108  28  40  1  0  0  10  10
+	frame	data/chars/Butcher/sp04.gif
+
+
+anim guardbreak
+	loop	0
+	delay	4
+	offset	133 183
+	bbox 	117 112 24 73
+	@cmd spawnbind "break" 0 50 0
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/pain00.gif
+	frame	data/chars/Butcher/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Butcher/pain00.gif
+	frame	data/chars/Butcher/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Butcher/pain00.gif
+	frame	data/chars/Butcher/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Butcher/pain00.gif
+	frame	data/chars/Butcher/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Butcher/pain00.gif
+	frame	data/chars/Butcher/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Butcher/pain00.gif
+	frame	data/chars/Butcher/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Butcher/pain00.gif
+	frame	data/chars/Butcher/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Butcher/pain00.gif
+	frame	data/chars/Butcher/pain01.gif
+
+anim block
+	range 0 400
+	rangea 0 400
+	rangez -200 200
+	loop	0
+	delay	32
+	offset	157 200
+	bbox 	144 96 35 100
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Butcher/block00.gif
+

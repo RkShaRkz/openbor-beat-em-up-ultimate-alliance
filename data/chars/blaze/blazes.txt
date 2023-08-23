@@ -1,0 +1,31 @@
+##MAIN
+name				BlazeS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle
+	loop	0
+	delay	1
+	offset	127 179
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/blaze/rage00.gif
+	frame	data/chars/blaze/rage01.gif
+	frame	data/chars/blaze/rage02.gif
+	frame	data/chars/blaze/rage03.gif
+	frame	data/chars/blaze/rage04.gif
+	frame	data/chars/blaze/rage05.gif
+	frame	data/chars/blaze/rage06.gif
+	frame	data/chars/blaze/rage04.gif
+	frame	data/chars/blaze/rage05.gif
+	frame	data/chars/blaze/rage06.gif
+	frame	data/chars/blaze/rage07.gif

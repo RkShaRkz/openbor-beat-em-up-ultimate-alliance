@@ -1,0 +1,52 @@
+##MAIN
+name				mustaphaS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 		data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle
+	loop	0
+	delay	1
+	offset	238 177
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/Mustapha/sp02.gif
+	frame	data/chars/Mustapha/sp03.gif
+	frame	data/chars/Mustapha/sp04.gif
+	frame	data/chars/Mustapha/sp05.gif
+	frame	data/chars/Mustapha/sp06.gif
+	frame	data/chars/Mustapha/sp07.gif
+	frame	data/chars/Mustapha/sp02.gif
+	frame	data/chars/Mustapha/sp03.gif
+	frame	data/chars/Mustapha/sp04.gif
+	frame	data/chars/Mustapha/sp05.gif
+	frame	data/chars/Mustapha/sp06.gif
+	frame	data/chars/Mustapha/sp07.gif
+	frame	data/chars/Mustapha/sp02.gif
+	frame	data/chars/Mustapha/sp03.gif
+	frame	data/chars/Mustapha/sp04.gif
+	frame	data/chars/Mustapha/sp05.gif
+	frame	data/chars/Mustapha/sp06.gif
+	frame	data/chars/Mustapha/sp07.gif
+	frame	data/chars/Mustapha/sp02.gif
+	frame	data/chars/Mustapha/sp03.gif
+	frame	data/chars/Mustapha/sp04.gif
+	frame	data/chars/Mustapha/sp05.gif
+	frame	data/chars/Mustapha/sp06.gif
+	frame	data/chars/Mustapha/sp07.gif
+	frame	data/chars/Mustapha/sp02.gif
+	frame	data/chars/Mustapha/sp03.gif
+	frame	data/chars/Mustapha/sp04.gif
+	frame	data/chars/Mustapha/sp05.gif
+	frame	data/chars/Mustapha/sp06.gif
+	frame	data/chars/Mustapha/sp07.gif
+	frame	data/chars/Mustapha/sp02.gif
+	frame	data/chars/Mustapha/sp03.gif

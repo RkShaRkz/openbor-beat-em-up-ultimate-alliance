@@ -1,0 +1,26 @@
+name				knifeJ #JACK SPAWN KNIFE
+type				none
+gfxshadow			1 1
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/knifeJ.c
+
+anim idle
+	landframe 8
+	loop	1 0 8
+	delay	2
+	offset	23 25
+	sound	data/sounds/Whoosh.wav
+	frame	data/chars/weapons/knife00.gif
+	frame	data/chars/weapons/knife01.gif
+	frame	data/chars/weapons/knife02.gif
+	frame	data/chars/weapons/knife03.gif
+	frame	data/chars/weapons/knife04.gif
+	frame	data/chars/weapons/knife05.gif
+	frame	data/chars/weapons/knife06.gif
+	frame	data/chars/weapons/knife07.gif
+	@cmd spawn01 "knife" 0 0 0
+	frame	data/chars/weapons/empty.gif
+	@cmd suicide
+	frame	data/chars/weapons/empty.gif
+	
+

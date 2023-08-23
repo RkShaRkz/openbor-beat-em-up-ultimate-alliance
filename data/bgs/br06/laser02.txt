@@ -1,0 +1,32 @@
+name		Laser02
+type		None
+shadow		0
+speed		1
+alpha		1
+setlayer	1000
+
+anim idle
+	loop	1
+	delay	10
+	offset	0 281
+	frame	data/bgs/br06/Laser201.gif
+	frame	data/bgs/br06/Laser206.gif
+	frame	data/bgs/br06/Laser201.gif
+	frame	data/bgs/br06/Laser206.gif
+	frame	data/bgs/br06/Laser202.gif
+	frame	data/bgs/br06/Laser206.gif
+	frame	data/bgs/br06/Laser202.gif
+	frame	data/bgs/br06/Laser206.gif
+	frame	data/bgs/br06/Laser203.gif
+	frame	data/bgs/br06/Laser206.gif
+	frame	data/bgs/br06/Laser203.gif
+	frame	data/bgs/br06/Laser206.gif
+	frame	data/bgs/br06/Laser204.gif
+	frame	data/bgs/br06/Laser206.gif
+	frame	data/bgs/br06/Laser204.gif
+	frame	data/bgs/br06/Laser206.gif
+	frame	data/bgs/br06/Laser205.gif
+	frame	data/bgs/br06/Laser206.gif
+	frame	data/bgs/br06/Laser205.gif
+	frame	data/bgs/br06/Laser206.gif
+

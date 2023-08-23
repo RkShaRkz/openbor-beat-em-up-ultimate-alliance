@@ -1,0 +1,12 @@
+name				st3_gate
+type				none
+shadow				0
+setlayer			102
+animationscript 	data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	6
+	offset	1 1
+	frame	data/bgs/st3/gate00.gif
+	

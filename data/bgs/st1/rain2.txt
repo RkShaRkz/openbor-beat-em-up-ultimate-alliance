@@ -1,0 +1,38 @@
+name			st1_rain2
+type			none
+shadow			0
+alpha			1
+setlayer		-20
+animationscript data/scripts/script.c
+
+anim idle
+	loop	1 1 23
+	delay	2
+	offset	1 200
+	@cmd sampleplay "data/sounds/rain.wav" 1
+	frame	data/bgs/st1/rain00.gif
+	frame	data/bgs/st1/rain00.gif
+	frame	data/bgs/st1/rain01.gif
+	frame	data/bgs/st1/rain02.gif
+	frame	data/bgs/st1/rain03.gif
+	frame	data/bgs/st1/rain04.gif
+	frame	data/bgs/st1/rain05.gif
+	frame	data/bgs/st1/rain06.gif
+	frame	data/bgs/st1/rain07.gif
+	frame	data/bgs/st1/rain08.gif
+	frame	data/bgs/st1/rain09.gif
+	frame	data/bgs/st1/rain10.gif
+	frame	data/bgs/st1/rain11.gif
+	frame	data/bgs/st1/rain12.gif
+	frame	data/bgs/st1/rain13.gif
+	frame	data/bgs/st1/rain14.gif
+	frame	data/bgs/st1/rain15.gif
+	frame	data/bgs/st1/rain16.gif
+	frame	data/bgs/st1/rain17.gif
+	frame	data/bgs/st1/rain18.gif
+	frame	data/bgs/st1/rain19.gif
+	@cmd looper 1 35
+	frame	data/bgs/st1/rain19.gif
+	@cmd clearL
+	frame	data/bgs/st1/rain19.gif
+	

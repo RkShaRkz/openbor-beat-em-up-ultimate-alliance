@@ -1,0 +1,131 @@
+name				Elevador #ELEVATOR ANIMATED BGLAYER
+type				none
+hostile				enemy
+shadow				0
+setlayer			-10000
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/st8_elevator.c
+
+load				macleod
+load				HakuyoX
+load				KickBoxerC
+load				BikerC
+load				ElectraC
+load				RubbyC
+load				Wonc
+load				ButcherC
+load				Monalisa
+load				MicC
+load				DonovanC
+load				galsiaC
+load				SignalC
+load				BBilly
+load				BTiger
+load				BJack
+load				Escarlate
+load				Silver
+load				Soldier
+load				AndoreC
+load                            St1_Rain
+load                            St1_Drop1
+
+anim idle
+	loop	1 2 3
+	delay	64
+	offset	1 743
+	frame	data/bgs/Br07/Back01.gif
+	@cmd spawnparent "st8_elevatorS" 0 0 0
+	frame	data/bgs/Br07/Back01.gif
+	@cmd anichangeLESS "ANI_FOLLOW1" 3
+	frame	data/bgs/Br07/Back01.gif
+	frame	data/bgs/Br07/Back01.gif
+	
+anim follow1
+	loop	0
+	delay	513
+	offset	1 743
+	sound	data/sounds/elevator.wav
+	@cmd leaper 0 0 0.25
+	@cmd spawn01 "quake_low" 0 0 0
+	@cmd spawn01 "MicC" 250 250 230
+	@cmd spawn01 "ElmerC" 300 300 230
+	@cmd spawn01 "RubbyC" 300 300 250
+	@cmd spawn01 "ElectraC" 300 300 250
+	frame	data/bgs/Br07/Back01.gif
+		delay	128
+	@cmd leaper 0 0 0
+	@cmd spawn01 "AndoreC" 200 300 0
+	@cmd spawn01 "ButcherC" 300 300 -10
+	frame	data/bgs/Br07/Back01.gif
+	@cmd anichangeMORE "ANI_FOLLOW2" 4
+	frame	data/bgs/Br07/Back01.gif
+	
+anim follow2
+	loop	1 1 2
+	delay	64
+	offset	1 743
+	@cmd spawn01 "BillyC" 250 300 0
+	frame	data/bgs/Br07/Back01.gif
+	@cmd anichangeLESS "ANI_FOLLOW3" 3
+	frame	data/bgs/Br07/Back01.gif
+	frame	data/bgs/Br07/Back01.gif
+
+anim follow3
+	loop	0
+	delay	512
+	offset	1 743
+	sound	data/sounds/elevator.wav
+	@cmd leaper 0 0 0.25
+	@cmd spawn01 "quake_low" 0 0 0
+	@cmd spawn01 "DonovanC" 200 300 -20
+	@cmd spawn01 "BikerC" 300 300 -20
+	@cmd spawn01 "galsiaC" 200 300 0
+	@cmd spawn01 "SignalC" 300 300 0
+	frame	data/bgs/Br07/Back01.gif
+		delay	128
+	@cmd leaper 0 0 0
+	@cmd spawn01 "KickBoxerC" 200 300 -260
+	@cmd spawn01 "AndoreC" 300 300 -260
+	frame	data/bgs/Br07/Back01.gif
+	@cmd anichangeMORE "ANI_FOLLOW4" 4
+	frame	data/bgs/Br07/Back01.gif
+	
+anim follow4
+	loop	1 1 2
+	delay	64
+	offset	1 743
+	@cmd spawn01 "Monalisa" 250 300 -270
+	frame	data/bgs/Br07/Back01.gif
+	@cmd anichangeLESS "ANI_FOLLOW5" 3
+	frame	data/bgs/Br07/Back01.gif
+	frame	data/bgs/Br07/Back01.gif	
+
+anim follow5
+	loop	0
+	delay	448
+	offset	1 743
+	sound	data/sounds/elevator.wav
+	@cmd leaper 0 0 0.25
+	@cmd spawn01 "quake_low" 0 0 0
+	frame	data/bgs/Br07/Back01.gif
+		delay	64
+	@cmd leaper 0 0 0
+	@cmd baseMap 0 0 0 0 0 0 0 0
+        @cmd spawn01 "St1_Rain" 0 1 200
+	@cmd spawn01 "Bbilly" -400 0 -510
+	@cmd spawn01 "BTiger" -400 0 -500
+	@cmd spawn01 "Escarlate" -400 0 -490
+	@cmd spawn01 "Escarlate" -400 0 -480
+	@cmd spawn01 "BBilly" 700 0 -510
+	@cmd spawn01 "BJAck" 700 0 -500
+	@cmd spawn01 "macleod" 700 0 -490
+	@cmd spawn01 "Silver" 700 0 -480
+	frame	data/bgs/Br07/Back01.gif
+	@cmd anichangeMORE "ANI_FOLLOW6" 4
+	frame	data/bgs/Br07/Back01.gif
+	
+anim follow6
+	loop	0
+	delay	4
+	offset	1 743
+	frame	data/bgs/Br07/Back01.gif

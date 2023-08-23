@@ -1,0 +1,247 @@
+##ATTRIBUTES
+
+#SKILLS		***
+#LIFE		***
+#POWER		***
+#SPEED		**
+#JUMP		**
+#SPECIAL	**
+
+##MAIN
+name				Terry_faca
+type				none
+hostile				enemy
+candamage			player enemy obstacle
+projectilehit		player enemy obstacle
+
+##LIFE
+health				0 #200/300/400/500/600/700
+
+##POWER
+offense 			all 2 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				10 #8/10/12/14/16/18
+running 			20 2.9 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			15 #13/15/17/19/21/23
+jumpheight 			3.1 #2.9/3.1/3.3/3.5/3.7/3.9
+jumpmove			0 1 #PLAYER ONLY
+
+##SPECIAL
+mp					0
+mprate  			5 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		33 #BASE 36
+grabfinish 			0 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				74
+
+##MISC
+jugglepoints		30
+guardpoints			87
+guardrate			13
+risetime			170
+riseinv				0.2 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+keyscript			data/scripts/key/Terry.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+script				data/scripts/updateentity/Terry.c
+
+##ICONS
+icon				data/chars/Terry/icon.gif 1
+iconmphigh			data/chars/Terry/iconmp.gif 1
+
+##PARROWS
+parrow				data/sprites/parrow.gif 	-15 -140
+parrow2				data/sprites/parrow2.gif 	-15 -140
+parrow3				data/sprites/parrow3.gif 	-15 -140
+parrow4				data/sprites/parrow4.gif 	-15 -140
+
+##DIESOUND
+diesound			data/voices/Terry/Terry1.wav
+
+##REMAPS
+remap				data/chars/Terry/idle00.gif data/chars/Terry/alter1.gif
+remap				data/chars/Terry/idle00.gif data/chars/Terry/alter2.gif
+remap				data/chars/Terry/idle00.gif data/chars/Terry/alter3.gif
+
+##LOADS
+Faca				knifeT
+
+##ANIMATIONS#############################################################################
+
+anim idle
+		offset  40  196
+		bbox  21  101  38  96
+		delay  12
+                loop 1
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/Faca/idle01.gif
+	frame	data/chars/Terry/Faca/idle02.gif
+	frame	data/chars/Terry/Faca/idle03.gif
+	frame	data/chars/Terry/Faca/idle04.gif
+
+anim walk
+		offset  39  196
+		bbox  21  101  38  96
+		delay  7
+                loop 1
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/Faca/w01.gif
+	frame	data/chars/Terry/Faca/w02.gif
+	frame	data/chars/Terry/Faca/w03.gif
+	frame	data/chars/Terry/Faca/w04.gif
+	frame	data/chars/Terry/Faca/w05.gif
+	frame	data/chars/Terry/Faca/w06.gif
+	frame	data/chars/Terry/Faca/w07.gif
+
+anim run
+		offset  40  196
+		bbox  21  101  38  96
+		delay  5
+                lOOP   1
+ 		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/Faca/w01.gif
+	frame	data/chars/Terry/Faca/w02.gif
+	frame	data/chars/Terry/Faca/w03.gif
+	frame	data/chars/Terry/Faca/w04.gif
+	frame	data/chars/Terry/Faca/w05.gif
+	frame	data/chars/Terry/Faca/w06.gif
+	frame	data/chars/Terry/Faca/w07.gif
+
+anim jumpdelay
+	loop	0
+	delay	1
+	offset	35 200
+	bbox 	19 123 25 58
+        drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/Faca/j01.gif
+
+anim jump
+	offset  40  196
+		bbox  21  101  38  96
+		delay  7
+        sound	data/sounds/kof/Jump.wav
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/Faca/j01.gif
+	frame	data/chars/Terry/Faca/j02.gif
+	frame	data/chars/Terry/Faca/j03.gif
+	frame	data/chars/Terry/Faca/j04.gif
+
+anim walkoff
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+                @cmd jump 1
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/Faca/j01.gif
+	frame	data/chars/Terry/Faca/j02.gif
+	frame	data/chars/Terry/Faca/j03.gif
+	frame	data/chars/Terry/Faca/j04.gif
+
+anim jumpland
+	loop	0
+	delay	1
+	offset	37 196
+	bbox 	19 102 42 95
+		drawmethod  190  190  0  0  0  -1  -1
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/Terry/Faca/w07.gif
+
+anim attack1
+	#fastattack 1
+	#jugglecost 10
+	#forcedirection -1
+	hitflash blood
+	loop	0
+	delay	8
+	offset	31 196
+	bbox 	14 100 46 97
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh.wav
+	attack 79 77 19 3 8 1 1 0 10 12
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/Faca/a101.gif
+	attack 48 102 69 36 8 1 1 0 10 12
+	bbox 	20 100 35 97
+	frame	data/chars/Terry/Faca/a102.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	bbox 	17 100 35 95
+	frame	data/chars/Terry/Faca/a101.gif
+
+anim jumpattack #JUMP STATIC
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/Faca/ja201.gif
+	frame	data/chars/Terry/Faca/ja202.gif
+		attack1  39  78  48  86  7
+	frame	data/chars/Terry/Faca/ja203.gif
+
+anim jumpattack2 #JUMP DOWN
+	offset  40  196
+		bbox  21  101  38  96
+		delay  7
+                1
+	hitflash blood
+		drawmethod  190  190  0  0  0  -1  -1
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Terry/Faca/ja301.gif
+	frame	data/chars/Terry/Faca/ja302.gif
+		attack1  34  108  57  53  7
+	frame	data/chars/Terry/Faca/ja303.gif
+
+anim jumpattack3 #JUMP UP
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+		drawmethod  190  190  0  0  0  -1  -1
+	hitfx	data/sounds/sf/HighKick.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Terry/Faca/ja101.gif
+	frame	data/chars/Terry/Faca/ja102.gif
+		blast  31  119  76  61  7
+	frame	data/chars/Terry/Faca/ja103.gif
+
+anim jumpforward #JUMP FORWARD
+delay  7
+		drawmethod  190  190  0  0  0  -1  -1
+		offset  40  190
+		bbox  13  85  51  80
+	frame	data/chars/Terry/Faca/ja101.gif
+	frame	data/chars/Terry/Faca/ja102.gif
+		blast  33  126  79  42  10
+		delay  30
+	frame	data/chars/Terry/Faca/ja103.gif
+
+anim attackboth #THROW Faca
+	throwframe 1 9999
+	loop	0
+	delay	8
+	offset	33 197
+	bbox 	10 91 45 106
+	@cmd antiwall 20 -20 -1
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/Faca/a101.gif
+	@cmd throweap 46 47 -1 3 0 0
+	frame	data/chars/Terry/Faca/a102.gif
+	frame	data/chars/Terry/a205.gif
+

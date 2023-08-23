@@ -1,0 +1,13 @@
+name				st2_lamp
+type				none
+shadow				0
+antigravity			100
+animationscript	 	data/scripts/script.c
+
+anim idle
+	loop	1
+	delay	2
+	offset	19 19
+	frame	data/bgs/st2/lamp00.gif
+		delay	3
+	frame	data/bgs/st2/lamp01.gif

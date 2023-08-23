@@ -1,0 +1,411 @@
+#background	data/bgs/Br06/back00.gif		0.9 1 0 0 0 0 1 1 0 0
+#bglayer		data/bgs/st6/bg00.gif		0.3 1 -100 0 0 0 1 1 1 0 1 5 50 0.5
+panel		data/bgs/Br06/pn01.gif
+frontpanel	data/bgs/Br06/Front01.gif		none	none
+order		a
+music		data/music/Lv6A.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 6
+spawn1		183 13 300
+spawn2		205 39 300
+spawn3		238 12 300
+spawn4		257 42 300
+Wall  -30  262  0  0  62  170  133  200
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+spawn		Trash
+flip		1
+coords		300 175
+at			0
+
+spawn		Interior04
+flip		1
+coords		728 0
+at			0
+
+spawn		Placa01
+flip		1
+coords		927 0
+at			0
+
+
+spawn		Interior03
+flip		1
+coords		931 0
+at			0
+
+spawn		Interior02
+flip		1
+coords		1157 0
+at			0
+
+spawn		InteriorRed
+flip		1
+coords		1368 0
+at			0
+
+spawn		Fire3
+flip		1
+coords		1427 136
+at			0
+
+spawn		Fire4
+flip		1
+coords		1516 155
+at			0
+
+spawn		Interior04
+flip		1
+coords		2020 0
+at			0
+
+spawn		Forro
+flip		1
+coords		2700 0
+at			0
+
+
+
+#########################################################################################
+
+
+#########################################################################################
+
+group		5 5
+at			0
+
+wait
+at			300
+
+spawn		Ninja2
+flip		1
+coords		200 190 300
+at			0
+
+spawn		Hayate
+map             1
+flip		1
+coords		200 260 300
+at			0
+
+spawn		Ninja2
+2pspawn
+flip		1
+coords		300 225 300
+at			0
+
+spawn		Ninja1
+3pspawn
+flip		1
+coords		400 190 300
+at			0
+
+spawn		Ninja2
+4pspawn
+flip		1
+coords		400 260 300
+at			0
+
+spawn		MOTO1
+flip		1
+coords		600 230 0
+at			300
+
+spawn		Mic2
+alias           Mic.jr
+flip		1
+coords		-100 230 0
+at			300
+
+spawn		BasicX3
+flip		1
+coords		600 230 0
+at			300
+
+spawn		Mic1
+alias           Mic
+map             2
+flip		1
+coords		-100 230 0
+at			300
+
+spawn		Billy1
+Alias           Billy
+Map             3
+flip		1
+coords		600 230 0
+at			300
+
+spawn		Elmer1
+Alias           Elmer
+flip		1
+coords		-100 230 0
+at			300
+
+spawn		Rubby1
+alias           Rubby
+flip		1
+coords		600 230 0
+at			300
+
+spawn		Policecar2
+flip		1
+coords		600 265 0
+at			300
+
+spawn		Gneiss3
+alias           Gneiss
+flip		1
+coords		-100 230 0
+at			300
+
+spawn		Trash
+coords		771 177 0
+at			301
+
+
+spawn		Mic_Loja
+Alias           Mic
+map             3
+flip		1
+coords		670 157 0
+at			301
+
+spawn		Mic_wait0
+Alias           Mic
+map             2
+flip		0
+coords		650 230 0
+at			301
+
+#########################################################################################
+
+group		6 6
+at			670
+
+wait
+at			670
+
+
+spawn		Gneiss2
+map             1
+Alias           Alfred
+flip		1
+coords		600 230 0
+at			670
+
+spawn		Billy2
+Alias           Billy
+Map             2
+flip		1
+coords		600 230 0
+at			670
+
+spawn		Elmer2
+Alias           Elmer
+flip		1
+coords		-100 230 0
+at			670
+
+spawn		Policecar2
+flip		1
+coords		600 265 0
+at			670
+
+spawn		Mic1
+alias           Mic
+flip		1
+coords		-100 230 0
+at			670
+
+spawn		Andore
+flip		1
+coords		600 230 0
+at			670
+
+spawn		Rubby2
+alias           Rubby
+flip		1
+coords		600 230 0
+at			670
+
+spawn		Policecar
+flip		1
+coords		600 230 0
+at			670
+
+spawn		kickboxer1
+flip		1
+coords		-100 230 0
+at			670
+
+spawn		trash
+flip		1
+coords		941 175 0
+at			671
+
+spawn		trash
+flip		1
+coords		1000 175 0
+at			671
+
+spawn		Janela
+flip		1
+coords		475 269 0
+at			671
+
+group		6 6
+at			1150
+
+wait
+at			1150
+
+
+spawn		biker_bomb
+flip		1
+coords		41 165 0
+at			1150
+
+spawn		biker_bomb
+flip		1
+coords		155 165 0
+at			1150
+
+
+spawn		Gneiss1
+map             4
+alias           Gneiss
+flip		1
+coords		-100 230 0
+at			1150
+
+spawn		Ninja1
+flip		1
+coords		600 230 0
+at			1150
+
+spawn		Elmer2
+alias           Elmer
+flip		1
+coords		-100 230 0
+at			1150
+
+spawn		Trash
+flip		1
+coords		1000 175 0
+at			1151
+
+
+
+spawn		RoadBlock
+flip		1
+coords		770 227 0
+at			1151
+
+spawn		RoadBlock
+flip		1
+coords		765 200 0
+at			1151
+
+spawn		trash
+flip		1
+coords		1141 175 0
+at			1151
+
+spawn		Truck
+flip		1
+coords		600 255 0
+at			1200
+
+spawn		Truck
+flip		1
+coords		600 215 0
+at			1500
+
+
+group		6 6
+at			2210
+
+wait
+at			2210
+
+
+
+spawn		KickBoxer2
+flip		1
+coords		600 190 0
+at			2210
+
+spawn		Moto2
+flip		1
+coords		600 190 0
+at			2210
+
+spawn		bigben2
+flip		1
+coords		-100 260 0
+at			2210
+
+spawn		Ninja2
+flip		1
+coords		-100 260 0
+at			2210
+
+
+
+spawn		hakuyo2
+flip		1
+coords		-100 260 0
+at			2210
+
+
+spawn		FunkMAn0
+Map             2
+flip		0
+coords		601 172 0
+at			2211
+
+
+pawn		kickboxer2
+flip		1
+coords		600 230 0
+at			2500
+
+spawn		kickboxer1
+flip		1
+coords		600 230 0
+at			2500
+
+spawn		Ninja2
+flip		1
+coords		-100 230 0
+at			2500
+
+spawn		Mic
+flip		1
+coords		-100 230 0
+at			2500
+
+spawn		Rubby
+flip		1
+coords		600 230 0
+at			2500
+
+spawn		Slick3
+alias           Slick
+flip		1
+coords		600 230 0
+at			2500
+
+spawn		electra0
+flip		1
+coords		-100 230 0
+at			2500
+
+

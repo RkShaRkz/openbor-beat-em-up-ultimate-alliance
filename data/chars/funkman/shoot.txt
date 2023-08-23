@@ -1,0 +1,28 @@
+name				Shoot #THROWNED
+type				none
+subtype				weapon
+candamage			player enemy obstacle
+nolife				1
+lifespan			6
+remove				1
+noquake 			1
+gfxshadow			1 1
+noatflash 			1
+#flash				metalflash
+#alpha			1
+
+anim idle
+
+	loop	1
+	delay	8
+	offset	122 200
+	shock 128 126 42 9 8 1 1 0 0 12
+	frame	data/chars/FunkMan/Shoot.gif
+
+
+anim fall
+	loop	1 1 9
+	delay	2
+	offset	122 200
+	frame	data/chars/FunkMan/Shoot.gif
+

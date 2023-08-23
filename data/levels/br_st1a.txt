@@ -1,0 +1,347 @@
+background	data/bgs/Br01/back01.gif		#1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/Br01/pn01.gif		none	none
+frontpanel	data/bgs/Br01/Front01.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn03.gif
+order		a
+music		data/music/St1a.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 1
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+spawn		L01
+flip		1
+coords		200 1 0
+at			0
+
+spawn		L02
+flip		1
+coords		200 1 0
+at			0
+
+spawn		L03
+flip		1
+coords		200 1 0
+at			0
+
+spawn		L04
+flip		1
+coords		200 1 0
+at			0
+
+spawn		L05
+flip		1
+coords		200 1 0
+at			0
+
+spawn		L06
+flip		1
+coords		200 1 0
+at			0
+
+spawn		L07
+flip		1
+coords		200 1 0
+at			0
+
+spawn		TruckStop1
+#flip		1
+coords		867 280 0
+at			0
+
+spawn		Fire1
+flip		1
+coords		778 285 0
+at			0
+
+spawn		Fire2
+flip		1
+coords		873 280 0
+at			0
+
+spawn		Fire1
+flip		1
+coords		961 283 0
+at			0
+
+#########################################################################################
+
+spawn		Bin
+flip		1
+coords		150 185 0
+at			0
+
+spawn		Pipe
+flip		1
+coords		150 230 0
+at			0
+
+
+spawn		Banco
+flip		1
+coords		280 185 0
+at			0
+
+
+spawn		Bin
+flip		1
+coords		400 210 0
+at			0
+
+
+
+spawn		Bin
+flip		1
+coords		650 190 0
+at			0
+
+spawn		Banco
+flip		1
+coords		700 185 0
+at			0
+
+spawn		Billy_wait0
+alias           Billy
+flip		0
+coords		268 186 0
+at			0
+
+
+#########################################################################################
+
+group		5 5
+at			1
+
+wait
+at			1
+
+
+spawn		Billy0
+flip		1
+coords		600 270 0
+alias           Billy
+at			1
+
+spawn		Gneiss
+flip		1
+coords		600 270 0
+at			1
+
+spawn		Mic
+flip		1
+coords		-100 270 0
+at			1
+
+spawn		BasicX0
+flip		1
+coords		700 270 0
+at			1
+
+spawn		BasicX0
+flip		1
+coords		-200 270 0
+at			1
+
+spawn		Billy0
+alias           Billy
+map             1
+coords		600 270 0
+at			1
+
+spawn		Gneiss
+Map             2
+flip		1
+coords		-100 270 0
+at			1
+
+spawn		BasicX0
+flip		1
+coords		700 270 0
+at			1
+
+spawn		Billy0
+alias           Billy
+map             1
+coords		-200 270 0
+at			1
+
+spawn		Truck
+flip		1
+coords		600 265 0
+at			1
+
+spawn		Billy_wait1
+Alias           Billy
+flip		0
+coords		520 186 0
+at			2
+
+spawn		gneiss_wait0
+alias           Gneiss
+flip		0
+coords		420 200 0
+at			2
+
+group		5 5
+at			300
+
+
+
+wait
+at			300
+
+
+
+spawn		BasicX0
+flip		1
+coords		600 270 0
+at			300
+
+spawn		Billy0
+alias           Billy
+map             1
+coords		-100 270 0
+at			300
+
+spawn		PoliceCar
+flip		1
+coords		600 265 0
+at			300
+
+spawn		BasicX0
+flip		1
+coords		600 270 0
+at			300
+
+spawn		Gneiss
+map             2
+coords		600 270 0
+at			300
+
+spawn		Policecar2
+flip		1
+coords		600 265 0
+at			300
+
+spawn		signal_wait0
+flip		0
+coords		600 186 0
+at			301
+
+spawn		galsia_wait2
+flip		0
+coords		600 200 0
+at			301
+
+spawn		Bin
+flip		1
+coords		600 185 0
+at			500
+
+spawn		Banco
+flip		1
+coords		950 185 0
+at			500
+
+
+spawn		Bin
+flip		1
+coords		800 185 0
+at			500
+
+
+spawn		Banco
+flip		1
+coords		750 210 0
+at			500
+
+
+
+#########################################################################################
+wait
+at			550
+
+
+
+
+spawn		Policecar
+flip		1
+coords		600 265 0
+at			500
+
+spawn		BasicX0
+flip		1
+coords		600 270 0
+at			500
+
+spawn		Mic
+Map             2
+flip		1
+coords		-200 270 0
+at			500
+
+spawn		BasicX0
+flip		1
+coords		-200 270 0
+at			500
+
+spawn		Gneiss
+flip		1
+coords		-200 280 0
+at			500
+
+
+spawn		papapa
+flip		1
+coords		781 177 0
+at			600
+
+spawn		Elmer_wait0
+alias Elmer
+flip		0
+coords		680 211 0
+at			550
+
+group		5 5
+at			600
+
+spawn		BasicX0
+flip		1
+coords		600 270 0
+at			1200
+
+spawn		Mic
+flip		1
+coords		-200 270 0
+at			1200
+
+spawn		Gneiss
+flip		1
+coords		600 270 0
+at			1500
+
+spawn		Billy0
+alias           Billy
+map             6
+coords		-100 270 0
+at			1500
+
+spawn		Gneiss
+map             3
+flip		1
+coords		-200 270 0
+at			1500
+

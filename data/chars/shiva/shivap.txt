@@ -1,0 +1,873 @@
+##ATTRIBUTES
+
+#SKILLS		*****
+#LIFE		***
+#POWER		***
+#SPEED		****
+#JUMP		***
+#SPECIAL	******
+
+##MAIN
+name				Shiva
+type				player
+hostile				enemy
+candamage			player enemy obstacle
+projectilehit		player enemy obstacle
+secret				0 2
+
+##LIFE
+health				400 #200/300/400/500/600/700
+
+##POWER
+offense 			all 2 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				14 #8/10/12/14/16/18
+running 			28 3.1 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			17 #13/15/17/19/21/23
+jumpheight 			3.3 #2.9/3.1/3.3/3.5/3.7/3.9
+jumpmove			0 1 #PLAYER ONLY
+
+##SPECIAL
+mp					120
+mprate  			9 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		33 #36/33/30
+grabfinish 			0 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				80
+
+##MISC
+jugglepoints		30
+guardpoints			87
+guardrate			13
+risetime			170
+riseinv				0.4 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 1 2 3
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+bflash				block
+
+##SCRIPTS
+didblockscript		data/scripts/didblock/shivaP.c
+didhitscript		data/scripts/didhit/shiva.c
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/player.c
+keyscript			data/scripts/key/shiva.c
+script				data/scripts/updateentity/shiva.c
+
+##ICONS
+icon				data/chars/shiva/icon.gif 1
+iconmphigh			data/chars/shiva/iconmp.gif 1
+
+##PARROWS
+parrow				data/sprites/parrow.gif 	-15 -140
+parrow2				data/sprites/parrow2.gif 	-15 -140
+parrow3				data/sprites/parrow3.gif 	-15 -140
+parrow4				data/sprites/parrow4.gif 	-15 -140
+
+##DIESOUND
+diesound			data/voices/enemy/BossDie2.wav
+
+##REMAPS
+remap				data/chars/shiva/idle00.gif data/chars/shiva/alter1.gif
+remap				data/chars/shiva/idle00.gif data/chars/shiva/alter2.gif
+remap				data/chars/shiva/idle00.gif data/chars/shiva/alter3.gif
+remap				data/chars/shiva/idle00.gif data/chars/shiva/alter4.gif
+
+##COMMANDS
+com 				a4		freespecial	 #BLOCK
+com 				a2		freespecial4 #RAGE ORB
+com 				f f a2	freespecial5 #RAGE COMBO
+
+##LOADS
+load				shivaS
+load				shiva_dodge
+
+##ANIMATIONS#############################################################################
+
+anim waiting
+	fshadow 0
+	loop	1
+	delay	16
+	offset	138 192
+	frame	data/chars/shiva/idle00.gif
+	frame	data/chars/shiva/idle01.gif
+	frame	data/chars/shiva/idle02.gif
+	
+anim select
+	fshadow 0
+	loop	0
+	delay	2
+	offset	138 192
+	drawmethod tintmode 4
+	drawmethod tintcolor 0
+	frame	data/chars/shiva/idle00.gif
+		delay	3
+	nodrawmethod
+	frame	data/chars/shiva/idle00.gif
+		delay	2
+	drawmethod tintmode 4
+	drawmethod tintcolor 0
+	frame	data/chars/shiva/idle00.gif
+		delay	3
+	nodrawmethod
+	frame	data/chars/shiva/idle00.gif
+	@cmd looper 2 8
+	frame	data/chars/shiva/idle00.gif
+
+anim idle
+	loop	1
+	delay	16
+	offset	138 192
+	bbox 	128 114 18 80
+	@cmd clearL
+	frame	data/chars/shiva/idle00.gif
+	frame	data/chars/shiva/idle01.gif
+	frame	data/chars/shiva/idle02.gif
+	
+anim walk
+	loop	1
+	delay	16
+	offset	138 192
+	bbox 	128 114 18 80
+	frame	data/chars/shiva/walk00.gif
+	frame	data/chars/shiva/walk01.gif
+	frame	data/chars/shiva/walk02.gif
+	frame	data/chars/shiva/walk03.gif
+	frame	data/chars/shiva/walk04.gif
+	frame	data/chars/shiva/walk05.gif
+	
+anim run
+	loop	1 2 4
+	delay	3
+	offset	138 192
+	bbox 	145 149 35 45
+	sound	data/sounds/kof/Slide4.wav
+	frame	data/chars/shiva/run00.gif
+	frame	data/chars/shiva/run01.gif
+	frame	data/chars/shiva/run00.gif
+	frame	data/chars/shiva/run01.gif
+	
+anim get
+	loop	0
+	delay	16
+	offset	138 192
+	frame	data/chars/shiva/get00.gif
+
+anim grab
+	loop	0
+	delay	8
+	offset	138 192
+	bbox 	128 114 18 80
+	frame	data/chars/shiva/grab00.gif
+	
+anim grabbed
+	loop	0
+	delay	8
+	offset	138 192
+	bbox 	127 128 30 66
+	frame	data/chars/shiva/grabbed00.gif
+	
+anim land
+	landframe 2
+	bouncefactor 0
+	loop	0
+	delay	24
+	offset	138 192
+	bbox 	128 114 21 58
+	@cmd landsafe
+	sound	data/sounds/kof/Jump.wav
+	frame	data/chars/shiva/jump00.gif
+		delay	999
+	bbox 	130 110 22 53
+	frame	data/chars/shiva/jump01.gif
+		delay	12
+	bbox 	120 155 31 39
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/shiva/jumpland00.gif
+	@cmd beidle
+	frame	data/chars/shiva/jumpland00.gif
+	
+anim jumpdelay
+	loop	0
+	delay	12
+	offset	138 192
+	bbox 	120 155 31 39
+	frame	data/chars/shiva/jumpdelay00.gif
+
+anim jump
+	loop	0
+	delay	24
+	offset	138 192
+	bbox 	128 114 21 58
+	sound	data/sounds/kof/Jump.wav
+	frame	data/chars/shiva/jump00.gif
+	bbox 	130 110 22 53
+	frame	data/chars/shiva/jump01.gif
+	
+anim walkoff
+	loop	0
+	delay	24
+	offset	138 192
+	bbox 	128 114 21 58
+	@cmd jump 1
+	frame	data/chars/shiva/jump00.gif
+	bbox 	130 110 22 53
+	frame	data/chars/shiva/jump01.gif
+	
+anim jumpland
+	loop	0
+	delay	12
+	offset	138 192
+	bbox 	120 155 31 39
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/shiva/jumpland00.gif
+	
+anim guardbreak
+	loop	0
+	delay	4
+	offset	138 192
+	bbox 	125 120 20 74
+	@cmd spawnbind "break" 0 50 0
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/shiva/pain00.gif
+	nodrawmethod
+	frame	data/chars/shiva/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/shiva/pain00.gif
+	nodrawmethod
+	frame	data/chars/shiva/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/shiva/pain00.gif
+	nodrawmethod
+	frame	data/chars/shiva/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/shiva/pain00.gif
+	nodrawmethod
+	frame	data/chars/shiva/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/shiva/pain00.gif
+	nodrawmethod
+	frame	data/chars/shiva/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/shiva/pain00.gif
+	nodrawmethod
+	frame	data/chars/shiva/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/shiva/pain00.gif
+	nodrawmethod
+	frame	data/chars/shiva/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/shiva/pain00.gif
+	nodrawmethod
+	frame	data/chars/shiva/pain01.gif
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	138 192
+	bbox 	125 120 20 74
+	frame	data/chars/shiva/pain00.gif
+	frame	data/chars/shiva/pain01.gif
+	frame	data/chars/shiva/pain00.gif
+	frame	data/chars/shiva/pain01.gif
+	frame	data/chars/shiva/pain00.gif
+	frame	data/chars/shiva/pain01.gif
+	frame	data/chars/shiva/pain00.gif
+	frame	data/chars/shiva/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	138 192
+	bbox 	127 128 30 66
+	frame	data/chars/shiva/pain200.gif
+	frame	data/chars/shiva/pain201.gif
+	frame	data/chars/shiva/pain200.gif
+	frame	data/chars/shiva/pain201.gif
+	frame	data/chars/shiva/pain200.gif
+	frame	data/chars/shiva/pain201.gif
+	frame	data/chars/shiva/pain200.gif
+	frame	data/chars/shiva/pain201.gif
+	
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	138 192
+	bbox 	112 139 36 44
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	frame	data/chars/shiva/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/shiva/fall01.gif
+	
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	138 192
+	bbox 	112 139 36 44
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	drawmethod tintmode 6	
+	drawmethod tintcolor 255
+	frame	data/chars/shiva/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2	
+	drawmethod tintcolor 255
+	frame	data/chars/shiva/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	nodrawmethod
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/shiva/fall01.gif
+	
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	138 192
+	bbox 	112 139 36 44
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	drawmethod tintmode 6	
+	drawmethod tintcolor -255
+	frame	data/chars/shiva/fall00.gif
+	drawmethod tintmode 2	
+	drawmethod tintcolor -255
+	frame	data/chars/shiva/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	nodrawmethod
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/shiva/fall01.gif
+	
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	138 192
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	frame	data/chars/shiva/fall600.gif
+	frame	data/chars/shiva/fall601.gif
+	frame	data/chars/shiva/fall602.gif
+	frame	data/chars/shiva/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/shiva/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	138 192
+	frame	data/chars/shiva/fall700.gif
+	frame	data/chars/shiva/fall701.gif
+	frame	data/chars/shiva/fall702.gif
+	frame	data/chars/shiva/fall703.gif
+	frame	data/chars/shiva/fall704.gif
+	frame	data/chars/shiva/fall705.gif
+	
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 2
+	loop	0
+	delay	30
+	offset	138 192
+	bbox 	112 139 36 44
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 112 139 36 44 4 1 0 0 0 12
+	frame	data/chars/shiva/fall00.gif
+		delay	999
+	@cmd cancelfall "ANI_LAND" 0 0
+	frame	data/chars/shiva/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/shiva/fall01.gif
+	
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 2
+	loop	0
+	delay	30
+	offset	138 192
+	bbox 	112 135 31 59
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 112 135 31 59 4 1 0 0 0 12
+	frame	data/chars/shiva/fall900.gif
+		delay	999
+	@cmd cancelfall "ANI_LAND" 0 0
+	frame	data/chars/shiva/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/shiva/fall01.gif
+	
+anim rise
+	landframe 4
+	loop	0
+	delay	12
+	offset	138 192
+	@cmd obstacle 1
+	frame	data/chars/shiva/rise00.gif
+	@cmd leaper 1 2 0
+	frame	data/chars/shiva/rise01.gif
+	frame	data/chars/shiva/rise02.gif
+		delay	999
+	frame	data/chars/shiva/rise03.gif
+		delay	12
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/shiva/rise04.gif
+	
+anim follow1 #DODGE
+	landframe 7
+	loop	0
+	delay	12
+	offset	138 192
+	frame	data/chars/shiva/jumpdelay00.gif
+		delay	6
+	@cmd leaper 0 2 0
+	@cmd keymove 3
+	sound	data/sounds/kof/Jump2.wav
+	@cmd spawner2 "shiva_dodge" 0 0 0
+	frame	data/chars/shiva/jump00.gif
+	@cmd spawner2 "shiva_dodge" 0 0 0
+	frame	data/chars/shiva/jump00.gif
+	@cmd spawner2 "shiva_dodge" 0 0 0
+	frame	data/chars/shiva/jump00.gif
+	@cmd spawner2 "shiva_dodge" 0 0 0
+	frame	data/chars/shiva/jump00.gif
+	@cmd spawner2 "shiva_dodge" 0 0 0
+	frame	data/chars/shiva/jump00.gif
+		delay	999
+	@cmd spawner2 "shiva_dodge" 0 0 0
+	frame	data/chars/shiva/jump00.gif
+		delay	12
+	bbox 	120 155 31 39
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/shiva/jumpland00.gif
+	
+anim attack1
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	6
+	offset	138 192
+	bbox 	140 117 24 77
+	hitfx	data/sounds/sf/LowPunch.wav
+	sound	data/sounds/sf/LowAttack.wav
+	attack 152 121 51 19 2 0 0 0 10 12
+	frame	data/chars/shiva/a100.gif
+		delay	1
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/shiva/a100.gif
+		delay	6
+	attack 162 126 49 21 2 0 0 0 10 12
+	bbox 	144 122 30 72
+	frame	data/chars/shiva/a101.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/shiva/a102.gif
+	bbox 	128 114 18 80
+	frame	data/chars/shiva/a103.gif
+	
+anim attack2
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	6
+	offset	138 192
+	bbox 	136 119 24 75
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/shiva/a200.gif
+	attack 159 135 62 22 8 0 0 0 30 12
+	bbox 	152 132 28 62
+	frame	data/chars/shiva/a201.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	bbox 	136 119 24 75
+	frame	data/chars/shiva/a202.gif
+	bbox 	128 114 18 80
+	frame	data/chars/shiva/a203.gif
+	
+anim attack3
+	fastattack 1
+	jugglecost 20
+	forcedirection -1
+	loop	0
+	delay	4
+	offset	138 192
+	bbox 	126 114 19 80
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/HighAttack.wav
+	attack2 136 148 50 31 4 0 0 0 15 12
+	frame	data/chars/shiva/a300.gif
+		delay	1
+	attack 0 0 0 0 0 0 0 0 0 0
+	hitfx	data/sounds/sf/HighKick.wav
+	frame	data/chars/shiva/a300.gif
+		delay	4
+	attack 135 133 61 22 8 1 0 0 15 12
+	dropv 4.3 1 0
+	frame	data/chars/shiva/a301.gif
+	attack 135 95 46 47 8 1 0 0 15 12
+	dropv 3.7 1 0
+	bbox 	122 114 19 80
+	frame	data/chars/shiva/a302.gif
+		delay	24
+	attack 133 83 26 54 8 1 0 0 15 12
+	dropv 3.7 1 0
+	frame	data/chars/shiva/a303.gif
+		delay	4
+	attack 0 0 0 0 0 0 0 0 0 0
+	bbox 	128 114 18 80
+	frame	data/chars/shiva/a304.gif
+	
+anim grabattack #KNEE
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	6
+	offset	138 192
+	bbox 	121 114 18 80
+	hitfx	data/sounds/sf/LowPunch.wav
+	sound	data/sounds/sf/LowAttack.wav
+	frame	data/chars/shiva/grabatk00.gif
+	attack2 144 120 34 29 2 0 0 0 10 12
+	bbox 	128 120 19 74
+	frame	data/chars/shiva/grabatk01.gif
+		delay	1
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/shiva/grabatk01.gif
+		delay	8
+	attack2 144 120 34 29 2 0 0 0 10 12
+	frame	data/chars/shiva/grabatk02.gif
+	
+anim grabbackward #SLAM
+	landframe 6
+	fastattack 1
+	jugglecost 0
+	forcedirection 0
+	loop	0
+	delay	18
+	offset	138 192
+	@cmd slamstart
+	@cmd position 5 20 0 0 0
+	@cmd antiwall -60 60 0
+	sound	data/voices/shiva/Shiva1.wav
+	frame	data/chars/shiva/slam00.gif
+		delay	12
+	@cmd position 5 0 30 0 0
+	frame	data/chars/shiva/slam01.gif
+	@cmd position 2 -20 40 0 -1
+	frame	data/chars/shiva/slam02.gif
+	@cmd position 4 -50 0 0 0
+	@cmd spawn01 "quake_high" 0 0 0
+	sound	data/sounds/sf/Slam.wav
+	frame	data/chars/shiva/slam03.gif
+		delay	24
+	@cmd position 4 -60 0 0 0
+	@cmd depost 0
+	@cmd finish 18 2 2 3 0 0
+	@cmd leaper 1 3 0
+	frame	data/chars/shiva/slam03.gif
+		delay	999
+	frame	data/chars/shiva/slam04.gif
+		delay	12
+	@cmd clearL
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/shiva/slam05.gif
+	
+anim jumpattack #JUMP STATIC/FORWARD
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	2
+	offset	138 192
+	bbox 	122 123 38 39
+	hitfx	data/sounds/sf/HighKick.wav
+	sound	data/sounds/sf/HighAttack.wav
+	bbox 	122 123 38 39
+	frame	data/chars/shiva/jumpatk00.gif
+	attack 123 142 75 23 8 1 0 0 10 12
+	sound	data/voices/shiva/Shiva1.wav
+	frame	data/chars/shiva/jumpatk00.gif
+	
+anim jumpattack2 #JUMP DOWN
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	2
+	offset	138 192
+	bbox 	132 134 43 36
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/sounds/sf/HighAttack.wav
+	bbox 	132 134 43 36
+	frame	data/chars/shiva/jumpatk200.gif
+	attack 149 153 28 35 8 0 0 0 10 12
+	sound	data/voices/shiva/Shiva1.wav
+	frame	data/chars/shiva/jumpatk200.gif
+	
+anim runattack #FINAL CRASH
+	landframe 13
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	loop	0
+	delay	3
+	offset	138 192
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/kof/SpecialAttack2.wav
+	@cmd dasher 2 0 0
+	frame	data/chars/shiva/finalcrash00.gif
+	@cmd dasher 1 0 0
+	frame	data/chars/shiva/finalcrash00.gif
+	@cmd dasher 0.5 0 0
+	frame	data/chars/shiva/finalcrash00.gif
+	@cmd dasher 0 0 0
+	frame	data/chars/shiva/finalcrash00.gif
+		delay	6
+	attack2 147 140 41 49 8 0 0 0 10 12
+	sound	data/voices/shiva/Shiva2.wav
+	frame	data/chars/shiva/finalcrash01.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/shiva/finalcrash02.gif
+	attack2 149 152 59 42 8 0 0 0 10 12
+	frame	data/chars/shiva/finalcrash03.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	hitfx	data/sounds/sf/HighKick.wav
+	frame	data/chars/shiva/finalcrash03.gif
+	attack 173 103 52 53 12 1 0 0 10 12
+	bbox 	148 135 33 59
+	frame	data/chars/shiva/finalcrash04.gif
+	@cmd leaper 1 2.2 0
+	attack 149 87 37 51 12 1 0 0 10 12
+	bbox 	136 130 37 39
+	frame	data/chars/shiva/finalcrash05.gif
+	@cmd flip
+	attack 0 0 0 0 0 0 0 0 0 0
+	bbox 	109 123 48 33
+	frame	data/chars/shiva/finalcrash06.gif
+	bbox 	116 113 47 31
+	frame	data/chars/shiva/finalcrash07.gif
+		delay	999
+	bbox 	130 110 22 53
+	frame	data/chars/shiva/finalcrash08.gif
+		delay	12
+	bbox 	120 155 31 39
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/shiva/finalcrash09.gif
+	
+anim special #DRAGON KICK
+	fastattack 1
+	jugglecost 0
+	forcedirection 0
+	energycost 40 1
+	loop	0
+	delay	4
+	offset	138 192
+	hitfx	data/sounds/sf/HighKick.wav
+	sound	data/sounds/kof/Fire.wav
+	frame	data/chars/shiva/special00.gif
+	@cmd block 0
+	frame	data/chars/shiva/special01.gif
+	attack 83 141 49 35 16 1 0 0 20 12
+	frame	data/chars/shiva/special02.gif
+	attack 73 112 63 35 16 1 0 0 20 12
+	frame	data/chars/shiva/special03.gif
+	attack 130 89 53 53 16 1 0 0 20 12
+	frame	data/chars/shiva/special04.gif
+	attack 141 103 61 49 16 1 0 0 20 12
+	frame	data/chars/shiva/special05.gif
+	attack 141 138 57 43 16 1 0 0 20 12
+	frame	data/chars/shiva/special06.gif
+		delay	16
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/shiva/special07.gif
+	
+anim special2 #UPPER
+	fastattack 1
+	jugglecost 20
+	forcedirection -1
+	energycost 0
+	loop	0
+	delay	4
+	offset	138 192
+	bbox 	126 114 19 80
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/HighAttack.wav
+	attack2 136 148 50 31 4 0 0 0 15 12
+	frame	data/chars/shiva/a300.gif
+		delay	1
+	attack 0 0 0 0 0 0 0 0 0 0
+	hitfx	data/sounds/sf/HighKick.wav
+	frame	data/chars/shiva/a300.gif
+		delay	4
+	attack 135 133 61 22 8 1 0 0 15 12
+	dropv 4.3 1 0
+	frame	data/chars/shiva/a301.gif
+	attack 135 95 46 47 8 1 0 0 15 12
+	dropv 3.7 1 0
+	bbox 	122 114 19 80
+	frame	data/chars/shiva/a302.gif
+		delay	24
+	attack 133 83 26 54 8 1 0 0 15 12
+	dropv 3.7 1 0
+	frame	data/chars/shiva/a303.gif
+		delay	4
+	attack 0 0 0 0 0 0 0 0 0 0
+	bbox 	128 114 18 80
+	frame	data/chars/shiva/a304.gif
+	
+anim freespecial #BLOCK
+	loop	0
+	delay	32
+	offset	138 192
+	bbox 	128 114 20 80
+	@cmd block 1
+	frame	data/chars/shiva/block00.gif
+		delay	1
+	@cmd block 0
+	frame	data/chars/shiva/block00.gif
+
+anim freespecial4 #RAGE ORB
+	fastattack 1
+	jugglecost 0
+	forcedirection -1
+	energycost 80 1
+	loop	0
+	delay	24
+	offset	138 192
+	sound	data/voices/shiva/Shiva1.wav
+	@cmd projectile 1 "rage" 0 -1 0
+	@cmd spawnbind "ragefull" 0 0 1
+	frame	data/chars/shiva/a200.gif
+		delay	8
+	frame	data/chars/shiva/a200.gif
+		delay	21
+	@cmd shooter "shiva_orbP" 90 50 0 6 0 0
+	sound	data/sounds/sf/Wind2.wav
+	frame	data/chars/shiva/a201.gif
+		delay	8
+	frame	data/chars/shiva/a202.gif
+	frame	data/chars/shiva/a203.gif
+	
+anim freespecial5 #RAGE COMBO RUN
+	followanim 4
+	followcond 1
+	fastattack 1
+	jugglecost 0
+	forcedirection -1
+	energycost 120 1
+	loop	0
+	delay	24
+	offset	138 192
+	sound	data/voices/shiva/Shiva1.wav
+	@cmd projectile 1 "rage" 0 -1 0
+	@cmd spawnbind "ragefull" 0 0 1
+	frame	data/chars/shiva/a200.gif
+		delay	3
+	@cmd dasher 6 0 0
+	@cmd keymoveZ 6
+	attack 139 147 50 47 0 0 0 1 0 12
+	dropv 0 1 0
+	sound	data/sounds/sf/Wind2.wav
+	frame	data/chars/shiva/run00.gif
+		delay	3
+	frame	data/chars/shiva/run00.gif
+	frame	data/chars/shiva/run01.gif
+		delay	8
+	@cmd looper 2 7
+	@cmd dasher 2 0 0
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/shiva/finalcrash00.gif
+	@cmd dasher 1 0 0
+	frame	data/chars/shiva/finalcrash00.gif
+	@cmd dasher 0.5 0 0
+	frame	data/chars/shiva/finalcrash09.gif
+	@cmd dasher 0 0 0
+	frame	data/chars/shiva/finalcrash09.gif
+	
+anim follow4 #RAGE COMBO
+	fastattack 1
+	jugglecost 0
+	forcedirection -1
+	dot 0 1 3 120 1
+	loop	0
+	delay	2
+	offset	138 192
+	hitfx	data/sounds/sf/LowPunch.wav
+	frame	data/chars/shiva/a200.gif
+	sound	data/sounds/sf/LowAttack.wav
+	attack 152 121 51 19 2 0 0 0 10 12
+	frame	data/chars/shiva/a100.gif
+		delay	1
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/shiva/a100.gif
+		delay	2
+	attack 162 126 49 21 2 0 0 0 10 12
+	frame	data/chars/shiva/a101.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/shiva/a102.gif
+	@cmd looper 1 8
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/shiva/a200.gif
+	attack 159 135 62 22 4 0 0 0 10 12
+	frame	data/chars/shiva/a201.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/shiva/a202.gif
+	@cmd looper 6 5
+	frame	data/chars/shiva/a203.gif
+	hitfx	data/sounds/kof/SpecialAttack11.wav
+	hitflash axel_burn
+	@cmd dasher 0 0 0
+	frame	data/chars/shiva/a300.gif
+		delay	2
+	burn 135 133 61 22 24 1 0 0 15 12
+	dropv 6 3 0
+	frame	data/chars/shiva/a301.gif
+	burn 135 95 46 47 24 1 0 0 15 12
+	dropv 6 3 0
+	sound	data/sounds/kof/SpecialAttack12.wav
+	frame	data/chars/shiva/a302.gif
+		delay	24
+	burn 133 83 26 54 24 1 0 0 15 12
+	dropv 6 3 0
+	frame	data/chars/shiva/a303.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/shiva/a303.gif
+		delay	6
+	frame	data/chars/shiva/a302.gif
+	frame	data/chars/shiva/a301.gif
+	frame	data/chars/shiva/a300.gif
+		delay	32
+	frame	data/chars/shiva/wait00.gif

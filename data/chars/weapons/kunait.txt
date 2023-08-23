@@ -1,0 +1,47 @@
+name				kunaiT #THROWNED
+type				none
+subtype				weapon
+candamage			player enemy obstacle
+nolife				1
+lifespan			6
+remove				1
+noquake 			1
+gfxshadow			1 1
+noatflash 			1
+flash				metalflash
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/weapons.c
+
+anim idle
+	attackone 1
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	hitflash blood
+	loop	0
+	delay	1000
+	offset	21 19
+	bbox 	13 12 16 7
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh.wav
+	attack 13 12 16 7 8 1 1 0 0 12
+	frame	data/chars/weapons/kunai08.gif
+	
+anim fall
+	landframe 9
+	loop	1 1 9
+	delay	2
+	offset	21 19
+	@cmd leaper -1 2 0
+	sound	data/sounds/Clash.wav
+	frame	data/chars/weapons/kunai00.gif
+	sound	data/sounds/Whoosh.wav
+	frame	data/chars/weapons/kunai00.gif
+	frame	data/chars/weapons/kunai01.gif
+	frame	data/chars/weapons/kunai02.gif
+	frame	data/chars/weapons/kunai03.gif
+	frame	data/chars/weapons/kunai04.gif
+	frame	data/chars/weapons/kunai05.gif
+	frame	data/chars/weapons/kunai06.gif
+	frame	data/chars/weapons/kunai07.gif
+	frame	data/chars/weapons/kunai08.gif

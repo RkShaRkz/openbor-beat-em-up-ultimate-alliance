@@ -1,0 +1,19 @@
+name			1up
+type			item
+health			0
+nolife			1
+facing 			1
+gfxshadow		1 1
+offscreenkill	5
+onblockwscript	data/scripts/onblockw/wall.c
+
+anim idle
+	loop	1
+	delay	40
+	offset	48 61
+	bbox 	41 39 14 24
+	frame	data/chars/itens/1up00.gif
+	delay	2
+	frame	data/chars/itens/1up01.gif
+	frame	data/chars/itens/1up02.gif
+

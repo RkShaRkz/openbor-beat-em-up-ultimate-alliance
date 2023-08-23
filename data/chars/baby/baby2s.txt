@@ -1,0 +1,28 @@
+##MAIN
+name				Baby2S
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 		data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle
+	loop	0
+	delay	1
+        offset	254 177
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/Baby/sword/Sp01.gif
+	frame	data/chars/Baby/sword/Sp02.gif
+	frame	data/chars/Baby/sword/Sp03.gif
+	frame	data/chars/Baby/sword/Sp04.gif
+	frame	data/chars/Baby/sword/Sp05.gif
+	frame	data/chars/Baby/sword/Sp06.gif
+	frame	data/chars/Baby/sword/Sp07.gif
+	frame	data/chars/Baby/sword/Sp08.gif

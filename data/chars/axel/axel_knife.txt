@@ -1,0 +1,265 @@
+##ATTRIBUTES
+
+#SKILLS		***
+#LIFE		***
+#POWER		***
+#SPEED		**
+#JUMP		**
+#SPECIAL	**
+
+##MAIN
+name				Axel_Knife
+type				none
+hostile				enemy
+candamage			 enemy obstacle
+projectilehit		enemy obstacle
+
+##LIFE
+health				0 #200/300/400/500/600/700
+
+##POWER
+offense 			all 2 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				10 #8/10/12/14/16/18
+running 			20 2.9 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			15 #13/15/17/19/21/23
+jumpheight 			3.1 #2.9/3.1/3.3/3.5/3.7/3.9
+jumpmove			0 1 #PLAYER ONLY
+
+##SPECIAL
+mp					0
+mprate  			5 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		33 #BASE 36
+grabfinish 			0 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				74
+
+##MISC
+jugglepoints		30
+guardpoints			87
+guardrate			13
+risetime			170
+riseinv				0.2 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+keyscript			data/scripts/key/axel.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+script				data/scripts/updateentity/axel.c
+
+##ICONS
+icon				data/chars/axel/icon.gif 1
+iconmphigh			data/chars/axel/iconmp.gif 1
+
+##PARROWS
+parrow				data/sprites/parrow.gif 	-15 -140
+parrow2				data/sprites/parrow2.gif 	-15 -140
+parrow3				data/sprites/parrow3.gif 	-15 -140
+parrow4				data/sprites/parrow4.gif 	-15 -140
+
+##DIESOUND
+diesound			data/voices/axel/Axel1.wav
+
+##REMAPS
+remap				data/chars/axel/idle00.gif data/chars/axel/alter1.gif
+remap				data/chars/axel/idle00.gif data/chars/axel/alter2.gif
+remap				data/chars/axel/idle00.gif data/chars/axel/alter3.gif
+
+##LOADS
+knife				knifeT
+
+##ANIMATIONS#############################################################################
+
+anim idle
+	loop	1
+	delay	16
+	offset	62 126
+	bbox 	50 55 23 74
+	@cmd clearL
+	frame	data/chars/axel/knife/idle00.gif
+	frame	data/chars/axel/knife/idle01.gif
+	frame	data/chars/axel/knife/idle02.gif
+	frame	data/chars/axel/knife/idle03.gif
+
+anim walk
+	loop	1
+	delay	16
+	offset	62 126
+	bbox 	54 49 20 79
+	frame	data/chars/axel/knife/walk00.gif
+	frame	data/chars/axel/knife/walk01.gif
+	frame	data/chars/axel/knife/walk02.gif
+	frame	data/chars/axel/knife/walk03.gif
+	frame	data/chars/axel/knife/walk04.gif
+	frame	data/chars/axel/knife/walk05.gif
+
+anim run
+	loop	1
+	delay	14
+	offset	62 126
+	bbox 	61 60 20 68
+	frame	data/chars/axel/knife/run00.gif
+	frame	data/chars/axel/knife/run01.gif
+	sound	data/sounds/kof/run.wav
+	frame	data/chars/axel/knife/run02.gif
+	frame	data/chars/axel/knife/run03.gif
+	frame	data/chars/axel/knife/run04.gif
+	sound	data/sounds/kof/run2.wav
+	frame	data/chars/axel/knife/run05.gif
+
+anim jumpdelay
+	loop	0
+	delay	12
+	offset	62 126
+	bbox 	52 70 25 58
+	frame	data/chars/axel/knife/jumpdelay00.gif
+
+anim jump
+	loop	0
+	delay	30
+	offset	62 126
+	bbox 	56 50 19 61
+	sound	data/sounds/kof/Jump.wav
+	frame	data/chars/axel/knife/jump00.gif
+	frame	data/chars/axel/knife/jump01.gif
+	
+anim walkoff
+	loop	0
+	delay	30
+	offset	62 126
+	bbox 	56 50 19 61
+	@cmd jump 1
+	frame	data/chars/axel/knife/jump00.gif
+	frame	data/chars/axel/knife/jump01.gif
+
+anim jumpland
+	loop	0
+	delay	12
+	offset	62 126
+	bbox 	52 70 25 58
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/axel/knife/jumpland00.gif
+
+anim attack1
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	hitflash blood
+	loop	0
+	delay	8
+	offset	62 126
+	bbox 	52 51 21 78
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh.wav
+	attack 79 77 19 3 8 1 1 0 10 12
+	frame	data/chars/axel/knife/a100.gif
+	attack 102 74 19 3 8 1 1 0 10 12
+	bbox 	58 53 19 76
+	frame	data/chars/axel/knife/a101.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	bbox 	52 51 21 78
+	frame	data/chars/axel/knife/a100.gif
+
+anim jumpattack #JUMP STATIC
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	6
+	offset	62 126
+	bbox 	53 45 16 59
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+	frame	data/chars/axel/knife/jumpatk00.gif
+	bbox 	62 49 15 55
+	attack 64 73 30 28 4 0 0 0 15 12
+	sound	data/voices/axel/Axel2.wav
+	frame	data/chars/axel/knife/jumpatk01.gif
+		delay	2
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/axel/knife/jumpatk01.gif
+		delay	18
+	hitfx	data/sounds/sf/HighKick.wav
+	bbox 	66 51 24 48
+	attack 73 39 38 66 8 1 0 0 15 12
+	frame	data/chars/axel/knife/jumpatk02.gif
+		delay	6
+	attack 0 0 0 0 0 0 0 0 0 0
+	bbox 	62 49 15 55
+	frame	data/chars/axel/knife/jumpatk03.gif
+	bbox 	53 45 16 59
+	frame	data/chars/axel/knife/jumpatk04.gif
+
+anim jumpattack2 #JUMP DOWN
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	4
+	offset	62 126
+	bbox 	56 52 19 57
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+	frame	data/chars/axel/knife/jumpatk200.gif
+	attack 56 82 31 29 4 0 0 0 10 12
+	sound	data/voices/axel/Axel2.wav
+	frame	data/chars/axel/knife/jumpatk200.gif
+
+anim jumpattack3 #JUMP UP
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	4
+	offset	62 126
+	bbox 	44 78 54 22
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/axel/knife/jumpatk300.gif
+	attack 62 70 38 30 8 0 0 0 10 12
+	sound	data/voices/axel/Axel2.wav
+	frame	data/chars/axel/knife/jumpatk300.gif
+
+anim jumpforward #JUMP FORWARD
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	8
+	offset	62 126
+	bbox 	54 52 25 45
+	hitfx	data/sounds/sf/HighKick.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/axel/knife/fjumpatk00.gif
+	bbox 	40 49 28 41
+	attack 51 73 57 27 8 1 0 0 10 12
+	sound	data/voices/axel/Axel2.wav
+	frame	data/chars/axel/knife/fjumpatk01.gif
+
+anim attackboth #THROW KNIFE
+	throwframe 1 9999
+	loop	0
+	delay	8
+	offset	62 126
+	bbox 	52 51 21 78
+	@cmd antiwall 20 -20 -1
+	frame	data/chars/axel/knife/a100.gif
+	bbox 	0 0 0 0
+	@cmd throweap 46 47 -1 3 0 0
+	frame	data/chars/axel/knife/a102.gif
+	bbox 	52 51 21 78
+	frame	data/chars/axel/knife/a103.gif

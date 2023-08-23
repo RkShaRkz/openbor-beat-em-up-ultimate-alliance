@@ -1,0 +1,52 @@
+##MAIN
+name				AbadedeS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle #RAGE RUN
+	loop	0
+	delay	1
+	offset	152 199
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/abadede/special00.gif
+	frame	data/chars/abadede/special01.gif
+	frame	data/chars/abadede/special02.gif
+	frame	data/chars/abadede/special03.gif
+	frame	data/chars/abadede/run00.gif
+	frame	data/chars/abadede/run00.gif
+	frame	data/chars/abadede/run01.gif
+	frame	data/chars/abadede/run02.gif
+	frame	data/chars/abadede/run03.gif
+	frame	data/chars/abadede/run04.gif
+	frame	data/chars/abadede/run00.gif
+	
+anim idle2 #RAGE BLITZ
+	loop	0
+	delay	1
+	offset	152 199
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/abadede/blitz00.gif
+	frame	data/chars/abadede/run00.gif
+	frame	data/chars/abadede/run01.gif
+	frame	data/chars/abadede/run02.gif
+	frame	data/chars/abadede/run03.gif
+	frame	data/chars/abadede/run04.gif
+	frame	data/chars/abadede/run04.gif
+	frame	data/chars/abadede/blitz00.gif
+	frame	data/chars/abadede/blitz00.gif
+	frame	data/chars/abadede/blitz01.gif
+	frame	data/chars/abadede/blitz01.gif
+	frame	data/chars/abadede/blitz02.gif
+	frame	data/chars/abadede/blitz03.gif
+	frame	data/chars/abadede/blitz04.gif

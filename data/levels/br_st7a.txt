@@ -1,0 +1,465 @@
+background	data/bgs/Br07/back02.gif		1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/Br07/pn02.gif		none	none
+frontpanel	data/bgs/Br07/front02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn03.gif
+order		a
+music		data/music/Lv7A.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 7
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+spawn		Drum
+flip		1
+coords		223 259 0
+at			0
+
+spawn		Drum
+flip		0
+coords		223 225 0
+at			0
+
+spawn		Drum
+flip		1
+coords		230 188 0
+at			0
+
+spawn		LataEX
+flip		1
+coords		404 229 0
+at			0
+
+spawn		Drum
+flip		0
+coords		378 188 0
+at			0
+
+spawn		Drum
+flip		1
+coords		433 267 0
+at			0
+
+spawn		LataEX
+flip		1
+coords		600 265 0
+at			0
+
+spawn		Drum
+flip		0
+coords		592 195 0
+at			0
+
+spawn		Drum
+flip		1
+coords		645 195 0
+at			0
+
+spawn		St1_Light
+flip		1
+coords		299 250 0
+at			0
+
+
+spawn		St1_Light
+flip		1
+coords		681 250 0
+at			0
+
+spawn		St1_Light
+flip		1
+coords		1000 250 0
+at			0
+
+spawn		St1_Light
+flip		1
+coords		1900 250 0
+at			0
+
+spawn		St1_Light
+flip		1
+coords		2336 250 0
+at			0
+
+spawn		St1_Light
+flip		1
+coords		1600 250 0
+at			0
+spawn		sandbag
+flip		0
+coords		829 200 0
+at			0
+
+spawn		sandbag
+flip		0
+coords		853 257 0
+at			0
+
+spawn		sandbag
+flip		0
+coords		916 216 0
+at			0
+
+#########################################################################################
+
+group		5 5
+at			301
+
+Wait
+at			301
+
+spawn		Bbilly
+flip		0
+coords		100 220 0
+at			301
+
+spawn		Btiger
+Map             1
+coords		-70 220 0
+at			301
+
+spawn		Soldier
+map             2
+coords		480  250 0
+at			301
+
+spawn		Mic2
+Alias           Mic
+map             3
+coords		-70  240 0
+at			301
+
+spawn		Soldier
+map             2
+coords		200  240 0 0
+at			301
+
+spawn		Gneiss1
+Alias           Luther
+map             3
+coords	        -100 250 0
+at			301
+
+spawn		Mic
+Alias           Billy
+flip		1
+coords		480 245 0
+at			301
+
+spawn		Billy2
+Alias           Billy
+flip		1
+coords		-70  260 0
+at			301
+
+spawn		BasicX2
+flip		1
+coords		-70  280 0
+at			301
+
+spawn		Elmer1
+Alias           Elmer
+flip		1
+coords		-70  260 0 0
+at			301
+
+
+#
+
+2pspawn		BasicX0
+flip		1
+coords		-70 250 0
+at			301
+
+2pspawn		Billy1
+flip		1
+coords		-75 245 0
+at			301
+
+2pspawn		kickboxer1
+flip		1
+coords		-70  250 0
+at			301
+
+3pspawn		BasicX2
+flip		1
+3pcoords	-100  250 0
+at			301
+
+3pspawn		BasicX1
+flip		1
+coords		-70  240 0 0
+at			301
+
+spawn		Mic_wait0
+Alias           Elmer
+flip		0
+coords		594  203 0 0
+at			302
+
+spawn		Gneiss_wait0
+Alias           Chuck
+flip		0
+coords		590  250 0 0
+at			302
+
+spawn  DRum
+	coords  808  210
+	at  302
+
+spawn  LataEX
+	coords  833  229
+	at  302
+
+spawn  DRum
+	coords  860  248
+	at  302
+
+group		4 4
+at			780
+
+Wait
+at			780
+
+spawn		Andore
+map             4
+Alias           Homer
+flip		1
+coords		-70  280 0
+at			780
+
+spawn		kickboxer2
+flip		1
+coords		-70  280 0
+at			780
+
+spawn		Soldier
+Map             1
+flip		1
+coords		-70  280 0
+at			780
+
+spawn		Billy1
+Alias           Billy
+flip		1
+coords		-70  280 0 0
+at			780
+
+
+spawn		Slick3
+alias           Mac
+Map             3
+flip		1
+coords		-70  280 0 0
+at			780
+
+spawn		Slick2
+Alias           Jr.jr
+flip		1
+coords		-70  280 0
+at			780
+
+spawn		Gneiss2
+Alias           Jhow
+Map             3
+health          180
+flip		1
+coords		-70  280 0
+at			780
+
+spawn		Tiger0
+Alias           Tiger
+coords		-70  280 0
+at			780
+
+spawn		Soldier
+Map 2
+flip		1
+coords		-70  280
+at			780
+
+
+spawn		Soldier
+MAp             3
+Alias           Cloud
+flip		1
+coords		-70  280
+at			780
+
+2pspawn		MIc2
+alias           Mic
+flip		1
+coords		-70  280
+at			780
+
+
+2pspawn		BikerX
+flip		1
+coords		-70  280 0 0
+at			780
+
+3pspawn		BikerX
+flip		1
+coords		-70  280 0 0
+at			780
+
+
+3pspawn		BikerX
+flip		1
+coords		-70  280 0 0
+at			780
+
+spawn  Box
+	coords  503  222
+	at  781
+
+spawn  Box
+	coords  560  242
+	at  781
+
+spawn  Box
+	coords  670  210
+	at  781
+spawn  Box
+	coords  756  230
+	at  781
+
+group		4 4
+at			1000
+
+Wait
+at			1000
+
+spawn		Andore
+flip		0
+coords		100 220 0
+at			1000
+
+spawn		Andore
+alias           Andore.jr
+Map             1
+coords		-70 220 0
+at			1000
+
+spawn		Escarlate
+map             2
+coords		-75 245 0
+at			1000
+
+spawn		Soldier
+map             2
+coords		480  250 0
+at			1000
+
+spawn		Mic2
+Alias           Mic
+map             3
+coords		-70  240 0
+at			1000
+
+spawn		Tiger0
+Alias           Tiger
+coords		450  240 0 0
+at			1000
+
+spawn		Gneiss1
+Alias           Luther
+map             3
+coords	        -100 250 0
+at			1000
+
+spawn		Soldier
+Alias           Neitan
+map             1
+flip		1
+coords		480 245 0
+at			1000
+
+spawn		Billy2
+Alias           Billy
+flip		1
+coords		-70  260 0
+at			1000
+
+spawn		BasicX2
+flip		1
+coords		-70  280 0
+at			1000
+
+spawn		Elmer3
+Alias           Elmer
+flip		1
+coords		-70  260 0 0
+at			1000
+
+
+#
+
+2pspawn		BasicX0
+flip		1
+coords		-70 250 0
+at			1000
+
+2pspawn		Billy1
+flip		1
+coords		-75 245 0
+at			1000
+
+2pspawn		kickboxer1
+flip		1
+coords		-70  250 0
+at			1000
+
+3pspawn		BasicX2
+flip		1
+3pcoords	-100  250 0
+at			1000
+
+
+spawn		Rolento
+coords		250 250 0
+at			2200
+
+spawn		Gneiss1
+Alias           Luther
+map             3
+coords	        -100 250 0
+at			2200
+
+spawn		Soldier
+Alias           Neitan
+map             1
+flip		1
+coords		480 245 0
+at			2200
+
+spawn		slick3
+Alias           Slick
+flip		1
+coords		-70  260 0
+at			2200
+
+spawn		Soldier
+map             3
+flip		1
+coords		-70  280 0
+at			2200
+
+spawn		Soldier
+Map             2
+coords		-70  260 0 0
+at			2200

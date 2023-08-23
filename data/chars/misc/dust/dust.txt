@@ -1,0 +1,21 @@
+name			Dust
+type			none
+shadow			0
+alpha			1
+animationscript	data/scripts/script.c
+onspawnscript	data/scripts/onspawn/dust.c
+
+anim idle
+	loop	0
+	delay	4
+	offset	87 118
+	frame	data/chars/misc/dust/dust00.gif
+	frame	data/chars/misc/dust/dust01.gif
+	frame	data/chars/misc/dust/dust02.gif
+	frame	data/chars/misc/dust/dust03.gif
+	frame	data/chars/misc/dust/dust04.gif
+	frame	data/chars/misc/dust/dust05.gif
+	frame	data/chars/misc/dust/dust06.gif
+	@cmd suicide
+	frame	data/chars/misc/dust/empty.gif
+

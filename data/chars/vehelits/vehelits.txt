@@ -1,0 +1,138 @@
+##MAIN
+name				Vehelits
+type				enemy
+hostile				player
+candamage			player
+subject_to_platform 0
+subject_to_obstacle 0
+
+##LIFE
+health				1 #SCRIPT
+
+##STRENGTH
+offense 			all 2 #2/1.5/1
+
+##MISC
+gfxshadow			1 1
+nodrop				2
+noatflash			1
+flash				flash
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onspawnscript		data/scripts/onspawn/vehelits.c
+onfallscript		data/scripts/onfall/koCount.c
+
+##ICONS
+icon				data/chars/vehelits/icon.gif 1
+
+##DIESOUND
+diesound			data/voices/vehelits/Vehelits1.wav
+
+##LOADS
+load				vehelits_tail
+
+##ANIMATIONS#############################################################################
+
+anim spawn #WAIT SPAWN
+	loop	0
+	delay	4
+	offset	49 56
+		seta 60
+	@cmd spawnAliasP "vehelits_tail" "Tail19" 0 0 -190
+	@cmd spawnAliasP "vehelits_tail" "Tail18" 0 0 -180
+	@cmd spawnAliasP "vehelits_tail" "Tail17" 0 0 -170
+	@cmd spawnAliasP "vehelits_tail" "Tail16" 0 0 -160
+	@cmd spawnAliasP "vehelits_tail" "Tail15" 0 0 -150
+	@cmd spawnAliasP "vehelits_tail" "Tail14" 0 0 -140
+	@cmd spawnAliasP "vehelits_tail" "Tail13" 0 0 -130
+	@cmd spawnAliasP "vehelits_tail" "Tail12" 0 0 -120
+	@cmd spawnAliasP "vehelits_tail" "Tail11" 0 0 -110
+	@cmd spawnAliasP "vehelits_tail" "Tail10" 0 0 -100
+	@cmd spawnAliasP "vehelits_tail" "Tail9" 0 0 -90
+	@cmd spawnAliasP "vehelits_tail" "Tail8" 0 0 -80
+	@cmd spawnAliasP "vehelits_tail" "Tail7" 0 0 -70
+	@cmd spawnAliasP "vehelits_tail" "Tail6" 0 0 -60
+	@cmd spawnAliasP "vehelits_tail" "Tail5" 0 0 -50
+	@cmd spawnAliasP "vehelits_tail" "Tail4" 0 0 -40
+	@cmd spawnAliasP "vehelits_tail" "Tail3" 0 0 -30
+	@cmd spawnAliasP "vehelits_tail" "Tail2" 0 0 -20
+	@cmd spawnAliasP "vehelits_tail" "Tail1" 0 0 -10
+	@cmd spawnAliasP "vehelits_tail" "Tail0" 0 0 -0
+	@cmd anichange "ANI_FOLLOW1"
+	frame	data/chars/vehelits/head00.gif
+	
+anim follow1 #WAIT LOOP
+	loop	1
+	delay	128
+	offset	49 56
+		seta 60
+	@cmd cancel 0 999 -999 999 -999 999 "ANI_FOLLOW2"
+	@cmd dasher 0.1 0 0
+	frame	data/chars/vehelits/head00.gif
+	@cmd cancel 0 999 -999 999 -999 999 "ANI_FOLLOW2"
+	@cmd dasher -0.1 0 0
+	frame	data/chars/vehelits/head00.gif
+	
+anim follow2 #LOOP STOP
+	loop	0
+	delay	4
+	offset	49 56
+		seta 60
+	frame	data/chars/vehelits/head00.gif
+	
+anim idle
+	fastattack 1
+	jugglecost 31
+	forcedirection 0
+	loop	1
+	delay	8
+	offset	49 56
+	bbox 	12 2 72 46 24
+	hitfx	data/sounds/sf/HighKick.wav
+		seta 60
+	@cmd clearL
+	attack 12 2 72 46 12 1 1 0 0 12
+	frame	data/chars/vehelits/head00.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/vehelits/head00.gif
+	
+anim land
+	bouncefactor 0
+	loop	0
+	delay	2
+	offset	49 56
+		seta 60
+	@cmd basechange 0
+	@cmd landsafe
+	frame	data/chars/vehelits/head00.gif
+	
+anim pain
+	loop	0
+	delay	3
+	offset	49 56
+		seta 60
+	sound	data/voices/vehelits/Vehelits1.wav
+	frame	data/chars/vehelits/head00.gif
+	frame	data/chars/vehelits/head00.gif
+		offset	52 56
+	frame	data/chars/vehelits/head00.gif
+		offset	49 56
+	@cmd looper 1 3
+	@cmd cancelfallE "ANI_LAND"
+	frame	data/chars/vehelits/head00.gif
+	
+anim fall
+	landframe 2
+	loop	0
+	delay	8
+	offset	49 56
+	@cmd spawnscreen "explosion" 240 60 150
+	frame	data/chars/vehelits/head00.gif
+		delay	999
+	@cmd spawnbind "explosion" 0 0 -1
+	frame	data/chars/vehelits/head00.gif
+		delay	8
+	sound	data/sounds/kof/Jumpland4.wav
+	frame	data/chars/vehelits/head00.gif
+	

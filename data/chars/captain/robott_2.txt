@@ -1,0 +1,140 @@
+name					robott_2
+health					1
+nolife					1
+type					none
+hostile					player npc obstacle shot
+candamage				player npc obstacle shot
+speed					0
+nomove					1
+noquake					1
+falldie					1
+subtype					flydie
+#shadow					0
+gfxshadow 1 3
+remove					0
+flash 					flash
+bflash 					guard
+dust					dust01
+lifespan        		3
+subject_to_wall 0
+
+palette data/chars/players/COM/captain/robott01.gif #1
+
+load				quake
+
+
+
+anim	death
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	2
+	frame	data/chars/players/COM/captain/robott01.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/players/COM/captain/robott01.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/players/COM/captain/robott01.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/players/COM/captain/robott01.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/players/COM/captain/robott01.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/players/COM/captain/robott01.gif
+	frame	data/chars/misc/empty.gif
+	delay	5
+	move	1000
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+		
+anim	fall
+	loop	0
+	delay	2
+	offset	30 30
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+	frame	data/chars/misc/empty.gif
+		
+anim	follow1
+	loop	0
+	offset	185 177
+	bbox	0 0 0 0
+	delay 2
+	attack18	160 70 160 103 40 1 1 0 35 20
+	dropv 5 0.35
+	sound data/sounds/gre.wav
+	@cmd	projectile 1 "quake" 0 0 0
+	frame	data/chars/players/COM/baby/frsp502.gif
+	frame	data/chars/players/COM/baby/frsp503.gif
+	frame	data/chars/players/COM/baby/frsp504.gif
+	frame	data/chars/players/COM/baby/frsp505.gif
+	frame	data/chars/players/COM/baby/frsp506.gif
+	frame	data/chars/players/COM/baby/frsp507.gif
+	frame	data/chars/players/COM/baby/frsp508.gif
+	frame	data/chars/players/COM/baby/frsp509.gif
+	frame	data/chars/players/COM/baby/frsp510.gif
+	frame	data/chars/players/COM/baby/frsp511.gif
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/COM/baby/frsp512.gif
+	frame	data/chars/players/COM/baby/frsp513.gif
+	frame	data/chars/players/COM/baby/frsp514.gif
+	frame	data/chars/players/COM/baby/frsp515.gif
+	frame	data/chars/players/COM/baby/frsp516.gif
+	frame	data/chars/players/COM/baby/frsp517.gif
+	delay 24
+	frame	data/chars/misc/empty.gif
+		
+anim	idle
+	followanim	1
+	followcond	1
+	jumpframe 1 2.5 1
+	landframe 2 
+	jugglecost	0
+	hitflash	flash
+	hitfx	data/sounds/beat3.wav
+	fastattack	1
+	loop	0
+	offset	238 177
+	delay	2
+	bbox	0 0 0 0
+	delay 2
+	frame	data/chars/players/COM/captain/robott01.gif
+	attack18	210 130 60 40 40 1 1 0 35 20
+	dropv 5 0.35
+	delay 999
+	frame	data/chars/players/COM/captain/robott01.gif
+	delay 2
+	attack18	160 70 160 103 40 1 1 0 35 20
+	dropv 5 0.35
+	sound data/sounds/gre.wav
+	@cmd	projectile 1 "quake" 0 0 0
+	frame	data/chars/players/COM/baby/frsp502.gif
+	frame	data/chars/players/COM/baby/frsp503.gif
+	frame	data/chars/players/COM/baby/frsp504.gif
+	frame	data/chars/players/COM/baby/frsp505.gif
+	frame	data/chars/players/COM/baby/frsp506.gif
+	frame	data/chars/players/COM/baby/frsp507.gif
+	frame	data/chars/players/COM/baby/frsp508.gif
+	frame	data/chars/players/COM/baby/frsp509.gif
+	frame	data/chars/players/COM/baby/frsp510.gif
+	frame	data/chars/players/COM/baby/frsp511.gif
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/COM/baby/frsp512.gif
+	frame	data/chars/players/COM/baby/frsp513.gif
+	frame	data/chars/players/COM/baby/frsp514.gif
+	frame	data/chars/players/COM/baby/frsp515.gif
+	frame	data/chars/players/COM/baby/frsp516.gif
+	frame	data/chars/players/COM/baby/frsp517.gif
+	delay 24
+	frame	data/chars/misc/empty.gif
+
+		
+
+		

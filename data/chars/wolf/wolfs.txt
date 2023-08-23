@@ -1,0 +1,57 @@
+##MAIN
+name				WolfS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 		data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle #RAGE RUN
+	loop	0
+	delay	4
+	offset	152 199
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	offset	152 199
+	frame	data/chars/Wolf/a100.gif
+	frame	data/chars/Wolf/a101.gif
+	frame	data/chars/Wolf/a102.gif
+	frame	data/chars/Wolf/a103.gif
+	frame	data/chars/Wolf/a201.gif
+	frame	data/chars/Wolf/a202.gif
+	frame	data/chars/Wolf/a203.gif
+	frame	data/chars/Wolf/a204.gif
+	frame	data/chars/Wolf/a205.gif
+	frame	data/chars/Wolf/a100.gif
+	frame	data/chars/Wolf/a101.gif
+	frame	data/chars/Wolf/a102.gif
+	frame	data/chars/Wolf/a103.gif
+	frame	data/chars/Wolf/a201.gif
+	frame	data/chars/Wolf/a202.gif
+	frame	data/chars/Wolf/a203.gif
+	frame	data/chars/Wolf/a204.gif
+	frame	data/chars/Wolf/a205.gif
+	frame	data/chars/Wolf/a100.gif
+	frame	data/chars/Wolf/a101.gif
+	frame	data/chars/Wolf/a102.gif
+	frame	data/chars/Wolf/a103.gif
+	frame	data/chars/Wolf/a201.gif
+	frame	data/chars/Wolf/a202.gif
+	frame	data/chars/Wolf/a203.gif
+	frame	data/chars/Wolf/a204.gif
+	frame	data/chars/Wolf/a205.gif
+	frame	data/chars/Wolf/a100.gif
+	frame	data/chars/Wolf/a101.gif
+	frame	data/chars/Wolf/a102.gif
+	frame	data/chars/Wolf/a103.gif
+	frame	data/chars/Wolf/a201.gif
+	frame	data/chars/Wolf/a202.gif
+	frame	data/chars/Wolf/a203.gif
+	frame	data/chars/Wolf/a204.gif
+	frame	data/chars/Wolf/a205.gif

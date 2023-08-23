@@ -1,0 +1,125 @@
+background	data/bgs/st3/back04.gif		1 1 0 0 0 0 1 1 0 0
+bglayer		data/bgs/st3/bg00.gif		0.8 1 -50 0 0 0 1 1 0 0 1 10 300 0.5
+panel		data/bgs/st3/pn14.gif		none	none
+frontpanel	data/bgs/st3/fpn03.gif
+order		a
+music		data/music/st2c.ogg
+settime		60
+scrollspeed 0.5
+stagenumber 3
+spawn1		120 20 300
+spawn2		150 40 300
+spawn3		180 20 300
+spawn4		210 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+wall		0 275 -500 -500 207 47 80 1000
+
+#########################################################################################
+
+spawn		St3_Lamp4
+flip		1
+coords		1 1 0
+at			0
+
+#########################################################################################
+
+spawn		Box
+flip		0
+coords		400 240 0
+at			0
+
+spawn		Box
+flip		0
+coords		550 270 0
+at			0
+
+spawn		Ninja_Wait3
+flip		1
+coords		670 230 0
+at			0
+
+spawn		Ninja_Wait2
+flip		0
+coords		725 230 0
+at			0
+
+group		1000 1000
+at			0
+
+spawn		BasicX4
+flip		1
+coords		600 240 0
+at			0
+
+spawn		BasicX4
+flip		1
+coords		600 240 0
+at			50
+
+spawn		BasicX4
+flip		1
+coords		600 240 0
+at			100
+
+spawn		BasicX4
+flip		1
+coords		600 240 0
+at			150
+
+spawn		BasicX4
+flip		1
+coords		600 240 0
+at			200
+
+spawn		BasicX4
+flip		1
+coords		700 240 0
+at			200
+
+spawn		BasicX4
+flip		1
+coords		800 240 0
+at			200
+
+spawn		BasicX4
+flip		1
+coords		800 260 0
+at			200
+
+spawn		Sword
+flip		0
+coords		410 230 230
+at			300
+
+spawn		Kunai
+flip		0
+coords		465 230 230
+at			300
+
+spawn		Ninja2
+2pspawn
+flip		1
+coords		700 245 0
+at			200
+
+spawn		Ninja3
+3pspawn
+flip		1
+coords		600 230 0
+at			200
+
+spawn		Ninja2
+4pspawn
+flip		1
+coords		600 260 0
+at			200

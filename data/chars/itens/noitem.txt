@@ -1,0 +1,14 @@
+name				noitem
+type				item
+nolife				1
+shadow				0
+animationscript 	data/scripts/script.c
+onblockwscript		data/scripts/onblockw/wall.c
+
+anim idle
+	loop	0
+	delay	1
+	offset	1 1
+	@cmd suicide
+	frame	data/chars/itens/noitem.gif
+

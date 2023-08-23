@@ -1,0 +1,13 @@
+name				st2_reartruck
+type				none
+setlayer			90
+shadow				0
+animationscript 	data/scripts/script.c
+
+anim idle
+	loop	1
+	delay	2
+	offset	1 180
+	frame	data/bgs/st2/reartruck00.gif
+		delay	3
+	frame	data/bgs/st2/reartruck01.gif

@@ -1,0 +1,15 @@
+name		Arvore04
+type		panel
+speed		5
+scroll		-1
+shadow		0
+#alpha		1
+setlayer	999
+
+anim idle
+	loop	1
+	delay	1
+	offset	61 138
+		move  -5
+	frame	data/bgs/Br03/arvore01.gif
+

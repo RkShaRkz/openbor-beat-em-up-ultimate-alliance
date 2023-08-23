@@ -1,0 +1,272 @@
+background	data/bgs/st1/back01.gif		1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/st1/pn01.gif		none	none
+frontpanel	data/bgs/st1/fpn02.gif
+frontpanel	data/bgs/st1/fpn02.gif
+frontpanel	data/bgs/st1/fpn02.gif
+frontpanel	data/bgs/st1/fpn03.gif
+order		a
+music		data/music/st1c.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 1
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+spawn		Table
+flip		1
+coords		150 230 0
+at			0
+
+spawn		Chair
+flip		0
+coords		200 220 0
+at			0
+
+spawn		Chair
+flip		1
+coords		100 220 0
+at			0
+
+spawn		Table
+flip		1
+coords		400 270 0
+at			0
+
+spawn		Chair
+flip		0
+coords		450 260 0
+at			0
+
+spawn		Chair
+flip		1
+coords		350 260 0
+at			0
+
+spawn		Table
+flip		1
+coords		650 230 0
+at			0
+
+spawn		Chair
+flip		0
+coords		700 220 0
+at			0
+
+spawn		Chair
+flip		1
+coords		600 220 0
+at			0
+
+spawn		St1_Light
+flip		1
+coords		1600 180 0
+at			0
+
+spawn		St1_Light
+flip		1
+coords		1900 180 0
+at			0
+
+#########################################################################################
+
+group		1000 1000
+at			1
+
+spawn		BasicX0
+flip		1
+coords		600 270 0
+at			1
+
+spawn		BasicX0
+flip		1
+coords		-100 270 0
+at			1
+
+spawn		BasicX0
+flip		1
+coords		700 270 0
+at			1
+
+spawn		BasicX0
+flip		1
+coords		-200 270 0
+at			1
+
+spawn		BasicX0
+flip		1
+coords		600 270 0
+at			150
+
+spawn		BasicX0
+flip		1
+coords		-100 270 0
+at			150
+
+spawn		BasicX0
+flip		1
+coords		700 270 0
+at			250
+
+spawn		BasicX0
+flip		1
+coords		-200 270 0
+at			250
+
+spawn		Cart
+flip		1
+coords		600 260 0
+at			300
+
+spawn		BasicX0
+flip		1
+coords		600 270 0
+at			400
+
+spawn		BasicX0
+flip		1
+coords		-100 270 0
+at			400
+
+spawn		Cart
+flip		1
+coords		600 220 0
+at			450
+
+spawn		BasicX0
+flip		1
+coords		600 270 0
+at			500
+
+spawn		BasicX0
+flip		1
+coords		-100 270 0
+at			500
+
+spawn		Cart
+flip		1
+coords		600 240 0
+at			540
+
+wait
+at			550
+
+#########################################################################################
+
+spawn		Table
+flip		1
+coords		600 230 0
+at			551
+
+spawn		Chair
+flip		0
+coords		650 220 0
+at			551
+
+spawn		Chair
+flip		1
+coords		550 220 0
+at			551
+
+spawn		Table
+flip		1
+coords		800 260 0
+at			551
+
+spawn		Chair
+flip		0
+coords		850 270 0
+at			551
+
+spawn		Chair
+flip		1
+coords		750 270 0
+at			551
+
+#########################################################################################
+
+spawn		Barbon_Cocktail
+alias		Barbon
+flip		0
+coords		766 220 0
+at			600
+
+group		1000 1000
+at			600
+
+spawn		BasicX0
+flip		1
+coords		600 270 0
+at			600
+
+spawn		BasicX0
+flip		1
+coords		-100 270 0
+at			600
+
+spawn		BasicX0
+flip		1
+coords		-100 270 0
+at			900
+
+spawn		Electra_Wait0
+flip		0
+coords		600 230 0
+at			900
+
+spawn		BasicX0
+flip		1
+coords		600 270 0
+at			1200
+
+spawn		BasicX0
+flip		1
+coords		-100 270 0
+at			1200
+
+spawn		BasicX0
+flip		1
+coords		-100 270 0
+at			1500
+
+spawn		Signal_Bottle
+alias		Marvin
+flip		1
+map			5
+coords		600 250 0
+at			1500
+
+spawn		Signal_Bottle
+2pspawn
+alias		Marvin
+flip		1
+map			5
+coords		-100 250 0
+at			1500
+
+spawn		Signal_Bottle
+3pspawn
+alias		Marvin
+flip		1
+map			5
+coords		630 270 0
+at			1500
+
+spawn		Signal_Bottle
+4pspawn
+alias		Marvin
+flip		1
+map			3
+coords		-130 250 0
+at			1500

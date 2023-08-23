@@ -1,0 +1,221 @@
+background	data/bgs/st2/back02.gif		1 1 0 0 0 0 1 1 0 0
+bglayer		data/bgs/st2/water00.gif	0.8 1 0 175 0 0 1 1 0 0 1 5 300 0.5
+panel		data/bgs/st2/pn01.gif		none	none
+frontpanel	data/bgs/st2/fpn01.gif
+order		a
+music		data/music/st2a.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 2
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+spawn		St2_City2
+flip		1
+coords		1 160 0
+at			0
+
+spawn		St2_Lamp
+flip		1
+coords		170 180 62
+at			0
+
+spawn		St2_Lamp
+flip		1
+coords		252 180 54
+at			0
+
+spawn		St2_Lamp
+flip		1
+coords		634 180 38
+at			0
+
+spawn		St2_Lamp
+flip		1
+coords		765 180 54
+at			0
+
+spawn		St2_Lamp
+flip		1
+coords		765 180 54
+at			0
+
+spawn		St2_Lamp
+flip		1
+coords		810 180 54
+at			0
+
+spawn		St2_Lamp
+flip		1
+coords		952 180 22
+at			0
+
+#########################################################################################
+
+spawn		1up
+flip		1
+coords		20 220 0
+at			0
+
+spawn		Roadblock
+flip		1
+coords		300 240 0
+at			0
+
+spawn		Roadblock
+flip		1
+coords		470 250 0
+at			0
+
+spawn		Roadblock
+flip		1
+coords		500 230 0
+at			0
+
+spawn		Roadblock
+flip		1
+coords		550 270 0
+at			0
+
+group		1000 1000
+at			0
+
+spawn		BasicX1
+flip		0
+coords		300 255 600
+at			0
+
+spawn		BasicX1
+flip		0
+coords		400 255 600
+at			0
+
+spawn		BasicX1
+flip		1
+coords		600 230 0
+at			100
+
+spawn		BasicX1
+flip		1
+coords		600 260 0
+at			100
+
+spawn		BasicX1
+flip		1
+coords		-100 230 0
+at			200
+
+spawn		BasicX1
+flip		1
+coords		-100 260 0
+at			200
+
+spawn		BasicX1
+flip		1
+coords		-100 230 0
+at			300
+
+spawn		BasicX1
+flip		1
+coords		-100 260 0
+at			300
+
+spawn		BasicX1
+flip		1
+coords		600 230 0
+at			300
+
+spawn		BasicX1
+flip		1
+coords		600 260 0
+at			300
+
+wait
+at			400
+
+#########################################################################################
+
+spawn		Roadblock
+flip		1
+coords		600 250 0
+at			401
+
+spawn		Roadblock
+flip		1
+coords		500 230 0
+at			401
+
+spawn		Roadblock
+flip		1
+coords		550 270 0
+at			401
+
+group		1000 1000
+at			401
+
+spawn		BasicX1
+flip		1
+coords		600 230 0
+at			401
+
+spawn		BasicX1
+flip		1
+coords		-100 240 0
+at			401
+
+spawn		BasicX1
+flip		1
+coords		600 230 0
+at			500
+
+spawn		BasicX1
+flip		1
+coords		-100 240 0
+at			500
+
+spawn		BasicX1
+flip		1
+coords		600 230 0
+at			600
+
+spawn		BasicX1
+flip		1
+coords		-100 240 0
+at			600
+
+spawn		BasicX1
+flip		1
+coords		600 230 0
+at			700
+
+spawn		BasicX1
+flip		1
+coords		-100 240 0
+at			700
+
+spawnscript data/scripts/spawnlevel/music_boss.c
+at			800
+
+spawn		Jet0
+flip		1
+boss		1
+coords		-200 240 200
+at			800
+
+spawn		Jet1
+flip		1
+boss		1
+coords		600 240 200
+at			800

@@ -1,0 +1,13 @@
+name				select_back
+type				none
+shadow				0
+setlayer			-1010
+onspawnscript	 	data/scripts/onspawn/select.c
+
+anim idle
+	loop	1
+	delay	5
+	offset	0 0
+	#drawmethod alpha 6
+	#drawmethod channel 0.50
+	frame	data/bgs/select/back.gif	

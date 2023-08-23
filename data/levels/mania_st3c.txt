@@ -1,0 +1,75 @@
+background	data/bgs/st3/back02.gif		1 1 0 0 0 0 1 1 0 0
+panel		data/bgs/st3/pn12.gif		none	none
+frontpanel	data/bgs/st3/fpn01.gif
+order		a
+music		data/music/st3a.ogg
+settime		60
+scrollspeed 0.5
+stagenumber 3
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+spawn		St3_Lamp2
+flip		1
+coords		1 1 0
+at			0
+
+#########################################################################################
+
+group		1000 1000
+at			1
+
+spawn		BasicX4
+flip		1
+coords		600 230 0
+at			1
+
+spawn		BasicX4
+flip		1
+coords		600 260 0
+at			1
+
+spawn		BasicX4
+flip		1
+coords		-100 230 0
+at			10
+
+spawn		BasicX4
+flip		1
+coords		-100 260 0
+at			10
+
+spawn		Signal_Bottle
+flip		1
+coords		600 230 0
+at			1
+
+spawn		Signal_Bottle
+2pspawn
+flip		1
+coords		600 260 0
+at			1
+
+spawn		Signal_Bottle
+3pspawn
+flip		1
+coords		-100 230 0
+at			1
+
+spawn		Signal_Bottle
+4pspawn
+flip		1
+coords		-100 260 0
+at			1

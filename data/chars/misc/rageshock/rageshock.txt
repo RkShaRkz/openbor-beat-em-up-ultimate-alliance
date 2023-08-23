@@ -1,0 +1,30 @@
+name			RageShock
+type			panel
+speed			5
+scroll			0.5
+shadow			0
+setlayer		1000
+facing			1
+noquake 		1 1
+animationscript	data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	1
+	offset	56 31
+	frame	data/chars/misc/rageshock/rageshock00.gif
+	frame	data/chars/misc/rageshock/rageshock01.gif
+	frame	data/chars/misc/rageshock/rageshock02.gif
+	frame	data/chars/misc/rageshock/rageshock03.gif
+	frame	data/chars/misc/rageshock/rageshock04.gif
+	frame	data/chars/misc/rageshock/rageshock05.gif
+	frame	data/chars/misc/rageshock/rageshock06.gif
+	frame	data/chars/misc/rageshock/rageshock07.gif
+	frame	data/chars/misc/rageshock/rageshock08.gif
+	frame	data/chars/misc/rageshock/rageshock09.gif
+	frame	data/chars/misc/rageshock/rageshock10.gif
+	frame	data/chars/misc/rageshock/rageshock11.gif
+	frame	data/chars/misc/rageshock/rageshock12.gif
+	@cmd suicide
+	frame	data/chars/misc/rageshock/empty.gif
+

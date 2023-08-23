@@ -1,0 +1,32 @@
+name				Chair
+type				obstacle
+health				1
+nolife				1
+score				2000
+offscreenkill 		1000
+gfxshadow			1 1
+animationscript 	data/scripts/script.c
+noatflash			1
+flash				flash
+
+diesound			data/sounds/Wood.wav
+
+anim idle
+	loop	1 1 2
+	delay	32
+	offset	100 164
+	bbox 	84 115 31 54
+	shadowcoords 100 161
+	platform 74 74 125 125 5 20
+	frame	data/chars/obstacles/chair00.gif
+	@cmd offscreenkill 30 0
+	frame	data/chars/obstacles/chair00.gif
+
+anim fall
+	loop	0
+	delay	128
+	offset	100 162
+	@cmd tosserX 0 0 0 0 1 0
+	frame	data/chars/obstacles/chair01.gif
+	@cmd suicide
+	frame	data/chars/obstacles/chair01.gif

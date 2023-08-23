@@ -1,0 +1,804 @@
+##ATTRIBUTES
+
+#SKILLS		***
+#LIFE		***
+#POWER		***
+#SPEED		**
+#JUMP		**
+#SPECIAL	**
+
+##MAIN
+name				Terry
+type				player
+hostile				enemy
+candamage			player enemy obstacle
+projectilehit		player enemy obstacle
+
+##LIFE
+health				400 #200/300/400/500/600/700
+
+##POWER
+offense 			all 2 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				10 #8/10/12/14/16/18
+running 			20 2.9 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			15 #13/15/17/19/21/23
+jumpheight 			3.1 #2.9/3.1/3.3/3.5/3.7/3.9
+jumpmove			0 1 #PLAYER ONLY
+
+##SPECIAL
+mp					120
+mprate  			5 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		33 #BASE 36
+grabfinish 			0 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				74
+
+##MISC
+jugglepoints		30
+guardpoints			87
+guardrate			13
+risetime			170
+riseinv				0.2 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 1 2 3
+weapons				Terry_faca Terry_sword Terry_pipe Terry_kunai Terry
+gfxshadow			1 1
+dust				dust
+bflash				block
+
+##SCRIPTS
+didblockscript		data/scripts/didblock/Terry.c
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/player.c
+keyscript			data/scripts/key/Terry.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+script				data/scripts/updateentity/Terry.c
+
+##ICONS
+icon				data/chars/Terry/icon.gif 1
+iconmphigh			data/chars/Terry/iconmp.gif 1
+
+##PARROWS
+parrow				data/sprites/parrow.gif 	-15 -140
+parrow2				data/sprites/parrow2.gif 	-15 -140
+parrow3				data/sprites/parrow3.gif 	-15 -140
+parrow4				data/sprites/parrow4.gif 	-15 -140
+
+##DIESOUND
+diesound			data/voices/Terry/Die.wav
+
+##REMAPS
+remap				data/chars/Terry/idle00.gif data/chars/Terry/alter1.gif
+remap				data/chars/Terry/idle00.gif data/chars/Terry/alter2.gif
+remap				data/chars/Terry/idle00.gif data/chars/Terry/alter3.gif
+
+##COMMANDS
+com 				a2	freespecial		#RAGE
+com 				a4	freespecial2	#BLOCK
+
+##LOADS
+
+load TerryP
+
+##ANIMATIONS#############################################################################
+
+anim waiting
+		offset  40  196
+		delay  13
+                loop   1
+		drawmethod  190  190  0  0  0  -1  -1
+	@cmd clearL
+	frame	data/chars/Terry/idle01.gif
+	frame	data/chars/Terry/idle02.gif
+	frame	data/chars/Terry/idle03.gif
+	frame	data/chars/Terry/idle04.gif
+
+anim select
+        fshadow 0
+	loop	0
+	delay	2
+	offset	40  196
+	drawmethod  190  190  0  0  0  -1  -1
+	@cmd spawnChosen "chosen" 120 0 24 1
+	drawmethod tintmode 4
+	drawmethod tintcolor 0
+	frame	data/chars/Terry/idle00.gif
+
+
+
+
+anim idle
+		offset  40  196
+		bbox  21  101  38  96
+		delay  12
+                loop 1
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/idle01.gif
+	frame	data/chars/Terry/idle02.gif
+	frame	data/chars/Terry/idle03.gif
+	frame	data/chars/Terry/idle04.gif
+
+
+anim walk
+		offset  39  196
+		bbox  21  101  38  96
+		delay  7
+                loop 1
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/w01.gif
+	frame	data/chars/Terry/w02.gif
+	frame	data/chars/Terry/w03.gif
+	frame	data/chars/Terry/w04.gif
+	frame	data/chars/Terry/w05.gif
+	frame	data/chars/Terry/w06.gif
+	frame	data/chars/Terry/w07.gif
+
+anim run
+		offset  40  196
+		bbox  21  101  38  96
+		delay  12
+                lOOP   1
+ 		drawmethod  200  210  0  0  0  -1  -1
+	frame	data/chars/Terry/r01.gif
+	frame	data/chars/Terry/r02.gif
+	frame	data/chars/Terry/r03.gif
+	frame	data/chars/Terry/r04.gif
+	frame	data/chars/Terry/r05.gif
+	frame	data/chars/Terry/r06.gif
+
+anim get
+		offset  70  196
+		bbox  21  101  38  96
+		delay  10
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/sp201.gif
+                offset  50  196
+	frame	data/chars/Terry/sp07.gif
+        frame	data/chars/Terry/sp06.gif
+
+anim grab
+		offset  40  196
+		bbox  21  101  38  96
+		delay  30
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/Ga101.gif
+
+
+anim grabbed
+		offset  40  196
+		bbox  21  101  38  96
+		delay  30
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/Ga101.gif
+
+
+anim land
+		offset  70  196
+		bbox  45  112  50  68
+
+		delay  7
+		drawmethod  190  190  0  0  0  -1  -1
+        sound	data/sounds/kof/Jump.wav
+	frame	data/chars/Terry/sp209.gif
+
+
+anim jumpdelay
+		offset  40  196
+		bbox  21  101  38  96
+
+		delay  7
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/Sp301.gif
+
+
+anim jump
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+        sound	data/sounds/kof/Jump.wav
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/j01.gif
+	frame	data/chars/Terry/j02.gif
+	frame	data/chars/Terry/j03.gif
+	frame	data/chars/Terry/j04.gif
+
+
+anim walkoff
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+                @cmd jump 1
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/j01.gif
+	frame	data/chars/Terry/j02.gif
+	frame	data/chars/Terry/j03.gif
+	frame	data/chars/Terry/j04.gif
+
+
+anim jumpland
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/sp301.gif
+
+
+anim guardbreak
+	loop	0
+	delay	4
+	@cmd spawnbind "break" 0 50 0
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+		offset  40  196
+		bbox  21  101  38  96
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/pain01.gif
+	frame	data/chars/Terry/pain02.gif
+
+
+anim pain #UP
+		offset  40  196
+		bbox  21  101  38  96
+		delay  10
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/pain01.gif
+	frame	data/chars/Terry/pain02.gif
+
+
+
+anim pain2 #DOWN
+		offset  53  158
+		bbox  29  52  45  106
+		delay  7
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/fall705.gif
+		bbox  18  61  63  90
+	frame	data/chars/Terry/fall705.gif
+
+
+
+anim fall #NORMAL
+		offset  40  196
+		bbox  21  101  38  96
+		delay  6
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/fall101.gif
+		Attack1  0
+		bbox  0
+	frame	data/chars/Terry/fall102.gif
+	frame	data/chars/Terry/fall103.gif
+		offset  40  187
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/Terry/fall01.gif
+
+
+anim burn #BURNED FALL
+		offset  43  186
+		bbox  16  157  77  37
+		delay  6
+	drawmethod  190  190  0  0  0  -1  -1
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	drawmethod tintmode 6
+	drawmethod tintcolor 255
+	frame	data/chars/Terry/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintcolor 255
+	frame	data/chars/Terry/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+		offset  43  186
+	frame	data/chars/Terry/fall01.gif
+
+anim shock #SHOCKED FALL
+        landframe 2
+	loop	1 0 2
+	delay	3
+	offset  40  196
+	bbox  21  101  38  96
+        drawmethod  190  190  0  0  0  -1  -1
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	drawmethod tintmode 6	
+	drawmethod tintcolor -255
+	frame	data/chars/Terry/fall00.gif
+	drawmethod tintmode 2	
+	drawmethod tintcolor -255
+	frame	data/chars/Terry/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/Terry/fall01.gif
+
+
+anim fall6 #SPIN FALL
+        landframe 4
+	loop	1 0 4
+	delay	3
+	offset  40  196
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+        drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/fall600.gif
+	frame	data/chars/Terry/fall601.gif
+	frame	data/chars/Terry/fall602.gif
+	frame	data/chars/Terry/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/Terry/fall01.gif
+
+
+anim fall7 #SLAMSTART POSITION
+        loop	0
+	delay	1000
+	offset  40  196
+	drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/fall700.gif
+	frame	data/chars/Terry/fall701.gif
+	frame	data/chars/Terry/fall702.gif
+	frame	data/chars/Terry/fall703.gif
+	frame	data/chars/Terry/fall704.gif
+	frame	data/chars/Terry/fall705.gif
+
+
+anim fall8 #FINISH/THROW TYPE 3
+
+        landframe 2
+	loop	0
+	delay	30
+	offset  40  196
+	drawmethod  190  190  0  0  0  -1  -1
+	bbox 	39 75 41 34
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 39 75 41 34 4 1 0 0 0 12
+	frame	data/chars/Terry/fall00.gif
+		delay	999
+	@cmd cancelfall "ANI_LAND" 0 0
+	frame	data/chars/Terry/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/Terry/fall01.gif
+
+
+anim fall9 #FINISH/THROW TYPE 2
+        landframe 2
+	loop	0
+	delay	30
+		offset  40  196
+		bbox  21  101  38  96
+		drawmethod  190  190  0  0  0  -1  -1
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 52 90 32 35 4 1 0 0 0 12
+	frame	data/chars/Terry/fall900.gif
+		delay	999
+	@cmd cancelfall "ANI_LAND" 0 0
+	frame	data/chars/Terry/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/Terry/fall01.gif
+
+anim rise
+		offset  40  187
+		delay  7
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/rise01.gif
+		delay  15
+	frame	data/chars/Terry/rise02.gif
+
+
+anim riseattack
+		offset  46  159
+		bbox  21  101  38  96
+		delay  7
+	@cmd keymove 2
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/jf02.gif
+	frame	data/chars/Terry/jf03.gif
+	frame	data/chars/Terry/jf04.gif
+	frame	data/chars/Terry/jf05.gif
+		offset  46  196
+	frame	data/chars/Terry/Sp07.gif
+
+anim follow1 #DODGE
+		offset  46  159
+		bbox  21  101  38  96
+		delay  7
+	@cmd keymove 2
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/jf02.gif
+	frame	data/chars/Terry/jf03.gif
+	frame	data/chars/Terry/jf04.gif
+	frame	data/chars/Terry/jf05.gif
+		offset  46  196
+	frame	data/chars/Terry/Sp07.gif
+
+anim attack1
+		bbox  21  101  38  96
+		offset  40  196
+		bbox  21  101  38  96
+		delay  5
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	hitfx	data/sounds/sf/LowPunch.wav
+	sound	data/sounds/sf/LowAttack.wav
+	        fastattack 1
+		drawmethod  190  190  0  0  0  -1  -1
+		attack1  42  101  54  90  5  0  0  0  0  10
+	frame	data/chars/Terry/a101.gif
+		attack1  41  104  53  90 5  0  0  0  0  10
+	frame	data/chars/Terry/a102.gif
+	frame	data/chars/Terry/a103.gif
+
+anim attack2
+		offset  40  196
+		bbox  21  101  38  96
+		delay  4
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+		drawmethod  190  190  0  0  0  -1  -1
+	hitfx	data/sounds/sf/MediumPunch.wav
+	sound	data/sounds/sf/MediumAttack.wav
+	frame	data/chars/Terry/a201.gif
+		delay  6
+	frame	data/chars/Terry/a204.gif
+		attack1  47  107  60  29  6
+	frame	data/chars/Terry/a205.gif
+	frame	data/chars/Terry/a206.gif
+
+anim attack3
+		offset  40  196
+		bbox  21  101  38  96
+		delay  6
+ 	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	sound	data/sounds/sf/HighAttack.wav
+	hitfx	data/sounds/sf/HighKick.wav
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/a301.gif
+	frame	data/chars/Terry/a302.gif
+	frame	data/chars/Terry/a303.gif
+		attack1  41  124  48  43  6
+	frame	data/chars/Terry/a304.gif
+		Attack1  0
+	frame	data/chars/Terry/a305.gif
+		blast  52  103  94  46  9
+	frame  data/chars/Terry/a305.gif
+	frame	data/chars/Terry/a306.gif
+		Attack1  0
+	frame	data/chars/Terry/a307.gif
+	frame	data/chars/Terry/a308.gif
+
+anim attackboth #BACK ATTACK
+	flipframe  1
+		offset  40  196
+		bbox  21  101  38  96
+		delay  10
+		drawmethod  190  190  0  0  0  -1  -1
+	hitfx	data/sounds/sf/MediumPunch.wav
+	sound	data/sounds/sf/MediumAttack.wav
+	frame	data/chars/Terry/a401.gif
+	frame	data/chars/Terry/a402.gif
+        sound	data/chars/Terry/a1.wav
+	frame	data/chars/Terry/a403.gif
+	frame	data/chars/Terry/a404.gif
+		attack1  47  107  65  39  6
+	frame	data/chars/Terry/a405.gif
+	frame	data/chars/Terry/a406.gif
+	frame	data/chars/Terry/a407.gif
+
+anim grabattack #HEADBUTT
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+	hitfx	data/sounds/sf/MediumPunch.wav
+	sound	data/sounds/sf/MediumAttack.wav
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/ga202.gif
+        sound	data/chars/Terry/a2.wav
+	frame	data/chars/Terry/ga203.gif
+	frame	data/chars/Terry/ga204.gif
+		blast  43  66  51  75  7
+	frame	data/chars/Terry/ga205.gif
+	frame	data/chars/Terry/ga206.gif
+		Attack1  0
+	frame	data/chars/Terry/ga207.gif
+
+anim grabforward #KNEE
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+	hitfx	data/sounds/sf/MediumPunch.wav
+	sound	data/sounds/sf/MediumAttack.wav
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/ga101.gif
+	frame	data/chars/Terry/ga102.gif
+        sound	data/chars/Terry/a1.wav
+	frame	data/chars/Terry/ga103.gif
+		attack1  46  112  52  52  7
+	frame	data/chars/Terry/ga104.gif
+	frame	data/chars/Terry/ga105.gif
+	frame	data/chars/Terry/ga106.gif
+
+
+
+anim grabforward2 #KNEE END
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+	hitfx	data/sounds/sf/MediumPunch.wav
+	sound	data/sounds/sf/MediumAttack.wav
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/ga202.gif
+	frame	data/chars/Terry/ga203.gif
+        sound	data/chars/Terry/a3.wav
+	frame	data/chars/Terry/ga204.gif
+		blast  45  66  50  71  7
+	frame	data/chars/Terry/ga205.gif
+	frame	data/chars/Terry/ga206.gif
+		Attack1  0
+	frame	data/chars/Terry/ga207.gif
+
+anim grabbackward #THROW
+		loop	0
+	delay	24
+	offset	89 186
+	@cmd slamstart
+	@cmd position 0 5 0 0 0
+	@cmd antiwall -30 30 0
+        sound	data/chars/Terry/a3.wav
+	drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/t01.gif
+		delay	8
+	@cmd position 5 -5 5 0 0
+	frame	data/chars/Terry/t02.gif
+        frame	data/chars/Terry/t03.gif
+	@cmd position 2 -30 25 0 0
+	frame	data/chars/Terry/t04.gif
+		delay	24
+	@cmd depost 0
+	@cmd throw 12 2 2 2 0 0
+	frame	data/chars/Terry/t05.gif
+		delay	8
+	@cmd clearL
+	frame	data/chars/Terry/t06.gif
+
+anim grabdown #SLAM
+	#flipframe  1		
+		delay  7
+	loop	0
+	delay	26
+	offset	32 167
+	@cmd slamstart
+	@cmd position 1 6 0 0 0
+	@cmd antiwall 40 -40 0
+		drawmethod  190  190  0  0  0  -1  -1
+        sound	data/chars/Terry/a2.wav
+	frame	data/chars/Terry/ja301.gif
+		delay	13
+	@cmd position 3 12 6 0 0
+	frame	data/chars/Terry/ja302.gif
+	@cmd position 4 40 0 0 0
+	@cmd spawn01 "quake_high" 0 0 0
+	frame	data/chars/Terry/ja303.gif
+	@cmd leaper -1 2 0
+	@cmd depost 0
+	@cmd finish 18 2 -1 2.5 0 0
+	frame	data/chars/Terry/ja304.gif
+		delay	6
+	frame	data/chars/Terry/jf04.gif
+	frame	data/chars/Terry/jf05.gif
+		delay	12
+	@cmd clearL
+	frame	data/chars/Terry/jf07.gif
+
+anim jumpattack #JUMP STATIC
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/ja201.gif
+	frame	data/chars/Terry/ja202.gif
+		attack1  39  78  48  86  7
+	frame	data/chars/Terry/ja203.gif
+
+
+
+anim jumpattack2 #JUMP DOWN
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+		drawmethod  190  190  0  0  0  -1  -1
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Terry/ja301.gif
+	frame	data/chars/Terry/ja302.gif
+		attack1  34  108  57  53  7
+	frame	data/chars/Terry/ja303.gif
+
+
+anim jumpattack3 #JUMP UP
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+		drawmethod  190  190  0  0  0  -1  -1
+	hitfx	data/sounds/sf/HighKick.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Terry/ja101.gif
+	frame	data/chars/Terry/ja102.gif
+		blast  31  119  76  61  7
+	frame	data/chars/Terry/ja103.gif
+
+
+anim jumpforward #JUMP FORWARD
+		delay  7
+		drawmethod  190  190  0  0  0  -1  -1
+		offset  40  190
+		bbox  13  85  51  80
+	frame	data/chars/Terry/ja101.gif
+	frame	data/chars/Terry/ja102.gif
+		blast  33  126  79  42  10
+		delay  30
+	frame	data/chars/Terry/ja103.gif
+
+anim runattack #GRANDUPPER
+		offset  40  196
+		bbox  21  101  38  96
+		delay  3
+		drawmethod  190  190  0  0  0  -1  -1
+        sound	data/chars/Terry/ra.wav
+	frame	data/chars/Terry/Ra01.gif
+	frame	data/chars/Terry/Ra02.gif
+	frame	data/chars/Terry/Ra03.gif
+	frame	data/chars/Terry/Ra04.gif
+	frame	data/chars/Terry/Ra05.gif
+	frame	data/chars/Terry/Ra06.gif
+		move  10
+		attack1  50  94  77  47  5
+		delay  4
+	frame	data/chars/Terry/Ra07.gif
+		Attack1  0
+	frame	data/chars/Terry/Ra08.gif
+		attack1  46  89  88  52  5
+	frame	data/chars/Terry/Ra07.gif
+		Attack1  0
+	frame	data/chars/Terry/Ra08.gif
+		blast  33  88  93  50  10
+	frame	data/chars/Terry/Ra07.gif
+		delay  30
+		move  0
+		offset  67  196
+	frame	data/chars/Terry/sp201.gif
+
+
+
+anim special #DEFENSIVE SPECIAL
+		offset  68  194
+		bbox  21  101  38  96
+		delay  7
+                energycost 40 1
+                move  7
+		drawmethod  190  190  0  0  0  -1  -1
+        sound	data/chars/Terry/sp02.wav
+	frame	data/chars/Terry/sp201.gif
+	frame	data/chars/Terry/sp202.gif
+	frame	data/chars/Terry/sp203.gif
+	frame	data/chars/Terry/sp204.gif
+		blast  4  75  126  101  20
+	frame	data/chars/Terry/sp205.gif
+	frame	data/chars/Terry/sp206.gif
+	frame	data/chars/Terry/sp207.gif
+	frame	data/chars/Terry/sp208.gif
+		Attack1  0
+	frame	data/chars/Terry/sp209.gif
+
+anim special2 #OFFENSIVE SPECIAL
+		offset  40  196
+		bbox  21  101  38  96
+                energycost 40 1
+		delay  7
+        sound	data/chars/Terry/sp01.wav
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/sp301.gif
+		move  5
+	frame	data/chars/Terry/sp302.gif
+		movea  3
+	frame	data/chars/Terry/sp303.gif
+	frame	data/chars/Terry/sp304.gif
+		attack1  21  63  78  123  10
+	frame	data/chars/Terry/sp305.gif
+		Attack1  0
+	frame	data/chars/Terry/sp306.gif
+		attack1  31  61  62  122  10
+	frame	data/chars/Terry/sp307.gif
+		Attack1  0
+	frame	data/chars/Terry/sp308.gif
+	frame	data/chars/Terry/sp309.gif
+		move  0
+		movea  0
+	frame	data/chars/Terry/sp310.gif
+		offset  59  196
+		movea  -5
+	frame	data/chars/Terry/sp311.gif
+	frame	data/chars/Terry/sp312.gif
+	frame  data/chars/Terry/sp312.gif
+		movea  -6
+	frame  data/chars/Terry/sp312.gif
+		offset  36  196
+		movea  0
+	frame  data/chars/Terry/sp301.gif
+
+
+anim freespecial #RAGE
+	fastattack 1
+	jugglecost 0
+	forcedirection -1
+	energycost 120 1
+	dot 0 1 3 120 1
+		offset  49  196
+		delay  7
+        custknife TerryP
+	throwframe  6 0
+	@cmd projectile 1 "rage" 0 -1 0
+	@cmd spawnbind "ragefull" 0 0 1
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/sp01.gif
+        sound	data/chars/Terry/rage.wav
+	frame	data/chars/Terry/sp02.gif
+	frame	data/chars/Terry/sp03.gif
+	frame	data/chars/Terry/sp04.gif
+	frame	data/chars/Terry/sp05.gif
+	frame	data/chars/Terry/sp06.gif
+		delay  40
+	frame	data/chars/Terry/sp06.gif
+		delay  5
+	frame	data/chars/Terry/sp07.gif
+
+anim freespecial2 #BLOCK
+		offset  40  196
+		bbox  21  101  38  96
+		delay  32
+		drawmethod  190  190  0  0  0  -1  -1
+	@cmd block 1
+	frame	data/chars/Terry/ga201.gif
+        delay  1
+	@cmd block 0
+	frame	data/chars/Terry/ga201.gif
+
+anim follow2 #COUNTER
+		offset  40  196
+		bbox  21  101  38  96
+		delay  7
+		drawmethod  190  190  0  0  0  -1  -1
+        @cmd block 0
+	frame	data/chars/Terry/ga201.gif
+	frame	data/chars/Terry/ga202.gif
+	frame	data/chars/Terry/ga203.gif
+		blast  48  83  58  79  10
+	frame	data/chars/Terry/ga204.gif
+	frame	data/chars/Terry/ga205.gif
+		Attack1  0
+	frame	data/chars/Terry/ga206.gif
+	frame	data/chars/Terry/ga207.gif
+

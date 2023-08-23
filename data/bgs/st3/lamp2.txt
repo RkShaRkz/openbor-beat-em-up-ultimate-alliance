@@ -1,0 +1,13 @@
+name				st3_lamp2
+type				none
+shadow				0
+setlayer			10
+animationscript	 	data/scripts/script.c
+
+anim idle
+	loop	1
+	delay	3
+	offset	1 1
+	frame	data/bgs/st3/lamp02.gif
+		delay	4
+	frame	data/bgs/st3/lamp03.gif

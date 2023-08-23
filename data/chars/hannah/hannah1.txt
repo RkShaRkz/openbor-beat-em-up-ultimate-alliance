@@ -1,0 +1,754 @@
+##ATTRIBUTES
+
+#SKILLS		****
+#LIFE		**
+#POWER		**
+#SPEED		***
+#JUMP		***
+#SPECIAL	***
+
+##MAIN
+name				Hannah
+type				player
+hostile				enemy
+candamage		        enemy obstacle
+projectilehit		        enemy obstacle
+
+##LIFE
+health				300 #200/300/400/500/600/700
+
+##POWER
+offense 			all 1.5 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				12 #8/10/12/14/16/18
+running 			24 3.1 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			17 #13/15/17/19/21/23
+jumpheight 			3.3 #2.9/3.1/3.3/3.5/3.7/3.9
+jumpmove			0 1 #PLAYER ONLY
+
+##SPECIAL
+mp					120
+mprate  			6 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		21 #BASE 36
+grabfinish 			0 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-3 #-3/-6/-9
+height				72
+
+##MISC
+jugglepoints		30
+guardpoints			87
+guardrate			13
+risetime			170
+riseinv				0.2 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 1 2 3
+weapons				Hannah_knife Hannah_sword Hannah_pipe Hannah_kunai Hannah
+gfxshadow			1 1
+dust				dust
+bflash				block
+
+##SCRIPTS
+didblockscript		data/scripts/didblock/Blaze.c
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/player.c
+keyscript		data/scripts/key/Blaze.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+script			data/scripts/updateentity/Blaze.c
+
+##ICONS
+icon				data/chars/Hannah/icon.gif 1
+iconmphigh			data/chars/Hannah/iconmp.gif 1
+
+##PARROWS
+parrow				data/sprites/parrow.gif 	-15 -140
+parrow2				data/sprites/parrow2.gif 	-15 -140
+parrow3				data/sprites/parrow3.gif 	-15 -140
+parrow4				data/sprites/parrow4.gif 	-15 -140
+
+##DIESOUND
+diesound			data/voices/Hannah/Hannah1.wav
+
+##REMAPS
+#remap				data/chars/Hannah/idle00.gif data/chars/Hannah/alter1.gif
+#remap				data/chars/Hannah/idle00.gif data/chars/Hannah/alter2.gif
+#remap				data/chars/Hannah/idle00.gif data/chars/Hannah/alter3.gif
+
+##COMMANDS
+com 				a2	freespecial		#RAGE
+com 				a4	freespecial2	#BLOCK
+
+##LOADS
+
+##ANIMATIONS#############################################################################
+
+#anim waiting
+
+	
+#anim select
+
+
+anim	idle
+	loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	frame	data/chars/hannah/idle01.gif
+	frame	data/chars/hannah/idle01.gif
+	frame	data/chars/hannah/idle01.gif
+	frame	data/chars/hannah/idle01.gif
+	frame	data/chars/hannah/idle01.gif
+	frame	data/chars/hannah/idle01.gif
+	frame	data/chars/hannah/idle01.gif
+	frame	data/chars/hannah/idle01.gif
+	frame	data/chars/hannah/idle01.gif
+	frame	data/chars/hannah/idle01.gif
+	frame	data/chars/hannah/idle01.gif
+	frame	data/chars/hannah/idle01.gif
+	delay 22
+	frame	data/chars/hannah/idle02.gif
+	frame	data/chars/hannah/idle03.gif
+	frame	data/chars/hannah/idle04.gif
+	frame	data/chars/hannah/idle05.gif
+	frame	data/chars/hannah/idle02.gif
+
+anim	walk
+	loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	6
+	frame	data/chars/hannah/walk01.gif
+	frame	data/chars/hannah/walk02.gif
+	frame	data/chars/hannah/walk03.gif
+	frame	data/chars/hannah/walk04.gif
+	frame	data/chars/hannah/walk05.gif
+	frame	data/chars/hannah/walk06.gif
+	frame	data/chars/hannah/walk07.gif
+	frame	data/chars/hannah/walk08.gif
+	frame	data/chars/hannah/walk09.gif
+	frame	data/chars/hannah/walk10.gif
+	frame	data/chars/hannah/walk11.gif
+	frame	data/chars/hannah/walk12.gif
+	
+anim	run
+	loop	1
+	offset	238 177
+	bbox	226 105 30 72
+	delay	8
+	frame	data/chars/hannah/run01.gif
+	frame	data/chars/hannah/run02.gif
+	frame	data/chars/hannah/run03.gif
+	frame	data/chars/hannah/run04.gif
+	frame	data/chars/hannah/run05.gif
+	frame	data/chars/hannah/run06.gif
+	frame	data/chars/hannah/run07.gif
+	frame	data/chars/hannah/run08.gif
+	
+anim get
+	loop	0
+	delay	16
+	offset	127 179
+	frame	data/chars/Hannah/get01.gif
+	
+anim grab
+	loop	0
+	delay	8
+	offset	127 179
+	bbox 	114 105 11 76
+	frame	data/chars/Hannah/grab01.gif
+
+anim grabbed
+	loop	0
+	delay	8
+	offset	127 179
+	bbox 	117 118 23 63
+	frame	data/chars/Hannah/pain02.gif
+	
+anim land
+	landframe 2
+	bouncefactor 0
+	loop	0
+	delay	30
+	offset	127 179
+	bbox 	121 107 16 52
+	@cmd landsafe
+	sound	data/sounds/kof/Jump.wav
+	frame	data/chars/Hannah/land01.gif
+		delay	999
+	frame	data/chars/Hannah/land01.gif
+		delay	12
+	bbox 	115 121 21 60
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/Hannah/land01.gif
+	@cmd beidle
+	frame	data/chars/Hannah/land01.gif
+	
+anim jumpdelay
+	loop	0
+	delay	12
+	offset	127 179
+	bbox 	115 121 21 60
+	frame	data/chars/Hannah/land01.gif
+
+anim jump
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	1
+	frame	data/chars/hannah/jump01.gif
+	delay	24
+	frame	data/chars/hannah/jump01.gif
+	delay	10
+	frame	data/chars/hannah/jump02.gif
+	delay 5
+	frame	data/chars/hannah/jump03.gif
+	delay	10
+	frame	data/chars/hannah/jump02.gif
+	delay	999
+	frame	data/chars/hannah/jump01.gif
+	
+anim walkoff
+	loop	0
+	delay	30
+	offset	127 179
+	bbox 	121 107 16 52
+	@cmd jump 1
+	frame	data/chars/Hannah/jump01.gif
+	frame	data/chars/Hannah/jump02.gif
+	
+anim jumpland
+	loop	0
+	delay	12
+	offset	127 179
+	bbox 	115 121 21 60
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/Hannah/land01.gif
+	
+anim guardbreak
+	loop	0
+	delay	4
+	offset	127 179
+	bbox 	115 116 23 65
+	@cmd spawnbind "break" 0 50 0
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Hannah/pain00.gif
+	nodrawmethod
+	frame	data/chars/Hannah/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Hannah/pain00.gif
+	nodrawmethod
+	frame	data/chars/Hannah/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Hannah/pain00.gif
+	nodrawmethod
+	frame	data/chars/Hannah/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Hannah/pain00.gif
+	nodrawmethod
+	frame	data/chars/Hannah/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Hannah/pain00.gif
+	nodrawmethod
+	frame	data/chars/Hannah/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Hannah/pain00.gif
+	nodrawmethod
+	frame	data/chars/Hannah/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Hannah/pain00.gif
+	nodrawmethod
+	frame	data/chars/Hannah/pain01.gif
+	drawmethod tintmode 6
+	drawmethod tintcolor 0
+	frame	data/chars/Hannah/pain00.gif
+	nodrawmethod
+	frame	data/chars/Hannah/pain01.gif
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	127 179
+	bbox 	115 116 23 65
+	frame	data/chars/Hannah/pain00.gif
+	frame	data/chars/Hannah/pain01.gif
+	frame	data/chars/Hannah/pain00.gif
+	frame	data/chars/Hannah/pain01.gif
+	frame	data/chars/Hannah/pain00.gif
+	frame	data/chars/Hannah/pain01.gif
+	frame	data/chars/Hannah/pain00.gif
+	frame	data/chars/Hannah/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	127 179
+	bbox 	109 117 18 63
+	frame	data/chars/Hannah/pain200.gif
+	frame	data/chars/Hannah/pain201.gif
+	frame	data/chars/Hannah/pain200.gif
+	frame	data/chars/Hannah/pain201.gif
+	frame	data/chars/Hannah/pain200.gif
+	frame	data/chars/Hannah/pain201.gif
+	frame	data/chars/Hannah/pain200.gif
+	frame	data/chars/Hannah/pain201.gif
+
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	127 179
+	bbox 	104 121 41 29
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	frame	data/chars/Hannah/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/Hannah/fall01.gif
+	
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	127 179
+	bbox 	104 121 41 29
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	drawmethod tintmode 6	
+	drawmethod tintcolor 255
+	frame	data/chars/Hannah/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2	
+	drawmethod tintcolor 255
+	frame	data/chars/Hannah/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	nodrawmethod
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/Hannah/fall01.gif
+	
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	127 179
+	bbox 	104 121 41 29
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	drawmethod tintmode 6	
+	drawmethod tintcolor -255
+	frame	data/chars/Hannah/fall00.gif
+	drawmethod tintmode 2	
+	drawmethod tintcolor -255
+	frame	data/chars/Hannah/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	nodrawmethod
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/Hannah/fall01.gif
+	
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	127 179
+	@cmd depost 0
+	@cmd finish 0 1 1 0 0 1
+	frame	data/chars/Hannah/fall600.gif
+	frame	data/chars/Hannah/fall601.gif
+	frame	data/chars/Hannah/fall602.gif
+	frame	data/chars/Hannah/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/Hannah/fall01.gif
+	
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	127 179
+	frame	data/chars/Hannah/fall700.gif
+	frame	data/chars/Hannah/fall701.gif
+	frame	data/chars/Hannah/fall702.gif
+	frame	data/chars/Hannah/fall703.gif
+	frame	data/chars/Hannah/fall704.gif
+	frame	data/chars/Hannah/fall705.gif
+	
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 2
+	loop	0
+	delay	30
+	offset	127 179
+	bbox 	104 121 41 29
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 104 121 41 29 4 1 0 0 0 12
+	frame	data/chars/Hannah/fall00.gif
+		delay	999
+	@cmd cancelfall "ANI_LAND" 0 0
+	frame	data/chars/Hannah/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/Hannah/fall01.gif
+	
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 2
+	loop	0
+	delay	30
+	offset	127 179
+	bbox 	121 129 18 51
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 121 129 18 51 4 1 0 0 0 12
+	frame	data/chars/Hannah/fall900.gif
+		delay	999
+	@cmd cancelfall "ANI_LAND" 0 0
+	frame	data/chars/Hannah/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/Hannah/fall01.gif
+	
+anim rise
+	loop	0
+	offset	238 177
+	delay	55
+	frame	data/chars/hannah/fall02.gif
+	delay	20
+	frame	data/chars/hannah/rise01.gif
+	delay 8
+	frame	data/chars/hannah/rise02.gif
+	frame	data/chars/hannah/rise03.gif
+	frame	data/chars/hannah/land01.gif
+	
+anim riseattack
+	jugglecost	100
+	energycost	5
+	mponly	2
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	sound	data/chars/hannah/hannah05.wav
+	delay	8
+	frame	data/chars/hannah/get01.gif
+	frame	data/chars/hannah/land01.gif
+	delay	6
+	frame	data/chars/hannah/sp01.gif
+	frame	data/chars/hannah/sp02.gif
+	attack	240 	91 	72 	89 	5 	1 	1 	0 	35	15
+	frame	data/chars/hannah/sp03.gif
+	frame	data/chars/hannah/sp04.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/hannah/sp05.gif
+	frame	data/chars/hannah/sp06.gif
+	frame	data/chars/hannah/sp07.gif
+	attack	155 	91 	85 	89 	5 	1 	1 	0 	35	15
+	frame	data/chars/hannah/sp08.gif
+	frame	data/chars/hannah/sp09.gif
+	frame	data/chars/hannah/sp10.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/hannah/sp11.gif
+	frame	data/chars/hannah/sp12.gif
+	frame	data/chars/hannah/land01.gif
+	
+	
+anim attack1
+        loop	0
+	offset	238 177
+	bbox	230 102 33 76
+	delay	4
+        hitfx	data/sounds/sf/MediumPunch.wav
+	frame	data/chars/hannah/a101.gif
+	delay 8
+	attack	240 115 67 20 3 0 0 0 10 15
+	frame	data/chars/hannah/a102.gif
+	delay 4
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/hannah/a101.gif
+
+anim attack2
+	loop	0
+	offset	238 177
+	bbox	240 102 33 76
+        hitfx	data/sounds/sf/MediumPunch.wav
+	sound	data/chars/hannah/hannah02.wav
+	delay	6
+	frame	data/chars/hannah/a201.gif
+	delay 8
+	attack	240 130 70 20 5 0 0 0 10 15
+	frame	data/chars/hannah/a202.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/hannah/a201.gif
+
+anim attack3
+
+
+        loop	0
+	offset	238 177
+	bbox	227 102 33 76
+	sound	data/chars/hannah/hannah03.wav
+	hitfx	data/sounds/sf/MediumKick.wav
+	delay	4
+	frame	data/chars/hannah/a301.gif
+	frame	data/chars/hannah/a302.gif
+	delay 10
+	attack	240 117 73 35 6 1 0 0 15 15
+	frame	data/chars/hannah/a303.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	bbox	210 102 33 76
+	frame	data/chars/hannah/a302.gif
+	frame	data/chars/hannah/a301.gif
+
+anim attackboth #BACK ATTACK
+	loop	0
+	delay	6
+	offset	127 179
+	bbox 	115 121 21 60
+	hitfx	data/sounds/sf/HighKick.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Hannah/sp06.gif
+	frame	data/chars/Hannah/sp07.gif
+	frame	data/chars/Hannah/sp08.gif
+	frame	data/chars/Hannah/sp09.gif
+	frame	data/chars/Hannah/sp10.gif
+	frame	data/chars/Hannah/sp11.gif
+
+
+anim grabattack #FRONT SLAM
+	landframe 5
+	loop	0
+	delay	26
+	offset	127 179
+	@cmd slamstart
+	@cmd position 1 6 0 0 0
+	@cmd antiwall 40 -40 0
+	sound	data/voices/Hannah/Hannah2.wav
+	frame	data/chars/Hannah/th302.gif
+		delay	13
+	@cmd position 3 12 6 0 0
+	frame	data/chars/Hannah/th303.gif
+	@cmd position 4 40 0 0 0
+	@cmd spawn01 "quake_high" 0 0 0
+	sound	data/sounds/sf/Slam.wav
+	frame	data/chars/Hannah/th304.gif
+		delay	16
+	@cmd leaper -1 2 0
+	@cmd depost 0
+	@cmd finish 18 2 -1 2.5 0 0
+	frame	data/chars/Hannah/jump01.gif
+		delay	999
+	frame	data/chars/Hannah/jump02.gif
+		delay	12
+	@cmd clearL
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/Hannah/land01.gif
+
+anim grabforward #KNEE
+	loop	0
+	delay	8
+	offset	127 179
+	bbox 	113 107 16 74
+	hitfx	data/sounds/sf/LowKick.wav
+	sound	data/sounds/sf/LowAttack.wav
+	attack2 116 122 24 29 2 0 0 0 15 12
+	frame	data/chars/Hannah/th104.gif
+
+anim grabforward2 #PUNCH
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	loop	0
+	delay	8
+	offset	127 179
+	bbox 	116 109 16 72
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Hannah/th101.gif
+	bbox 	109 109 17 72
+	frame	data/chars/Hannah/th101.gif
+		delay	12
+	attack 145 116 23 20 8 1 0 0 20 12
+	bbox 	140 112 14 69
+	frame	data/chars/Hannah/th102.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	bbox 	136 120 18 61
+	frame	data/chars/Hannah/th103.gif
+
+anim grabbackward #THROW
+	loop	0
+	delay	24
+	offset	127 179
+	@cmd slamstart
+	@cmd position 0 8 0 0 0
+	@cmd antiwall -60 60 0
+	sound	data/voices/Hannah/Hannah2.wav
+	frame	data/chars/Hannah/th302.gif
+		delay	8
+	@cmd position 5 0 8 0 0
+	frame	data/chars/Hannah/th303.gif
+	@cmd position 4 -40 12 0 -1
+	frame	data/chars/Hannah/th304.gif
+	@cmd position 4 -60 12 0 0
+	frame	data/chars/Hannah/th304.gif
+		delay	16
+	@cmd depost 0
+	@cmd throw 12 2 2 2.5 0 0
+	frame	data/chars/Hannah/th302.gif
+		delay	8
+	@cmd clearL
+	frame	data/chars/Hannah/th301.gif
+	
+anim grabdown #BACK SLAM
+	loop	0
+	delay	24
+	offset	127 179
+	@cmd slamstart
+	@cmd position 0 4 0 0 0
+	@cmd antiwall -60 60 0
+	sound	data/voices/Hannah/Hannah2.wav
+	frame	data/chars/Hannah/th201.gif
+		delay	8
+	@cmd position 5 -8 5 0 0
+	frame	data/chars/Hannah/th201.gif
+	@cmd position 2 -45 15 0 0
+	frame	data/chars/Hannah/th202.gif
+		delay	12
+	@cmd position 4 -60 0 0 0
+	@cmd spawn01 "quake_high" 0 0 0
+	sound	data/sounds/sf/Slam.wav
+	frame	data/chars/Hannah/th203.gif
+		delay	16
+	@cmd depost 0
+	@cmd finish 18 2 2 2 0 0
+	frame	data/chars/Hannah/th203.gif
+		delay	8
+	@cmd clearL
+	frame	data/chars/Hannah/th202.gif
+	
+anim jumpattack #JUMP STATIC
+	loop	0
+	delay	8
+	offset	127 179
+	bbox 	114 108 17 46
+	hitfx	data/sounds/sf/HighKick.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Hannah/ja101.gif
+	sound	data/voices/Hannah/Hannah2.wav
+	frame	data/chars/Hannah/ja102.gif
+
+anim jumpattack2 #JUMP DOWN
+	loop	0
+	delay	4
+	offset	127 179
+	bbox 	114 118 21 40
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Hannah/jump02.gif
+	attack 129 133 30 24 8 0 0 0 10 12
+	sound	data/voices/Hannah/Hannah2.wav
+	frame	data/chars/Hannah/ja201.gif
+	
+anim jumpattack3 #JUMP UP
+	loop	0
+	delay	4
+	offset	127 179
+	bbox 	99 113 40 33
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+	frame	data/chars/Hannah/ja301.gif
+	attack 127 131 24 44 4 0 0 0 10 12
+	sound	data/voices/Hannah/Hannah2.wav
+	frame	data/chars/Hannah/ja302.gif
+	frame	data/chars/Hannah/ja301.gif
+	frame	data/chars/Hannah/ja302.gif
+	frame	data/chars/Hannah/ja303.gif
+	frame	data/chars/Hannah/ja304.gif
+	frame	data/chars/Hannah/ja305.gif
+	frame	data/chars/Hannah/ja306.gif
+
+anim jumpforward #JUMP FORWARD
+	loop	1 4 7
+	delay	6
+	offset	127 179
+	bbox 	117 115 28 28
+	hitfx	data/sounds/sf/HighKick.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Hannah/ja101.gif
+		delay	3
+	attack 121 131 68 24 8 1 0 0 10 12
+	bbox 	111 118 38 28
+	sound	data/voices/Hannah/Hannah2.wav
+	frame	data/chars/Hannah/ja101.gif
+	frame	data/chars/Hannah/ja102.gif
+	frame	data/chars/Hannah/ja102.gif
+	frame	data/chars/Hannah/ja103.gif
+
+anim runattack #BLITZ
+        loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	6
+	sound	data/sounds/punch.wav
+	sound	data/chars/hannah/hannah04.wav
+	frame	data/chars/hannah/ca01.gif
+	delay 10
+	attack	245 125 35 35 2 1 0 0 10 15
+	bbox	226 105 33 72
+	dropv	1.5 1.75
+	frame	data/chars/hannah/ca02.gif
+	delay 1
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/hannah/ca02.gif
+	delay 999
+	attack	245 125 35 35 4 1 0 0 15 15
+	bbox	226 105 33 72
+	dropv	1.5 1.5
+	frame	data/chars/hannah/ca02.gif
+	delay	8
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/hannah/land01.gif
+	frame	data/chars/hannah/get01.gif
+	frame	data/chars/hannah/land01.gif
+
+#anim special #DEFENSIVE SPECIAL
+	
+
+#anim special2 #OFFENSIVE SPECIAL
+	
+	
+#anim freespecial #RAGE
+	
+	
+anim freespecial2 #BLOCK
+	loop	0
+	delay	32
+	offset	127 179
+	bbox 	113 108 20 73
+	@cmd block 1
+	frame	data/chars/Hannah/block.gif
+		delay	1
+	@cmd block 0
+	frame	data/chars/Hannah/block.gif
+	
+#anim follow2 #COUNTER
+	

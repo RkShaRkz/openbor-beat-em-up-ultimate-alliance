@@ -1,0 +1,32 @@
+name	Popo
+health	1
+speed   15
+type	enemy
+candamage npc player
+hitenemy 0 0
+#candamage obstacle player
+shadow	0
+nolife        1
+#icon	data/chars/misc/popoicon.gif
+
+anim idle
+	loop	1
+	delay	9
+	offset	51 25
+	hitfx   data/sounds/hpain.wav
+        attack  44 19 7 6 3 1     
+	frame	data/chars/monalisa/popo/popo1.gif
+	delay	37
+        attack  19 4 32 21 31 1
+	frame	data/chars/monalisa/popo/popo2.gif
+	delay	51
+        attack  2 2 49 23 39 1
+	frame	data/chars/monalisa/popo/popo3.gif
+        attack  0
+
+#anim attack1
+#	loop	0
+#	delay	1000
+#	offset	12 5
+#	attack	0 0 27 9
+#	frame	data/chars/misc/knife.gif

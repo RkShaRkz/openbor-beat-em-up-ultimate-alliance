@@ -1,0 +1,164 @@
+##MAIN
+Noslowfx 		1
+Equalairpause	1
+Hiscorebg		1
+Completebg		1
+Showrushbonus 	1
+Scoreformat 	0
+Scbonuses 		10000 1000 1000	1
+Loadingbg		1 -81 249 478 999 999 4
+Loadingbg2		1 -81 249 478 999 999 4
+Showcomplete 	999	999	999	999	999	999 #75 40 	139 40 	155 40
+Clearbonus 		3 	109 102 109 162 109 222 109	282	109
+Lifebonus 		15 	129 102 129	162 129	222 129	282	129
+Rushbonus 		11 	149 102 149 162 149 222 149	282	149
+Totalscore 		3 	169 102 169 162 169 222 169	282	169
+
+##BARS/TIMEICON/RUSH
+lbarsize 	87 5 1 1 0 -500 -500 1 -500 
+mpbarsize 	87 3 1 1 0 -500 -500 1 -500
+timeloc 	150 249 0 0 1
+timeicon	data\sprites\time.gif 147 242
+rush		1 1 HIT 7 7 MAX 3 3
+
+##HUD
+p1smenu		32 	135		12 	111
+p2smenu		448 135 	427	111
+p3smenu		32 	267 	12	243
+p4smenu		448 267 	427	243
+
+p1icon		1 	1
+p2icon		121 1
+p3icon		241 1
+p4icon		361 1
+
+p1namej 	24 	1	24 	10 19 	1
+p2namej 	144 1 	144 10 139 	1
+p3namej 	264 1 	264 10 259 	1
+p4namej 	384 1 	384 10 379 	1
+
+p1score 	44 	1 999 999 44 	10
+p2score 	164 1 999 999 164 	10
+p3score 	284 1 999 999 284 	10
+p4score 	404 1 999 999 404 	10
+
+p1life		2 	21
+p2life		122 21
+p3life		242 21
+p4life		362 21
+
+p1lifex 	94 	20
+p2lifex 	214 20
+p3lifex 	334 20
+p4lifex 	454 20
+
+p1lifen 	103 14
+p2lifen 	223 14
+p3lifen 	343 14
+p4lifen 	463 14
+
+p1mp		2	35
+p2mp		122	35
+p3mp		242 35
+p4mp		362 35
+
+mp1icon		1 	-100
+mp2icon		121 -100
+mp3icon		241 -100
+mp4icon		361 -100
+
+p1rush		2 	76 	56 	76 2 	95 	56 	95
+p2rush		122 76 	176 76 122 	95 	176 95
+p3rush		242 76 	296 76 242 	95 	296 95
+p4rush		362 76 	416 76 362 	95 	416 95
+
+e1icon		1 	44
+e2icon		121 44
+e3icon		241 44
+e4icon		361 44
+
+e1name		24 	53
+e2name		144 53
+e3name		264 53
+e4name		384 53
+
+e1life		2 	64
+e2life		122 64
+e3life		242 64
+e4life		362 64
+
+#Brasil
+set			Arcade-Beta 
+maxplayers	4
+nosame		0 1
+noshare		1
+lives		3
+credits		99
+typemp 		0
+cansave		2
+
+#STAGE 1
+
+
+z			176 274
+file		data/levels/Br_st1A.txt 	#Br00_Calçadão
+z			182 274
+file		data/levels/Br_st1B.txt 	#Br01_Docas
+z			214 274
+file		data/levels/Br_st1C.txt 	#Br03_Beco
+Next
+
+#STAGE 2
+z			214 274
+file		data/levels/Br_st2A.txt 	#Br04_PARADA DE ONIBUS
+z			185 260
+file		data/levels/Br_st2B.txt 	#Br05_ONIBUS
+z			192 274
+file		data/levels/Br_st2C.txt 	#Br06_Floresta
+z			195 270
+file		data/levels/Br_st2D.txt 	#Br07_Galpão
+Next
+
+#STAGE 3
+z			195 270
+file		data/levels/Br_st3A.txt 	#Br08_Pier
+z			200 260
+file		data/levels/Br_st3B.txt 	#Br09_Trem
+z			195 275
+file		data/levels/Br_st3C.txt 	#Br10_PIER_santos
+Next
+
+#STAGE 4
+
+z			210 270
+file		data/levels/Br_st4a.txt 	#Br11_Entrada_Estadio
+z			190 270
+file		data/levels/Br_st4B.txt 	#Br12_Estadio
+z			210 270
+file		data/levels/Br_st4C.txt 	#Br13_Vestiario
+Next
+
+#STAGE 5
+
+z			220 270
+file		data/levels/Br_st5A.txt 	#Br14_Estação_Metro1
+z			205 255
+file		data/levels/Br_st5B.txt 	#Br15_Teto_Metro
+z			210 270
+file		data/levels/Br_st5C.txt 	#Br16_estação_Metro2
+Next
+
+#STAGE 6
+
+z			163 270
+file		data/levels/Br_st6A.txt 	#Br17_Jandira_City
+z			210 270
+file		data/levels/Br_st6B.txt 	#Br18_Boat
+
+Next
+#STAGE 7
+
+z			186 272
+file		data/levels/Br_st7A.txt 	#Br19_Base_militar
+z			200 272
+file		data/levels/Br_st7B.txt 	#Br20_Elevador

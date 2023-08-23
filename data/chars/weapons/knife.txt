@@ -1,0 +1,21 @@
+name			knife	#GROUND
+type			item
+subtype			weapon
+nolife			1
+facing 			1
+typeshot 		0
+weapnum			1
+shootnum 		1
+counter			4
+setlayer		-3
+gfxshadow		1 1
+offscreenkill	5
+onblockwscript	data/scripts/onblockw/wall.c
+
+anim idle
+	loop	0
+	delay	1
+	offset	23 25
+	bbox 	14 22 19 3
+	frame	data/chars/weapons/knife08.gif
+

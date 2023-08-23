@@ -1,0 +1,32 @@
+name				st6_beach
+type				panel
+shadow				0
+speed				5
+scroll				-0.5
+setlayer			-10
+animationscript 	data/scripts/script.c
+
+anim idle
+	loop	1
+	delay	32
+	offset	1 1
+	frame	data/bgs/st6/beach00.gif
+		delay	16
+	frame	data/bgs/st6/beach01.gif
+	frame	data/bgs/st6/beach02.gif
+	frame	data/bgs/st6/beach03.gif
+	frame	data/bgs/st6/beach04.gif
+	frame	data/bgs/st6/beach05.gif
+	frame	data/bgs/st6/beach06.gif
+	frame	data/bgs/st6/beach07.gif
+		delay	32
+	frame	data/bgs/st6/beach08.gif
+		delay	16
+	frame	data/bgs/st6/beach09.gif
+	frame	data/bgs/st6/beach10.gif
+	frame	data/bgs/st6/beach11.gif
+	frame	data/bgs/st6/beach12.gif
+	frame	data/bgs/st6/beach13.gif
+	frame	data/bgs/st6/beach14.gif
+	frame	data/bgs/st6/beach15.gif
+	

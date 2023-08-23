@@ -1,0 +1,637 @@
+##ATTRIBUTES
+
+#SKILLS		*
+#LIFE		*
+#POWER		*
+#SPEED		*
+#JUMP		*
+#SPECIAL	*
+
+##MAIN
+name				rolento
+type				enemy
+hostile				player
+candamage			player obstacle
+projectilehit		player enemy obstacle
+
+##LIFE
+health				700 #SCRIPT
+
+##POWER
+offense 			all 1 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				16 #SCRIPT
+
+##JUMP
+jumpspeed			13 #13/15/17/19/21/23
+jumpheight 			2.9 #2.9/3.1/3.3/3.5/3.7/3.9
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				75
+
+##MISC
+jugglepoints		30
+risetime			170
+riseinv				0.1 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 1 2
+#weapons				none none rolento_pipe none
+gfxshadow			1 1
+dust				dust
+#aimove				avoid #ENEMY ONLY
+escapehits			99 #ENEMY ONLY
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/abadede.c
+onfallscript		data/scripts/onfall/koCount.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+
+##ICONS
+icon				data/chars/rolento/icon.gif 1
+
+##DIESOUND
+diesound			data/voices/enemy/Die1.wav
+
+##REMAPS
+
+##LOADS
+load rgran
+load rgran2
+
+##ANIMATIONS#############################################################################
+
+anim	attack1
+	range	20 60
+        hitfx	data/sounds/beat1.wav
+	loop	0
+	offset	238 177
+	bbox	230 106 30 72
+	delay	4
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/a101.gif
+	delay	8
+	attack	240 	126 	96 	20 	15 	0 	0 	0 	25 15
+	frame	data/chars/rolento/a102.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/rolento/a101.gif
+	delay	15
+	frame	data/chars/rolento/idle01.gif
+	hitfx	data/sounds/beat2.wav
+	loop	0
+	offset	238 177
+	bbox	230 106 30 72
+	delay	4
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/a101.gif
+	delay	8
+	attack	240 	126	96 	20 	20 	1 	0 	0 	35 15
+	frame	data/chars/rolento/a102.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	4
+	frame	data/chars/rolento/a101.gif
+	delay	25
+	frame	data/chars/rolento/idle01.gif
+	hitfx	data/sounds/beat2.wav
+
+anim	attack2
+	range	20 60
+loop	0
+	offset	238 177
+	bbox	230 120 30 57
+	delay	15
+	frame	data/chars/rolento/expl219.gif
+	bbox	230 115 30 40
+	sound	data/sounds/jump.wav
+	delay	5
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	delay	999
+	attack	240 147 55 30 25 1 0 0 35 15
+	frame	data/chars/rolento/a205.gif
+	delay	15
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/rolento/land01.gif
+	delay	25
+	frame	data/chars/rolento/idle01.gif
+	hitfx	data/sounds/beat2.wav
+
+anim	attack3
+	jumpframe	1 3.4 1
+	landframe	8
+	range	25 75
+loop	0
+	offset	238 177
+	bbox	230 125 35 52
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/expl219.gif
+	sound	data/sounds/jump.wav
+	delay	5
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+@cmd	toss "rgran2" 4 15 0
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+@cmd	toss "rgran2" 4 15 0
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+@cmd	toss "rgran2" 4 15 0
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+@cmd	toss "rgran2" 4 15 0
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+@cmd	toss "rgran2" 4 15 0
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	delay	999
+	frame	data/chars/rolento/a204.gif
+	delay	50
+	frame	data/chars/rolento/expl219.gif
+	delay	25
+	frame	data/chars/rolento/idle01.gif
+
+anim	FreeSpecial
+	range	50 100
+	jumpframe	1 3 3
+	landframe	17
+        hitfx	data/sounds/beat1.wav
+	loop	0
+	offset	238 177
+	bbox	230 106 30 72
+	delay	15
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/a301.gif
+	delay	35
+	@cmd	toss "rgran" 4 15 0
+	frame	data/chars/rolento/a302.gif
+	delay	4
+	frame	data/chars/rolento/expl219.gif
+
+anim	FreeSpecial2
+	range	120 220 15
+hitfx	data/sounds/beat1.wav
+	loop	0
+	offset	238 177
+	bbox	230 106 30 72
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/a101.gif
+	attack	240 126 116 20 15 0 0 0 25 15
+	frame	data/chars/rolento/a103.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/rolento/a103.gif
+	frame	data/chars/rolento/a101.gif
+	delay	15
+	frame	data/chars/rolento/idle01.gif
+
+anim	FreeSpecial3
+	range	20 80
+        hitfx	data/sounds/beat2.wav
+	loop	0
+	offset	238 177
+	bbox	230 106 30 72
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/a101.gif
+	attack	240 126 116 20 25 1 0 0 40 15
+	frame	data/chars/rolento/a103.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/rolento/a103.gif
+	frame	data/chars/rolento/a101.gif
+	delay	25
+	frame	data/chars/rolento/idle01.gif	
+	
+
+anim	spawn
+	summonframe	32 0 0 0 1
+	subentity	dial08
+	flipframe 0
+	jumpframe	1 2 1.75 1.2
+	landframe	31
+	#jugglecost	2
+	#fastattack	1
+
+	hitfx	data/sounds/beat2.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	15
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/a201.gif
+	sound	data/sounds/jump.wav
+	delay	6
+	frame	data/chars/rolento/a202.gif
+	@cmd	toss "rgran" 4 15 0
+	frame	data/chars/rolento/a203.gif
+	@cmd	toss "rgran" 4 15 0
+	frame	data/chars/rolento/a204.gif
+	@cmd	toss "rgran" 4 15 0
+	frame	data/chars/rolento/a201.gif
+	@cmd	toss "rgran" 4 15 0
+	frame	data/chars/rolento/a202.gif
+	@cmd	toss "rgran" 4 15 0
+	frame	data/chars/rolento/a203.gif
+	@cmd	toss "rgran" 4 15 0
+	frame	data/chars/rolento/a204.gif
+	@cmd	toss "rgran" 4 15 0
+	frame	data/chars/rolento/a201.gif
+	@cmd	toss "rgran" 4 15 0
+	frame	data/chars/rolento/a202.gif
+	@cmd	toss "rgran" 4 15 0
+	frame	data/chars/rolento/a203.gif
+	@cmd	toss "rgran" 4 15 0
+	frame	data/chars/rolento/a204.gif
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	delay	15
+	frame	data/chars/rolento/expl219.gif
+	delay	1
+	frame	data/chars/rolento/idle01.gif
+	delay	50
+	frame	data/chars/rolento/expl219.gif
+
+
+anim idle
+	loop	1
+	offset	238 177
+	bbox	230 106 30 72
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/idle01.gif
+
+anim	walk
+	loop	1
+	offset	238 177
+	bbox	230 106 30 72
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/walk01.gif
+	frame	data/chars/rolento/walk02.gif
+	frame	data/chars/rolento/walk01.gif
+	frame	data/chars/rolento/walk03.gif
+
+
+anim grabbed
+	 loop       0
+	 offset     238 179
+	 bbox		223 115 45 64
+	 delay      4
+	drawmethod  245  245  0  0  0  -1  -1
+	 frame      data/chars/rolento/pain200.gif
+
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	230 182
+	bbox 	211 101 49 80
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/pain00.gif
+	frame	data/chars/rolento/pain01.gif
+	frame	data/chars/rolento/pain00.gif
+	frame	data/chars/rolento/pain01.gif
+	frame	data/chars/rolento/pain00.gif
+	frame	data/chars/rolento/pain01.gif
+	frame	data/chars/rolento/pain00.gif
+	frame	data/chars/rolento/pain01.gif
+	frame	data/chars/rolento/pain00.gif
+	frame	data/chars/rolento/pain01.gif
+	frame	data/chars/rolento/pain00.gif
+	frame	data/chars/rolento/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	230 182
+	bbox 	220 110 42 72
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/pain200.gif
+	frame	data/chars/rolento/pain201.gif
+	frame	data/chars/rolento/pain200.gif
+	frame	data/chars/rolento/pain201.gif
+	frame	data/chars/rolento/pain200.gif
+	frame	data/chars/rolento/pain201.gif
+	frame	data/chars/rolento/pain200.gif
+	frame	data/chars/rolento/pain201.gif
+	frame	data/chars/rolento/pain200.gif
+	frame	data/chars/rolento/pain201.gif
+	frame	data/chars/rolento/pain200.gif
+	frame	data/chars/rolento/pain201.gif
+
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	238 165
+	bbox 	183 125 101 36
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+		offset  238  188
+	frame	data/chars/rolento/fall01.gif
+
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	235 165
+	bbox 	192 148 78 30
+	drawmethod tintmode 6
+	drawmethod tintcolor 255
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/rolento/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+		offset  235  188
+	frame	data/chars/rolento/fall01.gif
+
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	238 165
+	bbox 	191 134 105 34
+	drawmethod tintmode 6
+	drawmethod tintcolor -255
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/fall00.gif
+	drawmethod tintmode 2
+	drawmethod tintcolor -255
+	frame	data/chars/rolento/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+		offset  238  188
+	frame	data/chars/rolento/fall01.gif
+
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	234 182
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/fall600.gif
+		offset  234  163
+	frame	data/chars/rolento/fall601.gif
+	frame	data/chars/rolento/fall602.gif
+		offset  234  178
+	frame	data/chars/rolento/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+		offset  234  188
+	frame	data/chars/rolento/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	238 182
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/fall700.gif
+	frame	data/chars/rolento/fall701.gif
+	frame	data/chars/rolento/fall702.gif
+	frame	data/chars/rolento/fall703.gif
+		offset  238  136
+	frame	data/chars/rolento/fall704.gif
+		offset  238  196
+	frame	data/chars/rolento/fall705.gif
+
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 1
+	loop	0
+	delay	999
+	offset	238 166
+	bbox 	179 114 96 40
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 179 115 95 52 4 1 0 0 0 12
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/rolento/fall01.gif
+
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 1
+	loop	0
+        jumpframe	1 2.5 0
+	landframe	13
+	loop	0
+	delay	999
+	offset	242 138
+	bbox 	216 73 63 67
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+		attack1  212  73  67  67
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+		offset  226  191
+	frame	data/chars/rolento/fall01.gif
+
+anim Rise
+	offset	238 187
+	delay	1
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/fall01.gif
+	sound	data/sounds/jump.wav
+	delay	8
+	@cmd target 4.5 4.5 0 0 0
+	@cmd dash
+		offset  238  158
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+	delay	16
+	frame	data/chars/rolento/rise01.gif
+	delay	8
+		offset  238  177
+	frame	data/chars/rolento/pain02.gif
+
+anim	riseattack1
+	quakeframe 13 30 5 #15
+	jumpframe	1 2.5 0
+	landframe	13
+	range	0 163
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/beat2.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	1
+	frame	data/chars/rolento/expl219.gif
+	sound	data/sounds/jump.wav
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+	frame	data/chars/rolento/a201.gif
+	frame	data/chars/rolento/a202.gif
+	frame	data/chars/rolento/a203.gif
+	frame	data/chars/rolento/a204.gif
+	sound	data/sounds/gre.wav
+	 burn  	160 	63 	152 		133 		45 		1 		0 		0 		15		#15
+	delay	4
+        @cmd	projectile 1 "Quake_Low" 0 0 0
+        @cmd spawnbind "explosion" 0 0 1
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	sound	data/sounds/gre.wav
+        @cmd	projectile 1 "Quake_Low" 0 0 0
+        @cmd spawnbind "explosion" 0 0 1
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	sound	data/sounds/gre.wav
+        @cmd	projectile 1 "Quake_Low" 0 0 0
+        @cmd spawnbind "explosion" 0 0 1
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	sound	data/sounds/gre.wav
+        @cmd	projectile 1 "Quake_Low" 0 0 0
+        @cmd spawnbind "explosion" 0 0 1
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	sound	data/sounds/gre.wav
+        @cmd	projectile 1 "Quake_Low" 0 0 0
+        @cmd spawnbind "explosion" 0 0 1
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	sound	data/sounds/gre.wav
+        @cmd	projectile 1 "Quake_Low" 0 0 0
+        @cmd spawnbind "explosion" 0 0 1
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+	frame	data/chars/rolento/expl219.gif
+
+anim	block
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	2
+	move	-9
+	sound data/sounds/blast02.wav
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/rolento/guard01.gif
+	frame	data/chars/rolento/guard01.gif
+	frame	data/chars/rolento/guard01.gif
+	frame	data/chars/rolento/guard01.gif
+	move	-8
+	frame	data/chars/rolento/guard02.gif
+	frame	data/chars/rolento/guard02.gif
+	frame	data/chars/rolento/guard02.gif
+	frame	data/chars/rolento/guard02.gif
+	move	-6
+	frame	data/chars/rolento/guard03.gif
+	frame	data/chars/rolento/guard03.gif
+	frame	data/chars/rolento/guard03.gif
+	frame	data/chars/rolento/guard03.gif
+	move	-6
+	frame	data/chars/rolento/guard01.gif
+	frame	data/chars/rolento/guard01.gif
+	frame	data/chars/rolento/guard01.gif
+	frame	data/chars/rolento/guard01.gif
+	move	-5
+	frame	data/chars/rolento/guard02.gif
+	frame	data/chars/rolento/guard02.gif
+	frame	data/chars/rolento/guard02.gif
+	frame	data/chars/rolento/guard02.gif
+	move	-4
+	frame	data/chars/rolento/guard03.gif
+	frame	data/chars/rolento/guard03.gif
+	frame	data/chars/rolento/guard03.gif
+	frame	data/chars/rolento/guard03.gif
+	move	-3
+	frame	data/chars/rolento/guard01.gif
+	frame	data/chars/rolento/guard01.gif
+	frame	data/chars/rolento/guard01.gif
+	frame	data/chars/rolento/guard01.gif
+	move	-2
+	frame	data/chars/rolento/guard02.gif
+	frame	data/chars/rolento/guard02.gif
+	frame	data/chars/rolento/guard02.gif
+	frame	data/chars/rolento/guard02.gif
+	move	-1
+	frame	data/chars/rolento/guard03.gif
+	frame	data/chars/rolento/guard03.gif
+	frame	data/chars/rolento/guard03.gif
+	frame	data/chars/rolento/guard03.gif
+	move	0
+	delay	8
+	frame	data/chars/rolento/idle01.gif
+
+

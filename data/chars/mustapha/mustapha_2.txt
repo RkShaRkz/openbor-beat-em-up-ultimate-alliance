@@ -1,0 +1,2719 @@
+secret 0 4
+name	    		Mustapha_2
+type	    		player
+health	    		105
+mp          		100
+nolife				1
+hostile				player npc
+candamage			player npc obstacle
+speed	    		13
+running             20 1 1 1 1
+jumpspeed	    	13
+jumpheight   		3.3
+projectilehit   enemy obstacle trap
+
+turndelay 			0
+mprate				4
+grabdistance		25
+grabfinish			1
+grabback			0
+antigravity 		10
+bounce				1
+noquake     		1
+#shadow 3
+gfxshadow 1 3
+diesound    		data/chars/players/DIN/Mustapha/musta08.wav
+flash 				flash
+bflash 				guard
+dust    			dust01
+toflip				1
+nodieblink			3
+makeinv     		5 0 
+falldie 			2
+riseinv 			0.65 0
+atchain     		1 1 2 3 4
+jugglepoints		15
+animationscript		data/scripts/drago.c
+
+blockpain 1
+holdblock 0
+
+load				quake
+load                raptor_2
+load  bad 
+load cuchillom_2
+
+com  d f a  		freespecial2
+com  d u a  		freespecial3
+com  d f u a  		freespecial3
+com  d b u a  		freespecial3
+com  d f j  		freespecial6
+com  d f s  		freespecial7
+
+com  d f d f a  	freespecial5
+com  d f b d b a  	freespecial5
+com  b d b b d b a  	freespecial5
+com  b d b d f a  	freespecial5
+com  d b d f a  	freespecial5
+com  d b b d b a  	freespecial5
+
+com  d f d f j  	freespecial12
+com  d f b d b j  	freespecial12
+com  b d b b d b j  	freespecial12
+com  b d b d f j  	freespecial12
+com  d b d f j  	freespecial12
+com  d b b d b j  	freespecial12
+
+com  d d   	freespecial28
+com  u u   	freespecial29
+
+
+icon	      		data/chars/players/DIN/Mustapha/icon.gif 1
+icondie     		data/chars/players/DIN/Mustapha/icond.gif 1
+
+parrow		data/chars/misc/parrow/01.gif -215 -185
+parrow2		data/chars/misc/parrow/02.gif -215 -185
+parrow3		data/chars/misc/parrow/03.gif -215 -185
+parrow4		data/chars/misc/parrow/04.gif -215 -185
+
+palette 			data/chars/players/DIN/Mustapha/pal/pal01.gif #1
+alternatepal		data/chars/players/DIN/Mustapha/pal/pal02.gif #2
+alternatepal		data/chars/players/DIN/Mustapha/pal/pal03.gif #3
+alternatepal		data/chars/players/DIN/Mustapha/pal/pal04.gif #4
+alternatepal		data/chars/players/DIN/Mustapha/pal/pal05.gif #5
+alternatepal		data/chars/players/DIN/Mustapha/pal/pal06.gif #6
+alternatepal		data/chars/players/DIN/Mustapha/pal/pal07.gif #7
+alternatepal		data/chars/players/DIN/Mustapha/pal/pal08.gif #8
+alternatepal		data/chars/players/DIN/Mustapha/pal/pal09.gif #9
+alternatepal		data/chars/players/DIN/Mustapha/pal/pal10.gif #10
+
+
+anim BLOCK
+      loop	0
+	    delay	19
+	    offset	238 177
+			bbox	226 102 23 76
+	    frame	data/chars/players/din/mustapha/parry.gif
+      @cmd submp 20
+      delay	1
+      frame	data/chars/players/din/mustapha/parry.gif
+
+
+@script	
+    if(frame==0){
+      void vSelf = getlocalvar("self");
+      if(getentityproperty(vSelf,"mp") < 20){
+        changeentityproperty(vSelf, "animation", openborconstant("ANI_FOLLOW9"));
+      }
+    }
+@end_script
+
+anim	follow9
+			loop	0
+	    delay	40
+	    offset	238 177
+			bbox	226 102 23 76
+	    @cmd subhealthkill 10
+	    frame	data/chars/players/din/mustapha/pain01.gif
+
+	
+
+anim BLOCKPAIN
+			@script
+		if(frame >= 1 && frame < 999) {
+			if (readKey("atk")||readKey("j")) { changeState("RUNATTACK"); }
+		}
+			@end_script	
+      loop	0
+			bbox	0 0 0 0
+      offset	238 177
+      @cmd submp -20
+      @cmd puntosparry
+      delay	2
+      move -8
+      @cmd	projectile 1 "dust02" 0 0 0
+			frame	data/chars/players/din/mustapha/guard.gif
+			frame	data/chars/players/din/mustapha/guard.gif
+			move -6
+			frame	data/chars/players/din/mustapha/guard.gif
+			frame	data/chars/players/din/mustapha/guard.gif
+			move -4
+			frame	data/chars/players/din/mustapha/guard.gif
+			frame	data/chars/players/din/mustapha/guard.gif
+			move -2
+			frame	data/chars/players/din/mustapha/guard.gif
+			frame	data/chars/players/din/mustapha/guard.gif
+			move -0
+			delay 40
+			frame	data/chars/players/din/mustapha/guard.gif
+
+
+anim	attack1
+	jugglecost	2
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial12
+	cancel	0 	999 	0  d f b d f j  	freespecial12
+	cancel	0 	999 	0   d f s  		freespecial7
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	230 102 33 76
+	delay	4
+	frame	data/chars/players/DIN/Mustapha/a101.gif
+	delay 8
+	attack2	240 105 77 30 4 0 0 0 10 15
+	frame	data/chars/players/DIN/Mustapha/a102.gif
+	delay 4
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/a101.gif
+	
+anim	attack2
+	jugglecost	2
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial12
+	cancel	0 	999 	0  d f b d f j  	freespecial12
+	cancel	0 	999 	0   d f s  		freespecial7
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	230 102 33 76
+	delay	3
+	sound	data/chars/players/DIN/Mustapha/musta03.wav	
+	frame	data/chars/players/DIN/Mustapha/a201.gif
+	frame	data/chars/players/DIN/Mustapha/a202.gif
+	delay 4
+	attack	240 121 80 20 5 0 0 0 15 15
+	frame	data/chars/players/DIN/Mustapha/a203.gif
+	frame	data/chars/players/DIN/Mustapha/a204.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	6
+	frame	data/chars/players/DIN/Mustapha/a205.gif
+		
+anim	attack3
+	jugglecost	2
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial12
+	cancel	0 	999 	0  d f b d f j  	freespecial12
+	cancel	0 	999 	0   d f s  		freespecial7
+				@script
+		if(frame == 0) {
+			if (readKey("d")) { changeState("GRABBACKWARD"); }
+			else if (readKey("u")) { changeState("GRABFORWARD"); }
+		}
+		@end_script	
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	230 102 33 76
+	sound	data/chars/players/DIN/Mustapha/musta04.wav
+	delay	8
+	frame	data/chars/players/DIN/Mustapha/a301.gif
+	delay 5
+	attack	240 105 83 35 7 1 0 0 20 15
+	frame	data/chars/players/DIN/Mustapha/a302.gif
+	frame	data/chars/players/DIN/Mustapha/a303.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	12
+	frame	data/chars/players/DIN/Mustapha/a304.gif
+
+anim	attack4
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay 1
+  frame	data/chars/players/DIN/Mustapha/idle01.gif
+  
+anim	attack9
+	jugglecost	2
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial12
+	cancel	0 	999 	0  d f b d f j  	freespecial12
+	cancel	0 	999 	0   d f s  		freespecial7
+				
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	230 102 33 76
+	sound	data/chars/players/DIN/Mustapha/musta04.wav
+	delay	8
+	frame	data/chars/players/DIN/Mustapha/a301.gif
+	delay 5
+	attack	240 105 83 35 7 1 0 0 20 15
+	frame	data/chars/players/DIN/Mustapha/a302.gif
+	frame	data/chars/players/DIN/Mustapha/a303.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	12
+	frame	data/chars/players/DIN/Mustapha/a304.gif
+	
+
+anim	freespecial28
+	jumpframe	0 1.5 0 1
+	landframe 6
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	5
+	frame	data/chars/players/din/mustapha/jump01.gif
+	delay 6
+	frame	data/chars/players/din/mustapha/fjump01.gif
+	frame	data/chars/players/din/mustapha/fjump02.gif
+	frame	data/chars/players/din/mustapha/fjump03.gif
+	frame	data/chars/players/din/mustapha/fjump04.gif
+	delay	999
+	frame	data/chars/players/din/mustapha/jump01.gif
+	delay 8
+	frame	data/chars/players/din/mustapha/land01.gif
+
+anim	freespecial29
+	jumpframe	0 1.5 0 -1
+	landframe 6
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	5
+	frame	data/chars/players/din/mustapha/jump01.gif
+	delay 6
+	frame	data/chars/players/din/mustapha/fjump01.gif
+	frame	data/chars/players/din/mustapha/fjump02.gif
+	frame	data/chars/players/din/mustapha/fjump03.gif
+	frame	data/chars/players/din/mustapha/fjump04.gif
+	delay	999
+	frame	data/chars/players/din/mustapha/jump01.gif
+	delay 8
+	frame	data/chars/players/din/mustapha/land01.gif
+		
+anim	death
+	loop	0
+	offset	238 177
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+		
+anim	fall
+@script
+	   void self = getlocalvar("self");
+	   
+	   if(frame==0){
+	     if(getentityproperty(self,"jugglepoints") <= 0){ 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL3"));
+	     } 
+	   }
+	    
+    @end_script
+	cancel 		1 				1 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	2
+	loop	0
+	offset	238 177
+	delay	2
+	bbox	226 102 23 76
+	frame	data/chars/players/DIN/Mustapha/fall01.gif
+	delay	999
+	frame	data/chars/players/DIN/Mustapha/fall01.gif
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+		
+
+	
+anim fall19
+	 loop       0
+	 offset     238 177
+	 landframe	1 
+	 bbox 0 0 0 0
+	  delay      999
+    frame      data/chars/misc/empty.gif
+    delay      1
+    frame      data/chars/misc/empty.gif
+
+
+anim death18
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+    
+anim death28
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+    
+anim death13
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+    
+anim death23
+	 loop       0
+	 offset     238 177
+	  delay      120
+    frame      data/chars/misc/empty.gif
+
+anim fall18
+	 cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		226 102 23 76
+	 sound   	data/sounds/burn111.wav
+	 		@script
+	   void self = getlocalvar("self");
+	    if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death18", 0, 0, 0);
+	    	changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	     else if(getentityproperty(self,"jugglepoints") <= 0){ 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL28"));
+	     }
+	    }
+	    @end_script
+		 delay      2
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+	 		delay	999
+			frame	data/chars/misc/burn1/burn111.gif
+			delay	1
+			frame	data/chars/players/DIN/Mustapha/fall02.gif
+	
+anim fall28
+	 cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	 landframe  37
+	 loop       0
+	 offset     238 177
+	 bbox		0 0 0 0
+	 sound   	data/sounds/burn111.wav
+	 		@script
+	   void self = getlocalvar("self");
+	    if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death18", 0, 0, 0);
+	    	changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	     
+	    }
+	    @end_script
+		 delay      2
+       frame      data/chars/misc/burn1/burn114.gif
+       sound	data/sounds/nojug.wav
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn114.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn112.gif
+       frame      data/chars/misc/burn1/burn111.gif
+       frame      data/chars/misc/burn1/burn113.gif
+       frame      data/chars/misc/burn1/burn111.gif
+	 		delay	999
+			frame	data/chars/misc/burn1/burn111.gif
+			delay	1
+			frame	data/chars/players/DIN/Mustapha/fall02.gif
+			
+anim fall11
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	     		if(getentityproperty(self,"jugglepoints") > 0){
+	       	changeentityproperty(self, "animation", openborconstant("ANI_FALL20"));
+	    		} 
+	    		else { 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL30"));
+	    		} 
+	    	}		
+	   }  
+ @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/misc/diebyfire/fall02.gif
+	
+anim	fall20
+	cancel 		0 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+		
+anim	fall12
+	@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	     		if(getentityproperty(self,"jugglepoints") > 0){
+	       	changeentityproperty(self, "animation", openborconstant("ANI_FALL40"));
+	    		} 
+	    		else { 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL50"));
+	    		} 
+	    	}		
+	   }  
+ @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	delay	999
+	frame	data/chars/misc/burn2/burn214.gif
+	delay	1
+	frame	data/chars/misc/diebyfire2/fall02.gif
+	
+anim	fall40
+	cancel 		0 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	delay	999
+	frame	data/chars/misc/burn2/burn214.gif
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+		
+anim	fall13
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death13", 0, 0, 0);
+	    	spawn01("exp2", 0, 0, 0);
+	    	changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	     else if(getentityproperty(self,"jugglepoints") <= 0){
+	     changeentityproperty(self, "animation", openborconstant("ANI_FALL23"));
+	     }
+	   } 
+    @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 167
+	bbox	226 102 23 76
+	sound	data/sounds/burn111.wav
+	delay	2
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	238 177
+	delay	999
+	frame	data/chars/players/DIN/Mustapha/fall01.gif
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+	
+anim fall21
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	       changeentityproperty(self, "animation", openborconstant("ANI_FALL30"));
+	    } 
+	   }  
+    @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/misc/diebyfire/fall02.gif
+	
+anim	fall30
+	cancel 		0 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn114.gif
+	sound	data/sounds/nojug.wav
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn114.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn112.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	frame	data/chars/misc/burn1/burn113.gif
+	frame	data/chars/misc/burn1/burn111.gif
+	delay	999
+	frame	data/chars/misc/burn1/burn114.gif
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+		
+anim	fall22
+	@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") > 0){ 	     
+	       changeentityproperty(self, "animation", openborconstant("ANI_FALL50"));
+	    } 
+	   }  
+     @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn214.gif
+
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	delay	999
+	frame	data/chars/misc/burn2/burn214.gif
+	delay	1
+	frame	data/chars/misc/diebyfire2/fall02.gif
+	
+anim	fall50
+		cancel 		0 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn214.gif
+	sound	data/sounds/nojug.wav
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn214.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn212.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	frame	data/chars/misc/burn2/burn213.gif
+	frame	data/chars/misc/burn2/burn211.gif
+	delay	999
+	frame	data/chars/misc/burn2/burn214.gif
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+		
+anim	fall23
+@script
+	   void self = getlocalvar("self");
+	   if(frame==0){
+	     if(getentityproperty(self,"health") <= 0){ 
+	    	spawnbind("death13", 0, 0, 0);
+	    	spawn01("exp2", 0, 0, 0);
+	    	changeentityproperty(self, "animation", openborconstant("ANI_FALL19"));
+	     }
+	   } 
+     @end_script
+	cancel 		1 				36 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	37
+	loop	0
+	offset	238 167
+	bbox	0 0 0 0
+	sound	data/sounds/burn111.wav
+	delay	2
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	sound	data/sounds/nojug.wav
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	238 177
+	delay	999
+	frame	data/chars/players/DIN/Mustapha/fall01.gif
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+		
+anim	fall2
+@script
+	   void self = getlocalvar("self");
+	   
+	   if(frame==0){
+	     if(getentityproperty(self,"jugglepoints") <= 0){ 
+	    		changeentityproperty(self, "animation", openborconstant("ANI_FALL3"));
+	     } 
+	   }
+	    
+    @end_script
+	cancel 		1 				1 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	2
+	loop	0
+	offset	238 177
+	delay	2
+	bbox	226 102 23 76
+	frame	data/chars/players/DIN/Mustapha/fall01.gif
+	delay	999
+	frame	data/chars/players/DIN/Mustapha/fall01.gif
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+		
+anim	fall3
+	cancel 		0 				0 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	1
+	loop	0
+	offset	238 177
+	delay	999
+	bbox	0 0 0 0
+	sound	data/sounds/nojug.wav
+	frame	data/chars/players/DIN/Mustapha/fall01.gif
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+	
+anim	fall27
+	cancel 		0 				0 			0 			u a						freespecial10	# cancel jump release attack
+	landframe	1
+	loop	0
+	offset	238 177
+	delay	999
+	bbox	0 0 0 0
+	sound	data/sounds/nojug.wav
+	frame	data/chars/players/DIN/Mustapha/fall01.gif
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+		
+anim	fall4
+	flipframe	0
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/cody01.gif	# 0
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/cody02.gif	# 1
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg01.gif	# 2
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg02.gif	# 3
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg03.gif	# 4
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg04.gif	# 5
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg05.gif	# 6
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg06.gif	# 7
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg07.gif	# 8
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg08.gif	# 9
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg09.gif	# 10
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg10.gif	# 11
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg11.gif	# 12
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg12.gif	# 13
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/hagg13.gif	# 14
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/dean01.gif	# 15
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/dean02.gif	# 16
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/dean03.gif	# 17
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/dean04.gif	# 18
+	delay	999
+       frame      data/chars/players/DIN/Mustapha/dean05.gif	# 19
+		
+anim	fall5
+
+	cancel 		0 				0 			0 			u a						freespecial10	# cancel jump release attack
+	shadowcoords	238 177
+	fastattack	1
+	landframe	1
+	loop	0
+	offset	198 177
+	delay	999
+	attack	205 110 85 	55 	5 	1 	0 	0 	25	15
+	bbox	226 102 23 76
+	frame	data/chars/players/DIN/Mustapha/fall01.gif
+	attack	0 0 0 	0 	0 	0 	0 	0 	0	0
+	offset	238 177
+	shadowcoords	238 177
+	move	50
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+		
+anim	fall6
+
+	cancel 		0 				0 			0 			u a						freespecial10	# cancel jump release attack
+	fastattack	1
+	landframe	1
+	loop	0
+	offset	238 177
+	delay	999
+	attack	205 110 85 	55 	5 	1 	0 	0 	25	15
+	bbox	226 102 23 76
+	frame	data/chars/players/DIN/Mustapha/fall01.gif
+	attack	0 0 0 	0 	0 	0 	0 	0 	0	0
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+		
+anim	fall9
+	landframe	1
+	loop	0
+	offset	238 177
+	delay	999
+	bbox	226 102 23 76
+	frame	data/chars/players/DIN/Mustapha/fall01.gif
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+		
+anim	forwardjump
+	cancel	0 	999 	0   d f j  		freespecial8
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	24
+	frame	data/chars/players/DIN/Mustapha/jump01.gif
+	delay	10
+	frame	data/chars/players/DIN/Mustapha/fjump01.gif
+	frame	data/chars/players/DIN/Mustapha/fjump02.gif
+	frame	data/chars/players/DIN/Mustapha/fjump03.gif
+	frame	data/chars/players/DIN/Mustapha/fjump04.gif
+	delay	999
+	frame	data/chars/players/DIN/Mustapha/jump01.gif
+		
+anim	freespecial10
+	@cmd subhealthkill 10
+	jugglecost	100
+	jumpframe	0 0 -1
+	landframe	34
+	loop	0
+	offset	209 233
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	@cmd	changeentityproperty getlocalvar("self") "aiflag" "drop" 0
+	@cmd	changeentityproperty getlocalvar("self") "aiflag" "falling" 0
+	sound	data/chars/players/DIN/Mustapha/musta05.wav
+	delay	2
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	delay 14
+	attack3	240 119 72 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp08.gif
+	delay	999
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/DIN/Mustapha/jump01.gif
+	@cmd	projectile 1 "dust03" 0 0 0	
+	delay	9
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+		
+anim	freespecial2
+	jugglecost	1
+	#cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial12
+	cancel	0 	999 	0  d f b d f j  	freespecial12
+	cancel	0 	999 	0   d f s  		freespecial7
+	fastattack	1
+	energycost	20
+	mponly	1
+	hitfx	data/sounds/beat3.wav
+	bbox	220 95 35 85
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	4
+	sound	data/chars/players/DIN/Mustapha/musta02.wav
+	frame	data/chars/players/DIN/Mustapha/get01.gif
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+	@cmd	projectile 1 "dust02" 0 0 0
+	delay	2
+	move 5
+	frame	data/chars/players/DIN/Mustapha/frsp201.gif
+	frame	data/chars/players/DIN/Mustapha/frsp201.gif
+	frame	data/chars/players/DIN/Mustapha/frsp202.gif
+	frame	data/chars/players/DIN/Mustapha/frsp202.gif
+	bbox	230 102 33 76
+	attack2	240 105 60 30 5 1 0 0 15 15
+	dropv 0.75 1.7
+	frame	data/chars/players/DIN/Mustapha/frsp203.gif
+	frame	data/chars/players/DIN/Mustapha/frsp203.gif
+	frame	data/chars/players/DIN/Mustapha/frsp203.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	sound	data/chars/players/DIN/Mustapha/musta02.wav
+	frame	data/chars/players/DIN/Mustapha/frsp204.gif
+	frame	data/chars/players/DIN/Mustapha/frsp204.gif
+	frame	data/chars/players/DIN/Mustapha/frsp204.gif
+	frame	data/chars/players/DIN/Mustapha/frsp204.gif
+	attack2	240 105 60 30 5 1 0 0 15 15
+	dropv 0.75 1.7
+	frame	data/chars/players/DIN/Mustapha/frsp205.gif
+	frame	data/chars/players/DIN/Mustapha/frsp205.gif
+	frame	data/chars/players/DIN/Mustapha/frsp205.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	sound	data/chars/players/DIN/Mustapha/musta03.wav
+	frame	data/chars/players/DIN/Mustapha/frsp206.gif
+	frame	data/chars/players/DIN/Mustapha/frsp206.gif
+	bbox	210 95 35 85
+	frame	data/chars/players/DIN/Mustapha/frsp207.gif
+	frame	data/chars/players/DIN/Mustapha/frsp207.gif
+	jugglecost	0
+	attack	240 100 65 40 9 1 0 0 25 15
+	dropv 2 1.5
+	frame	data/chars/players/DIN/Mustapha/frsp208.gif
+	frame	data/chars/players/DIN/Mustapha/frsp208.gif
+	frame	data/chars/players/DIN/Mustapha/frsp208.gif
+	move 4
+	frame	data/chars/players/DIN/Mustapha/frsp208.gif
+	frame	data/chars/players/DIN/Mustapha/frsp209.gif
+	move 3
+	frame	data/chars/players/DIN/Mustapha/frsp209.gif
+	frame	data/chars/players/DIN/Mustapha/frsp209.gif
+	move 2
+	frame	data/chars/players/DIN/Mustapha/frsp209.gif
+	frame	data/chars/players/DIN/Mustapha/frsp209.gif
+	move 1
+	frame	data/chars/players/DIN/Mustapha/frsp209.gif
+	frame	data/chars/players/DIN/Mustapha/frsp209.gif
+	move 0
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	8
+	@cmd	projectile 1 "dust03" 0 0 0
+	frame	data/chars/players/DIN/Mustapha/frsp210.gif
+		
+anim	freespecial3
+	jumpframe	0 3 0
+	landframe	57
+	jugglecost	1
+	cancel	57 	999 	0   d f a  		freespecial2
+	#cancel	0 	999 	0   d u a  		freespecial3
+	#cancel	0 	999 	0   d f u a  		freespecial3
+	#cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	57 	999 	0  d f d f a  	freespecial5
+	cancel	57 	999 	0  d f b d f a  	freespecial5
+	cancel	57 	999 	0  d f d f j  	freespecial12
+	cancel	57 	999 	0  d f b d f j  	freespecial12
+	cancel	57 	999 	0   d f s  		freespecial7
+	fastattack	1
+	energycost	20
+	mponly	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	1
+	@cmd	projectile 1 "dust02" 0 0 0
+	frame	data/chars/players/DIN/Mustapha/frsp101.gif
+	delay 6
+	bbox	226 102 23 50
+	attack2	245 110 70 45 7 1 1 0 15 15
+	dropv	3.5 0
+	sound	data/chars/players/DIN/Mustapha/musta04.wav
+	frame	data/chars/players/DIN/Mustapha/frsp101.gif
+	attack 0 0 0 0 0 0 0 0
+	delay 1
+	frame	data/chars/players/DIN/Mustapha/frsp101.gif
+	delay 6
+	attack2	245 110 72 45 7 1 1 0 15 15
+	dropv	3.5 0
+	frame	data/chars/players/DIN/Mustapha/frsp101.gif
+	delay 4
+	attack 0 0 0 0 0 0 0 0
+	bbox	205 115 50 35
+	frame	data/chars/players/DIN/Mustapha/frsp102.gif
+	delay 8
+	attack2	220 73 99 64 6 1 1 0 20 15
+	dropv	2.5 0.35
+	frame	data/chars/players/DIN/Mustapha/frsp103.gif
+	delay 2
+	move -1
+	attack2	180 92 65 45 6 1 1 0 20 15
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	frame	data/chars/players/DIN/Mustapha/frsp104.gif
+	bbox	211 102 23 50
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	frame	data/chars/players/DIN/Mustapha/frsp105.gif
+	delay 6
+	move 0
+	@cmd	projectile 1 "dust03" 0 0 0	
+	bbox	226 102 23 76
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+	frame	data/chars/players/DIN/Mustapha/get01.gif
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+
+
+anim	freespecial6
+	jumpframe	0 2
+	dropframe	1
+	landframe	46
+	jugglecost	2
+	cancel	46 	999 	0   d f a  		freespecial2
+	cancel	46 	999 	0   d u a  		freespecial3
+	cancel	46 	999 	0   d f u a  		freespecial3
+	cancel	46 	999 	0   d b u a  		freespecial3
+	#cancel	0 	999 	0   d f j  		freespecial6
+	cancel	46 	999 	0  d f d f a  	freespecial5
+	cancel	46 	999 	0  d f b d f a  	freespecial5
+	cancel	46 	999 	0  d f d f j  	freespecial12
+	cancel	46 	999 	0  d f b d f j  	freespecial12
+	cancel	46 	999 	0   d f s  		freespecial7
+	fastattack	1
+	energycost	20
+	mponly	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay 999
+	frame	data/chars/players/DIN/Mustapha/frsp301.gif
+	delay 2
+	move 7
+	attack2	240 135 70 38 18 1 0 0 25 15
+	bbox	226 102 23 50
+	dropv 2.5 2
+	sound	data/sounds/sword01.wav
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	delay 4
+	@cmd	projectile 1 "dust03" 0 0 0
+	bbox	226 102 23 76
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+	delay 6
+	frame	data/chars/players/DIN/Mustapha/get01.gif
+	delay 4
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+	
+anim	freespecial8
+	jumpframe	0 2
+	dropframe	1
+	landframe	46
+	jugglecost	2
+	cancel	46 	999 	0   d f a  		freespecial2
+	cancel	46 	999 	0   d u a  		freespecial3
+	cancel	46 	999 	0   d f u a  		freespecial3
+	cancel	46 	999 	0   d b u a  		freespecial3
+	#cancel	46 	999 	0   d f j  		freespecial6
+	cancel	46 	999 	0  d f d f a  	freespecial5
+	cancel	46 	999 	0  d f b d f a  	freespecial5
+	cancel	46 	999 	0  d f d f j  	freespecial12
+	cancel	46 	999 	0  d f b d f j  	freespecial12
+	cancel	46 	999 	0   d f s  		freespecial7
+	fastattack	1
+	energycost	20
+	mponly	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay 999
+	frame	data/chars/players/DIN/Mustapha/frsp301.gif
+	delay 2
+	move 7
+	attack2	240 135 70 38 18 1 0 0 25 15
+	bbox	226 102 23 50
+	dropv 2.5 2
+	sound	data/sounds/sword01.wav
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	frame	data/chars/players/DIN/Mustapha/frsp302.gif
+	delay 4
+	@cmd	projectile 1 "dust03" 0 0 0
+	bbox	226 102 23 76
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+	delay 6
+	frame	data/chars/players/DIN/Mustapha/get01.gif
+	delay 4
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+		
+		
+anim	freespecial5
+	summonframe	0 -230 -185 0 0
+	unsummonframe	30
+	subentity	super
+	jugglecost	0
+	fastattack	1
+	energycost	100
+	mponly	1
+	hitfx	data/sounds/beat3.wav
+	hitflash	FqBlood1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	8
+	sound data/chars/players/DIN/Mustapha/musta01.wav
+	frame	data/chars/players/DIN/Mustapha/frsp501.gif
+	delay	10
+	frame	data/chars/players/DIN/Mustapha/frsp501.gif
+	delay 12
+	sound	data/sounds/bang01.wav
+	attack	245 90 250 79 15 0 1 0 15 20
+	dropv 1.5 0
+	frame	data/chars/players/DIN/Mustapha/frsp502.gif
+  attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/DIN/Mustapha/frsp503.gif
+	sound	data/sounds/bang01.wav
+	attack	245 90 250 79 15 0 1 0 15 20
+	dropv 1.5 0
+	frame	data/chars/players/DIN/Mustapha/frsp502.gif
+  attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/DIN/Mustapha/frsp503.gif
+	delay 6
+	sound	data/sounds/bang01.wav
+	attack	245 90 250 79 40 1 1 0 25 20
+	dropv 3.25 1.10
+	frame	data/chars/players/DIN/Mustapha/frsp504.gif
+	frame	data/chars/players/DIN/Mustapha/frsp505.gif
+	frame	data/chars/players/DIN/Mustapha/frsp506.gif
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/DIN/Mustapha/frsp507.gif
+	frame	data/chars/players/DIN/Mustapha/frsp508.gif
+	frame	data/chars/players/DIN/Mustapha/frsp509.gif
+	frame	data/chars/players/DIN/Mustapha/frsp510.gif
+
+
+
+anim	freespecial12
+	summonframe	1 -230 -185 0 0
+	unsummonframe	30
+	subentity	super
+	jugglecost	0
+	fastattack	1
+	energycost	100
+	mponly	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	6
+	frame	data/chars/players/DIN/Mustapha/ult01.gif
+	@cmd	projectile 1 "raptor_2" 20 -1 0 
+	frame	data/chars/players/DIN/Mustapha/ult02.gif
+	sound	data/chars/players/DIN/Mustapha/musta06.wav
+	frame	data/chars/players/DIN/Mustapha/ult03.gif
+	frame	data/chars/players/DIN/Mustapha/ult04.gif
+	delay 8
+	frame	data/chars/players/DIN/Mustapha/ult05.gif
+	frame	data/chars/players/DIN/Mustapha/ult06.gif
+	@cmd	spawnbind "bad" 0 75 0
+	delay	336
+	frame	data/chars/players/DIN/Mustapha/ult07.gif
+	delay 10
+	frame	data/chars/players/DIN/Mustapha/ult06.gif
+	
+anim	freespecial7
+followanim 1 
+followcond 1
+	jugglecost	2
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial12
+	cancel	0 	999 	0  d f b d f j  	freespecial12
+	#cancel	0 	999 	0   d f s  		freespecial7
+	fastattack	1
+	energycost	20
+	mponly	1
+	hitfx	data/sounds/slash1.wav
+	hitflash	FqBlood1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay 8
+	sound	data/chars/players/DIN/Mustapha/musta01.wav
+	@cmd	projectile 1 "dust02" 0 0 0
+	frame	data/chars/players/DIN/Mustapha/frsp601.gif
+	delay 2
+	bbox	226 102 23 76
+	attack	245 115 70 35 18 1 1 0 25 20
+	frame	data/chars/players/DIN/Mustapha/frsp602.gif
+	attack 0 0 0 0 0 0 0 0
+	delay 30
+	@cmd	projectile 1 "cuchillom_2" 0 0 0
+	frame	data/chars/players/DIN/Mustapha/frsp603.gif
+	
+anim follow1
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial12
+	cancel	0 	999 	0  d f b d f j  	freespecial12
+	#cancel	0 	999 	0   d f s  		freespecial7
+
+	fastattack	1
+	hitfx	data/sounds/slash1.wav
+	hitflash	FqBlood1
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay 14
+	attack	245 115 70 35 18 1 1 0 25 20
+	frame	data/chars/players/DIN/Mustapha/frsp602a.gif
+	attack 0 0 0 0 0 0 0 0
+	delay 20
+	frame	data/chars/players/DIN/Mustapha/frsp602a.gif
+		
+anim	get
+	loop	0
+	offset	238 177
+	delay	30
+	sound	data/sounds/get/mustaphaget.wav
+	frame	data/chars/players/DIN/Mustapha/get01.gif
+		
+anim	grab
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	6
+	frame	data/chars/players/DIN/Mustapha/grab01.gif
+		
+anim	grabattack
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	hitfx	data/sounds/beat2.wav
+	delay	8
+	frame	data/chars/players/DIN/Mustapha/th101.gif
+	attack2	240 118 35 	68 	4 	0 	0 	0 	15	0
+	frame	data/chars/players/DIN/Mustapha/th102.gif
+		
+anim	grabattack2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	hitfx	data/sounds/beat2.wav
+	delay	16
+	attack2	240 118 35 	68 	8 	1 	0 	0 	20	0
+	frame	data/chars/players/DIN/Mustapha/th103.gif
+		
+anim	grabbackward
+@script
+	
+    void self = getlocalvar("self");
+    void target = getentityproperty(self, "opponent");
+    void x, y, z;
+    x= getentityproperty(self, "x") - getentityproperty(target, "x");
+  	if (x < 0){
+  	x *= -1;
+  	}
+  	y= getentityproperty(self, "y") - getentityproperty(target, "y");
+  	if (y < 0){
+  	y *= -1;
+  	}
+  	z= getentityproperty(self, "z") - getentityproperty(target, "z");
+  	if (z < 0){
+  	z *= -1;
+  	}
+    if (frame==0){
+				if(getentityproperty(target, "health")<=0 || x>125 || y>25 || z>25)  {
+						changeentityproperty(self, "animation", openborconstant("ANI_ATTACK9"));
+     		}
+    }
+	@end_script
+	flipframe	4
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	sound	data/chars/players/din/mustapha/musta02.wav
+	attackone	0
+	delay	18
+	@cmd	slamstart
+	@cmd	position 0 20 1 0 1
+	frame	data/chars/players/din/mustapha/th201.gif
+	delay	18
+	@cmd	screenBound -62 0 0 0 1
+	@cmd	position 1 1 -11 0 1
+	frame	data/chars/players/din/mustapha/th202.gif
+	hitfx	data/sounds/punch.wav
+	@cmd	position 1 -49 -11 0 1
+	@cmd	depost 0
+	@cmd	throw 8 3 -2.5 2.5 0 1
+	@cmd	clearL
+	delay	75
+	frame	data/chars/players/din/mustapha/th203.gif
+	delay	1
+	frame	data/chars/players/din/mustapha/th203.gif
+	delay	1
+	frame	data/chars/players/din/mustapha/idle01.gif
+		
+anim	grabdown
+	flipframe	4
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	sound	data/chars/players/din/mustapha/musta02.wav
+	attackone	0
+	delay	18
+	@cmd	slamstart
+	@cmd	position 0 20 1 0 1
+	frame	data/chars/players/din/mustapha/th201.gif
+	delay	18
+	@cmd	screenBound -62 0 0 0 1
+	@cmd	position 1 1 -11 0 1
+	frame	data/chars/players/din/mustapha/th202.gif
+	hitfx	data/sounds/punch.wav
+	@cmd	position 1 -49 -11 0 1
+	@cmd	depost 0
+	@cmd	throw 8 3 -2.5 2.5 0 1
+	@cmd	clearL
+	delay	75
+	frame	data/chars/players/din/mustapha/th203.gif
+	delay	1
+	frame	data/chars/players/din/mustapha/th203.gif
+	delay	1
+	frame	data/chars/players/din/mustapha/idle01.gif
+		
+anim	grabforward
+@script
+	
+    void self = getlocalvar("self");
+    void target = getentityproperty(self, "opponent");
+    void x, y, z;
+    x= getentityproperty(self, "x") - getentityproperty(target, "x");
+  	if (x < 0){
+  	x *= -1;
+  	}
+  	y= getentityproperty(self, "y") - getentityproperty(target, "y");
+  	if (y < 0){
+  	y *= -1;
+  	}
+  	z= getentityproperty(self, "z") - getentityproperty(target, "z");
+  	if (z < 0){
+  	z *= -1;
+  	}
+    if (frame==0){
+				if(getentityproperty(target, "health")<=0 || x>125 || y>25 || z>25)  {
+						changeentityproperty(self, "animation", openborconstant("ANI_ATTACK9"));
+     		}
+    }
+	@end_script
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	sound	data/chars/players/din/mustapha/musta02.wav
+	attackone	0
+	delay	18
+	@cmd	slamstart
+	@cmd	position 2 -11 -31 0 -1
+	frame	data/chars/players/din/mustapha/th301.gif
+	delay	15
+	@cmd	position 0 -11 1 0 -1
+	frame	data/chars/players/din/mustapha/th302.gif
+	@cmd	screenBound 62 0 0 0 1
+	@cmd	position 1 1 -11 0 -1
+	frame	data/chars/players/din/mustapha/th303.gif
+	hitfx	data/sounds/punch.wav
+	@cmd	position 1 51 -11 0 1
+	@cmd	depost 0
+	@cmd	throw 8 3 2.5 2.5 0 1
+	@cmd	clearL
+	delay	75
+	frame	data/chars/players/din/mustapha/th304.gif
+	delay	1
+	frame	data/chars/players/din/mustapha/th304.gif
+	delay	1
+	frame	data/chars/players/din/mustapha/idle01.gif
+	
+		
+anim	grabup
+	fastattack	1
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/empty.wav
+	sound	data/chars/players/din/mustapha/musta02.wav
+	attackone	0
+	delay	18
+	@cmd	slamstart
+	@cmd	position 2 -11 -31 0 -1
+	frame	data/chars/players/din/mustapha/th301.gif
+	delay	15
+	@cmd	position 0 -11 1 0 -1
+	frame	data/chars/players/din/mustapha/th302.gif
+	@cmd	screenBound 62 0 0 0 1
+	@cmd	position 1 1 -11 0 -1
+	frame	data/chars/players/din/mustapha/th303.gif
+	hitfx	data/sounds/punch.wav
+	@cmd	position 1 51 -11 0 1
+	@cmd	depost 0
+	@cmd	throw 8 3 2.5 2.5 0 1
+	@cmd	clearL
+	delay	75
+	frame	data/chars/players/din/mustapha/th304.gif
+	delay	1
+	frame	data/chars/players/din/mustapha/th304.gif
+	delay	1
+	frame	data/chars/players/din/mustapha/idle01.gif
+		
+anim	idle
+	loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	8
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	delay 22
+	frame	data/chars/players/DIN/Mustapha/idle02.gif
+	frame	data/chars/players/DIN/Mustapha/idle03.gif
+	frame	data/chars/players/DIN/Mustapha/idle04.gif
+	frame	data/chars/players/DIN/Mustapha/idle05.gif
+	frame	data/chars/players/DIN/Mustapha/idle06.gif
+		
+anim	jump
+	cancel	0 	0 	0  b  		freespecial39
+	cancel	0 	999 	0   d f j  		freespecial8
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	1
+	frame	data/chars/players/DIN/Mustapha/jump01.gif
+	delay	24
+	frame	data/chars/players/DIN/Mustapha/jump01.gif
+	delay	10
+	frame	data/chars/players/DIN/Mustapha/jump02.gif
+	delay 5
+	frame	data/chars/players/DIN/Mustapha/jump03.gif
+	delay	10
+	frame	data/chars/players/DIN/Mustapha/jump02.gif
+	delay	999
+	frame	data/chars/players/DIN/Mustapha/jump01.gif
+
+anim	freespecial39
+	cancel	0 	999 	0   d f j  		freespecial8
+  jumpframe	0 3.3 -1.5
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	8
+	frame	data/chars/players/DIN/Mustapha/jump01.gif
+	delay	10
+	frame	data/chars/players/DIN/Mustapha/fjump04.gif
+	frame	data/chars/players/DIN/Mustapha/fjump04.gif
+	frame	data/chars/players/DIN/Mustapha/fjump02.gif
+	frame	data/chars/players/DIN/Mustapha/fjump01.gif
+	delay	999
+	frame	data/chars/players/DIN/Mustapha/jump01.gif
+		
+anim	jumpattack
+	cancel	0 	999 	0   d f j  		freespecial8
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	sound	data/chars/players/DIN/Mustapha/musta03.wav
+	delay	4
+	frame	data/chars/players/DIN/Mustapha/jump03.gif
+	frame	data/chars/players/DIN/Mustapha/ja101.gif
+	attack	240 117 65 30 7 1 0 0 20 15
+	delay	8
+	frame	data/chars/players/DIN/Mustapha/ja102.gif
+	frame	data/chars/players/DIN/Mustapha/ja103.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	999
+	frame	data/chars/players/DIN/Mustapha/ja104.gif
+		
+anim	jumpattack2
+	cancel	0 	999 	0   d f j  		freespecial8
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/beat1.wav
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	sound	data/chars/players/DIN/Mustapha/musta02.wav
+	delay	4
+	frame	data/chars/players/DIN/Mustapha/ja201.gif
+	delay	10
+	attack	240 130 63 34 4 0 0 0 15 15
+	frame	data/chars/players/DIN/Mustapha/ja202.gif
+	delay	999
+	frame	data/chars/players/DIN/Mustapha/ja202.gif
+
+		
+anim	jumpdelay
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	12
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+		
+anim	jumpforward
+	cancel	0 	999 	0   d f j  		freespecial8
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	sound	data/chars/players/DIN/Mustapha/musta03.wav
+	delay	4
+	frame	data/chars/players/DIN/Mustapha/jump03.gif
+	frame	data/chars/players/DIN/Mustapha/ja101.gif
+	attack	240 120 62 30 7 1 0 0 20 15
+	delay	8
+	frame	data/chars/players/DIN/Mustapha/ja102.gif
+	frame	data/chars/players/DIN/Mustapha/ja103.gif
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	delay	999
+	frame	data/chars/players/DIN/Mustapha/ja104.gif
+
+		
+anim	jumpland
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	12
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+		
+anim	pain
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	4
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+	offset	237 177
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+	offset	238 177
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+	offset	239 177
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+	offset	238 177
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+	offset	237 177
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+		
+anim	pain11
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn101.wav
+	delay	2
+	frame	data/chars/misc/burn1/burn102.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	237 177
+	frame	data/chars/misc/burn1/burn103.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	238 177
+	frame	data/chars/misc/burn1/burn104.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	239 177
+	frame	data/chars/misc/burn1/burn102.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	238 177
+	frame	data/chars/misc/burn1/burn103.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	237 177
+	frame	data/chars/misc/burn1/burn104.gif
+	frame	data/chars/misc/burn1/burn101.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+		
+anim	pain12
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	sound	data/sounds/burn101.wav
+	delay	2
+	frame	data/chars/misc/burn2/burn202.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	237 177
+	frame	data/chars/misc/burn2/burn203.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	238 177
+	frame	data/chars/misc/burn2/burn204.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	239 177
+	frame	data/chars/misc/burn2/burn202.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	238 177
+	frame	data/chars/misc/burn2/burn203.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	237 177
+	frame	data/chars/misc/burn2/burn204.gif
+	frame	data/chars/misc/burn2/burn201.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+		
+anim	pain13
+	loop	0
+	offset	238 167
+	bbox	226 102 23 76
+	sound	data/sounds/shock01.wav
+	delay	2
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	237 167
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	238 167
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	239 167
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	sound	data/sounds/shock01.wav
+	offset	238 167
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	237 167
+	frame	data/chars/misc/shock/shock02.gif
+	frame	data/chars/misc/shock/shock01.gif
+	offset	238 167
+	delay	12
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+		
+anim	pain2
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	4
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+	offset	237 177
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+	offset	238 177
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+	offset	239 177
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+	offset	238 177
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+	offset	237 177
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+		
+anim	pain3
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	4
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+	offset	237 177
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+	offset	238 177
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+	offset	239 177
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+	offset	238 177
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+	offset	237 177
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/DIN/Mustapha/pain01.gif
+		
+anim	pain9
+	loop	0
+	offset	238 177
+	bbox	226 102 23 76
+	delay	4
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+	offset	237 177
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+	offset	238 177
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+	offset	239 177
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+	offset	238 177
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+	offset	237 177
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+	offset	238 177
+	delay	12
+	frame	data/chars/players/DIN/Mustapha/pain02.gif
+		
+anim	rise
+	loop	0
+	offset	238 177
+	delay	55
+	frame	data/chars/players/DIN/Mustapha/fall02.gif
+	delay	20
+	frame	data/chars/players/DIN/Mustapha/rise01.gif
+	delay 8
+	frame	data/chars/players/DIN/Mustapha/rise02.gif
+	frame	data/chars/players/DIN/Mustapha/rise03.gif
+	frame	data/chars/players/DIN/Mustapha/rise04.gif
+	frame	data/chars/players/DIN/Mustapha/rise05.gif
+
+		
+anim	riseattack1
+	@cmd subhealthkill 10
+	jugglecost	100
+	jumpframe	3 3.3
+	landframe	37
+	energycost	5
+	mponly	2
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	sound	data/chars/players/DIN/Mustapha/musta05.wav
+	delay	8
+	frame	data/chars/players/DIN/Mustapha/get01.gif
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+	frame	data/chars/players/DIN/Mustapha/sp01.gif
+	delay	2
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	delay 14
+	attack3	240 119 72 	49 	5 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp08.gif
+	delay	999
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/DIN/Mustapha/jump01.gif
+	@cmd	projectile 1 "dust03" 0 0 0	
+	delay	9
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+
+
+anim	run
+	loop	1
+	offset	238 177
+	bbox	226 105 30 72
+	delay	8
+	frame	data/chars/players/DIN/Mustapha/run01.gif
+	frame	data/chars/players/DIN/Mustapha/run02.gif
+	sound	data/chars/players/haggar/hagg11.wav
+	frame	data/chars/players/DIN/Mustapha/run03.gif
+	frame	data/chars/players/DIN/Mustapha/run04.gif
+	frame	data/chars/players/DIN/Mustapha/run05.gif
+	sound	data/chars/players/haggar/hagg11.wav
+	frame	data/chars/players/DIN/Mustapha/run06.gif
+	frame	data/chars/players/DIN/Mustapha/run07.gif
+	frame	data/chars/players/DIN/Mustapha/run08.gif
+		
+
+anim	runattack
+	cancel	0 	999 	0   d f a  		freespecial2
+	cancel	0 	999 	0   d u a  		freespecial3
+	cancel	0 	999 	0   d f u a  		freespecial3
+	cancel	0 	999 	0   d b u a  		freespecial3
+	cancel	0 	999 	0   d f j  		freespecial6
+	cancel	0 	999 	0  d f d f a  	freespecial5
+	cancel	0 	999 	0  d f b d f a  	freespecial5
+	cancel	0 	999 	0  d f d f j  	freespecial12
+	cancel	0 	999 	0  d f b d f j  	freespecial12
+	cancel	0 	999 	0   d f s  		freespecial7
+	jugglecost	1
+	jumpframe 0 1.5 2
+	landframe 4
+	fastattack	1
+	hitfx	data/sounds/beat3.wav
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	6
+	sound	data/sounds/punch.wav
+	@cmd	projectile 1 "dust02" 0 0 0
+	frame	data/chars/players/din/mustapha/ca01.gif
+	delay 10
+	attack	240 112 45 36 2 1 0 0 15 15
+	bbox	226 105 33 72
+	dropv	1.5 1.75
+	sound	data/chars/players/DIN/Mustapha/musta02.wav
+	frame	data/chars/players/din/mustapha/ca01.gif
+	delay 1
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/din/mustapha/ca01.gif
+	delay 999
+	attack	240 115 75 36 6 1 0 0 20 15
+	bbox	226 105 33 72
+	dropv	1.5 1.5
+	frame	data/chars/players/din/mustapha/ca02.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	delay	8
+	attack2	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/din/mustapha/land01.gif
+	frame	data/chars/players/din/mustapha/get01.gif
+	frame	data/chars/players/din/mustapha/land01.gif
+	
+		
+anim	runjump
+	cancel	0 	999 	0   d f j  		freespecial8
+	jumpframe	0 3 2
+	loop	0
+	offset	238 177
+	bbox	226 102 23 50
+	delay	25
+	frame	data/chars/players/DIN/Mustapha/jump01.gif
+	delay	10
+	frame	data/chars/players/DIN/Mustapha/jump02.gif
+	delay	5
+	frame	data/chars/players/DIN/Mustapha/jump03.gif
+	delay	10
+	frame	data/chars/players/DIN/Mustapha/jump02.gif
+	delay	999
+	frame	data/chars/players/DIN/Mustapha/jump01.gif
+		
+anim	select
+fshadow 0
+	fshadow	0
+	loop	0
+	offset	1 1
+	sound	data/sounds/choose.wav
+	delay	12
+	frame	data/chars/players/DIN/Mustapha/sel03.gif
+	frame	data/chars/players/DIN/Mustapha/sel04.gif
+	frame	data/chars/players/DIN/Mustapha/sel05.gif
+	frame	data/chars/players/DIN/Mustapha/sel06.gif
+	delay 14
+	frame	data/chars/players/DIN/Mustapha/sel07.gif
+	frame	data/chars/players/DIN/Mustapha/sel08.gif
+	frame	data/chars/players/DIN/Mustapha/sel09.gif
+	delay 120
+	sound	data/chars/players/DIN/Mustapha/musta06.wav
+	frame	data/chars/players/DIN/Mustapha/sel10.gif
+
+		
+anim	spawn
+	loop	0
+	offset	238 177
+	delay	3
+	@cmd	setLevel
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+	frame	data/chars/players/DIN/Mustapha/idle01.gif
+		
+anim	special
+	jugglecost	100
+	jumpframe	1 3.3
+	landframe	35
+	energycost	20
+	mponly	2
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	hitfx	data/sounds/beat2.wav
+	sound	data/chars/players/DIN/Mustapha/musta05.wav
+	delay	8
+	frame	data/chars/players/DIN/Mustapha/sp01.gif
+	delay	2
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	8 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	8 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	8 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	8 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	8  1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	8 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	8 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	8 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	attack3	240 119 72 	49 	8 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp04.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp05.gif
+	frame	data/chars/players/DIN/Mustapha/sp06.gif
+	attack3	169 119 75 	49 	8 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp07.gif
+	attack3	0 	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/players/DIN/Mustapha/sp02.gif
+	frame	data/chars/players/DIN/Mustapha/sp03.gif
+	delay 14
+	attack3	240 119 72 	49 	8 	1 	1 	0 	10	15
+	frame	data/chars/players/DIN/Mustapha/sp08.gif
+	delay	999
+	attack 0 0 0 0 0 0 0 0
+	frame	data/chars/players/DIN/Mustapha/jump01.gif
+	@cmd	projectile 1 "dust03" 0 0 0
+	delay	9
+	frame	data/chars/players/DIN/Mustapha/land01.gif
+		
+anim	waiting
+fshadow 0
+	fshadow	0
+	loop	1
+	offset	1 1
+	delay	4
+	frame	data/chars/players/DIN/Mustapha/sel01.gif
+	frame	data/chars/players/DIN/Mustapha/sel02.gif
+		
+anim	walk
+	loop	1
+	offset	238 177
+	bbox	226 102 23 76
+	delay	6
+	frame	data/chars/players/DIN/Mustapha/walk01.gif
+	frame	data/chars/players/DIN/Mustapha/walk02.gif
+	frame	data/chars/players/DIN/Mustapha/walk03.gif
+	frame	data/chars/players/DIN/Mustapha/walk04.gif
+	frame	data/chars/players/DIN/Mustapha/walk05.gif
+	frame	data/chars/players/DIN/Mustapha/walk06.gif
+	frame	data/chars/players/DIN/Mustapha/walk07.gif
+	frame	data/chars/players/DIN/Mustapha/walk08.gif
+	frame	data/chars/players/DIN/Mustapha/walk09.gif
+	frame	data/chars/players/DIN/Mustapha/walk10.gif
+	frame	data/chars/players/DIN/Mustapha/walk11.gif
+	frame	data/chars/players/DIN/Mustapha/walk12.gif
+	
+anim grabbedwalk
+	 loop       0
+	 offset     238 177
+	 bbox		226 82 23 76
+	 delay      4
+	 frame      data/chars/players/DIN/Mustapha/hagg01-2.gif
+		
+anim death17
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebymack/die01.gif
+	frame	data/chars/misc/diebymack/die02.gif
+	frame	data/chars/misc/diebymack/die03.gif
+	frame	data/chars/misc/diebymack/die04.gif
+	
+anim death11
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire/fire1.gif
+	frame	data/chars/misc/diebyfire/fire2.gif
+	frame	data/chars/misc/diebyfire/fire3.gif
+	frame	data/chars/misc/diebyfire/fire4.gif
+	frame	data/chars/misc/diebyfire/fire5.gif
+	frame	data/chars/misc/diebyfire/fire6.gif
+	frame	data/chars/misc/diebyfire/fire7.gif
+	frame	data/chars/misc/diebyfire/fire8.gif	
+	frame	data/chars/misc/diebyfire/fire9.gif
+	frame	data/chars/misc/diebyfire/fire10.gif
+	frame	data/chars/misc/diebyfire/fire11.gif
+
+anim death27
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebymack/die01.gif
+	frame	data/chars/misc/diebymack/die02.gif
+	frame	data/chars/misc/diebymack/die03.gif
+	frame	data/chars/misc/diebymack/die04.gif
+	
+anim death21
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire/fire1.gif
+	frame	data/chars/misc/diebyfire/fire2.gif
+	frame	data/chars/misc/diebyfire/fire3.gif
+	frame	data/chars/misc/diebyfire/fire4.gif
+	frame	data/chars/misc/diebyfire/fire5.gif
+	frame	data/chars/misc/diebyfire/fire6.gif
+	frame	data/chars/misc/diebyfire/fire7.gif
+	frame	data/chars/misc/diebyfire/fire8.gif	
+	frame	data/chars/misc/diebyfire/fire9.gif
+	frame	data/chars/misc/diebyfire/fire10.gif
+	frame	data/chars/misc/diebyfire/fire11.gif
+	
+anim death12
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire2/fire1.gif
+	frame	data/chars/misc/diebyfire2/fire2.gif
+	frame	data/chars/misc/diebyfire2/fire3.gif
+	frame	data/chars/misc/diebyfire2/fire4.gif
+	frame	data/chars/misc/diebyfire2/fire5.gif
+	frame	data/chars/misc/diebyfire2/fire6.gif
+	frame	data/chars/misc/diebyfire2/fire7.gif
+	frame	data/chars/misc/diebyfire2/fire8.gif	
+	frame	data/chars/misc/diebyfire2/fire9.gif
+	frame	data/chars/misc/diebyfire2/fire10.gif
+	frame	data/chars/misc/diebyfire2/fire11.gif
+	
+anim death22
+sound	data/sounds/burn101.wav
+	 loop       0
+	 offset     238 177
+	 delay      16
+	frame	data/chars/misc/diebyfire2/fire1.gif
+	frame	data/chars/misc/diebyfire2/fire2.gif
+	frame	data/chars/misc/diebyfire2/fire3.gif
+	frame	data/chars/misc/diebyfire2/fire4.gif
+	frame	data/chars/misc/diebyfire2/fire5.gif
+	frame	data/chars/misc/diebyfire2/fire6.gif
+	frame	data/chars/misc/diebyfire2/fire7.gif
+	frame	data/chars/misc/diebyfire2/fire8.gif	
+	frame	data/chars/misc/diebyfire2/fire9.gif
+	frame	data/chars/misc/diebyfire2/fire10.gif
+	frame	data/chars/misc/diebyfire2/fire11.gif
+	 
+
+
+anim	victory
+	loop	0
+	offset	238 177
+	bbox	0 0 0 0
+	delay	6
+	frame	data/chars/players/DIN/Mustapha/ult01.gif
+	frame	data/chars/players/DIN/Mustapha/ult02.gif
+	sound	data/chars/players/DIN/Mustapha/musta06.wav
+	frame	data/chars/players/DIN/Mustapha/ult03.gif
+	frame	data/chars/players/DIN/Mustapha/ult04.gif
+	frame	data/chars/players/DIN/Mustapha/ult05.gif
+	frame	data/chars/players/DIN/Mustapha/ult06.gif
+	@cmd	spawnbind "bad" 0 75 0
+	delay	88
+	frame	data/chars/players/DIN/Mustapha/ult07.gif
+					
+
+		

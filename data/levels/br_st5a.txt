@@ -1,0 +1,280 @@
+background	data/bgs/Br05/backB.gif		0.8 1 0 0 0 0 1 1 0 0
+panel		data/bgs/Br05/pn01.gif		none	none
+frontpanel	data/bgs/front.gif		#100 0 1 0 -4 0 0 1 1 1 0
+order		a
+music		data/music/lv5a.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 5
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+spawn		city3
+flip		1
+coords		0 0 0
+at			0
+
+spawn		city3
+flip		1
+coords		800 0 0
+at			0
+
+spawn		city3
+flip		1
+coords		1600 0 0
+at			0
+
+spawn		Plataforma
+flip		1
+coords		0 0 0
+at			0
+
+#########################################################################################
+
+
+spawn		LataEX
+flip		1
+coords		350 260 0
+at			0
+
+spawn		Box
+flip		1
+coords		250 270 0
+at			0
+
+spawn		Banco
+flip		0
+coords		467 237 0
+at			0
+
+spawn		Elmer_Wait0
+Alias           Elmer
+flip		0
+coords		467 237 0
+at			0
+
+spawn		Bin
+flip		1
+coords		630 241 0
+at			0
+
+group		5 5
+at			1
+
+wait
+at			250
+
+spawn		Metro
+flip		1
+coords		-150 226 0
+at			250
+
+
+spawn		Slick1
+map             3
+flip		1
+coords		100 230 0
+at			250
+
+spawn		Rubby2
+alias           Rubby
+map             1
+flip		1
+coords		300 230 0
+at			250
+spawn		Gneiss2
+alias           Melvin
+flip		1
+coords		-100 230 0
+at			250
+
+spawn		Elmer2
+Alias           Elmer
+Map             1
+flip		1
+coords		600 260 0
+at			250
+
+spawn		Mic2
+Alias           Tilly
+flip		1
+coords		-100 260 0
+at			250
+
+spawn		Ninja0
+flip		1
+coords		600 230 0
+at			250
+
+spawn		Hayate
+flip		1
+coords		-100 230 0
+at			250
+
+
+
+spawn		Billy1
+Map             3
+Alias           Billy
+flip		1
+coords		600 260 0
+at			250
+
+spawn		BasicX2
+flip		1
+coords		-100 260 0
+at			250
+
+spawn		Andore
+map             2
+flip		1
+coords		300 230 300
+at			250
+
+spawn		Andore
+map             1
+alias           Andore.jr
+flip		1
+coords		400 230 300
+at			250
+
+spawn		Banco
+flip		0
+coords		530 237 0
+at			251
+
+spawn		Billy_Wait0
+flip		0
+coords		532 239 0
+at			251
+
+
+
+#########################################################################################
+
+
+
+spawn		Bin
+flip		1
+coords		675 270 0
+at			400
+
+spawn		LataEX
+flip		1
+coords		680 250 0
+at			400
+
+group		5 5
+at			400
+
+wait
+at			400
+
+
+spawn		kickboxer0
+flip		1
+coords		600 230 0
+at			400
+
+spawn		Tiger1
+Alias           Tiger
+flip		1
+coords		-100 230 0
+at			400
+
+spawn		Mic2
+Alias           Toninho
+flip		1
+coords		-150 226 0
+at			400
+
+
+spawn		Metro
+flip		1
+coords		-150 226 0
+at			400
+
+spawn		Rubby2
+alias           Rubby
+flip		1
+coords		-100 230 0
+at			400
+
+spawn		Hakuyo_Wait2
+flip		0
+coords		850 230 0
+at			600
+
+spawn		Gneiss1
+map             1
+flip		1
+coords		600 230 0
+at			700
+
+spawn		Billy1
+Alias           Billy
+map             4
+health          200
+flip		1
+coords		600 230 0
+at			700
+
+
+spawn		BasicX3
+flip		1
+coords		-100 230 0
+at			800
+
+spawn		Elmer1
+Alias           Elmer
+map             4
+health          200
+flip		1
+coords		-100 230 0
+at			850
+
+spawn		Hakuyo2
+flip		0
+coords		300 250 300
+at			900
+
+spawn		Hakuyo2
+2pspawn
+flip		1
+coords		300 250 300
+at			1000
+
+spawn		Slick
+flip		1
+coords		-100 230 300
+at			1100
+
+spawn		BasicX3
+flip		1
+coords		-100 230 0
+at			1200
+
+spawn		Hakuyo2
+3pspawn
+flip		1
+coords		-100 220 0
+at			1300
+
+spawn		Hakuyo2
+4pspawn
+flip		1
+coords		-100 260 0
+at			1400
+

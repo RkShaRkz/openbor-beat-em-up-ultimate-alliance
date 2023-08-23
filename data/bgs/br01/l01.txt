@@ -1,0 +1,14 @@
+name		L01
+type		panel
+speed		5
+scroll		-0.2
+shadow		0
+alpha		1
+setlayer	1000
+
+anim idle
+	loop	1
+	delay	4
+	offset	0 0
+	frame	data/bgs/Br01/L01.gif
+

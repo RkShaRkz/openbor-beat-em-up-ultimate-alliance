@@ -1,0 +1,39 @@
+name			RageFull
+type			none
+shadow			0
+nomove			1 0
+alpha			1
+animationscript	data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	2
+	offset	66 107
+	frame	data/chars/misc/ragefull/ragefull00.gif
+	frame	data/chars/misc/ragefull/ragefull01.gif
+	frame	data/chars/misc/ragefull/ragefull02.gif
+	frame	data/chars/misc/ragefull/ragefull03.gif
+	frame	data/chars/misc/ragefull/ragefull04.gif
+	frame	data/chars/misc/ragefull/ragefull05.gif
+	frame	data/chars/misc/ragefull/ragefull06.gif
+	frame	data/chars/misc/ragefull/ragefull07.gif
+	frame	data/chars/misc/ragefull/ragefull08.gif
+	frame	data/chars/misc/ragefull/ragefull09.gif
+	frame	data/chars/misc/ragefull/ragefull10.gif
+	frame	data/chars/misc/ragefull/ragefull11.gif
+	frame	data/chars/misc/ragefull/ragefull12.gif
+	frame	data/chars/misc/ragefull/ragefull13.gif
+	frame	data/chars/misc/ragefull/ragefull14.gif
+	frame	data/chars/misc/ragefull/ragefull15.gif
+	frame	data/chars/misc/ragefull/ragefull16.gif
+	frame	data/chars/misc/ragefull/ragefull17.gif
+	frame	data/chars/misc/ragefull/ragefull18.gif
+	frame	data/chars/misc/ragefull/ragefull19.gif
+	frame	data/chars/misc/ragefull/ragefull20.gif
+	frame	data/chars/misc/ragefull/ragefull21.gif
+	frame	data/chars/misc/ragefull/ragefull22.gif
+	frame	data/chars/misc/ragefull/ragefull23.gif
+	@cmd looper 0 3
+	@cmd suicide
+	frame	data/chars/misc/ragefull/empty.gif
+

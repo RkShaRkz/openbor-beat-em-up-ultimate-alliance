@@ -1,0 +1,31 @@
+##MAIN
+name				TerryS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle
+
+	offset  49  196
+		delay  7
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+		drawmethod  190  190  0  0  0  -1  -1
+	frame	data/chars/Terry/sp01.gif
+	frame	data/chars/Terry/sp02.gif
+	frame	data/chars/Terry/sp03.gif
+	frame	data/chars/Terry/sp04.gif
+	frame	data/chars/Terry/sp05.gif
+	frame	data/chars/Terry/sp06.gif
+		delay  40
+	frame	data/chars/Terry/sp06.gif
+
+

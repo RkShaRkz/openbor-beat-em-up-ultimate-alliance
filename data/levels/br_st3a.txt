@@ -1,0 +1,216 @@
+background	data/bgs/Br03/back01.gif		#1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/Br03/pn01.gif		none	none
+frontpanel	data/bgs/Front.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn03.gif
+order		a
+music		data/music/Lv3a.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 3
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+
+shadowalpha 2
+at			0
+Wall  343  229  -85  0  429  511  67  138
+
+spawn  RoadBlock
+	coords  251  203
+flip		1
+	at  0
+spawn  RoadBlock
+	coords  293  239
+flip		1
+	at  0
+spawn  RoadBlock
+	coords  340  265
+flip		1
+	at  0
+
+spawn		Sandbag
+flip		1
+coords		109 215 0
+at			0
+
+spawn		Sandbag
+flip		1
+coords		146 250 0
+at			0
+
+spawn		Tire
+flip		1
+coords		377 260 0
+at			0
+
+spawn		Drum
+flip		1
+coords		548 235 0
+at			0
+
+spawn		pipe
+flip		1
+coords		293 202 0
+at			0
+
+
+spawn		knife
+flip		1
+coords		667 206 0
+at			0
+
+
+#########################################################################################
+
+group		6 6
+at			1
+
+wait
+at			1
+
+spawn		billy1
+alias           Billy
+flip		1
+coords		600 270 0
+at			1
+
+spawn		Elmer1
+Alias           Elmer
+flip		1
+coords		-100 270 0
+at			1
+
+spawn		Rubby1
+Alias           Rubby
+flip		1
+coords		700 270 0
+at			1
+
+spawn		Mic1
+Alias           Mic
+Map             1
+flip		1
+coords		-200 270 0
+at			1
+
+spawn		Gneiss1
+Alias           Gneissjr
+map             3
+flip		1
+coords		600 270 0
+at			1
+
+spawn		Andore
+map             2
+flip		1
+coords		-100 270 0
+at			1
+
+spawn		Gneiss1
+Alias           Alfred
+map             1
+flip		1
+coords		700 270 0
+at			1
+
+spawn		BasicX2
+flip		1
+coords		-200 270 0
+at			250
+
+
+spawn		Rubby1
+Alias           Rubby
+flip		1
+coords		600 270 0
+at			400
+
+spawn		Biker_Pipe
+flip		1
+coords		-100 270 0
+at			400
+
+
+spawn		Gneiss
+map             3
+flip		1
+coords		600 270 0
+at			500
+
+spawn		Elmer2
+Alias           Elmer
+Map             3
+flip		1
+coords		-100 270 0
+at			500
+
+
+
+
+#########################################################################################
+
+
+
+#########################################################################################
+
+
+group		6 6
+at			600
+
+spawn		Billy1
+Alias           Billy
+flip		1
+coords		600 270 0
+at			600
+
+spawn		Billy2
+Alias           Billy
+flip		1
+coords		-100 270 0
+at			600
+
+spawn		Gneiss
+map             3
+flip		1
+coords		-100 270 0
+at			900
+
+
+spawn		Mic1
+map             2
+flip		1
+coords		600 270 0
+at			1200
+
+spawn		Rubby2
+Alias           Rubby
+flip		1
+coords		-100 270 0
+at			1200
+
+spawn		Elmer2
+Map             3
+Alias           Elmer
+flip		1
+coords		400 270 0
+at			1500
+
+spawn		Bikerx
+flip		1
+coords		-200 270 0
+at			1500
+
+spawn		Pipe
+flip		1
+coords		-100 270 0
+at			1500
+

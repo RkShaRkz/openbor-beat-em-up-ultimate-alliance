@@ -1,0 +1,127 @@
+name				st8_elevatorM #ELEVATOR ANIMATED BGLAYER
+type				none
+hostile				enemy
+shadow				0
+setlayer			-10000
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/st8_elevator.c
+
+load				BasicX4
+load				HakuyoX
+load				KickBoxerX
+load				Electra1
+load				Electra2
+load				Electra3
+load				Electra4
+load				Zamza2
+load				Abadede1
+
+anim idle
+	loop	1 2 3
+	delay	64
+	offset	1 743
+	frame	data/bgs/st8/bg00.gif
+	@cmd spawnparent "st8_elevatorS" 0 0 0
+	frame	data/bgs/st8/bg00.gif
+	@cmd anichangeLESS "ANI_FOLLOW1" 3
+	frame	data/bgs/st8/bg00.gif
+	frame	data/bgs/st8/bg00.gif
+	
+anim follow1
+	loop	0
+	delay	513
+	offset	1 743
+	sound	data/sounds/elevator.wav
+	@cmd leaper 0 0 0.25
+	@cmd spawn01 "quake_low" 0 0 0
+	@cmd spawn01 "BasicX4" 200 300 230
+	@cmd spawn01 "BasicX4" 300 300 230
+	@cmd spawn01 "BasicX4" 200 300 250
+	@cmd spawn01 "BasicX4" 300 300 250
+	frame	data/bgs/st8/bg00.gif
+		delay	128
+	@cmd leaper 0 0 0
+	@cmd spawn01 "ElectraX" 200 300 -10
+	@cmd spawn01 "ElectraX" 300 300 -10
+	@cmd spawn01 "ElectraX" 240 300 -10
+	@cmd spawn01 "ElectraX" 260 300 -10
+	frame	data/bgs/st8/bg00.gif
+	@cmd anichangeMORE "ANI_FOLLOW2" 4
+	frame	data/bgs/st8/bg00.gif
+	
+anim follow2
+	loop	1 1 2
+	delay	64
+	offset	1 743
+	@cmd spawn01 "Zamza2" 200 300 0
+	@cmd spawn01 "Zamza2" 300 300 0
+	frame	data/bgs/st8/bg00.gif
+	@cmd anichangeLESS "ANI_FOLLOW3" 3
+	frame	data/bgs/st8/bg00.gif
+	frame	data/bgs/st8/bg00.gif
+
+anim follow3
+	loop	0
+	delay	512
+	offset	1 743
+	sound	data/sounds/elevator.wav
+	@cmd leaper 0 0 0.25
+	@cmd spawn01 "quake_low" 0 0 0
+	@cmd spawn01 "BasicX4" 200 300 -20
+	@cmd spawn01 "BasicX4" 300 300 -20
+	@cmd spawn01 "BasicX4" 200 300 0
+	@cmd spawn01 "BasicX4" 300 300 0
+	frame	data/bgs/st8/bg00.gif
+		delay	128
+	@cmd leaper 0 0 0
+	@cmd spawn01 "KickBoxerX" 200 300 -260
+	@cmd spawn01 "KickBoxerX" 300 300 -260
+	@cmd spawn01 "KickBoxerX" 240 300 -260
+	@cmd spawn01 "KickBoxerX" 260 300 -260
+	frame	data/bgs/st8/bg00.gif
+	@cmd anichangeMORE "ANI_FOLLOW4" 4
+	frame	data/bgs/st8/bg00.gif
+	
+anim follow4
+	loop	1 1 2
+	delay	64
+	offset	1 743
+	@cmd spawn01 "Abadede1" 200 300 -270
+	@cmd spawn01 "Abadede1" 300 300 -270
+	frame	data/bgs/st8/bg00.gif
+	@cmd anichangeLESS "ANI_FOLLOW5" 3
+	frame	data/bgs/st8/bg00.gif
+	frame	data/bgs/st8/bg00.gif	
+
+anim follow5
+	loop	0
+	delay	448
+	offset	1 743
+	sound	data/sounds/elevator.wav
+	@cmd leaper 0 0 0.25
+	@cmd spawn01 "quake_low" 0 0 0
+	frame	data/bgs/st8/bg00.gif
+		delay	64
+	@cmd leaper 0 0 0
+	@cmd baseMap 0 0 0 0 0 0 0 0
+	@cmd spawn01 "BasicX4" -400 0 -510
+	@cmd spawn01 "BasicX4" -400 0 -500
+	@cmd spawn01 "BasicX4" -400 0 -490
+	@cmd spawn01 "BasicX4" -400 0 -480
+	@cmd spawn01 "BasicX4" -400 0 -470
+	@cmd spawn01 "BasicX4" -400 0 -460
+	@cmd spawn01 "BasicX4" 700 0 -510
+	@cmd spawn01 "BasicX4" 700 0 -500
+	@cmd spawn01 "BasicX4" 700 0 -490
+	@cmd spawn01 "BasicX4" 700 0 -480
+	@cmd spawn01 "BasicX4" 700 0 -470
+	@cmd spawn01 "BasicX4" 700 0 -460
+	frame	data/bgs/st8/bg00.gif
+	@cmd anichangeMORE "ANI_FOLLOW6" 4
+	frame	data/bgs/st8/bg00.gif
+	
+anim follow6
+	loop	0
+	delay	4
+	offset	1 743
+	frame	data/bgs/st8/bg00.gif

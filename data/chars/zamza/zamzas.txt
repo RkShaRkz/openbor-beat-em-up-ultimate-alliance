@@ -1,0 +1,34 @@
+##MAIN
+name				ZamzaS
+type				none
+
+##MISC
+lifespan			0.1
+alpha				6
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/rageS.c
+
+##ANIMATIONS#############################################################################
+
+anim idle #RAGE
+	loop	0
+	delay	1
+	offset	143 200
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/zamza/upper00.gif
+	frame	data/chars/zamza/a100.gif
+	frame	data/chars/zamza/a100.gif
+	frame	data/chars/zamza/a101.gif
+	frame	data/chars/zamza/a102b.gif
+	frame	data/chars/zamza/a103.gif
+	frame	data/chars/zamza/a104.gif
+	frame	data/chars/zamza/a105b.gif
+	frame	data/chars/zamza/a100.gif
+	frame	data/chars/zamza/a101.gif
+	frame	data/chars/zamza/a102b.gif
+	frame	data/chars/zamza/a103.gif
+	frame	data/chars/zamza/a104.gif
+	frame	data/chars/zamza/a105b.gif

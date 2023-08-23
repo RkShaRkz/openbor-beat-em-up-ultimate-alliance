@@ -1,0 +1,292 @@
+background		data/bgs/st1/back00.gif		1 1 0 0 0 0 1 1 1 6
+panel			data/bgs/st1/pn00.gif		none	none
+fglayer			data/bgs/st1/fpn00.gif		0 -0.8 0.6 0 0 0 0 1 1 1
+order			a
+music			data/music/st1a.ogg
+settime			60
+scrollspeed 	0.5
+cameraoffset 	0 -200
+stagenumber 	1
+spawn1			60 20 300
+spawn2			90 40 300
+spawn3			120 20 300
+spawn4			150 40 300
+updatescript 	data/scripts/updatelevel/camera_st1a.c
+	
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+wall		700 404 0 570 3000 3000 285 1000
+
+wall		2853 457 0 128 1000 1000 65 1000
+
+wall		1648 477 0 0 1 1 19 1
+
+wall		1904 477 0 0 1 1 19 1
+
+hole		1623 477 0 0 50 50 19
+
+hole		1879 477 0 0 50 50 19
+
+#########################################################################################
+
+spawn		St1_Dunk_a
+flip		1
+coords		1 148 0
+at			0
+
+spawn		St1_Rim
+flip		1
+coords		262 148 0
+at			0
+
+spawn		St1_Dunk_b
+flip		1
+coords		480 190 0
+at			0
+
+spawn		St1_Grade
+flip		1
+coords		0 470 0
+at			0
+
+spawn		St1_Lamp
+flip		0
+coords		2912 403 0
+at			0
+
+#########################################################################################
+
+spawn		1up
+flip		1
+coords		20 270 0
+at			0
+
+spawn		Bin
+flip		1
+coords		350 150 0
+at			0
+
+group		1000 1000
+at			1
+
+spawn		BasicX4
+flip		0
+coords		600 210 0
+at			1
+
+spawn		BasicX4
+flip		0
+coords		600 240 0
+at			1
+
+spawn		BasicX4
+flip		0
+coords		600 210 0
+at			150
+
+spawn		BasicX4
+flip		0
+coords		-100 210 0
+at			150
+
+wait
+at			300
+
+#########################################################################################
+
+spawn		Bin
+flip		1
+coords		876 360 0
+at			301
+
+spawn		Bin
+flip		1
+coords		900 370 0
+at			301
+
+spawn		Bin
+flip		1
+coords		1087 405 0
+at			301
+
+spawn		Donovan_Wait4
+flip		0
+coords		540 200 0
+at			301
+
+spawn		Signal_Wait2
+flip		0
+coords		750 300 0
+at			301
+
+group		1000 1000
+at			350
+
+spawn		BasicX4
+flip		0
+coords		600 420 0
+at			500
+
+spawn		BasicX4
+flip		0
+coords		-100 420 0
+at			700
+
+spawn		BasicX4
+flip		0
+coords		600 420 0
+at			900
+
+spawn		BasicX4
+flip		0
+coords		-100 430 0
+at			1000
+
+spawn		BasicX4
+flip		0
+coords		600 430 0
+at			1000
+
+wait
+at			1050
+
+#########################################################################################
+
+spawn		Bin
+flip		1
+coords		900 405 0
+at			1100
+
+spawn		Bin
+flip		1
+coords		950 405 0
+at			1100
+
+spawn		St1_Manhole
+flip		0
+coords		548 468 0
+at			1100
+
+spawn		St1_Manhole
+flip		0
+coords		804 468 0
+at			1100
+
+spawn		St1_Gate
+flip		1
+coords		1064 392 0
+at			1100
+
+spawn		Signal_Wait2
+flip		0
+coords		1150 430 0
+at			1100
+
+group		1000 1000
+at			1100
+
+spawn		BasicX4
+flip		0
+coords		600 430 0
+at			1200
+
+spawn		BasicX4
+flip		0
+coords		700 430 0
+at			1350
+
+spawn		Knife
+flip		0
+coords		700 440 0
+at			1500
+
+spawn		Galsia1
+flip		0
+coords		700 440 0
+at			1500
+
+wait
+at			1800
+
+#########################################################################################
+
+spawn		Menu
+flip		1
+coords		994 412 0
+at			1900
+
+spawn		Menu
+flip		1
+coords		1083 456 0
+at			1900
+
+group		1000 1000
+at			1900
+
+spawn		BasicX4
+flip		1
+coords		600 420 0
+at			1900
+
+spawn		BasicX4
+flip		1
+coords		700 460 0
+at			1900
+
+spawn		BasicX4
+flip		1
+coords		600 420 0
+at			2000
+
+spawn		BasicX4
+flip		1
+coords		700 440 0
+at			2000
+
+spawn		BasicX4
+flip		1
+coords		600 420 0
+at			2100
+
+spawn		BasicX4
+flip		1
+coords		700 440 0
+at			2100
+
+spawn		BasicX4
+flip		1
+coords		-100 440 0
+at			2600
+
+spawn		BasicX4
+flip		1
+coords		-150 450 0
+at			2600
+
+spawn		BasicX4
+flip		1
+coords		-200 460 0
+at			2600
+
+spawn		BasicX4
+flip		1
+coords		-250 470 0
+at			2600
+
+spawn		BikeXP
+flip		1
+coords		-5 440 0
+at			2600
+
+spawn		Jack0
+flip		1
+coords		-5 440 0
+at			2600

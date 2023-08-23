@@ -1,0 +1,31 @@
+name				Table
+type				obstacle
+health				1
+nolife				1
+score				2000
+offscreenkill 		1000
+gfxshadow			1 1
+animationscript 	data/scripts/script.c
+noatflash			1
+flash				flash
+
+diesound			data/sounds/Wood.wav
+
+anim idle
+	loop	1 1 2
+	delay	32
+	offset	100 167
+	bbox 	68 121 64 48
+	platform 70 70 130 130 4 35
+	frame	data/chars/obstacles/table00.gif
+	@cmd offscreenkill 30 0
+	frame	data/chars/obstacles/table00.gif
+	
+anim fall
+	loop	0
+	delay	128
+	offset	100 162
+	@cmd tosserX 0 0 0 0 1 0
+	frame	data/chars/obstacles/table01.gif
+	@cmd suicide
+	frame	data/chars/obstacles/table01.gif

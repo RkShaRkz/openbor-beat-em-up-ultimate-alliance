@@ -1,0 +1,174 @@
+background	data/bgs/st3/back06.gif		1 1 0 0 0 0 1 1 0 0
+fglayer		data/bgs/st3/fog00.gif		100 0.1 0 -20 0 0 0 1 1 0 1 1 10 30 0.5
+fglayer		data/bgs/st3/fog01.gif		100 0.1 0 -20 0 0 0 1 1 0 1 1 10 30 0.7
+panel		data/bgs/st3/pn16.gif		none	none
+frontpanel	data/bgs/st3/fpn04.gif
+order		a
+music		data/music/st3b.ogg
+settime		60
+scrollspeed 0.5
+stagenumber 3
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+spawn		Egg
+flip		1
+coords		220 230 0
+at			0
+
+spawn		Egg
+flip		1
+coords		280 180 0
+at			0
+
+spawn		Egg
+flip		1
+coords		340 260 0
+at			0
+
+group		1000 1000
+at			1
+
+spawn		Galsia_Seat
+flip		1
+coords		200 270 0
+at			1
+
+spawn		Galsia_Seat
+flip		1
+coords		350 270 0
+at			1
+
+spawn		Galsia_Seat
+flip		1
+coords		500 270 0
+at			1
+
+spawn		BasicX4
+flip		1
+coords		600 270 0
+at			20
+
+spawn		BasicX4
+flip		1
+coords		-100 270 0
+at			40
+
+spawn		1up
+flip		1
+coords		480 270 0
+at			50
+
+spawn		Egg
+flip		1
+coords		750 190 0
+at			50
+
+spawn		Egg
+flip		1
+coords		700 240 0
+at			50
+
+spawn		Vehelits
+flip		1
+coords		503 240 0
+at			100
+
+spawn		BasicX4
+flip		1
+coords		600 270 0
+at			100
+
+spawn		BasicX4
+flip		1
+coords		-100 270 0
+at			100
+
+spawn		BasicX4
+flip		1
+coords		700 270 0
+at			100
+
+spawn		BasicX4
+flip		1
+coords		-200 270 0
+at			100
+
+wait
+at			362
+
+#########################################################################################
+
+spawn		Egg
+flip		1
+coords		750 240 0
+at			370
+
+spawn		Egg
+flip		1
+coords		800 190 0
+at			370
+
+spawn		Ninja_Wait2
+flip		1
+coords		600 180 0
+at			370
+
+spawn		Ninja_Wait2
+flip		0
+coords		700 180 0
+at			370
+
+spawn		Ninja5
+flip		1
+coords		-100 270 0
+at			500
+
+spawn		Ninja4
+2pspawn
+flip		1
+coords		-200 270 0
+at			500
+
+spawn		Sword
+flip		0
+coords		370 180 180
+at			600
+
+spawn		Kunai
+flip		0
+coords		470 180 180
+at			600
+
+spawnscript data/scripts/spawnlevel/music_boss.c
+at			900
+
+spawn		Zamza0
+flip		0
+boss		1
+coords		320 235 0
+at			900
+
+spawn		Ninja5
+3pspawn
+flip		1
+coords		700 250 0
+at			900
+
+spawn		Ninja4
+4pspawn
+flip		1
+coords		-200 250 0
+at			900

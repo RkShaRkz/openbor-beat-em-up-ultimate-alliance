@@ -1,0 +1,22 @@
+name				st1_drop2
+type				none
+shadow				0
+alpha				4
+animationscript	 	data/scripts/script.c
+
+anim idle
+	loop	1
+	delay	3
+	offset	50 54
+	frame	data/bgs/st1/drop00.gif
+	frame	data/bgs/st1/drop01.gif
+	frame	data/bgs/st1/drop02.gif
+	frame	data/bgs/st1/drop03.gif
+	frame	data/bgs/st1/drop04.gif
+	frame	data/bgs/st1/drop05.gif
+	frame	data/bgs/st1/drop00.gif
+	@cmd suicide
+	frame	data/bgs/st1/drop00.gif
+	
+	
+	

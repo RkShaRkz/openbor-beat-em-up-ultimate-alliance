@@ -1,0 +1,23 @@
+name			Fall
+type			none
+shadow			0
+antigravity		100
+alpha			1
+animationscript	data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	6
+	offset	156 215
+	sound	data/sounds/kof/Explosion2.wav
+	frame	data/chars/misc/fall/fall00.gif
+	frame	data/chars/misc/fall/fall01.gif
+	frame	data/chars/misc/fall/fall02.gif
+	frame	data/chars/misc/fall/fall03.gif
+	frame	data/chars/misc/fall/fall04.gif
+	frame	data/chars/misc/fall/fall05.gif
+	frame	data/chars/misc/fall/fall06.gif
+	@cmd suicide
+	frame	data/chars/misc/fall/empty.gif
+
+

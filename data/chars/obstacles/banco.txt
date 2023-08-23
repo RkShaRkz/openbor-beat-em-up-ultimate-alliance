@@ -1,0 +1,33 @@
+name				Banco
+type				obstacle
+health				1
+nolife				1
+score				2000
+offscreenkill 		1000
+gfxshadow			1 1
+animationscript 	data/scripts/script.c
+noatflash			1
+flash				flash
+
+diesound			data/sounds/Wood.wav
+
+anim idle
+	loop	1 1 2
+	delay	32
+	offset	62 48
+	bbox 	4 1 103 52
+	#shadowcoords 100 161
+	platform 74 74 125 125 5 20
+	frame	data/chars/obstacles/Banco01.gif
+	@cmd offscreenkill 30 0
+	frame	data/chars/obstacles/Banco01.gif
+
+anim fall
+	loop	0
+	delay	128
+	offset	77 73
+	@cmd tosserX 0 0 0 0 1 0
+	frame	data/chars/obstacles/Banco02.gif
+	@cmd suicide
+	frame	data/chars/obstacles/BAnco02.gif
+

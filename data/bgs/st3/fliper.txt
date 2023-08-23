@@ -1,0 +1,11 @@
+name				st3_fliper
+type				none
+setlayer			1000
+shadow				0
+animationscript 	data/scripts/script.c
+
+anim idle
+	loop	0
+	delay	2
+	offset	1 180
+	frame	data/bgs/st3/fliper00.gif

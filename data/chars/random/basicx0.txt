@@ -1,0 +1,18 @@
+name			BasicX0
+type			none
+lifespan		1
+shadow			0
+alpha			1
+onspawnscript 	data/scripts/onspawn/basicx0.c
+
+load			Galsia0
+load			Donovan0
+load			Signal0
+
+anim idle
+	loop	0
+	delay	1
+	offset	50 72
+	frame	data/chars/random/empty.gif
+
+

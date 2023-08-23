@@ -1,0 +1,389 @@
+##ATTRIBUTES
+
+#SKILLS		*
+#LIFE		**
+#POWER		**
+#SPEED		**
+#JUMP		**
+#SPECIAL	**
+
+##MAIN
+name				Rubby1
+type				enemy
+hostile				player
+candamage			player obstacle
+projectilehit		player enemy obstacle
+
+jumpspeed			13 #13/15/17/19/21/23
+jumpheight 			2.9 #2.9/3.1/3.3/3.5/3.7/3.9
+
+##LIFE
+health				150 #SCRIPT
+
+##POWER
+offense 			all 1.5 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				12 #SCRIPT
+
+##SPECIAL
+mp					120
+mprate  			5 #4/5/6/7/8/9
+
+##WEIGHT/HEIGHT
+antigravity			-3 #-3/-6/-9
+height				79
+
+##MISC
+jugglepoints		30
+risetime			170
+riseinv				0.1 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 2
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+#aimove				avoid #ENEMY ONLY
+escapehits			2 #ENEMY ONLY
+blockodds 			1
+nopassiveblock		1
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/Electra.c
+onfallscript		data/scripts/onfall/koCount.c
+
+##ICONS
+icon				data/chars/Rubby/icon.gif 1
+
+##DIESOUND
+diesound			data/voices/enemy/Die3.wav
+
+##REMAPS
+remap				data/chars/Rubby/idle00.gif data/chars/Rubby/alter1.gif
+remap				data/chars/Rubby/idle00.gif data/chars/Rubby/alter2.gif
+remap				data/chars/Rubby/idle00.gif data/chars/Rubby/alter3.gif
+remap				data/chars/Rubby/idle00.gif data/chars/Rubby/alter4.gif
+
+##ANIMATIONS#############################################################################
+
+
+
+anim idle
+	loop	1
+	delay	16
+	offset	130 190
+	bbox 	120 115 17 77
+	@cmd clearL
+	frame	data/chars/Rubby/idle00.gif
+
+anim walk
+	loop	1
+	delay	16
+	offset	130 193
+	bbox 	120 115 17 77
+	frame	data/chars/Rubby/walk00.gif
+		offset  130  191
+	frame	data/chars/Rubby/walk01.gif
+		offset  131  192
+	frame	data/chars/Rubby/walk02.gif
+
+anim get
+	loop	0
+	delay	16
+	offset	130 190
+	frame	data/chars/Rubby/get00.gif
+
+anim grabbed
+	loop	0
+	delay	8
+	offset	130 190
+	bbox 	123 120 20 72
+	frame	data/chars/Rubby/grabbed00.gif
+
+anim jumpdelay
+	loop	0
+	delay	12
+	offset	120 190
+	bbox 	125 129 15 63
+	frame	data/chars/Rubby/jumpdelay00.gif
+
+anim jump
+	loop	0
+	delay	30
+	offset	130 190
+	bbox 	118 112 20 63
+	@cmd jump 1
+	frame	data/chars/Rubby/jump00.gif
+
+anim walkoff
+	loop	0
+	delay	30
+	offset	130 190
+	bbox 	118 112 20 63
+	@cmd jump 1
+	frame	data/chars/Rubby/jump00.gif
+
+anim jumpland
+	loop	0
+	delay	12
+	offset	130 190
+	bbox 	125 129 15 63
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/Rubby/jumpland00.gif
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	130 190
+	bbox 	118 122 20 70
+	frame	data/chars/Rubby/pain00.gif
+	frame	data/chars/Rubby/pain01.gif
+	frame	data/chars/Rubby/pain00.gif
+	frame	data/chars/Rubby/pain01.gif
+	frame	data/chars/Rubby/pain00.gif
+	frame	data/chars/Rubby/pain01.gif
+	frame	data/chars/Rubby/pain00.gif
+	frame	data/chars/Rubby/pain01.gif
+	frame	data/chars/Rubby/pain00.gif
+	frame	data/chars/Rubby/pain01.gif
+	frame	data/chars/Rubby/pain00.gif
+	frame	data/chars/Rubby/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	130 190
+	bbox 	119 121 21 70
+	frame	data/chars/Rubby/pain200.gif
+	frame	data/chars/Rubby/pain201.gif
+	frame	data/chars/Rubby/pain200.gif
+	frame	data/chars/Rubby/pain201.gif
+	frame	data/chars/Rubby/pain200.gif
+	frame	data/chars/Rubby/pain201.gif
+	frame	data/chars/Rubby/pain200.gif
+	frame	data/chars/Rubby/pain201.gif
+	frame	data/chars/Rubby/pain200.gif
+	frame	data/chars/Rubby/pain201.gif
+	frame	data/chars/Rubby/pain200.gif
+	frame	data/chars/Rubby/pain201.gif
+
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	130 190
+	bbox 	106 122 32 46
+	frame	data/chars/Rubby/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/Rubby/fall01.gif
+
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	130 190
+	bbox 	106 122 32 46
+	drawmethod tintmode 6
+	drawmethod tintcolor 255
+	frame	data/chars/Rubby/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/Rubby/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/Rubby/fall01.gif
+
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	130 190
+	bbox 	106 122 32 46
+	drawmethod tintmode 6
+	drawmethod tintcolor -255
+	frame	data/chars/Rubby/fall00.gif
+	drawmethod tintmode 2
+	drawmethod tintcolor -255
+	frame	data/chars/Rubby/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/Rubby/fall01.gif
+
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	130 190
+	frame	data/chars/Rubby/fall600.gif
+	frame	data/chars/Rubby/fall601.gif
+	frame	data/chars/Rubby/fall602.gif
+	frame	data/chars/Rubby/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/Rubby/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	130 190
+	frame	data/chars/Rubby/fall700.gif
+	frame	data/chars/Rubby/fall701.gif
+	frame	data/chars/Rubby/fall702.gif
+	frame	data/chars/Rubby/fall703.gif
+	frame	data/chars/Rubby/fall704.gif
+	frame	data/chars/Rubby/fall705.gif
+
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 1
+	loop	0
+	delay	999
+	offset	130 190
+	bbox 	106 122 32 46
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 114 122 22 46 4 1 0 0 0 12
+	frame	data/chars/Rubby/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/Rubby/fall01.gif
+
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 1
+	loop	0
+	delay	999
+	offset	130 190
+	bbox 	112 144 22 46
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 112 144 22 46 4 1 0 0 0 12
+	frame	data/chars/Rubby/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/Rubby/fall01.gif
+
+anim rise
+	loop	0
+	delay	16
+	offset	130 190
+	@cmd obstacle 1
+	@cmd riseX
+	frame	data/chars/Rubby/rise00.gif
+	frame	data/chars/Rubby/rise01.gif
+	frame	data/chars/Rubby/rise00.gif
+	frame	data/chars/Rubby/rise02.gif
+
+anim riseattack
+	range 999 999
+	rangea 999 999
+	loop	0
+	delay	16
+	offset	130 190
+	@cmd obstacle 1
+	frame	data/chars/Rubby/rise00.gif
+	frame	data/chars/Rubby/rise01.gif
+	frame	data/chars/Rubby/rise00.gif
+		delay	64
+	frame	data/chars/Rubby/rise02.gif
+		delay	4
+	frame	data/chars/Rubby/rise03.gif
+
+anim attack1
+	range 20 80
+	rangea 0 100
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	loop	0
+	delay	5
+	offset	130 190
+	bbox 	121 116 17 76
+	hitfx	data/sounds/Whip.wav
+	sound	data/sounds/Whoosh2.wav
+	frame	data/chars/Rubby/a100.gif
+	frame	data/chars/Rubby/a101.gif
+		attack1  140  109  28  42  5  5  10  10  10  10
+	frame	data/chars/Rubby/a102.gif
+		Attack1  0
+	frame	data/chars/Rubby/a103.gif
+
+
+
+anim special2 #FAKE PAIN
+	energycost 20 1
+	loop	0
+	delay	128
+	offset	130 190
+	sound	data/voices/Rubby/Rubby1.wav
+	frame	data/chars/Rubby/pain300.gif
+
+
+anim freespecial2 #JUMP EVADE
+	range 20 80
+	rangea 0 200
+	landframe 2
+	loop	0
+	delay	12
+	offset	130 190
+	@cmd block 0
+	frame	data/chars/Rubby/jumpdelay00.gif
+		delay	999
+	@cmd leaper -2 2 0
+	sound	data/sounds/kof/Jump.wav
+	frame	data/chars/Rubby/jump00.gif
+		delay	12
+	bbox 	125 129 15 63
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/Rubby/jumpland00.gif
+
+anim block #JUMP EVADE
+	range 0 200
+	rangea 0 200
+	rangez -200 200
+	landframe 2
+	loop	0
+	delay	12
+	offset	130 190
+	@cmd block 0
+	frame	data/chars/Rubby/jumpdelay00.gif
+		delay	999
+	@cmd leaper 2 2 0
+	sound	data/sounds/kof/Jump.wav
+	frame	data/chars/Rubby/jump00.gif
+		delay	12
+	bbox 	125 129 15 63
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/Rubby/jumpland00.gif
+
+anim jumpattack
+	range 115 120
+	rangea 0 100
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	loop	0
+	delay	18
+	offset	117 189
+	bbox 	111 110 34 80
+	hitfx	data/sounds/sf/MediumPunch.wav
+	sound	data/sounds/kof/Jump.wav
+	frame	data/chars/Rubby/jump00.gif
+	bbox 	107 136 31 48
+	sound	data/sounds/sf/MediumAttack.wav
+	frame	data/chars/Rubby/jumpatk00.gif
+	bbox 	103 146 37 40
+	attack 119 162 58 28 4 1 0 0 10 12
+	sound	data/voices/Rubby/Rubby2.wav
+	frame	data/chars/Rubby/jumpatk01.gif
+

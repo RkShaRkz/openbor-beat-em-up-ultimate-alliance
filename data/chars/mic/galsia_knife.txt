@@ -1,0 +1,186 @@
+##ATTRIBUTES
+
+#SKILLS		*
+#LIFE		*
+#POWER		*
+#SPEED		*
+#JUMP		*
+#SPECIAL	*
+
+##MAIN
+name				Galsia_Knife
+type				enemy
+hostile				player
+candamage			player obstacle
+projectilehit		player enemy obstacle
+
+##LIFE
+health				0 #SCRIPT
+
+##POWER
+offense 			all 1 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				1 #SCRIPT
+
+##JUMP
+jumpspeed			13 #13/15/17/19/21/23
+jumpheight 			2.9 #2.9/3.1/3.3/3.5/3.7/3.9
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				74
+
+##MISC
+jugglepoints		30
+risetime			170
+riseinv				0.1 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+aimove				chase #ENEMY ONLY
+escapehits			99 #ENEMY ONLY
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/galsia.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+
+##ICONS
+icon				data/chars/galsia/icon.gif 1
+
+##DIESOUND
+diesound			data/voices/enemy/Die1.wav
+
+##REMAPS
+remap				data/chars/galsia/idle00.gif data/chars/galsia/alter1.gif
+remap				data/chars/galsia/idle00.gif data/chars/galsia/alter2.gif
+remap				data/chars/galsia/idle00.gif data/chars/galsia/alter3.gif
+remap				data/chars/galsia/idle00.gif data/chars/galsia/alter4.gif
+
+##ANIMATIONS#############################################################################
+
+anim idle
+	fastattack 1
+	jugglecost 20
+	forcedirection -1
+	hitflash blood
+	loop	1
+	delay	16
+	offset	83 119
+	bbox 	69 51 29 70
+	hitfx	data/sounds/kof/Cutter.wav
+	@cmd clearL
+	attack 99 76 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/idle00.gif
+	attack 99 77 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/idle01.gif
+	attack 99 78 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/idle02.gif
+	attack 0 0 0 0
+	frame	data/chars/galsia/knife/idle01.gif
+
+anim walk
+	fastattack 1
+	jugglecost 20
+	forcedirection -1
+	hitflash blood
+	loop	1
+	delay	16
+	offset	83 119
+	bbox 	69 51 29 70
+	hitfx	data/sounds/kof/Cutter.wav
+	attack 99 76 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/walk00.gif
+	attack 99 75 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/walk01.gif
+	attack 99 74 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/walk02.gif
+	attack 0 0 0 0 0 0 0 0 0 0
+	frame	data/chars/galsia/knife/walk01.gif
+
+anim jumpdelay
+	loop	0
+	delay	12
+	offset	83 119
+	bbox 	69 80 29 41
+	frame	data/chars/galsia/knife/jumpdelay00.gif
+
+anim jump
+	loop	0
+	delay	30
+	offset	83 119
+	bbox 	69 49 25 65
+	@cmd jump 1
+	frame	data/chars/galsia/knife/jump00.gif
+	
+anim walkoff
+	loop	0
+	delay	30
+	offset	83 119
+	bbox 	69 49 25 65
+	@cmd jump 1
+	frame	data/chars/galsia/knife/jump00.gif
+	
+anim jumpland
+	loop	0
+	delay	12
+	offset	83 119
+	bbox 	69 80 29 41
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/galsia/knife/jumpland00.gif
+	
+anim attack1
+	range 0 200
+	rangea 0 200
+	fastattack 1
+	jugglecost 20
+	forcedirection -1
+	hitflash blood
+	loop	0
+	delay	8
+	offset	83 119
+	bbox 	69 51 29 70
+	hitfx	data/sounds/kof/Cutter.wav
+	@cmd dasher 2 0 0
+	attack 99 76 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/walk00.gif
+	attack 99 75 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/walk01.gif
+	attack 99 74 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/walk02.gif
+	attack 99 75 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/walk01.gif
+	attack 99 76 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/walk00.gif
+	attack 99 75 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/walk01.gif
+	attack 99 74 18 3 8 1 1 0 10 12
+	frame	data/chars/galsia/knife/walk02.gif
+	attack 0 0 0 0
+	frame	data/chars/galsia/knife/walk01.gif
+	
+anim jumpattack
+	range 115 120
+	rangea 0 100
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	loop	0
+	delay	18
+	offset	83 119
+	bbox 	69 49 25 65
+	hitfx	data/sounds/sf/MediumPunch.wav
+	sound	data/sounds/kof/Jump.wav
+	frame	data/chars/galsia/knife/jump00.gif
+	bbox 	59 57 44 45
+	sound	data/sounds/sf/MediumAttack.wav
+	frame	data/chars/galsia/knife/jumpatk00.gif
+	bbox 	59 57 44 45
+	attack 80 62 31 30 4 1 0 0 10 12
+	sound	data/voices/enemy/Attack1.wav
+	frame	data/chars/galsia/knife/jumpatk01.gif

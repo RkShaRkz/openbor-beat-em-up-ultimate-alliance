@@ -1,0 +1,16 @@
+name			MotoX1
+type			none
+lifespan		1
+shadow			0
+alpha			1
+onspawnscript 	data/scripts/onspawn/motox1.c
+
+load			Moto2
+load			Moto3
+load			Moto4
+
+anim idle
+	loop	0
+	delay	1
+	offset	50 72
+	frame	data/chars/random/empty.gif

@@ -1,0 +1,327 @@
+background	data/bgs/Br03/back01.gif		#1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/Br03/pn02.gif		none	none
+frontpanel	data/bgs/Front.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn03.gif
+order		a
+music		data/music/Lv3a.ogg
+settime		99
+scrollspeed 0.5
+Rock 2
+bgspeed 10 0
+stagenumber 3
+spawn1		115 40 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+
+spawn  arvore01
+	coords  500  191
+        Flip  1
+	at    0
+
+spawn  arvore03
+	coords  600  310
+        Flip  1
+	at    0
+
+spawn  Box
+	coords  43  221
+	at  0
+spawn  LataEX
+	coords  550  210
+	at  0
+spawn  Box
+	coords  264  214
+	at  0
+spawn  BOX
+	coords  569  221
+	at  0
+spawn  Box
+	coords  646  245
+	at  0
+
+group		5 5
+at			301
+
+Wait
+at			301
+
+spawn		Rubby2
+alias           Rubby
+flip		0
+coords		100 220 0
+at			301
+
+spawn  arvore02
+	coords  500  191
+        Flip  1
+	at    301
+
+spawn		BasicX0
+flip		1
+coords		-70 220 0
+at			301
+
+spawn		kickboxer0
+coords		-75 245 0
+at			301
+
+spawn		kickboxer1
+coords		480  250 0
+at			301
+
+spawn		Mic2
+Alias           Mic
+map             3
+coords		-70  240 0
+at			301
+
+spawn		Tiger0
+Alias           Tiger
+coords		450  240 0 0
+at			301
+
+spawn		Gneiss1
+Alias           Luther
+map             3
+coords	        -100 250 0
+at			301
+
+spawn  arvore03
+	coords  500  310
+        Flip  1
+	at    301
+
+spawn		Mic
+Alias           Billy
+flip		1
+coords		480 245 0
+at			301
+
+spawn		Billy2
+Alias           Billy
+flip		1
+coords		-70  260 0
+at			301
+
+spawn		BasicX2
+flip		1
+coords		-70  280 0
+at			301
+
+spawn  arvore01
+	coords  500  191
+        Flip  1
+	at    0
+
+spawn		Elmer1
+Alias           Elmer
+flip		1
+coords		-70  260 0 0
+at			301
+
+
+#
+
+2pspawn		BasicX0
+flip		1
+coords		-70 250 0
+at			301
+
+spawn  arvore04
+	coords  500  310
+        Flip  1
+	at    301
+
+2pspawn		Billy1
+flip		1
+coords		-75 245 0
+at			301
+
+2pspawn		kickboxer1
+flip		1
+coords		-70  250 0
+at			301
+
+3pspawn		BasicX2
+flip		1
+3pcoords	-100  250 0
+at			301
+
+3pspawn		BasicX1
+flip		1
+coords		-70  240 0 0
+at			301
+
+spawn		Elmer_wait0
+Alias           Elmer
+flip		0
+coords		594  203 0 0
+at			302
+
+spawn		Gneiss_wait0
+Alias           Chuck
+flip		0
+coords		590  250 0 0
+at			302
+
+spawn  DRum
+	coords  808  210
+	at  302
+
+spawn  LataEX
+	coords  833  229
+	at  302
+
+spawn  DRum
+	coords  860  248
+	at  302
+
+group		4 4
+at			780
+
+Wait
+at			780
+
+spawn		Elmer2
+map             4
+Alias           Homer
+flip		1
+coords		-70  280 0
+at			780
+
+spawn  arvore01
+	coords  500  191
+        Flip  1
+	at    780
+
+spawn  arvore04
+	coords  550  310
+        Flip  1
+	at    780
+
+spawn		kickboxer2
+flip		1
+coords		-70  280 0
+at			780
+
+spawn		Tiger0
+Alias           Tiger
+flip		1
+coords		-70  280 0
+at			780
+
+spawn		Billy1
+Alias           Billy
+flip		1
+coords		-70  280 0 0
+at			780
+
+
+spawn		Biker1
+flip		1
+coords		-70  280 0 0
+at			780
+
+spawn  arvore03
+	coords  500  310
+        Flip  1
+	at    780
+
+spawn		Tiger1
+Alias           Tiger
+flip		1
+coords		-70  280 0
+at			780
+
+spawn		Gneiss2
+Alias           Jhow
+Map             3
+health          180
+flip		1
+coords		-70  280 0
+at			780
+
+spawn		Tiger0
+Alias           Tiger
+coords		-70  280 0
+at			780
+
+spawn		Billy0
+Alias           Billy 
+flip		1
+coords		-70  280
+at			780
+
+
+spawn		Elmer1
+MAp             4
+Alias           Cloud
+flip		1
+coords		-70  280
+at			780
+
+2pspawn		MIc2
+alias           Mic
+flip		1
+coords		-70  280
+at			780
+
+
+2pspawn		BikerX
+flip		1
+coords		-70  280 0 0
+at			780
+
+3pspawn		BikerX
+flip		1
+coords		-70  280 0 0
+at			780
+
+
+3pspawn		BikerX
+flip		1
+coords		-70  280 0 0
+at			780
+
+spawn  arvore01
+	coords  500  191
+        Flip  1
+	at    781
+
+spawn  Box
+	coords  503  222
+	at  781
+
+spawn  Box
+	coords  560  242
+	at  781
+
+spawn  Box
+	coords  670  210
+	at  781
+spawn  Box
+	coords  756  230
+	at  781
+
+spawn		Barbon0
+
+coords		1064 240 50
+at			781
+
+spawn  arvore04
+	coords  500  310
+        Flip  1
+	at    800
+

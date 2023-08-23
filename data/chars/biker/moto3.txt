@@ -1,0 +1,92 @@
+##MAIN
+name				Moto3
+type				enemy
+subtype				biker
+hostile				player
+candamage			player obstacle
+projectilehit		player enemy obstacle
+
+##LIFE
+health				1 #SCRIPT
+
+##STRENGTH
+offense 			all 1 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				1 #SCRIPT
+
+##MISC
+atchain				0
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onspawnscript		data/scripts/onspawn/moto.c
+script				data/scripts/updateentity/biker.c
+
+##ICONS
+icon				data/chars/biker/icon.gif 1
+
+##REMAPS
+remap				data/chars/biker/idle00.gif data/chars/biker/alter1.gif
+remap				data/chars/biker/idle00.gif data/chars/biker/alter2.gif
+remap				data/chars/biker/idle00.gif data/chars/biker/alter3.gif
+remap				data/chars/biker/idle00.gif data/chars/biker/alter4.gif
+
+##LOADS
+load				biker3
+rider				biker3
+
+##ANIMATIONS#############################################################################
+
+anim spawn
+	loop	0
+	delay	1
+	offset	145 179
+	frame	data/chars/biker/mounted00.gif
+
+anim idle
+	fastattack 1
+	jugglecost 0
+	forcedirection 0
+	loop	1
+	delay	6
+	offset	145 179
+	bbox 	122 101 29 62
+	hitfx	data/sounds/sf/HighPunch.wav
+	attack 99 126 101 55 24 1 1 0 0 12
+	frame	data/chars/biker/mounted00.gif
+	@cmd clearL
+	frame	data/chars/biker/mounted01.gif
+	
+anim follow1
+	fastattack 1
+	jugglecost 0
+	forcedirection 0
+	loop	0
+	delay	6
+	offset	145 179
+	bbox 	122 101 29 62
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/voices/biker/Biker1.wav
+	attack 99 126 101 55 24 1 1 0 0 12
+	@cmd tosser3 "grenade" 5 70 0 -0.3 3 0
+	frame	data/chars/biker/bomb00.gif
+	frame	data/chars/biker/bomb01.gif
+	frame	data/chars/biker/bomb00.gif
+	frame	data/chars/biker/bomb01.gif
+	
+anim pain
+	fastattack 1
+	jugglecost 0
+	forcedirection 0
+	loop	1
+	delay	8
+	offset	145 179
+	hitfx	data/sounds/sf/HighPunch.wav
+	attack 99 126 101 55 24 1 1 0 0 12
+	frame	data/chars/biker/unmounted00.gif
+	@cmd clearL
+	frame	data/chars/biker/unmounted01.gif

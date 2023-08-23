@@ -1,0 +1,367 @@
+##ATTRIBUTES
+
+#SKILLS		*
+#LIFE		*
+#POWER		*
+#SPEED		*
+#JUMP		*
+#SPECIAL	*
+
+##MAIN
+name				soldier
+type				enemy
+hostile				player
+candamage			player obstacle
+projectilehit		        player enemy obstacle
+
+##LIFE
+health				200 #SCRIPT
+
+##POWER
+offense 			all 1 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				13 #SCRIPT
+
+##JUMP
+jumpspeed			13 #13/15/17/19/21/23
+jumpheight 			2.9 #2.9/3.1/3.3/3.5/3.7/3.9
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				74
+
+##MISC
+jugglepoints		30
+risetime			170
+riseinv				0.1 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 2
+weapons				soldier_knife none none none
+gfxshadow			1 1
+dust				dust
+#aimove				avoid #ENEMY ONLY
+escapehits			99 #ENEMY ONLY
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/donovan.c
+onfallscript		data/scripts/onfall/koCount.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+
+##ICONS
+icon				data/chars/soldier/icon.gif 1
+
+##DIESOUND
+diesound			data/voices/enemy/Die1.wav
+
+##REMAPS
+remap				data/chars/soldier/idle00.gif data/chars/soldier/alter01.gif
+remap				data/chars/soldier/idle00.gif data/chars/soldier/alter02.gif
+remap				data/chars/soldier/idle00.gif data/chars/soldier/alter03.gif
+
+##LOADS
+
+##ANIMATIONS#############################################################################
+
+anim spawn
+	 loop       0
+	 offset     238 177
+	 bbox		230 102 22 76
+	 delay      8
+		drawmethod  245  245  0  0  0  -1  -1
+       frame      data/chars/soldier/idle01.gif
+
+
+anim idle
+	 loop       1
+	 offset     238 177
+	 bbox		230 102 22 76
+	 delay      8
+		drawmethod  245  245  0  0  0  -1  -1
+       frame      data/chars/soldier/idle01.gif
+
+anim walk
+	 loop       1
+	 offset     238 177
+	 bbox		230 102 22 76
+	 delay      7
+		drawmethod  245  245  0  0  0  -1  -1
+       frame      data/chars/soldier/walk01.gif
+       frame      data/chars/soldier/walk02.gif
+       frame      data/chars/soldier/walk03.gif
+       frame      data/chars/soldier/walk04.gif
+       frame      data/chars/soldier/walk05.gif
+       frame      data/chars/soldier/walk06.gif
+       frame      data/chars/soldier/walk07.gif
+       frame      data/chars/soldier/walk08.gif
+
+
+anim attack1
+	range 0 40
+	#jugglecost 	2
+	 #fastattack 1
+	hitfx	data/sounds/kof/StrongPunch.wav
+	 loop       0
+	 offset     238 177
+	 bbox		230 102 30 76
+	 delay      4
+		drawmethod  245  245  0  0  0  -1  -1
+       frame      data/chars/soldier/a101.gif
+       frame      data/chars/soldier/a102.gif
+	sound	data/sounds/kof/StrongAttack.wav
+	 delay      8
+	 attack  	245 	120 	55 		15 		8 		0 		0 		0 		15 15
+       frame      data/chars/soldier/a103.gif
+	 attack  	0 	0 	0 		0 		0 		0 		0 		0 		0
+	 delay      4
+       frame      data/chars/soldier/a102.gif
+   delay 21
+   frame      data/chars/soldier/a102.gif
+
+anim attack2
+	range 0 40
+	#jugglecost 	2
+	 #fastattack 1
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/kof/StrongAttack.wav
+	 loop       0
+	 offset     238 177
+	 bbox		240 102 30 76
+	 delay      6
+		drawmethod  245  245  0  0  0  -1  -1
+          frame      data/chars/soldier/a201.gif
+          frame      data/chars/soldier/a202.gif
+	 delay      10
+	  attack  	245 	115 	80 		30 		12 		1 		0 		0 		25 15
+       frame      data/chars/soldier/a203.gif
+	 attack  	0 	0 	0 		0 		0 		0 		0 		0 		0
+	 delay      8
+       frame      data/chars/soldier/a202.gif
+       frame      data/chars/soldier/a201.gif
+
+
+anim FreeSpecial
+	range 0 50
+	#jugglecost 	2
+	 #fastattack 1
+	 hitfx	data/sounds/kof/Cutter.wav
+	 hitflash blood
+	 loop       0
+	 offset     238 177
+	 bbox		240 102 30 76
+		delay  9
+		drawmethod  245  245  0  0  0  -1  -1
+          frame      data/chars/soldier/a301.gif
+          frame      data/chars/soldier/a302.gif
+          sound	     data/sounds/Whoosh2.wav
+	 delay      9
+	  attack  	245 	115 	80 		30 		15 		1 		0 		0 		25 15
+       frame      data/chars/soldier/a303.gif
+		Attack1  0
+       frame      data/chars/soldier/a304.gif
+
+
+anim rise
+	 loop       0
+	 offset     238 177
+	 delay      75
+		drawmethod  245  245  0  0  0  -1  -1
+       frame      data/chars/soldier/fall01.gif
+	 delay      80
+       frame      data/chars/soldier/rise01.gif
+
+	 delay      24
+       frame      data/chars/soldier/rise02.gif
+	 delay      16
+       frame      data/chars/soldier/Idle00.gif
+
+anim block
+	 loop       0
+	 offset     238 177
+	 bbox		0 0 0 0
+	 delay      3
+	 move		-5
+		drawmethod  245  245  0  0  0  -1  -1
+       frame      data/chars/soldier/guard01.gif
+	 move		-4
+       frame      data/chars/soldier/guard01.gif
+	 move		-3
+       frame      data/chars/soldier/guard01.gif
+	 move		-2
+       frame      data/chars/soldier/guard01.gif
+	 move		-1
+       frame      data/chars/soldier/guard01.gif
+	 move		0
+	 delay      25
+       frame      data/chars/soldier/guard01.gif
+
+
+anim grabbed
+	loop	0
+	delay	4
+	offset	236 177
+	bbox 	209 108 43 69
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/soldier/pain200.gif
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	236 177
+	bbox 	209 108 43 69
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/soldier/pain00.gif
+	frame	data/chars/soldier/pain01.gif
+	frame	data/chars/soldier/pain00.gif
+	frame	data/chars/soldier/pain01.gif
+	frame	data/chars/soldier/pain00.gif
+	frame	data/chars/soldier/pain01.gif
+	frame	data/chars/soldier/pain00.gif
+	frame	data/chars/soldier/pain01.gif
+	frame	data/chars/soldier/pain00.gif
+	frame	data/chars/soldier/pain01.gif
+	frame	data/chars/soldier/pain00.gif
+	frame	data/chars/soldier/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	238 177
+	bbox 	226 119 50 47
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/soldier/pain200.gif
+	frame	data/chars/soldier/pain201.gif
+	frame	data/chars/soldier/pain200.gif
+	frame	data/chars/soldier/pain201.gif
+	frame	data/chars/soldier/pain200.gif
+	frame	data/chars/soldier/pain201.gif
+	frame	data/chars/soldier/pain200.gif
+	frame	data/chars/soldier/pain201.gif
+	frame	data/chars/soldier/pain200.gif
+	frame	data/chars/soldier/pain201.gif
+	frame	data/chars/soldier/pain200.gif
+	frame	data/chars/soldier/pain201.gif
+
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	238 151
+	bbox 	201 85 63 63
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/soldier/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+		offset  238  177
+	frame	data/chars/soldier/fall01.gif
+
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	238 177
+	bbox 	48 61 39 46
+	drawmethod tintmode 6
+	drawmethod tintcolor 255
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/soldier/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/soldier/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/soldier/fall01.gif
+
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	238 177
+	bbox 	204 165 48 18
+	drawmethod tintmode 6
+	drawmethod tintcolor -255
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/soldier/fall00.gif
+	drawmethod tintmode 2
+	drawmethod tintcolor -255
+	frame	data/chars/soldier/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/soldier/fall01.gif
+
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	238 151
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/soldier/fall600.gif
+		offset  238  162
+	frame	data/chars/soldier/fall601.gif
+		offset  238  179
+	frame	data/chars/soldier/fall602.gif
+		offset  292  179
+	frame	data/chars/soldier/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+		offset  238  177
+	frame	data/chars/soldier/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	238 178
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/soldier/fall700.gif
+	frame	data/chars/soldier/fall701.gif
+	frame	data/chars/soldier/fall702.gif
+		offset  238  150
+	frame	data/chars/soldier/fall703.gif
+		offset  257  181
+	frame	data/chars/soldier/fall704.gif
+		offset  224  159
+	frame	data/chars/soldier/fall705.gif
+
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 1
+	loop	0
+	delay	999
+	offset	238 151
+	bbox 	213 79 41 74
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 213 79 41 74 5 1
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/soldier/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+		offset  238  177
+	frame	data/chars/soldier/fall01.gif
+
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 1
+	loop	0
+	delay	999
+	offset	254 177
+	bbox 	249 129 33 49
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 249 129 33 49 5 1 0 0 10
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/soldier/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+		offset  238  177
+	frame	data/chars/soldier/fall01.gif
+

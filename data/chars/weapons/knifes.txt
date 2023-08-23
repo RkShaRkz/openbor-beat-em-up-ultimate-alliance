@@ -1,0 +1,20 @@
+name				knifeS #JACK SHADOW KNIFE TO DROP SPAWNED KNIFE
+type				none
+shadow				0
+animationscript	 	data/scripts/script.c
+script	 			data/scripts/updateentity/knifeS.c
+
+anim idle
+	loop	0
+	delay	16
+	offset	23 25
+	frame	data/chars/weapons/empty.gif
+	
+anim follow1
+	loop	0
+	delay	2
+	offset	23 25
+	@cmd spawn01 "knife" 0 0 0
+	frame	data/chars/weapons/empty.gif
+	@cmd suicide
+	frame	data/chars/weapons/empty.gif

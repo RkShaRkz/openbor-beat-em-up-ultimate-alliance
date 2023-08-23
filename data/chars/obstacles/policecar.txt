@@ -1,0 +1,39 @@
+name				Policecar
+type				obstacle
+health				1
+candamage			player enemy npc obstacle
+nolife				1
+score				2000
+offscreenkill 		200
+gfxshadow			0
+animationscript 	data/scripts/script.c
+noatflash			1
+flash				flash
+
+diesound			data/sounds/Glass.wav
+
+
+anim spawn
+        delay	1
+	sound	data/sounds/Policecar.wav
+	frame	data/chars/obstacles/Policecar01.gif
+
+anim idle
+	loop	1
+	delay	10
+	offset	115 132
+	platform 49 49 151 151 11 1
+	@cmd dasher -5 0 0
+		blast  -1  68  220  63
+	frame	data/chars/obstacles/Policecar01.gif
+	frame	data/chars/obstacles/Policecar02.gif
+
+anim fall
+	loop	0
+	delay	128
+	offset	100 155
+	@cmd tosserX 0 0 0 0 1 0
+	frame	data/chars/obstacles/cart01.gif
+	@cmd suicide
+	frame	data/chars/obstacles/cart01.gif
+

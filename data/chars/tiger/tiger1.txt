@@ -1,0 +1,389 @@
+##ATTRIBUTES
+
+#SKILLS		**
+#LIFE		**
+#POWER		**
+#SPEED		**
+#JUMP		**
+#SPECIAL	**
+
+##MAIN
+name				tiger1
+type				enemy
+hostile				player
+candamage			player obstacle
+projectilehit		player enemy obstacle
+
+##LIFE
+health				200 #SCRIPT
+
+##POWER
+offense 			all 1.5 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				16 #SCRIPT
+
+##JUMP
+jumpspeed			15 #13/15/17/19/21/23
+jumpheight 			3.1 #2.9/3.1/3.3/3.5/3.7/3.9
+
+##SPECIAL
+mp					120
+mprate  			5 #4/5/6/7/8/9
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				71
+
+##MISC
+jugglepoints		30
+risetime			170
+riseinv				0.1 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 1 2
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+#aimove				avoid #ENEMY ONLY
+escapehits			99 #ENEMY ONLY
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/Hakuyo.c
+onfallscript		data/scripts/onfall/koCount.c
+
+##ICONS
+icon				data/chars/tiger/icon.gif 1
+
+##DIESOUND
+diesound			data/voices/enemy/Die1.wav
+
+##REMAPS
+remap				data/chars/tiger/idle00.gif data/chars/tiger/alter1.gif
+remap				data/chars/tiger/idle00.gif data/chars/tiger/alter2.gif
+remap				data/chars/tiger/idle00.gif data/chars/tiger/alter3.gif
+remap				data/chars/tiger/idle00.gif data/chars/tiger/alter4.gif
+
+Load                            FireBall
+##ANIMATIONS#############################################################################
+
+
+
+
+
+anim spawn
+	loop	0
+	delay	1
+	offset	147 186
+	frame	data/chars/tiger/idle00.gif
+
+anim idle
+	loop	1
+	delay	16
+	offset	149 186
+	bbox 	126 110 41 75
+	@cmd clearL
+	frame	data/chars/tiger/idle00.gif
+		delay  16
+		@cmd  clearL
+	frame  data/chars/tiger/idle01.gif
+		@cmd  clearL
+	frame  data/chars/tiger/idle02.gif
+
+anim walk
+	loop	1
+	delay	16
+	offset	142 183
+	bbox 	128 105 32 78
+	frame	data/chars/tiger/walk00.gif
+	frame	data/chars/tiger/walk01.gif
+		offset  149  183
+	frame	data/chars/tiger/walk02.gif
+		offset  139  183
+	frame	data/chars/tiger/walk03.gif
+
+anim get
+	loop	0
+	delay	16
+	offset	141 184
+	frame	data/chars/tiger/get00.gif
+
+anim grabbed
+	loop	0
+	delay	8
+	offset	142 184
+	bbox 	132 109 26 77
+	frame	data/chars/tiger/grabbed00.gif
+
+anim jumpdelay
+	loop	0
+	delay	12
+	offset	144 183
+	bbox 	126 125 32 58
+	frame	data/chars/tiger/jumpdelay00.gif
+
+anim jump
+	loop	0
+	delay	4
+	offset	139 188
+	bbox 	119 100 21 60
+	@cmd jump 1
+	frame	data/chars/tiger/jump00.gif
+
+anim walkoff
+	fastattack 1
+anim jumpland
+	loop	0
+	delay	12
+	offset	137 184
+	bbox 	125 123 33 62
+	sound	data/sounds/kof/Jumpland.wav
+	frame	data/chars/tiger/jumpland00.gif
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	133 183
+	bbox 	122 113 25 70
+	frame	data/chars/tiger/pain00.gif
+	frame	data/chars/tiger/pain01.gif
+	frame	data/chars/tiger/pain00.gif
+	frame	data/chars/tiger/pain01.gif
+	frame	data/chars/tiger/pain00.gif
+	frame	data/chars/tiger/pain01.gif
+	frame	data/chars/tiger/pain00.gif
+	frame	data/chars/tiger/pain01.gif
+	frame	data/chars/tiger/pain00.gif
+	frame	data/chars/tiger/pain01.gif
+	frame	data/chars/tiger/pain00.gif
+	frame	data/chars/tiger/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	143 182
+	bbox 	129 113 32 70
+	frame	data/chars/tiger/pain200.gif
+	frame	data/chars/tiger/pain201.gif
+	frame	data/chars/tiger/pain200.gif
+	frame	data/chars/tiger/pain201.gif
+	frame	data/chars/tiger/pain200.gif
+	frame	data/chars/tiger/pain201.gif
+	frame	data/chars/tiger/pain200.gif
+	frame	data/chars/tiger/pain201.gif
+	frame	data/chars/tiger/pain200.gif
+	frame	data/chars/tiger/pain201.gif
+	frame	data/chars/tiger/pain200.gif
+	frame	data/chars/tiger/pain201.gif
+
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	123 178
+	bbox 	100 110 39 54
+	frame	data/chars/tiger/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/tiger/fall01.gif
+
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	123 178
+	bbox 	100 110 39 54
+	drawmethod tintmode 6
+	drawmethod tintcolor 255
+	frame	data/chars/tiger/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+	frame	data/chars/tiger/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/tiger/fall01.gif
+
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	123 178
+	bbox 	100 110 39 54
+	drawmethod tintmode 6
+	drawmethod tintcolor -255
+	frame	data/chars/tiger/fall00.gif
+	drawmethod tintmode 2
+	drawmethod tintcolor -255
+	frame	data/chars/tiger/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/tiger/fall01.gif
+
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	123 178
+	frame	data/chars/tiger/fall600.gif
+	frame	data/chars/tiger/fall601.gif
+	frame	data/chars/tiger/fall602.gif
+	frame	data/chars/tiger/fall603.gif
+		delay	8
+	sound	data/sounds/sf/Fall.wav
+	frame	data/chars/tiger/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	139 184
+	frame	data/chars/tiger/fall700.gif
+	frame	data/chars/tiger/fall701.gif
+	frame	data/chars/tiger/fall702.gif
+	frame	data/chars/tiger/fall703.gif
+	frame	data/chars/tiger/fall704.gif
+	frame	data/chars/tiger/fall705.gif
+
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 1
+	loop	0
+	delay	999
+	offset	123 178
+	bbox 	100 110 39 54
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 100 110 39 54 4 1 0 0 0 12
+	frame	data/chars/tiger/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/tiger/fall01.gif
+
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 1
+	loop	0
+	delay	999
+	offset	123 178
+	bbox 	107 123 33 54
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 107 123 33 54 4 1 0 0 0 12
+	frame	data/chars/tiger/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/sf/Fall.wav
+	attack 0 0 0 0
+	frame	data/chars/tiger/fall01.gif
+
+anim rise
+	loop	0
+	delay	16
+	offset	135 183
+	@cmd obstacle 1
+	frame	data/chars/tiger/rise00.gif
+	frame	data/chars/tiger/rise01.gif
+	frame	data/chars/tiger/rise00.gif
+	frame	data/chars/tiger/rise02.gif
+
+anim attack1
+	range 20 60
+	rangea 0 0
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	loop	0
+	delay	6
+	offset	147 186
+	bbox 	124 107 41 79
+	hitfx	data/sounds/sf/LowPunch.wav
+	sound	data/sounds/sf/LowAttack.wav
+	frame	data/chars/tiger/a100.gif
+	attack 144 124 24 42 2 0 0 0 10 12
+	frame	data/chars/tiger/a101.gif
+		attack1  145  108  46  37  2  0  0  0  10  12
+	frame	data/chars/tiger/a102.gif
+	bbox 	129 100 22 85
+		Attack1  0
+	frame	data/chars/tiger/a101.gif
+
+anim attack2
+	range 20 60
+	rangea 0 0
+	fastattack 1
+	jugglecost 20
+	forcedirection -1
+	loop	0
+	delay	12
+	offset	140 185
+	bbox 	131 129 25 57
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/tiger/a200.gif
+		delay	18
+	attack 144 159 51 29 8 1 0 0 20 12
+	frame	data/chars/tiger/a201.gif
+		delay	12
+	attack 0 0 0 0
+	frame	data/chars/tiger/a201.gif
+	bbox 	124 127 39 56
+	frame	data/chars/tiger/a200.gif
+
+anim freespecial
+	range 50 100
+	rangea 0 0
+	fastattack 1
+	jugglecost 20
+	forcedirection -1
+	loop	0
+	delay	8
+	offset	140 185
+	bbox 	131 129 25 57
+        custknife FireBall
+	throwframe  13 0
+	#@cmd projectile 1 "rage" 0 -1 0
+	@cmd spawnbind "ragefull" 0 0 1
+	frame	data/chars/tiger/sp00.gif
+		delay  3
+	frame	data/chars/tiger/sp00.gif
+	frame	data/chars/tiger/sp00.gif
+	frame	data/chars/tiger/sp00.gif
+	frame	data/chars/tiger/sp00.gif
+	frame	data/chars/tiger/sp00.gif
+	frame	data/chars/tiger/sp00.gif
+	frame	data/chars/tiger/sp00.gif
+	frame	data/chars/tiger/sp00.gif
+	frame	data/chars/tiger/sp00.gif
+	frame	data/chars/tiger/sp00.gif
+	frame	data/chars/tiger/sp06.gif
+	sound	data/sounds/kof/Fire2.wav
+	frame	data/chars/tiger/sp07.gif
+	delay	30
+	frame	data/chars/tiger/sp07.gif
+	delay	8
+	frame	data/chars/tiger/sp00.gif
+
+anim jumpattack
+	range 40 120
+	rangea 0 120
+	fastattack 1
+	jugglecost 10
+	forcedirection -1
+	loop	0
+	delay	12
+	offset	140 187
+	bbox 	119 100 21 60
+	hitfx	data/sounds/sf/HighKick.wav
+	sound	data/sounds/kof/Jump.wav
+	frame	data/chars/tiger/jump00.gif
+		delay	999
+	attack 136 143 65 24 8 1 0 0 10 12
+	bbox 	126 113 36 46
+	sound	data/voices/tiger/tiger1.wav
+	frame	data/chars/tiger/jumpatk00.gif
+

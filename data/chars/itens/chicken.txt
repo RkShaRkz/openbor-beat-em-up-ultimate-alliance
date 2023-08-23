@@ -1,0 +1,17 @@
+name			Chicken
+type			item
+health			1000
+nolife			1
+facing 			1
+gfxshadow		1 1
+offscreenkill	5
+didhitscript	data/scripts/didhit/food.c
+onblockwscript	data/scripts/onblockw/wall.c
+
+anim idle
+	loop	0
+	delay	1
+	offset	51 61
+	bbox 	39 41 20 22
+	frame	data/chars/itens/chicken00.gif
+

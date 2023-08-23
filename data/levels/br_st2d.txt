@@ -1,0 +1,156 @@
+background	data/bgs/Br02/back03.gif		#1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/Br02/pn04.gif		none	none
+frontpanel	data/bgs/Br02/Front04.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn03.gif
+order		a
+music		data/music/Lv2B.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 2
+spawn1		52 25 300
+spawn2		103 13 300
+spawn3		99 35 300
+spawn4		50 44 300
+
+
+#########################################################################################
+
+
+
+shadowalpha 2
+flip		0
+coords		540 240 0
+at			0
+
+
+
+light		128 -128
+at			0
+
+
+
+#########################################################################################
+
+Wall  350  215  -34  0  99  129  28  38
+Wall  540  228  -40  0  75  67  48  172
+Wall  885  218  10  0  114  94  37  33
+
+spawn  st1_light
+	coords  206  250  0
+	at  0
+
+spawn  st1_light
+	coords  1075  250  0
+	at  0
+
+spawn  st1_light
+	coords  630  250  3
+	at  0
+
+
+
+
+group		5 5
+at			0
+
+
+wait
+at			0
+
+
+spawn		Billy1
+Alias           Billy
+coords		-100 230 0
+at			0
+
+spawn		Gneiss
+flip		1
+coords		600 230 0
+at			0
+
+spawn		Billy1
+Alias           Billy
+flip		1
+coords		-100 240 0
+at			0
+
+spawn		Elmer1
+Alias           Elmer 
+flip		1
+coords		600 230 0
+at			0
+
+spawn		BasicX2
+flip		1
+coords		-100 240 0
+at			0
+
+spawn		Biker0
+flip		1
+coords		600 230 0
+at			0
+
+spawn		Mic
+map             3
+flip		1
+coords		-100 240 0
+at			0
+
+
+
+spawn  Gate13
+	coords  767  200
+	at  1
+
+spawn		donovan_wait0
+flip		0
+coords		770 230 0
+at			
+
+group		5 5
+at		       600
+
+spawnscript data/scripts/spawnlevel/music_boss.c
+at			600
+
+spawn		FunkMAn0
+Alias           Funk 
+boss		1
+health          700
+coords		495 240 0
+at			600
+
+spawn		Elmer_wait1
+Alias           Elmer
+Map             4
+coords		430 217 0
+at			600
+
+spawn		Billy_Wait1
+Alias           Billy
+Map             6
+coords		430 262 0
+at			600
+
+spawn		Elmer0
+flip		1
+coords		600 230 0
+at			600
+
+spawn		BasicX4
+flip		1
+coords		-100 240 0
+at			600
+
+spawn		Mic
+flip		1
+coords		600 230 0
+at			600
+
+spawn		Gneiss
+flip		1
+coords		-100 240 0
+at			600
+

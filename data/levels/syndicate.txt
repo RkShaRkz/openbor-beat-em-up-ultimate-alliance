@@ -1,0 +1,178 @@
+background	data/bgs/st1/back02.gif		1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/st1/pn02.gif		none	none
+order		a
+settime		0
+direction	both
+scrollspeed 0.5
+stagenumber 1
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowcolor -2
+at			0
+
+shadowalpha 6
+at			0
+
+#########################################################################################
+
+wall		0 260 -500 -500 230 0 100 1000
+
+wall		280 260 0 291 791 791 100 1000
+
+#########################################################################################
+
+spawn		St1_Rain
+flip		1
+coords		1 200
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		100 260
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		140 240
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		180 250
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		220 240
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		260 260
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		300 250
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		340 260
+at			0
+
+spawn		St1_Drop1
+flip		1
+coords		400 240
+at			0
+
+spawn		Slow_Motion
+flip		0
+boss		1
+coords		1 1
+at			0
+
+spawn		Barbon0
+flip		0
+coords		400 230 0
+at			0
+
+spawn		WeaponX
+flip		1
+coords		200 240 0
+at			0
+
+#########################################################################################
+
+spawn		BasicX1
+flip		0
+coords		500 300 0
+at			2
+
+spawn		BasicX2
+flip		0
+coords		500 300 0
+at			2
+
+spawn		BasicX3
+flip		0
+coords		500 300 0
+at			2
+
+spawn		BasicX4
+flip		0
+coords		500 300 0
+at			2
+
+spawn		HakuyoX
+flip		0
+coords		500 300 0
+at			2
+
+spawn		NinjaX
+flip		0
+coords		500 300 0
+at			2
+
+spawn		KickboxerX
+flip		0
+coords		500 300 0
+at			2
+
+spawn		BigbenX
+flip		0
+coords		500 300 0
+at			2
+
+spawn		ElectraX
+flip		0
+coords		500 300 0
+at			2
+
+spawn		Jack2
+flip		0
+coords		500 300 0
+at			2
+
+spawn		Jet4
+flip		0
+coords		500 300 0
+at			2
+
+spawn		Zamza2
+flip		0
+coords		500 300 0
+at			2
+
+spawn		Abadede1
+flip		0
+coords		500 300 0
+at			2
+
+spawn		Bear1
+flip		0
+coords		500 300 0
+at			2
+
+spawn		Particle3
+flip		0
+coords		500 300 0
+at			2
+
+spawn		Shiva1
+flip		0
+coords		500 300 0
+at			2
+
+spawn		Mrx1
+flip		0
+coords		500 300 0
+at			2

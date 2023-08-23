@@ -1,0 +1,50 @@
+name				LataEX
+type				obstacle
+health				1
+nolife				1
+score				2000
+offscreenkill 		1000
+gfxshadow			1 1
+animationscript 	data/scripts/script.c
+noatflash			1
+flash				flash
+
+diesound			data/sounds/Iron.wav
+
+
+anim idle
+	loop	1
+	delay	32
+	offset	100 167
+	bbox 	79 102 43 68
+	platform 70 70 130 130 8 57
+	frame	data/chars/obstacles/LAtaEX00.gif
+        delay	7
+	frame	data/chars/obstacles/LAtaEX02.gif
+	frame	data/chars/obstacles/LAtaEX03.gif
+
+anim fall
+	loop	0
+        fastattack 1
+	delay	5
+	offset	100 167
+	hitflash burn
+	@cmd tosserX 0 0 0 0 1 0
+	frame	data/chars/obstacles/LAtaEX00.gif
+	burn 57 93 91 89 45 1 1 0 0 24
+	frame	data/chars/obstacles/LAtaEX02.gif
+	frame	data/chars/obstacles/LAtaEX03.gif
+	frame	data/chars/obstacles/LAtaEX00.gif
+	@cmd spawnbind "explosion" 0 0 1
+	@cmd spawn01 "quake_high" 0 0 0
+	frame	data/chars/obstacles/LAtaEX02.gif
+	frame	data/chars/obstacles/LAtaEX03.gif
+	frame	data/chars/obstacles/LAtaEX00.gif
+	frame	data/chars/obstacles/LAtaEX02.gif
+	frame	data/chars/obstacles/LAtaEX03.gif
+	frame	data/chars/obstacles/LAtaEX00.gif
+	dropv 4 4 0
+	frame	data/chars/weapons/empty.gif
+	@cmd suicide
+	frame	data/chars/weapons/empty.gif
+

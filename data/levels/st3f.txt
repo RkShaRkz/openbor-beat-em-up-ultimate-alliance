@@ -1,0 +1,104 @@
+background	data/bgs/st3/back05.gif		1 1 0 0 0 0 1 1 0 0
+panel		data/bgs/st3/pn15.gif		none	none
+frontpanel	data/bgs/st3/fpn00.gif
+order		a
+music		data/music/st3a.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 3
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+#########################################################################################
+
+wall		736 240 0 0 1000 1000 25 1000
+
+#########################################################################################
+
+spawn		St3_Gate
+flip		1
+coords		1 1 0
+at			0
+
+#########################################################################################
+
+spawn		Bin
+flip		1
+coords		450 180 0
+at			0
+
+spawn		Trash
+flip		1
+coords		600 275 0
+at			0
+
+spawn		Galsia_Seat
+flip		0
+coords		256 163 0
+at			0
+
+spawn		Donovan_Wait2
+flip		0
+coords		600 210 0
+at			0
+
+group		1000 1000
+at			1
+
+spawn		BasicX1
+flip		1
+coords		600 230 0
+at			1
+
+spawn		BasicX1
+flip		1
+coords		600 260 0
+at			1
+
+spawn		BasicX1
+flip		1
+coords		-100 230 0
+at			100
+
+spawn		BasicX1
+flip		1
+coords		-100 260 0
+at			100
+
+spawn		Jack1
+flip		1
+coords		700 180 0
+at			200
+
+spawn		Electra2
+flip		1
+coords		700 180 0
+at			200
+
+spawn		Electra1
+2pspawn
+flip		1
+coords		700 330 0
+at			200
+
+spawn		Electra0
+3pspawn
+flip		1
+coords		-100 230 0
+at			200
+
+spawn		Electra0
+4pspawn
+flip		1
+coords		-100 260 0
+at			200

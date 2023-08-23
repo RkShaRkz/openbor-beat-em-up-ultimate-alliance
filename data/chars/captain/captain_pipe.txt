@@ -1,0 +1,362 @@
+##ATTRIBUTES
+
+#SKILLS		***
+#LIFE		***
+#POWER		***
+#SPEED		**
+#JUMP		**
+#SPECIAL	**
+
+##MAIN
+name				captain_Pipe
+type				none
+hostile				enemy
+candamage			enemy obstacle
+projectilehit		        enemy obstacle
+
+##LIFE
+health				0 #200/300/400/500/600/700
+
+##POWER
+offense 			all 2 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				10 #8/10/12/14/16/18
+running 			20 2.9 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			15 #13/15/17/19/21/23
+jumpheight 			3.1 #2.9/3.1/3.3/3.5/3.7/3.9
+jumpmove			0 1 #PLAYER ONLY
+
+##SPECIAL
+mp					0
+mprate  			5 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		33 #BASE 36
+grabfinish 			0 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-6 #-3/-6/-9
+height				74
+
+##MISC
+jugglepoints		30
+guardpoints			87
+guardrate			13
+risetime			170
+riseinv				0.2 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+keyscript			data/scripts/key/captain.c
+onmodelcopyscript	data/scripts/onmodelcopy/modelcopy.c
+script				data/scripts/updateentity/captain_Pipe.c
+
+##ICONS
+icon				data/chars/captain/icon.gif 1
+#iconmphigh			data/chars/captain/Pipe/iconmp.gif 1
+
+##PARROWS
+parrow				data/sprites/parrow.gif 	-15 -140
+parrow2				data/sprites/parrow2.gif 	-15 -140
+parrow3				data/sprites/parrow3.gif 	-15 -140
+parrow4				data/sprites/parrow4.gif 	-15 -140
+
+##DIESOUND
+diesound			data/voices/captain/Pipe/captain1.wav
+
+##REMAPS
+remap				data/chars/captain/idle00.gif data/chars/captain/alter1.gif
+remap				data/chars/captain/idle00.gif data/chars/captain/alter2.gif
+remap				data/chars/captain/idle00.gif data/chars/captain/alter3.gif
+remap				data/chars/captain/idle00.gif data/chars/captain/alter4.gif
+
+##LOADS
+knife				PipeT
+load                            captain_Pipes
+##COMMANDS
+com 				a2	freespecial		#RAGE
+
+##ANIMATIONS#############################################################################
+
+anim Idle
+		offset  243  173
+		delay  8
+                loop 1
+		bbox  227  101  29  73
+		drawmethod  245  245  0  0  0  -1  -1
+	        frame	data/chars/captain/Pipe/Idle00.gif
+
+anim walk
+		offset  243  173
+		delay  8
+                loop 1
+		drawmethod  245  245  0  0  0  -1  -1
+		bbox  222  97  32  87
+	frame	data/chars/captain/Pipe/walk01.gif
+	frame	data/chars/captain/Pipe/walk02.gif
+	frame	data/chars/captain/Pipe/walk03.gif
+	frame	data/chars/captain/Pipe/walk04.gif
+	frame	data/chars/captain/Pipe/walk05.gif
+	frame	data/chars/captain/Pipe/walk06.gif
+	frame	data/chars/captain/Pipe/walk07.gif
+	frame	data/chars/captain/Pipe/walk08.gif
+	frame	data/chars/captain/Pipe/walk09.gif
+	frame	data/chars/captain/Pipe/walk10.gif
+	frame	data/chars/captain/Pipe/walk11.gif
+	frame	data/chars/captain/Pipe/walk12.gif
+
+anim run
+		offset  225  176
+		delay  8
+                loop 1
+		drawmethod  245  245  0  0  0  -1  -1
+		bbox  215  93  39  84
+	frame	data/chars/captain/Pipe/Run01.gif
+	frame	data/chars/captain/Pipe/Run02.gif
+	frame	data/chars/captain/Pipe/Run03.gif
+	frame	data/chars/captain/Pipe/Run04.gif
+	frame	data/chars/captain/Pipe/Run05.gif
+	frame	data/chars/captain/Pipe/Run06.gif
+
+anim runattack
+		offset  225  176
+		delay  5
+                loop 0
+	fastattack 1
+	jugglecost 5
+		drawmethod  245  245  0  0  0  -1  -1
+		bbox  215  93  39  84
+        hitflash metalflash
+        hitfx	data/sounds/Pipe.wav
+		attack1  182  103  64  48  7  0  0  0  1  10
+	frame	data/chars/captain/Pipe/a301.gif
+		Attack1  0
+		move  5
+	frame	data/chars/captain/Pipe/a302.gif
+		attack1  255  99  55  56  7  0  0  0  1  10
+	frame	data/chars/captain/Pipe/a303.gif
+		Attack1  0
+	frame	data/chars/captain/Pipe/a304.gif
+		attack1  249  55  68  61  7
+	frame	data/chars/captain/Pipe/a305.gif
+        sound	data/sounds/Whoosh3.wav
+		Attack1  0
+		move  0
+	frame	data/chars/captain/Pipe/a306.gif
+		attack1  236  38  78  82  7  0  0  0  0  10
+	frame	data/chars/captain/Pipe/a307.gif
+		Attack1  0
+	frame	data/chars/captain/Pipe/a308.gif
+		attack1  244  55  75  65  7  0  0  0  0  10
+	frame	data/chars/captain/Pipe/a309.gif
+        sound	data/sounds/Whoosh3.wav
+        frame	data/chars/captain/Pipe/a306.gif
+		Attack1  0
+	frame	data/chars/captain/Pipe/a307.gif
+		attack1  250  44  60  78  7  0  0  0  0  10
+	frame	data/chars/captain/Pipe/a308.gif
+		Attack1  0
+	frame	data/chars/captain/Pipe/a309.gif
+        sound	data/sounds/Whoosh3.wav
+		attack1  245  64  70  42  7  0  0  0  0  10
+        frame	data/chars/captain/Pipe/a306.gif
+		Attack1  0
+	frame	data/chars/captain/Pipe/a307.gif
+		attack1  249  45  53  82  10  10  0  0  1  10
+	frame	data/chars/captain/Pipe/a308.gif
+	frame	data/chars/captain/Pipe/a309.gif
+	frame	data/chars/captain/Pipe/a304.gif
+		Attack1  0
+	frame	data/chars/captain/Pipe/a303.gif
+
+anim jumpdelay
+
+		offset  231  173
+		delay  10
+		drawmethod  245  245  0  0  0  -1  -1
+        frame	data/chars/captain/Pipe/Land01.gif
+
+anim jump
+
+		offset  235  183
+		delay  10
+		drawmethod  245  245  0  0  0  -1  -1
+		bbox  227  103  24  74
+        frame	data/chars/captain/Pipe/Jump01.gif
+        frame	data/chars/captain/Pipe/Jump02.gif
+
+anim walkoff
+
+		offset  235  174
+		drawmethod  245  245  0  0  0  -1  -1
+		delay  10
+		bbox  215  109  42  65
+        frame	data/chars/captain/Pipe/idle00.gif
+
+anim jumpland
+
+		offset  237  182
+		bbox  214  109  48  72
+		delay  10
+		drawmethod  245  245  0  0  0  -1  -1
+        frame	data/chars/captain/Pipe/land01.gif
+
+
+anim attack1
+
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+        hitflash blood
+        hitflash metalflash
+	hitfx	data/sounds/Pipe.wav
+	offset	252 173
+	bbox	232 102 24 73
+	sound	data/chars/captain/Pipe/captain01.wav
+	delay	5
+        drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/captain/Pipe/a101.gif
+		Attack1  0
+	frame	data/chars/captain/Pipe/a102.gif
+		Attack1  261  61  84  89  16  1  0  0  10  10
+		offset  244  173
+	frame	data/chars/captain/Pipe/a103.gif
+		attack1  257  113  117  28  16  1  0  0  10  10
+	frame	data/chars/captain/Pipe/a104.gif
+	frame	data/chars/captain/Pipe/a105.gif
+
+anim jumpattack #JUMP STATIC
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+		offset  236  151
+		bbox  213  87  42  69
+		delay  8
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/captain/Pipe/ja101.gif
+		attack1  228  101  63  47  10  1  0  0  0  10
+	frame	data/chars/captain/Pipe/ja102.gif
+		attack1  222  78  71  69  10  1  0  0  0  10
+	frame	data/chars/captain/Pipe/ja103.gif
+
+anim jumpattack2 #JUMP DOWN
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	hitfx	data/sounds/sf/MediumKick.wav
+	sound	data/sounds/sf/MediumAttack.wav
+		offset  240  172
+		delay  10
+		bbox  227  77  33  75
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/captain/Pipe/ja201.gif
+	frame	data/chars/captain/Pipe/ja202.gif
+		attack1  195  87  47  60  10  1  0  0  0  10
+	frame	data/chars/captain/Pipe/ja203.gif
+
+anim jumpattack3 #JUMP UP
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	hitfx	data/sounds/sf/HighPunch.wav
+	sound	data/sounds/sf/HighAttack.wav
+		offset  245  174
+		delay  10
+		bbox  216  92  47  79
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/captain/Pipe/ja301.gif
+	frame	data/chars/captain/Pipe/ja302.gif
+	frame	data/chars/captain/Pipe/ja303.gif
+		attack1  233  105  81  41  10  1  0  0  0  10
+	frame  data/chars/captain/Pipe/ja304.gif
+
+anim jumpforward #JUMP FORWARD
+	fastattack 1
+	jugglecost 5
+	forcedirection -1
+	hitfx	data/sounds/sf/HighKick.wav
+	sound	data/sounds/sf/HighAttack.wav
+		offset  236  162
+		bbox  212  89  46  55
+		delay  8
+		drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/captain/Pipe/ja401.gif
+		attack1  253  111  50  32  10  1  0  0  1  10
+	frame	data/chars/captain/Pipe/ja402.gif
+		attack1  240  101  77  42  10  1  0  0  1  10
+	frame	data/chars/captain/Pipe/ja403.gif
+
+anim attackboth #THROW Pipe
+	throwframe 1 9999
+	loop	0
+	delay	8
+	offset	238 173
+	bbox 	222 110 39 65
+	@cmd antiwall 20 -20 -1
+        drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/captain/Pipe/a201.gif
+	@cmd throweap 49 46 -1 3 0 0
+	frame	data/chars/captain/Pipe/a202.gif
+	frame	data/chars/captain/Pipe/a203.gif
+	frame	data/chars/captain/Pipe/a204.gif
+
+anim freespecial
+	hitfx	data/sounds/sf/HighPunch.wav
+	drawmethod  245  245  0  0  0  -1  -1
+	fastattack 1
+	jugglecost 5
+        energycost 120 1
+	@cmd projectile 1 "rage" 0 -1 0
+	@cmd spawnbind "ragefull" 0 0 1
+        sound	data/chars/captain/captain06.wav
+		offset  253  173
+		delay  4
+	frame	data/chars/captain/Pipe/Sp101.gif
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp102.gif
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp103.gif
+        sound	data/chars/captain/captain06.wav
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp101.gif
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp102.gif
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp103.gif
+        sound	data/chars/captain/captain06.wav
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp101.gif
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp102.gif
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp103.gif
+        sound	data/chars/captain/captain06.wav
+		delay  12
+	frame	data/chars/captain/Pipe/Sp104.gif
+	frame	data/chars/captain/Pipe/Sp105.gif
+	frame	data/chars/captain/Pipe/Sp106.gif
+        sound	data/chars/captain/captain11.wav
+		delay  5
+		offset  43  173
+	drawmethod tintmode 6
+	drawmethod tintcolor -255
+		shock  92  83  287  90  40  1  0  0  10  20
+	frame	data/chars/captain/Pipe/Sp107.gif
+	frame	data/chars/captain/Pipe/Sp108.gif
+	frame	data/chars/captain/Pipe/Sp109.gif
+		Attack1  0
+		offset  253  173
+	frame  data/chars/captain/Pipe/Sp106.gif
+

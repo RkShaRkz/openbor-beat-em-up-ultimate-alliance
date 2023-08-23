@@ -1,0 +1,270 @@
+background	data/bgs/Br01/back02.gif		1 1 0 0 0 0 1 1 1 6
+panel		data/bgs/Br01/pn02.gif		none	none
+frontpanel	data/bgs/Br01/Front02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn02.gif
+#frontpanel	data/bgs/st1/fpn03.gif
+order		a
+music		data/music/st1a.ogg
+settime		99
+scrollspeed 0.5
+stagenumber 1
+spawn1		60 20 300
+spawn2		90 40 300
+spawn3		120 20 300
+spawn4		150 40 300
+
+#########################################################################################
+
+light		128 -128
+at			0
+
+shadowalpha 2
+at			0
+
+hole		577 264 0 0 50 50 19
+
+
+
+#########################################################################################
+
+
+spawn		bOX
+coords		300 182 0
+at			0
+
+spawn		bOX
+coords		360 182 0
+at			0
+#########################################################################################
+
+spawn		Billy_wait1
+alias Billy
+map 6
+coords		290 250 0
+at			0
+
+spawn		Billy_wait1
+alias Billy
+map 6
+coords		300 202 0
+at			0
+
+spawn		Elmer_wait0
+alias Elmer
+map             1
+flip		0
+coords		463 180 0
+at			0
+
+group		5 5
+at			1
+
+wait
+at			1
+
+
+
+spawn		BasicX0
+flip		1
+coords		700 270 0
+at			1
+
+
+spawn		Mic
+flip		1
+coords		-200 270 0
+at			1
+
+spawn		BasicX0
+flip		1
+coords		600 270 0
+at			1
+
+spawn		Billy0
+alias Billy
+map 1
+coords		300 202 0
+at			0
+
+spawn		Gneiss
+flip		1
+coords		-100 270 0
+at
+
+spawn		St1_Manhole
+flip		0
+coords		600 254 0
+at			2
+
+spawn		Porta0
+flip		0
+coords		667 158 0
+at			2			
+
+group		5 5
+at			250
+
+wait
+at			250
+
+
+spawn		BasicX1
+flip		1
+coords		700 270 0
+at			250
+
+spawn		Mic
+flip		1
+coords		-200 270 0
+at			250
+
+spawn		Elmer0
+map             1
+alias           Titi
+flip		1
+coords		600 260 0
+at			220
+
+spawn		Gneiss
+flip		1
+coords		600 270 0
+at			250
+
+spawn		Billy0
+Alias           Billy
+flip		1
+coords		-100 270 0
+at			250
+
+spawn		BasicX0
+flip		1
+coords		-100 270 0
+at			250
+
+spawn		Mic
+map             3
+flip		1
+coords		600 220 0
+at			250
+
+spawn		MotoX0
+flip		1
+coords		600 270 0
+at			250
+
+spawn		Elmer0
+Alias           Elmer
+flip		1
+coords		-100 270 0
+at			250
+
+
+
+
+#########################################################################################
+
+spawn		Truck
+flip		1
+coords		600 190 0
+at			260
+
+spawn		Electra_Wait0
+flip		0
+coords		657 230 0
+at			260
+
+
+spawn		PORTA0
+flip		1
+coords		553 159 0
+at			260
+
+spawn		roadblock
+flip		1
+coords		727 258 0
+at			260
+
+
+spawn		roadblock
+flip		1
+coords		485 185 0
+at			260
+
+
+
+
+#########################################################################################
+
+
+group		6 6
+at			600
+
+wait
+at			600
+
+
+
+
+spawn		BikerX
+coords		600 270 0
+at			600
+
+spawn		BasicX0
+flip		1
+coords		-100 270 0
+at			600
+
+spawn		ELMER0
+alias Elmer
+map 1
+coords		300 202 0
+at			600
+
+
+spawn		Billy0
+alias           Billy
+flip		1
+coords		600 270 0
+at			600
+
+spawn		Mic
+flip		1
+coords		-100 270 0
+at			600
+
+spawn		Gneiss
+flip		1
+coords		-100 270 0
+at			600
+
+spawn		Signal_Bottle
+alias		Marvin
+flip		1
+map			5
+coords		600 250 0
+at			600
+
+spawn		Signal_Bottle
+2pspawn
+alias		Marvin
+flip		1
+map			5
+coords		-100 250 0
+at			600
+
+spawn		Signal_Bottle
+3pspawn
+alias		Marvin
+flip		1
+map			5
+coords		630 270 0
+at			600
+
+spawn		Signal_Bottle
+4pspawn
+alias		Marvin
+flip		1
+map			3
+coords		-130 250 0
+at			600

@@ -1,0 +1,25 @@
+##MAIN
+name				Vehelits_Tail
+type				none
+subject_to_platform 0
+subject_to_obstacle 0
+
+##MISC
+gfxshadow			1 1
+nodrop				2
+
+##SCRIPTS
+script				data/scripts/updateentity/vehelits.c
+
+##ANIMATIONS#############################################################################
+
+anim idle
+	loop	1
+	delay	1
+	offset	49 56
+	hitfx	data/sounds/sf/HighKick.wav
+		seta 60
+	shadowcoords 49 -30
+	frame	data/chars/vehelits/tail00.gif
+		delay	720
+	frame	data/chars/vehelits/tail00.gif

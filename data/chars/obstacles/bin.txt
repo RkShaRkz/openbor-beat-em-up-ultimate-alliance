@@ -1,0 +1,31 @@
+name				Bin
+type				obstacle
+health				1
+nolife				1
+score				2000
+offscreenkill 		1000
+gfxshadow			1 1
+animationscript 	data/scripts/script.c
+noatflash			1
+flash				flash
+
+diesound			data/sounds/Iron2.wav
+
+anim idle
+	loop	1 1 2
+	delay	32
+	offset	100 167
+	bbox 	84 121 32 48
+	platform 74 74 126 126 2 45
+	frame	data/chars/obstacles/bin00.gif
+	@cmd offscreenkill 30 0
+	frame	data/chars/obstacles/bin00.gif
+	
+anim fall
+	loop	0
+	delay	128
+	offset	100 167
+	@cmd tosserX 0 0 0 0 1 0
+	frame	data/chars/obstacles/bin01.gif
+	@cmd suicide
+	frame	data/chars/obstacles/bin01.gif

@@ -1,0 +1,35 @@
+##MAIN
+name				Shiva_Dodge
+type				none
+
+##LIFE
+nolife				1
+
+##SPEED
+nomove				1 0
+
+##GRAB
+cantgrab			1
+
+##MISC
+shadow				0
+
+##SCRIPTS
+animationscript	 	data/scripts/script.c
+
+##REMAPS
+remap				data/chars/shiva/idle00.gif data/chars/shiva/alter1.gif
+remap				data/chars/shiva/idle00.gif data/chars/shiva/alter2.gif
+remap				data/chars/shiva/idle00.gif data/chars/shiva/alter3.gif
+remap				data/chars/shiva/idle00.gif data/chars/shiva/alter4.gif
+
+##ANIMATIONS#############################################################################
+
+anim idle #RAGE ORB
+	loop	0
+	delay	12
+	offset	138 192
+	drawmethod alpha 6
+	frame	data/chars/shiva/jump00.gif
+	@cmd suicide
+	frame	data/chars/shiva/jump00.gif

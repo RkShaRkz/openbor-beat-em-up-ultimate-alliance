@@ -1,0 +1,536 @@
+##ATTRIBUTES
+
+#SKILLS		*
+#LIFE		****
+#POWER		*****
+#SPEED		****
+#JUMP		**
+#SPECIAL	****
+
+##MAIN
+name				Won0
+type				enemy
+hostile				player
+candamage			player obstacle
+projectilehit		        player enemy obstacle
+#FallDie                         1
+
+##LIFE
+health				1000 #SCRIPT
+
+##POWER
+offense 			all 3 #1/1.5/2/2.5/3/3.5
+
+##SPEED
+speed				14 #8/10/12/14/16/18
+running 			28 2.9 1.2 1 0 #R 16/20/24/28/32/36
+
+##JUMP
+jumpspeed			15 #13/15/17/19/21/23
+jumpheight 			3.1 #2.9/3.1/3.3/3.5/3.7/3.9
+
+##SPECIAL
+mp					120
+mprate  			7 #4/5/6/7/8/9
+
+##GRAB
+grabdistance 		39 #36/33/30
+grabfinish 			1 #PLAYER=0/ENEMY=1
+
+##WEIGHT/HEIGHT
+antigravity			-9 #-3/-6/-9
+height				92
+
+##MISC
+jugglepoints		30
+risetime			170
+riseinv				0.4 1 #HEROES 0.2 - ENEMY 0.1 - BOSS 0.4
+makeinv				2 0
+atchain				1 4
+weapons				none none none none
+gfxshadow			1 1
+dust				dust
+aimove				chase #ENEMY ONLY
+escapehits			1 #ENEMY ONLY
+
+##SCRIPTS
+didhitscript		data/scripts/didhit/Abadede.c
+animationscript	 	data/scripts/script.c
+onblockpscript		data/scripts/onblockp/platform.c
+onblockwscript		data/scripts/onblockw/wall.c
+onspawnscript		data/scripts/onspawn/Abadede.c
+onfallscript		data/scripts/onfall/koCount.c
+script			data/scripts/updateentity/Won.c
+
+##ICONS
+icon				data/chars/Won/icon.gif 1
+
+##DIESOUND
+diesound			data/voices/enemy/BossDie1.wav
+
+##REMAPS
+remap				data/chars/Won/idle01.gif data/chars/Won/alter01.gif
+remap				data/chars/Won/idle01.gif data/chars/Won/alter01.gif
+remap				data/chars/Won/idle01.gif data/chars/Won/alterC.gif
+
+##LOADS
+load				WonS
+
+##ANIMATIONS#############################################################################
+
+
+
+anim spawn #WAIT SPAWN
+	loop	0
+	delay	16
+	offset	238 177
+	@cmd anichange "ANI_FOLLOW1"
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/Idle01.gif
+
+
+
+anim follow1 #WAIT LOOP
+	loop	1
+	delay	16
+	offset	238 177
+	@cmd cancel 0 250 0 400 -999 999 "ANI_FOLLOW2"
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/Idle01.gif
+
+anim follow2 #LOOP STOP
+	loop	0
+	delay	30
+	offset	238 177
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/Idle01.gif
+
+anim	idle
+	loop	1
+	offset	238 177
+	bbox	224 88 34 89
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/idle01.gif
+
+anim	walk
+	loop	1
+	offset	238 177
+	bbox	224 88 34 89
+	delay	15
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/walk01.gif
+	frame	data/chars/Won/walk02.gif
+	frame	data/chars/Won/walk01.gif
+	frame	data/chars/Won/idle01.gif
+
+anim	rise
+	loop	0
+	offset	238 177
+	delay	1
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/fall01.gif
+	delay	8
+	frame	data/chars/Won/rise01.gif
+	delay	16
+	frame	data/chars/Won/rise02.gif
+
+
+anim	attack1
+	range	0 80
+	jugglecost	2
+	fastattack	1
+        sound	data/sounds/sf/HighAttack.wav
+	hitfx	data/sounds/sf/HighPunch.wav
+	loop	0
+	offset	238 177
+	bbox	224 88 34 89
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/a101.gif
+	frame	data/chars/Won/a102.gif
+	delay	16
+	attack	240 	102 	81 	75 	12 	0 	0 	0 	20 15
+	frame	data/chars/Won/a103.gif
+
+anim	attack2
+	range	0 80
+	jugglecost	2
+	fastattack	1
+        hitflash blood
+	hitfx	data/sounds/kof/Cutter.wav
+	sound	data/sounds/Whoosh1.wav
+	loop	0
+	offset	238 177
+	bbox	224 88 34 89
+	delay	8
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/a201.gif
+	frame	data/chars/Won/a202.gif
+        sound	data/sounds/Whoosh2.wav
+	attack	240 	102 	81 	75 	20 	1 	0 	0 	30 15
+	frame	data/chars/Won/a203.gif
+	delay	16
+	frame	data/chars/Won/a204.gif
+
+anim	attack3
+	range	0 80
+	quakeframe	19 8 3
+	summonframe	0 0 0 0 0
+	subentity	dust
+	unsummonframe	28
+	jugglecost	2
+	fastattack	1
+        hitflash blood
+	hitfx	data/sounds/kof/Cutter.wav
+	loop	0
+	offset	238 177
+	bbox	224 88 34 89
+	delay	4
+	move	4
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/a201.gif
+	frame	data/chars/Won/a201.gif
+	move	3
+	frame	data/chars/Won/a202.gif
+	frame	data/chars/Won/a202.gif
+	move	2
+	frame	data/chars/Won/a203.gif
+	frame	data/chars/Won/a203.gif
+	move	1
+	frame	data/chars/Won/a204.gif
+	frame	data/chars/Won/a204.gif
+	move	0
+        sound	data/sounds/Whoosh2.wav
+	attack13	240 	102 	81 	75 	5 	0 	0 	0 	15 15
+	frame	data/chars/Won/a205.gif
+
+anim	attack4
+        quakeframe	7 8 3
+	jumpframe	1 3.3 2
+	landframe	7
+	range	100 150
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/sf/HighPunch.wav
+	loop	0
+	offset	238 177
+	bbox	224 88 34 89
+	delay	15
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/rise02.gif
+	sound	data/sounds/jump.wav
+	delay	8
+	frame	data/chars/Won/a301.gif
+	frame	data/chars/Won/a302.gif
+	bbox	0 0 0 0
+	frame	data/chars/Won/a303.gif
+	frame	data/chars/Won/a303.gif
+        sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Won/a303.gif
+	delay	999
+	attack	175 	107 	120 	61 	25 	1 	0  0	35 	15
+	frame	data/chars/Won/a304.gif
+	sound	data/sounds/fall.wav
+	delay	8
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	bbox	224 88 34 89
+	delay	8
+	frame	data/chars/Won/rise01.gif
+	delay	16
+	frame	data/chars/Won/rise02.gif
+	delay	50
+	frame	data/chars/Won/idle01.gif
+
+anim	jumpattack
+	quakeframe	7 8 3
+	jumpframe	1 3.3 2
+	landframe	7
+	range	100 150
+	jugglecost	2
+	fastattack	1
+	hitfx	data/sounds/sf/HighPunch.wav
+	loop	0
+	offset	238 177
+	bbox	224 88 34 89
+	delay	15
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/rise02.gif
+	sound	data/sounds/jump.wav
+	delay	8
+	frame	data/chars/Won/a301.gif
+	frame	data/chars/Won/a302.gif
+	bbox	0 0 0 0
+	frame	data/chars/Won/a303.gif
+	frame	data/chars/Won/a303.gif
+        sound	data/sounds/sf/HighAttack.wav
+	frame	data/chars/Won/a303.gif
+	delay	999
+	attack	175 	107 	120 	61 	25 	1 	0  0	35 	15
+	frame	data/chars/Won/a304.gif
+	sound	data/sounds/fall.wav
+	delay	8
+	attack	0 	0 	0 	0 	0 	0 	0 	0 	0
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	frame	data/chars/Won/a305.gif
+	bbox	224 88 34 89
+	delay	8
+	frame	data/chars/Won/rise01.gif
+	delay	16
+	frame	data/chars/Won/rise02.gif
+	delay	50
+	frame	data/chars/Won/idle01.gif
+
+
+anim	Freespecial
+	range	0 150
+	jugglecost	2
+	fastattack	1
+        hitflash blood
+	hitfx	data/sounds/kof/Cutter.wav
+	loop	0
+	offset	238 177
+	bbox	224 88 34 89
+	delay	4
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/a201.gif
+        @cmd target 3 3 0 0 1
+	@cmd dash
+	frame	data/chars/Won/a202.gif
+		attack1  240  90  82  71  10  1  0  0  10  10
+	frame	data/chars/Won/a203.gif
+	frame	data/chars/Won/a204.gif
+	frame	data/chars/Won/a205.gif
+	frame	data/chars/Won/a206.gif
+        sound	data/sounds/Whoosh2.wav
+	frame	data/chars/Won/a207.gif
+
+anim	Freespecial3 #Rage
+	range	0 250
+        energycost 120 1
+	jugglecost	2
+	fastattack	1
+        hitflash blood
+	hitfx	data/sounds/kof/Cutter.wav
+	loop	0
+	offset	238 177
+	bbox	224 88 34 89
+	delay	4
+	@cmd projectile 1 "rage" 0 -1 0
+	@cmd spawnbind "ragefull" 0 0 1
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/a201.gif
+        @cmd target 4 4 0 0 1
+	@cmd dash
+	frame	data/chars/Won/a202.gif
+	Burn  252  87  54  74  40  1  0  0  10  10
+	delay	2
+	frame	data/chars/Won/a203.gif
+	frame	data/chars/Won/a204.gif
+	frame	data/chars/Won/a205.gif
+	frame	data/chars/Won/a206.gif
+        sound	data/sounds/Whoosh2.wav
+	frame	data/chars/Won/a207.gif
+	frame	data/chars/Won/a208.gif
+	frame	data/chars/Won/a209.gif
+	frame	data/chars/Won/a210.gif
+	frame	data/chars/Won/a211.gif
+	frame	data/chars/Won/a212.gif
+        frame	data/chars/Won/a205.gif
+	frame	data/chars/Won/a206.gif
+	frame	data/chars/Won/a207.gif
+	frame	data/chars/Won/a208.gif
+	frame	data/chars/Won/a209.gif
+	frame	data/chars/Won/a210.gif
+	frame	data/chars/Won/a211.gif
+	frame	data/chars/Won/a212.gif
+        frame	data/chars/Won/a205.gif
+	frame	data/chars/Won/a206.gif
+	frame	data/chars/Won/a207.gif
+        attack1  0
+	frame	data/chars/Won/a208.gif
+	frame	data/chars/Won/a209.gif
+	frame	data/chars/Won/a210.gif
+        Burn  252  87  54  74  40  1  0  0  10  10
+	frame	data/chars/Won/a211.gif
+        @cmd clearL
+	frame	data/chars/Won/a212.gif
+
+
+anim pain #UP
+	loop	0
+	delay	4
+	offset	238 177
+	bbox 	213 55 57 123
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/pain00.gif
+	frame	data/chars/Won/pain01.gif
+	frame	data/chars/Won/pain00.gif
+	frame	data/chars/Won/pain01.gif
+	frame	data/chars/Won/pain00.gif
+	frame	data/chars/Won/pain01.gif
+	frame	data/chars/Won/pain00.gif
+	frame	data/chars/Won/pain01.gif
+
+anim pain2 #DOWN
+	loop	0
+	delay	4
+	offset	238 177
+	bbox 	239 91 33 88
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/pain200.gif
+	frame	data/chars/Won/pain201.gif
+	frame	data/chars/Won/pain200.gif
+	frame	data/chars/Won/pain201.gif
+	frame	data/chars/Won/pain200.gif
+	frame	data/chars/Won/pain201.gif
+	frame	data/chars/Won/pain200.gif
+	frame	data/chars/Won/pain201.gif
+
+anim fall #NORMAL
+	landframe 1
+	loop	0
+	delay	999
+	offset	239 177
+	bbox 	194 108 84 52
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+		offset  238  177
+	frame	data/chars/Won/fall01.gif
+
+anim burn #BURNED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	238 177
+	bbox 	180 129 107 54
+	drawmethod tintmode 6
+	drawmethod tintcolor 255
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/fall00.gif
+	@cmd spawn01 "smoke" 0 50 0
+	drawmethod tintmode 2
+	drawmethod tintcolor 255
+		bbox  189  137  93  44
+	frame	data/chars/Won/fall00.gif
+		delay	8
+	bbox 	185 147 110 52
+	sound	data/sounds/kof/Fall.wav
+	frame	data/chars/Won/fall01.gif
+
+anim shock #SHOCKED FALL
+	landframe 2
+	loop	1 0 2
+	delay	3
+	offset	238 177
+	bbox 	211 148 80 31
+	drawmethod tintmode 6
+	drawmethod tintcolor -255
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/fall00.gif
+	drawmethod tintmode 2
+	drawmethod tintcolor -255
+	frame	data/chars/Won/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	frame	data/chars/Won/fall01.gif
+
+anim fall6 #SPIN FALL
+	landframe 4
+	loop	1 0 4
+	delay	3
+	offset	238 177
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/fall600.gif
+		offset  238  204
+	frame	data/chars/Won/fall601.gif
+		offset  238  190
+	frame	data/chars/Won/fall602.gif
+	frame	data/chars/Won/fall603.gif
+		delay	8
+	sound	data/sounds/kof/Fall.wav
+	frame	data/chars/Won/fall01.gif
+
+anim fall7 #SLAMSTART POSITION
+	loop	0
+	delay	1000
+	offset	238 177
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/fall700.gif
+	frame	data/chars/Won/fall701.gif
+		offset  238  203
+	frame	data/chars/Won/fall702.gif
+	frame	data/chars/Won/fall703.gif
+	frame	data/chars/Won/fall704.gif
+	frame	data/chars/Won/fall705.gif
+
+anim fall8 #FINISH/THROW TYPE 3
+	landframe 1
+	loop	0
+	delay	999
+	offset	238 162
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 201 105 84 56 4 1 0 0 0 12
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/fall00.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	attack 0 0 0 0
+		offset  238  177
+	frame	data/chars/Won/fall01.gif
+
+anim fall9 #FINISH/THROW TYPE 2
+	landframe 1
+	loop	0
+	delay	999
+	offset	241 199
+	bbox 	215 120 53 81
+	hitfx	data/sounds/sf/MediumKick.wav
+	@cmd obstacle 0
+	attack 213 118 50 82 4 1 0 0 0 12
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/fall900.gif
+		delay	8
+	bbox 	0 0 0 0
+	sound	data/sounds/kof/Fall.wav
+	attack 0 0 0 0 0 0 0 0 0 0
+		offset  238  177
+	frame	data/chars/Won/fall01.gif
+
+
+
+anim block
+	range 0 400
+	rangea 0 400
+	rangez -200 200
+	loop	0
+	delay	32
+	offset	238 177
+	bbox 	216 58 48 120
+	drawmethod  245  245  0  0  0  -1  -1
+	frame	data/chars/Won/a202.gif
+

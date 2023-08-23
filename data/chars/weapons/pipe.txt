@@ -1,0 +1,21 @@
+name			pipe	#GROUND
+type			item
+subtype			weapon
+nolife			1
+facing 			1
+typeshot 		0
+weapnum			3
+shootnum 		1
+counter			4
+setlayer		-3
+gfxshadow		1 1
+offscreenkill	5
+onblockwscript	data/scripts/onblockw/wall.c
+
+anim idle
+	loop	0
+	delay	1
+	offset	54 50
+	bbox 	27 44 51 7
+	frame	data/chars/weapons/pipe08.gif
+
