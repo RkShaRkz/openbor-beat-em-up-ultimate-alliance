@@ -20,6 +20,7 @@ void rageS()
         {
             vSpawn = spawn01(ANIMATION_NAME, 0, 0, -1);
             changeentityproperty(vSpawn, "parent", self);
+	    changeentityproperty(vSpawn, "animation", openborconstant("ANI_IDLE"));
             updateframe(vSpawn, Frame);
         }
     }

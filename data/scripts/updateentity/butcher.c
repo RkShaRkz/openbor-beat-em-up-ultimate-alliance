@@ -1,4 +1,5 @@
 #import "data/scripts/updateentity/main.c"
+#define ANIMATION_NAME "ButcherS"
 
 void main()
 {
@@ -17,16 +18,16 @@ void rageS()
     {
         if(vAniID == openborconstant("ANI_FREESPECIAL3"))
         {
-            vSpawn = spawn01("ButcherS", 0, 0, -1);
-	    changeentityproperty(vSpawn, "parent", self);
+            vSpawn = spawn01(ANIMATION_NAME, 0, 0, -1);
+            changeentityproperty(vSpawn, "parent", self);
 	    changeentityproperty(vSpawn, "animation", openborconstant("ANI_IDLE"));
             updateframe(vSpawn, Frame);
         }
-	else if(vAniID == openborconstant("ANI_FOLLOW4"))
+        else if(vAniID == openborconstant("ANI_FOLLOW4"))
         {
-            vSpawn = spawn01("ButcherS", 0, 0, -1);
+            vSpawn = spawn01(ANIMATION_NAME, 0, 0, -1);
             changeentityproperty(vSpawn, "parent", self);
-	    changeentityproperty(vSpawn1, "animation", openborconstant("ANI_IDLE2"));
+	    changeentityproperty(vSpawn, "animation", openborconstant("ANI_IDLE2"));
             updateframe(vSpawn, Frame);
         }
     }

@@ -1,4 +1,5 @@
 #import "data/scripts/updateentity/main.c"
+#define ANIMATION_NAME "Baby2S"
 
 void main()
 {
@@ -18,7 +19,7 @@ void rageS()
     {
         if(vAniID == openborconstant("ANI_FREESPECIAL"))
         {
-            vSpawn = spawn01("Baby2S", 0, 0, -1);
+            vSpawn = spawn01(ANIMATION_NAME, 0, 0, -1);
             changeentityproperty(vSpawn, "parent", self);
             updateframe(vSpawn, Frame);
         }
