@@ -198,8 +198,7 @@ load	St1_Rain			data/bgs/st1/rain.txt
 load	St1_Rain2			data/bgs/st1/rain2.txt
 load	St1_Ray				data/bgs/st1/ray.txt
 load	St1_Thunder			data/bgs/st1/thunder.txt
-load	St1_Drop1			data/bgs/st1/drop1.txt
-load	St1_Drop2			data/bgs/st1/drop2.txt
+load	St1_Drop			data/bgs/st1/drop.txt
 load	St2_City1			data/bgs/st2/city1.txt
 load	St2_City2			data/bgs/st2/city2.txt
 load	St2_Truck			data/bgs/st2/truck.txt

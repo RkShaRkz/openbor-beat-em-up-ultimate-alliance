@@ -5,9 +5,11 @@ setlayer		1000
 animationscript data/scripts/script.c
 
 anim idle
-	loop	0
-	delay	6
+	loop	1
+	delay	2000
 	offset	1200 1200
+	frame	data/bgs/st1/thunder01.gif
+		delay	6
 	@cmd sampleX "data/sounds/thunder.wav" "data/sounds/thunder2.wav" 0
 	drawmethod alpha 1
 	frame	data/bgs/st1/thunder00.gif
@@ -15,8 +17,7 @@ anim idle
 	frame	data/bgs/st1/thunder00.gif
 	drawmethod alpha 6
 	frame	data/bgs/st1/thunder00.gif
-	@cmd looper 1 1
-	nodrawmethod
-	@cmd suicide
-	frame	data/bgs/st1/thunder01.gif
-
+	drawmethod alpha 3
+	frame	data/bgs/st1/thunder00.gif
+	drawmethod alpha 6
+	frame	data/bgs/st1/thunder00.gif
