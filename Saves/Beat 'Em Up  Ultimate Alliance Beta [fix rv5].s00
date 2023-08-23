@@ -1,0 +1,15 @@
+void main() {
+	setglobalvar("ko1",18);
+	setglobalvar("ko2",17);
+	setglobalvar("ko3",17);
+	setglobalvar("ko4",17);
+	changemodelproperty("Axel",4,1);
+	changemodelproperty("Blaze",4,1);
+	changemodelproperty("Max",4,1);
+	changemodelproperty("Sammy",4,1);
+	changemodelproperty("captain",4,1);
+	changemodelproperty("Baby",4,1);
+	changemodelproperty("Hannah",4,1);
+	changemodelproperty("Mustapha",4,1);
+	changemodelproperty("Guy",4,1);
+}
