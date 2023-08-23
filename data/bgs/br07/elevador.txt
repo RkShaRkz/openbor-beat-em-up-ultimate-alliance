@@ -27,7 +27,7 @@ load				Silver
 load				Soldier
 load				AndoreC
 load                            St1_Rain
-load                            St1_Drop1
+load                            St1_Drop
 
 anim idle
 	loop	1 2 3

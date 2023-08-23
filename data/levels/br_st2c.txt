@@ -25,143 +25,45 @@ at			0
 shadowalpha 6
 at			0
 
-spawn		St1_Rain
+spawn		St1_Rain 1
 flip		1
 coords		1 200
 at			0
 
-spawn		St1_Drop1
+spawn		St1_Drop 1
 flip		1
-coords		100 260
+coords		1 200
 at			0
 
-spawn		St1_Drop1
+spawn		St1_Drop 1
 flip		1
-coords		140 240
+coords		400 200
 at			0
 
-spawn		St1_Drop1
+spawn		St1_Drop 1
 flip		1
-coords		180 250
+coords		800 200
 at			0
 
-spawn		St1_Drop1
+spawn		St1_Drop 1
 flip		1
-coords		220 240
+coords		1200 200
 at			0
 
-spawn		St1_Drop1
+spawn		St1_Drop 1
 flip		1
-coords		260 260
+coords		1600 200
 at			0
 
-spawn		St1_Drop1
+spawn		St1_Ray 1
 flip		1
-coords		300 250
+coords		1 1
 at			0
 
-spawn		St1_Drop1
+spawn		St1_Thunder 1
 flip		1
-coords		340 260
+coords		1 1
 at			0
-
-spawn		St1_Drop1
-flip		1
-coords		400 240
-at			0
-
-#--------------------------------
-spawn		St1_Rain
-flip		1
-coords		638 200
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		738 260
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		778 240
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		818 250
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		858 240
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		898 260
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		938 250
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		978 260
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		1038 240
-at			0
-
-#-------------------
-spawn		St1_Rain
-flip		1
-coords		1275 200
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		1375 260
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		1415 240
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		1455 250
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		1495 240
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		1535 260
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		1575 250
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		1615 260
-at			0
-
-spawn		St1_Drop1
-flip		1
-coords		1675 240
-at			0
-
 
 #########################################################################################
 
@@ -169,7 +71,6 @@ Wall  -32  275  10  0  131  189  30  124
 Wall  1705  200  -40  0  424  434  30  192
 
 #########################################################################################
-
 
 spawn  Rio
 flip    1

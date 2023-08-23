@@ -101,7 +101,7 @@ cansave		2
 
 
 z			176 274
-file		data/levels/Br_st1A.txt 	#Br00_Calçadão
+file		data/levels/Br_st1A.txt 	#Br00_Calï¿½adï¿½o
 z			182 274
 file		data/levels/Br_st1B.txt 	#Br01_Docas
 z			214 274
@@ -116,7 +116,7 @@ file		data/levels/Br_st2B.txt 	#Br05_ONIBUS
 z			192 274
 file		data/levels/Br_st2C.txt 	#Br06_Floresta
 z			195 270
-file		data/levels/Br_st2D.txt 	#Br07_Galpão
+file		data/levels/Br_st2D.txt 	#Br07_Galpï¿½o
 Next
 
 #STAGE 3
@@ -141,11 +141,11 @@ Next
 #STAGE 5
 
 z			220 270
-file		data/levels/Br_st5A.txt 	#Br14_Estação_Metro1
+file		data/levels/Br_st5A.txt 	#Br14_Estaï¿½ï¿½o_Metro1
 z			205 255
 file		data/levels/Br_st5B.txt 	#Br15_Teto_Metro
 z			210 270
-file		data/levels/Br_st5C.txt 	#Br16_estação_Metro2
+file		data/levels/Br_st5C.txt 	#Br16_estaï¿½ï¿½o_Metro2
 Next
 
 #STAGE 6
