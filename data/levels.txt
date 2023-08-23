@@ -100,8 +100,10 @@ cansave		2
 #STAGE 1
 
 
-z			176 274
-file		data/levels/Br_st1A.txt 	#Br00_Cal�ad�o
+#z			176 274
+#file		data/levels/Br_st1A.txt 	#Br00_Calçadão
+z			192 274
+file		data/levels/Br_st2C.txt 	#Br06_Floresta
 z			182 274
 file		data/levels/Br_st1B.txt 	#Br01_Docas
 z			214 274
