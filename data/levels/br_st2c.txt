@@ -90,8 +90,8 @@ flip		0
 coords		500 270 0
 at			301
 
-spawn		gNEISS_Wait0
-Alias           Gneiss
+spawn		Billy_wait0
+Alias		Billy
 coords		500 240 0
 at			301
 
